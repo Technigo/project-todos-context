@@ -6,32 +6,20 @@
 
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+A simple todo list to add your daily task. Make your life easier. 
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+It took me while to understand this project when I just started. However, it became easy to follow the global state with React context after this project. 
 
-### View it live
+I practiced style form, and learned how to style checkbox. It was fun and I am happy to see the result.
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+I used ChatGPT a lot when I got stuck, but I realized that if you only use ChatGPT it actually not good, because it gives you very limit information. It is better to search materials such as by Google and YouTube. 
+
+I made a catogry for uncompleted task, a button to change mode as well etc. Since my time is too limit this week, I am not able to finish all the advanced stretch goals, I want to make more catogries and add a duetime. But I will finish it after I graduate. 
 
 ## Instructions
 
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+<a href="https://cheese-butter-todolist.netlify.app/">
+    Todo App
+</a>

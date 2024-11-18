@@ -1,0 +1,56 @@
+header{
+  color: black;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../Image/buttor.jpeg');
+  font-size: 70px;
+  font-family: "Rampart One", sans-serif;
+  font-weight: 400;
+}
+
+ main{
+    padding: 20px 100px; 
+ }
+
+.date-mode{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.date-mode time {
+    grid-area: 1/2/2/3;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.date-mode time{
+    font-size: 30px;
+    font-family: "Caveat", cursive;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 768px){
+    main{
+        padding: 0;
+    }
+
+    header{
+        font-size: 45px;
+    }
+
+    .date-mode{
+        display: flex;
+        padding-left: 50px;
+    }
+
+    .date-mode time{
+        font-size: 25px;
+    }
+}

@@ -1,3 +1,12 @@
+import { MainPage } from "./components/main/MainPage";
+import { AppDataProvider } from "./contexts/FormContext";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return (
+    <>
+      <AppDataProvider>
+          <MainPage />
+      </AppDataProvider>
+    </>
+  );
 };

@@ -1,37 +1,17 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
 
-# Todo - useContext Project
 
-Replace this readme with your own information about your project.
+# Todo App Project
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is built with React, Vite, and leveraging global state management using the `useContext` hook. It's designed to provide a simple yet powerful way to create, delete and update tasks.
 
-## Getting Started with the Project
 
-### Dependency Installation & Startup Development Server
+## The Problem
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
+A challenge encountered was devising a cohesive logic for the "Check All" and "Uncheck All" functionality, ensuring that all tasks could be efficiently toggled between completed and incomplete states.
 
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
 
-```bash
-npm i && code . && npm run dev
-```
+## View it live
 
-### The Problem
+https://fastidious-starlight-345bde.netlify.app/
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
-### View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>

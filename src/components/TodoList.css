@@ -1,0 +1,92 @@
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.todo-list-container h2 {
+  color: #333;
+}
+
+.todo-ul {
+  list-style-type: none;
+  padding: 0;
+  word-break: break-word;
+}
+
+.todo-li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-li input {
+  cursor: pointer;
+}
+
+.time-delete-row {
+  margin-left: auto;
+}
+
+.span-todo {
+  color: #333;
+}
+
+.span-time {
+  font-size: 13px;
+}
+
+.delete-button {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.toggle-button {
+  padding: 10px 10px;
+  width: 100px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.toggle-button:hover {
+  background-color: #ff0000;
+}
+
+.todo-list-container ul li button:hover {
+  background-color: #ff0000;
+}
+
+.todo-list-container ul li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+@media (min-width: 1025px) {
+  .todo-list-container h2 {
+    font-size: 28px;
+  }
+
+  .todo-li label {
+    font-size: 18px;
+  }
+  
+  .span-time {
+    font-size: 15px;
+  }
+}

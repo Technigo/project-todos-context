@@ -1,5 +1,5 @@
 import { useTaskStore } from "../stores/TaskStore";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Form = styled.form`
   display: flex;
@@ -8,8 +8,8 @@ const Form = styled.form`
   padding: 1rem;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -22,7 +22,7 @@ const Input = styled.input`
   flex: 1;
   font-size: 1rem;
   transition: border-color 0.2s ease;
-  
+
   &:focus {
     outline: none;
     border-color: #1a73e8;
@@ -49,14 +49,14 @@ const Button = styled.button`
 `;
 
 export const TaskInput = () => {
-  const { setNewTask, addTask, newTask } = useTaskStore();
-  
+  const { setNewTask, addTask, newTask, dueDate, setDueDate } = useTaskStore();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const category = formData.get('category');
-    
-    addTask(newTask, category); // Pass both the task name and category
+    const category = formData.get("category");
+
+    addTask(newTask, category, dueDate); // Pass both the task name and category
     setNewTask("");
   };
 
@@ -74,6 +74,12 @@ export const TaskInput = () => {
         <option value="work">Work</option>
         <option value="personal">Personal</option>
       </Select>
+      <Input
+        type="date"
+        value={dueDate}
+        onChange={(e) => setDueDate(e.target.value)}
+        placeholder="Due date"
+      />
       <Button type="submit">Add Task</Button>
     </Form>
   );

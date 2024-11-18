@@ -4,10 +4,13 @@ export const useTaskStore = create((set) => ({
   tasks: [],
   newTask: "",
   activeFilter: "all",
+  dueDate: "",
 
   setNewTask: (value) => set({ newTask: value }),
   setFilter: (filter) => set({ activeFilter: filter }),
-  addTask: (taskName, category) =>
+  setDueDate: (date) => set({ dueDate: date }),
+
+  addTask: (taskName, category, dueDate) =>
     set((state) => ({
       tasks: [
         ...state.tasks,
@@ -17,6 +20,7 @@ export const useTaskStore = create((set) => ({
           completed: false,
           timestamp: new Date(),
           category: category,
+          dueDate: dueDate,
         },
       ],
     })),

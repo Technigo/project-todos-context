@@ -1,5 +1,7 @@
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useTaskStore } from "../stores/TaskStore";
+import getDueStatus from "../utils/getDueDate";
+import moment from "moment";
 import {
   TaskContainer,
   TaskCard,
@@ -14,18 +16,23 @@ import {
 } from "./TaskList.styles";
 import styled from "styled-components";
 
+const daysLeft = getDueStatus();
+
 const EmptyState = styled.div`
   text-align: center;
   padding: 3rem;
   color: #666;
-  
+
   h3 {
     margin-bottom: 1rem;
   }
 `;
 
 export const TaskList = () => {
-  const { tasks, toggleTask, deleteTask, activeFilter } = useTaskStore();
+  const { tasks, toggleTask, deleteTask, activeFilter, dueDate } =
+    useTaskStore();
+
+  console.log(dueDate);
 
   const filteredTasks = tasks
     .filter((task) => {
@@ -34,7 +41,7 @@ export const TaskList = () => {
       } else if (activeFilter === "completed") {
         return task.completed;
       } else {
-        return task.category === activeFilter;
+        return task.category === activeFilter && !task.completed;
       }
     })
     .sort((a, b) => {
@@ -71,6 +78,7 @@ export const TaskList = () => {
               <TaskCard completed={task.completed}>
                 <TaskHeader>
                   <Tag category={task.category}>{task.category}</Tag>
+                  {task.dueDate && <Tag>{getDueStatus(task.dueDate)}</Tag>}
                   <MoreButton>•••</MoreButton>
                 </TaskHeader>
 
@@ -85,7 +93,7 @@ export const TaskList = () => {
                   </TaskTitle>
 
                   <TaskFooter>
-                    <span>{task.timestamp.toLocaleDateString()}</span>
+                    <span>{moment().endOf(task.dueDate).fromNow()}</span>
                     <DeleteButton onClick={() => deleteTask(task.id)}>
                       Delete
                     </DeleteButton>

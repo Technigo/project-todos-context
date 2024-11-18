@@ -37,7 +37,7 @@ const FilterButton = styled.button`
 `;
 
 export const FilterButtons = () => {
-  const { activeFilter, setFilter } = useTaskStore();
+  const { activeFilter, setFilter, tasks } = useTaskStore();
 
   return (
     <FilterContainer>
@@ -47,7 +47,7 @@ export const FilterButtons = () => {
       >
         All
         <span>
-          {/* Add count badge */}
+          {tasks.length}
         </span>
       </FilterButton>
       <FilterButton
@@ -56,7 +56,7 @@ export const FilterButtons = () => {
       >
         Work
         <span>
-          {/* Add count badge */}
+          {tasks.filter(task => task.category === "work" && !task.completed).length}
         </span>
       </FilterButton>
       <FilterButton
@@ -65,7 +65,7 @@ export const FilterButtons = () => {
       >
         Personal
         <span>
-          {/* Add count badge */}
+          {tasks.filter(task => task.category === "personal" && !task.completed).length}
         </span>
       </FilterButton>
       <FilterButton
@@ -74,7 +74,7 @@ export const FilterButtons = () => {
       >
         Completed
         <span>
-          {/* Add count badge */}
+          {tasks.filter(task => task.completed).length}
         </span>
       </FilterButton>
     </FilterContainer>

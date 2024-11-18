@@ -5,7 +5,13 @@ const getInitialState = () => {
   const savedState = localStorage.getItem("tasks");
   return savedState
     ? JSON.parse(savedState)
-    : { tasks: [], newTask: "", activeFilter: "all", dueDate: "" };
+    : {
+        tasks: [],
+        newTask: "",
+        activeFilter: "all",
+        dueDate: "",
+        projectId: null,
+      };
 };
 
 export const useTaskStore = create(
@@ -15,7 +21,7 @@ export const useTaskStore = create(
     setNewTask: (value) => set({ newTask: value }),
     setFilter: (filter) => set({ activeFilter: filter }),
     setDueDate: (date) => set({ dueDate: date }),
-
+    setProjectId: (id) => set({ projectId: id }),
     addTask: (taskName, category, dueDate) =>
       set((state) => ({
         tasks: [

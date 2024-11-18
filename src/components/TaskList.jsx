@@ -1,23 +1,8 @@
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useTaskStore } from "../stores/TaskStore";
-import getDueStatus from "../utils/getDueDate";
-import moment from "moment";
-import {
-  TaskContainer,
-  TaskCard,
-  TaskHeader,
-  Tag,
-  MoreButton,
-  TaskContent,
-  TaskTitle,
-  TaskText,
-  TaskFooter,
-  DeleteButton,
-  OverdueTag,
-} from "./TaskList.styles";
+import { TaskContainer } from "./TaskList.styles";
 import styled from "styled-components";
-
-const daysLeft = getDueStatus();
+import { Task } from "./Task";
 
 const EmptyState = styled.div`
   text-align: center;
@@ -30,10 +15,7 @@ const EmptyState = styled.div`
 `;
 
 export const TaskList = () => {
-  const { tasks, toggleTask, deleteTask, activeFilter, dueDate } =
-    useTaskStore();
-
-  console.log(dueDate);
+  const { tasks, activeFilter, dueDate } = useTaskStore();
 
   const filteredTasks = tasks
     .filter((task) => {
@@ -46,11 +28,8 @@ export const TaskList = () => {
       }
     })
     .sort((a, b) => {
-      // If a is completed and b isn't, a goes after b
       if (a.completed && !b.completed) return 1;
-      // If b is completed and a isn't, a goes before b
       if (!a.completed && b.completed) return -1;
-      // If both are completed or both aren't, maintain their original order
       return 0;
     });
 
@@ -76,35 +55,7 @@ export const TaskList = () => {
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.2 }}
             >
-              <TaskCard completed={task.completed}>
-                <TaskHeader>
-                  <Tag category={task.category}>{task.category}</Tag>
-                  {task.dueDate && (
-                    <OverdueTag dueStatus={getDueStatus(task.dueDate)}>
-                      {getDueStatus(task.dueDate)}
-                    </OverdueTag>
-                  )}
-                  <MoreButton>•••</MoreButton>
-                </TaskHeader>
-
-                <TaskContent>
-                  <TaskTitle>
-                    <input
-                      type="checkbox"
-                      checked={task.completed}
-                      onChange={() => toggleTask(task.id)}
-                    />
-                    <TaskText completed={task.completed}>{task.name}</TaskText>
-                  </TaskTitle>
-
-                  <TaskFooter>
-                    <span>{moment().endOf(task.dueDate).fromNow()}</span>
-                    <DeleteButton onClick={() => deleteTask(task.id)}>
-                      Delete
-                    </DeleteButton>
-                  </TaskFooter>
-                </TaskContent>
-              </TaskCard>
+              <Task task={task} />
             </motion.div>
           ))}
         </AnimatePresence>

@@ -2,7 +2,10 @@ import { TaskList } from "./components/TaskList";
 import { TaskInput } from "./components/TaskInput";
 import { FilterButtons } from "./components/FilterButtons";
 import styled from "styled-components";
-
+import { ProjectList } from "./components/ProjectList";
+import { DndContext } from "@dnd-kit/core";
+import { useState } from "react";
+import { Task } from "./components/Task";
 const Section = styled.section`
   width: 100vw;
   min-height: 100vh;
@@ -31,6 +34,15 @@ const Header = styled.header`
 `;
 
 export const App = () => {
+  const [isDropped, setIsDropped] = useState(false);
+  const draggableMarkup = <Task>Drag me</Task>;
+
+  const handleDragEnd = (event) => {
+    if (event.over && event.over.id === "project-list") {
+      setIsDropped(true);
+    }
+  };
+
   return (
     <Section>
       <Header>
@@ -38,7 +50,12 @@ export const App = () => {
       </Header>
       <FilterButtons />
       <TaskInput />
-      <TaskList />
+      <DndContext onDragEnd={handleDragEnd}>
+        {!isDropped ? draggableMarkup : null}
+        <TaskList />
+        {isDropped ? draggableMarkup : "Drop here"}
+        <ProjectList />
+      </DndContext>
     </Section>
   );
 };

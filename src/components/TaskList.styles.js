@@ -5,6 +5,7 @@ export const TaskContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
   padding: 1rem;
+  width: 100%;
 `;
 
 export const TaskCard = styled.div`
@@ -13,6 +14,13 @@ export const TaskCard = styled.div`
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   opacity: ${(props) => (props.completed ? 0.5 : 1)};
+  transition: all 0.2s ease;
+  border: 1px solid #eee;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
 `;
 
 export const TaskHeader = styled.div`
@@ -64,14 +72,20 @@ export const TaskFooter = styled.div`
 `;
 
 export const DeleteButton = styled.button`
-  padding: 0.3rem 0.8rem;
+  padding: 0.4rem 0.8rem;
   border: none;
-  border-radius: 6px;
-  background-color: #fee2e2;
+  border-radius: 4px;
+  background-color: transparent;
   color: #dc2626;
-  cursor: pointer;
-
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: all 0.2s ease;
+  
+  ${TaskCard}:hover & {
+    opacity: 1;
+  }
+  
   &:hover {
-    background-color: #fecaca;
+    background-color: #fee2e2;
   }
 `;

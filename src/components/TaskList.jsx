@@ -13,6 +13,7 @@ import {
   TaskText,
   TaskFooter,
   DeleteButton,
+  OverdueTag,
 } from "./TaskList.styles";
 import styled from "styled-components";
 
@@ -78,7 +79,11 @@ export const TaskList = () => {
               <TaskCard completed={task.completed}>
                 <TaskHeader>
                   <Tag category={task.category}>{task.category}</Tag>
-                  {task.dueDate && <Tag>{getDueStatus(task.dueDate)}</Tag>}
+                  {task.dueDate && (
+                    <OverdueTag dueStatus={getDueStatus(task.dueDate)}>
+                      {getDueStatus(task.dueDate)}
+                    </OverdueTag>
+                  )}
                   <MoreButton>•••</MoreButton>
                 </TaskHeader>
 

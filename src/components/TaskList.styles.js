@@ -16,10 +16,10 @@ export const TaskCard = styled.div`
   opacity: ${(props) => (props.completed ? 0.5 : 1)};
   transition: all 0.2s ease;
   border: 1px solid #eee;
-  
+
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -37,6 +37,39 @@ export const Tag = styled.span`
   background-color: ${(props) =>
     props.category === "work" ? "#e8f0fe" : "#fce8ff"};
   color: ${(props) => (props.category === "work" ? "#1a73e8" : "#c026d3")};
+`;
+
+export const OverdueTag = styled(Tag)`
+  ${({ dueStatus }) => {
+    // If task is overdue
+    if (dueStatus.includes("overdue")) {
+      return `
+        background-color: #fee2e2;
+        color: #dc2626;
+      `;
+    }
+    // If task is due today
+    if (dueStatus.includes("today")) {
+      return `
+        background-color: #fef3c7;
+        color: #d97706;
+      `;
+    }
+    // If task is due tomorrow
+    if (dueStatus.includes("tomorrow")) {
+      return `
+        background-color: #e0f2fe;
+        color: #0284c7;
+      `;
+    }
+    // If task is due in more than a day
+    return `
+      background-color: #ecfdf5;
+      color: #059669;
+    `;
+  }}
+
+  transition: all 0.2s ease;
 `;
 
 export const MoreButton = styled.button`
@@ -80,12 +113,12 @@ export const DeleteButton = styled.button`
   font-size: 0.9rem;
   opacity: 0;
   transition: all 0.2s ease;
-  
+
   ${TaskCard}:hover & {
     opacity: 1;
   }
-  
+
   &:hover {
-    background-color: #fee2e2;
+    background-color: #fecaca;
   }
 `;

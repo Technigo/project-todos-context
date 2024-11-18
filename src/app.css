@@ -1,0 +1,129 @@
+body {
+  background-color: #DEA5A4;
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+body.dark-mode {
+  background-color: #956564;
+}
+
+.heading {
+  font-family: "Sacramento", cursive;
+  font-weight: 400;
+  font-size: 70px;
+  font-style: normal;
+  margin-top: 150px;
+}
+
+.todoApp {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(hanging-vines.png);
+  background-repeat: no-repeat;
+  background-size: 600px 400px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
+}
+
+.App.dark {
+  background-color: #414040;
+  color: #fff;
+}
+
+.notesContainer,
+.todoContainer,
+.completedTasksContainer {
+  border: 2px solid #DEA5A4;
+  border-radius: 5px;
+  padding: 20px;
+  width: 80%;
+  margin: 20px;
+}
+
+h1.dark h2.dark {
+  color: #333;
+}
+
+h1,
+h2 {
+  font-weight: 200;
+}
+
+button,
+input[type="submit"] {
+  background-color: #DEA5A4;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #d09998;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input:focus {
+  outline: none;
+}
+
+@media (max-width: 469px) {
+  .heading {
+    font-size: 50px;
+  }
+
+  li {
+    font-size: 12px;
+  }
+}

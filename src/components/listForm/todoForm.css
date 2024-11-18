@@ -1,0 +1,18 @@
+.text-input {
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.dateInput {
+  color: #464444;
+  border: none;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+@media (max-width: 469px) {
+  .add-task {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+}

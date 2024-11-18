@@ -29,10 +29,19 @@ const Input = styled.input`
   }
 `;
 
-const Select = styled.select`
+const RadioGroup = styled.div`
+  display: flex;
+  gap: 1rem;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+`;
+
+const RadioLabel = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
 `;
 
 const Button = styled.button`
@@ -69,11 +78,16 @@ export const TaskInput = () => {
         placeholder="Add a new task..."
         required
       />
-      <Select name="category" required>
-        <option value="">Select category</option>
-        <option value="work">Work</option>
-        <option value="personal">Personal</option>
-      </Select>
+      <RadioGroup>
+        <RadioLabel>
+          <input type="radio" name="category" value="work" required />
+          Work
+        </RadioLabel>
+        <RadioLabel>
+          <input type="radio" name="category" value="personal" required />
+          Personal
+        </RadioLabel>
+      </RadioGroup>
       <Input
         type="date"
         value={dueDate}

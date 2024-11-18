@@ -3,12 +3,66 @@
 *::after {
   box-sizing: border-box;
 }
+:root {
+  box-sizing: border-box;
+}
 
 body {
+  background-color: white;
+  padding: 16px 0 0 0;
+  position: relative;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+main {
+  background-color: #4c4ca2;
+  margin-bottom: -50px;
+  padding-bottom: 80px;
+  border-radius: 40px 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  font-size: 18px;
+}
+h2 {
+  font-size: 13px;
+  margin: 0;
+}
+h5 {
+  font-size: 10px;
+  margin: 0;
+}
+button {
+  background-color: #7d59e7;
+  color: white;
+}
+p {
+  color: black;
+}
+@media (min-width: 669px) and (max-width: 1022px) {
+  h1 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 15px;
+  }
+  h5 {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1023px) {
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 15px;
+  }
 }

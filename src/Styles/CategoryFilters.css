@@ -1,0 +1,83 @@
+main button {
+  border-radius: 10px;
+  background-color: #f1f4f9;
+  height: 50px;
+  width: 30px;
+  border: none;
+  cursor: pointer;
+}
+.filtersContainer {
+  display: flex;
+  gap: 10px;
+}
+main h2 {
+  text-align: left;
+  color: #f1f4f9;
+}
+main i {
+  color: #101729;
+}
+.wrapper {
+  padding: 10px 0;
+}
+.nowDate {
+  padding: 10px 0;
+}
+/* .filtersContainer button:hover {
+  background-color: #7d59e7; 
+}
+
+.filtersContainer button:hover i {
+  color: #f1f4f9;
+} */
+
+.accessible-btn {
+  display: inline-flex; /* Ensure icons center within the button */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  position: relative; /* For positioning pseudo-elements for focus */
+  overflow: hidden; /* Keeps pseudo-elements within the button boundary */
+}
+.accessible-btn:hover {
+  background-color: #7d59e7;
+}
+
+.accessible-btn:hover i {
+  color: #f1f4f9;
+}
+
+@media (min-width: 669px) and (max-width: 1022px) {
+  /* main button {
+    height: 60px;
+    width: 35px;
+  } */
+  .accessible-btn {
+    height: 60px;
+    width: 35px;
+  }
+  main i {
+    font-size: 15px;
+  }
+
+  .filtersContainer {
+    gap: 12px;
+  }
+}
+
+@media (min-width: 1023px) {
+  /* main button {
+    height: 65px;
+    width: 40px;
+  } */
+  main i {
+    font-size: 20px;
+  }
+
+  .filtersContainer {
+    gap: 15px;
+  }
+  .accessible-btn {
+    height: 65px;
+    width: 40px;
+  }
+}

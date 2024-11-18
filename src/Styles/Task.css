@@ -1,0 +1,236 @@
+.taskList {
+  background-color: #e9e1ff;
+  margin: 0;
+  padding: 20px 0 0 0;
+  border-radius: 40px 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.taskList .emptyState {
+  width: 100%;
+  margin-top: 20px;
+  object-fit: cover;
+  height: 100vh;
+  object-position: center;
+}
+
+.taskItem {
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  box-sizing: content-box;
+  background-color: #bcbcff;
+  margin: 20px 10px;
+  border-radius: 6px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskItem:hover {
+  background-color: #bc8cff6d;
+}
+
+#radioCheckbox:checked + .customRadioCheckbox {
+  color: white;
+}
+.customCheckboxContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.customCheckboxContent h2 {
+  padding: 0 20px;
+  color: #101729;
+  margin: 0;
+}
+.checkboxDatesContainer {
+  display: flex;
+}
+.checkboxInput:checked + .customRadioCheckbox ~ .customCheckboxContent h2,
+.checkboxInput:checked
+  + .customRadioCheckbox
+  ~ .customCheckboxContent
+  .checkboxDatesContainer
+  h5 {
+  text-decoration: line-through;
+  /* color: #10172974; */
+  color: #231145;
+  margin: 0;
+}
+.taskItem button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  font-size: 10px;
+  background: none;
+}
+
+.taskItem label {
+  box-sizing: border-box;
+}
+.checkboxInput {
+  cursor: pointer;
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+.customCheckboxContent {
+  flex-grow: 1;
+}
+
+.checkboxInput + .customRadioCheckbox::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  position: relative;
+  top: 2px;
+  margin-right: 10px;
+  background-color: #fff;
+}
+.checkboxInput:checked + .customRadioCheckbox::before {
+  background-color: #4c4ca2;
+}
+.checkboxInput + .customRadioCheckbox::after {
+  content: '\2713';
+  /* Checkmark character  */
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  line-height: 1.5;
+  opacity: 0;
+}
+.checkboxInput:checked + .customRadioCheckbox::after {
+  opacity: 1;
+}
+.customRadioCheckbox {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.customCheckboxContent h2 {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.checkboxDatesContainer {
+  display: flex;
+}
+
+.checkboxInput {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.popup {
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #aaa;
+}
+.loadingIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+  font-size: 100px;
+  text-align: center;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20%;
+}
+.header img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+#plusButton {
+  position: fixed;
+  /* bottom: 0px;
+  right: 0px; */
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 2%;
+  font-size: 35px;
+  cursor: pointer;
+  background-color: #ffad47;
+  bottom: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+@media (min-width: 669px) and (max-width: 1022px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30%;
+  }
+  .taskItem {
+    max-width: 400px;
+  }
+}
+@media (min-width: 1023px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40%;
+  }
+  .taskItem {
+    max-width: 500px;
+  }
+}

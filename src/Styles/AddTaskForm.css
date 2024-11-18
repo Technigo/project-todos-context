@@ -1,0 +1,130 @@
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #e9e1ff;
+}
+form label {
+  color: #7d59e7;
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #7d59e7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #6b48cc;
+}
+
+form select {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #e9e1ff;
+  color: #7d59e7;
+}
+
+/*  dropdown arrow */
+form select::-ms-expand {
+  display: none;
+}
+
+form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* options */
+form option {
+  background-color: #e9e1ff;
+  color: #7d59e7;
+}
+
+/*  selected option */
+form option:checked {
+  background-color: #7d59e7;
+  color: white;
+}
+
+/* Styling the dropdown arrow icon */
+form select:after {
+  content: '\25BC'; /* Unicode character for down arrow */
+  position: absolute;
+  top: calc(50% - 0.5em);
+  right: 10px;
+  pointer-events: none;
+}
+form p {
+  text-align: center;
+  font-size: 14px;
+}
+@media (min-width: 669px) and (max-width: 1022px) {
+  form select {
+    font-size: 16px;
+  }
+  form button {
+    font-size: 16px;
+  }
+  form label {
+    font-size: 18px;
+  }
+  textarea {
+    font-size: 16px;
+  }
+  form p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1023px) {
+  form select {
+    font-size: 18px;
+  }
+  form button {
+    font-size: 18px;
+  }
+  form label {
+    font-size: 20px;
+  }
+  textarea {
+    font-size: 18px;
+  }
+  form p {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,34 @@
+.filtersWrapper {
+  display: flex;
+  gap: 10px;
+}
+.filtersWrapper button {
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-weight: bold;
+  /* color: #bc8cff; */
+  color: #4c4ca2;
+
+  background: none;
+}
+.filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.filtersWrapper button:hover {
+  color: #ffffff;
+  background-color: #7d59e7;
+}
+.filtersWrapper button:focus {
+  color: #ffffff;
+  background-color: #7d59e7;
+}
+.filters span {
+  font-weight: bold;
+}

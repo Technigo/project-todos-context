@@ -6,9 +6,7 @@
 
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This project is a to-do app implemented in React, where the useContext hook is utilized to manage global state and efficiently pass data down to deeply nested components.
 
 ## Getting Started with the Project
 
@@ -24,11 +22,13 @@ npm i && code . && npm run dev
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I began by setting up the React project and integrating React Router for navigation. Using a precise style from Dribbble, I created components for the UI. For state management, I used useState for local state and useContext for global state, fetching data from a mock API using useEffect. I handled empty states, loading states, and 404 errors to ensure a seamless user experience.
+
+If I had more time, I would add new features like calendars and date/time pickers to enhance the functionality of the app and implement user authentication to allow users to have personalized to-do lists. I would also integrate a backend to store tasks on a server.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+[[Netlify link](https://tasktide-app.netlify.app/)]
 
 ## Instructions
 

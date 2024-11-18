@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-background-header);
+  color: var(--color-text-header);
+  padding: 0 2rem;
+  font-weight: 900;
+}
+
+
+#toggle-button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.title {
+  display: flex;
+  gap: 1rem;
+  font-size: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+header img {
+  width: clamp(10px, 2vw, 50px);
+}
+
+header p {
+  font-size: clamp(0.5rem, 2vw, 1.5rem);
+}

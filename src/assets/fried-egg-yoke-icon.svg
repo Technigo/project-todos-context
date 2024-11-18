@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 122.88 118.47"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs907">
+    <style
+       id="style905">.cls-1{fill:#fdbd1f;fill-rule:evenodd;}</style>
+  </defs>
+  <title
+     id="title909">fried-egg</title>
+  <metadata
+     id="metadata975">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>fried-egg</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     class="cls-1"
+     d="m 62.549762,30.153267 a 23.45,23.45 0 1 1 -23.44,23.44 23.44,23.44 0 0 1 23.44,-23.44 z m -13.92,30.1 a 1.780007,1.780007 0 1 1 -3.29,1.36 20.16,20.16 0 0 1 -1.46,-8.93 19.91,19.91 0 0 1 2.58,-8.66 1.7830101,1.7830101 0 0 1 3.09,1.78 16.11,16.11 0 0 0 -2.11,7.1 16.59,16.59 0 0 0 1.19,7.35 z m 4,-18.22 a 1.78,1.78 0 0 1 -2.32,-2.67 15.85,15.85 0 0 1 1.28,-1 l 0.11,-0.07 c 0.41,-0.29 0.84,-0.56 1.28,-0.82 a 1.7830101,1.7830101 0 0 1 1.78,3.09 c -0.34,0.2 -0.68,0.41 -1,0.64 l -0.09,0.07 c -0.38,0.27 -0.73,0.54 -1,0.8 z"
+     id="path913"
+     style="fill:#fdbd1f;fill-rule:evenodd" />
+</svg>

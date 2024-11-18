@@ -4,6 +4,29 @@
   box-sizing: border-box;
 }
 
+/* Light theme */
+html,
+html[data-theme="light"] {
+  color-scheme: light;
+  --color-background-body: white;
+  --color-background-header: grey;
+  --color-text-body: black;
+  --color-text-header: white;
+  --color-background-input: gold;
+  --color-selected-input: white;
+}
+
+/* Dark theme override */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --color-background-body: black;
+  --color-background-header: gold;
+  --color-text-body: white;
+  --color-text-header: black;
+  --color-background-input: gold;
+  --color-selected-input: white;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -12,3 +35,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+/* Switches between one column and two column layout for the task-lists */
+/* Phone */
+.task-area {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* Tablet */
+@media (min-width: 570px) {
+  .task-area {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+

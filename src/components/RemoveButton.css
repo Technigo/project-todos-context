@@ -1,0 +1,22 @@
+.remove-button {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  opacity: 0.4;
+}
+
+.remove-button img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-button:hover {
+  opacity: 1;
+}

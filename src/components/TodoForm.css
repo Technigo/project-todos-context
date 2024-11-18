@@ -1,0 +1,15 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-input {
+  width: 240px;
+  margin: 10px;
+  height: 40px;
+  padding: 10px 5px;
+  border: 2px solid  rgb(13, 71, 13);
+  border-radius: 6px;
+  font-size: 18px;
+}

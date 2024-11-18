@@ -1,0 +1,25 @@
+button {
+  border: none;
+  background-color: transparent;
+  padding: 10px 0;
+}
+
+.button-styling {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+  border: none;
+  background: var(--sun-purple);
+  color: white;
+  font-size: 2.5em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.button-styling:hover {
+  cursor: pointer;
+  box-shadow: 0px 0 0 0 #fff, 0px 0 0 5px var(--sun-pink);
+}

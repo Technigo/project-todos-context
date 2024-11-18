@@ -1,0 +1,20 @@
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: var(--sun-purple);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-text {
+  color: var(--white);
+  font-size: 0.8em;
+  text-align: center;
+}
+
+@media (min-width: 667px) {
+  .footer-text {
+    padding: 10px;
+  }
+}

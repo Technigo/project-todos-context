@@ -1,0 +1,38 @@
+.TodoForm {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.TodoForm-label {
+}
+
+.TodoForm-input {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.TodoForm-submit {
+  align-self: flex-start;
+  font-size:15px;
+  font-family:Arial;
+  width: 140px;
+  height: 30px;
+  border-width:1px;
+  color: black;
+  border-color:#c584f3;
+  font-weight:bold;
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  box-shadow:inset 0px 1px 0px 0px #efdcfb;
+  text-shadow:inset 0px 1px 0px #9752cc;
+  background:linear-gradient(#dfbdfa, #bc80ea);
+}
+
+.TodoForm-submit:hover {
+  background: linear-gradient(#bc80ea, #dfbdfa);
+}
+              
+}

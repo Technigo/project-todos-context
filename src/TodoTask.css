@@ -1,0 +1,44 @@
+.TodoTask {
+  display: flex;
+  justify-content: space-between;
+}
+
+.TodoTask-done .TodoTask-label {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.TodoTask-label {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.TodoTask-checkbox {
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid #aaa;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.TodoTask-checkbox:checked {
+  background-color: #c584f3;
+  border: 1px solid #c584f3;
+}
+
+.TodoTask-delete {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}

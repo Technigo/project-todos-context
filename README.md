@@ -1,37 +1,17 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
-
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+In this project, we built a todo application using React and the Context API, focusing on state management and component composition.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+To tackle the task, we first outlined the necessary components and sketched the app's UI in figma. Breaking down the UI into smaller components helped organize our approach. We utilized React for building components and employed the Context API to manage state globally across the app. By creating a context with createContext() and providing it using <Context.Provider>, we ensured data accessibility throughout the app.
+
+For managing todo items, we created functions within the context to toggle completion status, add new tasks, remove tasks, and clear all tasks. These functions were used to interact with the todo list state stored in the context. Additionally, we implemented features like displaying the current date, marking tasks as completed, and removing tasks.
+
+To style the app, we opted for a clean and simple design, enhancing usability and readability. Utilized CSS for styling, ensuring a visually appealing and intuitive user interface.
+
+If we had more time, we would have liked to implement some of the stretch goals, such as adding timestamps. Additionally, we would have explored features like filtering tasks, categorizing tasks with tags, and creating projects for task organization to enhance the app's functionality further.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+https://daily-startup-checklist.netlify.app/

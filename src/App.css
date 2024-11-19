@@ -1,0 +1,29 @@
+.background {
+  position: fixed;
+  object-fit: none;
+  object-position: 45% 55%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  padding: 25px;
+  max-width: 700px;
+  margin: auto;
+}
+
+@media (min-width: 668px) {
+  .sub-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+@media (min-height: 1117px) {
+  .background {
+    object-fit: cover;
+  }
+}

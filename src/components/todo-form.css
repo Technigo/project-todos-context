@@ -1,0 +1,28 @@
+.form {
+    margin-bottom: 40px;
+}
+
+.form input {
+    padding: 23px;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(247, 247, 247);
+    border: none;
+    font-family: "Quicksand";
+    font-size: 15px;
+}
+
+.addTodo-btn {
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    font-family: "Quicksand";
+    font-weight: bold;
+    float: right;
+}
+
+.addTodo-btn:hover {
+    background-color: rgb(230, 230, 230);
+}

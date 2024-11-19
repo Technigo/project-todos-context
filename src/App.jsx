@@ -1,3 +1,18 @@
+import { TodoForm } from "./components/TodoForm";
+import { TodoList } from "./components/TodoList";
+import { UserGreeting } from "./components/UserGreeting";
+import { TodoProvider } from "./contexts/TodoContext";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return (
+    <main>
+      <TodoProvider>
+        <div className="inner-container">
+          <UserGreeting />
+          <TodoForm />
+          <TodoList />
+        </div>
+      </TodoProvider>
+    </main>
+  );
 };

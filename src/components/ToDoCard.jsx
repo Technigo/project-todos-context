@@ -1,5 +1,6 @@
 import { useToDoItem } from "../stores/useToDoItem";
 import { ToDoInput } from "./ToDoInput";
+import "./ToDoCard.css";
 
 export const ToDoCard = () => {
   const { todos, addTodo, removeTodo, toggleTodo } = useToDoItem()
@@ -12,13 +13,13 @@ export const ToDoCard = () => {
   };
 
   return (
-    <div className="todo-card-container">
+    <div>
       <h2>To-Do List</h2>
       <ToDoInput onAdd={addTodo} />
 
-      <ul>
+      <ul className="todo-card-container">
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <div key={todo.id} className="todo-item">
             <span
               style={{ textDecoration: todo.completed ? "line-through" : "none" }}
               onClick={() => toggleTodo(todo.id)}
@@ -26,7 +27,7 @@ export const ToDoCard = () => {
               {todo.text}
             </span>
             <button onClick={() => removeTodo(todo.id)}>Delete</button>
-          </li>
+          </div>
         ))}
       </ul>
     </div>

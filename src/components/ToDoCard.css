@@ -1,0 +1,12 @@
+.todo-card-container {
+    width: 300px;
+}
+
+.todo-item {
+    margin: 1rem 0rem 1rem 0rem;
+    background-color: yellow;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}

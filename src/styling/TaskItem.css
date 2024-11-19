@@ -1,0 +1,68 @@
+.itemContainer {
+  background-color: #ccd3ca;
+  margin: 10px 0;
+  border-radius: 5px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.itemButton {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  background-color: #ccd3ca;
+  border: none;
+}
+
+.itemCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+}
+
+.itemCheckbox::before {
+  content: "";
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  background-color: white;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.itemCheckbox:checked::before {
+  background-image: url("../assets/CheckIcon.png");
+}
+
+@media (min-width: 745px) {
+  .itemContainer {
+    font-size: 20px;
+  }
+  .itemButton {
+    right: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .itemContainer {
+    font-size: 25px;
+  }
+
+  .itemButton {
+    right: 30px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .itemContainer {
+    font-size: 30px;
+  }
+
+  .itemButton {
+    right: 40px;
+  }
+}

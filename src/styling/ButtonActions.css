@@ -1,0 +1,51 @@
+.actionsContainer {
+  width: 250px;
+  margin: 10px auto;
+}
+
+.completeAllButton {
+  display: block;
+  margin-bottom: 10px;
+  padding: 7px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f5e8dd;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.removeAllButton {
+  padding: 7px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f5e8dd;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.completeAllButton:hover {
+  background-color: #d1bb9e;
+}
+
+.removeAllButton:hover {
+  background-color: #d1bb9e;
+}
+
+/*** Tablet ***/
+@media (min-width: 745px) {
+  .actionsContainer {
+    width: 400px;
+  }
+}
+
+/*** Desktop ***/
+@media (min-width: 1024px) {
+  .actionsContainer {
+    width: 500px;
+  }
+}
+
+/*** Dekstop L ***/
+@media (min-width: 1500px) {
+  .actionsContainer {
+    width: 600px;
+  }
+}

@@ -1,0 +1,12 @@
+.dateContainer {
+  margin-left: 20px;
+}
+
+.dayName {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.formattedDate {
+  margin-top: 0;
+}

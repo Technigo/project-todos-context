@@ -1,0 +1,53 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.formTitle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.formText {
+  border-radius: 5px;
+  border: none;
+  background-color: #ccd3ca;
+  height: 30px;
+  width: 200px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.formButton {
+  background-color: white;
+  border: none;
+  position: absolute;
+  top: 60px;
+}
+
+@media (min-width: 745px) {
+  .formTitle {
+    font-size: 28px;
+  }
+
+  .formText {
+    width: 250px;
+  }
+
+  .formButton {
+    top: 75px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .formTitle {
+    font-size: 32px;
+  }
+
+  .formButton {
+    top: 85px;
+  }
+}

@@ -1,3 +1,11 @@
+import { ToDoCard } from "./components/ToDoCard";
+import { Home } from "./sites/Home";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return (
+    <>
+      <Home />
+      <ToDoCard />
+    </>
+  )
 };

@@ -1,3 +1,7 @@
+import React from "react";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return (
+    <h1>hejhej</h1>
+  );
 };

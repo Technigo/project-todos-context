@@ -1,6 +1,7 @@
 import { useTaskStore } from "../stores/TaskStore";
 import styled from "styled-components";
-
+import { useProjectStore } from "../stores/ProjectStore";
+import { useState } from "react";
 const Form = styled.form`
   display: flex;
   gap: 1rem;
@@ -57,16 +58,30 @@ const Button = styled.button`
   }
 `;
 
+const ProjectSelect = styled.select`
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 1;
+`;
+
 export const TaskInput = () => {
   const { setNewTask, addTask, newTask, dueDate, setDueDate } = useTaskStore();
+  const { projects } = useProjectStore();
+  const [selectedProjectId, setSelectedProjectId] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const category = formData.get("category");
 
-    addTask(newTask, category, dueDate); // Pass both the task name and category
+    
+    
+    const projectId = selectedProjectId ? Number(selectedProjectId) : null;
+
+    addTask(newTask, category, dueDate, projectId);
     setNewTask("");
+    setSelectedProjectId("");
   };
 
   return (
@@ -88,6 +103,17 @@ export const TaskInput = () => {
           Personal
         </RadioLabel>
       </RadioGroup>
+      <ProjectSelect
+        value={selectedProjectId}
+        onChange={(e) => setSelectedProjectId(e.target.value)}
+      >
+        <option value="">Select a project</option>
+        {projects.map((project) => (
+          <option key={project.id} value={project.id}>
+            {project.name}
+          </option>
+        ))}
+      </ProjectSelect>
       <Input
         type="date"
         value={dueDate}

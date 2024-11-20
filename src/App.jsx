@@ -6,6 +6,7 @@ import { ProjectList } from "./components/ProjectList";
 import { DndContext } from "@dnd-kit/core";
 import { useState } from "react";
 import { Task } from "./components/Task";
+
 const Section = styled.section`
   width: 100vw;
   min-height: 100vh;
@@ -47,16 +48,29 @@ const Header = styled.header`
   }
 `;
 
+const Sidebar = styled.div`
+  width: 500px;
+`;
+
+const StyledSection = styled(Section)`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const App = () => {
   return (
-    <Section>
-      <Header>
-        <h1>Mikas Task Master</h1>
-      </Header>
-      <FilterButtons />
-      <TaskInput />
-      <TaskList />
-      <ProjectList />
-    </Section>
+    <StyledSection>
+      <Section>
+        <Header>
+          <h1>Mikas Task Master</h1>
+        </Header>
+        <FilterButtons />
+        <TaskInput />
+        <TaskList />
+      </Section>
+      <Sidebar>
+        <ProjectList />
+      </Sidebar>
+    </StyledSection>
   );
 };

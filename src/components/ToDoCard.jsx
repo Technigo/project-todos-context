@@ -23,8 +23,10 @@ export const ToDoCard = () => {
             >
               {todo.text}
             </span>
-            <Checkbox todo={todo} />
-            <button onClick={() => removeTodo(todo.id)}>Delete</button>
+            <div className="card-button-container">
+              <Checkbox todo={todo} />
+              <button onClick={() => removeTodo(todo.id)}>Delete</button>
+            </div>
           </div>
         ))}
       </div>

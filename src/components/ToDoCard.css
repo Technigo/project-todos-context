@@ -4,9 +4,15 @@
 
 .todo-item {
     margin: 1rem 0rem 1rem 0rem;
-    background-color: yellow;
+    background-color: pink;
     width: 100%;
     padding: 20px;
     display: flex;
     justify-content: space-between;
+    border-radius: 10px;
+}
+
+.card-button-container {
+    display: flex;
+
 }

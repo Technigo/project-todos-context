@@ -9,26 +9,12 @@ import {
   MoreButton,
   TaskContent,
   TaskTitle,
+  TaskCard,
   TaskText,
   TaskFooter,
   DeleteButton,
   OverdueTag,
 } from "./TaskList.styles";
-
-export const TaskCard = styled.div`
-  background: white;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  opacity: ${(props) => (props.completed ? 0.5 : 1)};
-  transition: all 0.2s ease;
-  border: 1px solid #eee;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-`;
 
 export const Task = ({ task }) => {
   if (!task) {
@@ -36,20 +22,12 @@ export const Task = ({ task }) => {
   }
 
   const { toggleTask, deleteTask } = useTaskStore();
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: `task-${task.id}`,
-  });
-  const style = transform
-    ? {
-        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-      }
-    : undefined;
 
   return (
-    <TaskCard ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <TaskCard completed={task.completed}>
       <TaskHeader>
         {task.category && <Tag category={task.category}>{task.category}</Tag>}
-        {task.dueDate && (
+        {task.dueDate && !task.completed && (
           <OverdueTag dueStatus={getDueStatus(task.dueDate)}>
             {getDueStatus(task.dueDate)}
           </OverdueTag>

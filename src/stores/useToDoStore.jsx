@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export const useToDoItem = create((set) => ({
+export const useToDoStore = create((set, get) => ({
     todos: [],
 
     addTodo: (text) => set((state) => ({
@@ -16,5 +16,6 @@ export const useToDoItem = create((set) => ({
         todos: state.todos.map((todo) =>
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
         )
-    }))
+    })),
+    getNumber: () => get((state) => state.todos.length)
 }))

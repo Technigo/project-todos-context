@@ -1,25 +1,29 @@
-import { useToDoItem } from "../stores/useToDoItem";
-import { ToDoInput } from "./ToDoInput";
+import { useState } from "react";
+import { useToDoStore } from "../stores/useToDoStore";
+import { ToDoSubmit } from "./ToDoSubmit";
 import "./ToDoCard.css";
 
 export const ToDoCard = () => {
-  const { todos, addTodo, removeTodo, toggleTodo } = useToDoItem()
+  const { todos, removeTodo, toggleTodo } = useToDoStore();
+  const [showForm, setShowForm] = useState(false);
 
-  const handleAdd = () => {
-    const todoText = prompt("Enter a new to-do:");
-    if (todoText) {
-      addTodo(todoText);
-    }
+  const toggleForm = () => {
+    setShowForm((prev) => !prev);
   };
 
   return (
     <div>
-      <h2>To-Do List</h2>
-      <ToDoInput onAdd={addTodo} />
+      <button onClick={toggleForm}>
+        {showForm ? "Cancel" : "Add Task"}
+      </button>
+      {showForm && <ToDoSubmit closeForm={toggleForm} />}
 
-      <ul className="todo-card-container">
+      <div className="todo-card-container">
         {todos.map((todo) => (
           <div key={todo.id} className="todo-item">
+            <button onClick={() => toggleTodo(todo.id)}>
+              {todo.completed ? "Mark as Incomplete" : "Mark as Complete"}
+            </button>
             <span
               style={{ textDecoration: todo.completed ? "line-through" : "none" }}
               onClick={() => toggleTodo(todo.id)}
@@ -29,7 +33,7 @@ export const ToDoCard = () => {
             <button onClick={() => removeTodo(todo.id)}>Delete</button>
           </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

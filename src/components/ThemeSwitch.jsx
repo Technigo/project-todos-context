@@ -1,5 +1,5 @@
 import { useThemeStore } from "../stores/useThemeStore";
-import { useEffect } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 export const ThemeSwitch = () => {
   // Get the current theme (light or dark) from the Zustand store
@@ -8,29 +8,34 @@ export const ThemeSwitch = () => {
   // Get the toggleTheme function to switch themes
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
-  // useEffect to synchronize the theme with the body element's class
-  useEffect(() => {
-    // Update the body element's class to match current theme
-    document.body.className = theme;
-  }, [theme]); // Dependency array ensures this runs whenever theme changes
-
   return (
     // Button to toggle the theme
     <button
       // Apply dynamic class based on the current theme
-      className={`theme-switch ${theme}`}
-      // Call toggleTheme function when button is clicked
       onClick={toggleTheme}
-      // A11y: describes what the button does
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+      className={`relative flex items-center w-20 h-10 bg-gray-300 dark:bg-gray-800 rounded-full p-1 shadow-md transition-all duration-300 ${
+        theme === "light"
+          ? "bg-primary text-secondary"
+          : "bg-secondary text-primary"
+      }`}
     >
-      {/* The visual toggle circle */}
-      <span className="toggle-circle"></span>
-
-      {/* Text indicating the action */}
-      <span className="toggle-text">
-        {`Switch to ${theme === "light" ? "Dark" : "Light"} Mode`}
+      <span
+        className={`absolute flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+          theme === "light" ? "" : "translate-x-[calc(100%+0.5rem)]"
+        }`}
+      >
+        {theme === "light" ? (
+          <FaSun className="text-yellow-500" size={20} />
+        ) : (
+          <FaMoon className="text-purple-900" size={20} />
+        )}
       </span>
+
+      {/* Hidden Labels for Accessibility */}
+      <span className="sr-only">{`Switch to ${
+        theme === "light" ? "dark" : "light"
+      } mode`}</span>
     </button>
   );
 };

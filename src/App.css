@@ -1,4 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Global CSS Variables */
+
+/* 
 :root {
   --primary-light: #f5f5f5;
   --secondary-light: #001f3f;
@@ -66,9 +72,9 @@ body.dark .theme-switch {
   background-color: var(--primary-light);
   border-radius: 50%;
   position: absolute;
-  top: 50%;
+  /* top: 50%;
   left: 5px;
-  transform: translateY(-50%);
+  transform: translateY(-50%); 
   transition: transform 0.3s ease-in-out;
 }
 
@@ -86,4 +92,4 @@ body.dark .toggle-circle {
 
 body.dark .toggle-text {
   color: var(--secondary-light);
-}
+} */

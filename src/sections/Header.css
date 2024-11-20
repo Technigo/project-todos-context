@@ -4,5 +4,6 @@ header {
   justify-content: center;
   background-color: pink;
   color: white;
-  height: 100px;
+  font-size: 23px;
+  height: 120px;
 }

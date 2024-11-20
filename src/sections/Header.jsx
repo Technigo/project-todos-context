@@ -5,7 +5,7 @@ import "./Header.css"
 export const Header = () => {
   return (
     <header>
-      <h1>TO DO</h1>
+      <h1>My Todo</h1>
     </header>
   );
 };

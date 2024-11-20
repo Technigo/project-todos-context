@@ -16,13 +16,18 @@ export const Task = ({ taskIndex }) => {
   return (
     <div className="task-container">
       <form>
-        <input
-          type="checkbox"
-          checked={isCompleted}
-          onChange={() => toggleTaskCompletion(taskIndex)}
-        />
+        <label className="custom-checkbox">
+          <input
+            type="checkbox"
+            checked={isCompleted}
+            onChange={() => toggleTaskCompletion(taskIndex)}
+          />
+          <span className="checkmark"></span>
+        </label>
       </form>
-      <p>{task}</p> {/* Visa task-text direkt */}
+      <p className="task-text">
+        {task}
+      </p> {/* Visa task-text direkt */}
       <button
         className="remove-btn"
         onClick={() => removeTask(taskIndex)}

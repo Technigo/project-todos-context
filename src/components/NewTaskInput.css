@@ -18,6 +18,12 @@ input[type="text"] {
   /* Lägg till en ram */
   border-radius: 5px;
   /* Rundade hörn */
+  font-family: "Fuzzy Bubbles", sans-serif;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border: 2px solid pink;
 }
 
 .add-btn {
@@ -47,7 +53,7 @@ input[type="text"] {
 }
 
 .add-btn:hover .add-icon {
-  color: red;
+  color: #4caf50;
   /* Ändra färg vid hover */
 }
 

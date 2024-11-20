@@ -23,7 +23,7 @@ export const NewTaskInput = () => {
       <input
         type="text"
         name="new-task"
-        placeholder="Add new task..."
+        placeholder="Add new task here..."
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)} // Update inputValue state
       />

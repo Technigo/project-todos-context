@@ -8,12 +8,14 @@ import { Tasks } from "./sections/Tasks";
 
 export const App = () => {
   return (
-    <>
+    <main>
       <Header />
       <TaskCounter />
-      <NewTask />
-      <Tasks />
+      <div className="border">
+        <NewTask />
+        <Tasks />
+      </div>
       <Footer />
-    </>
+    </main>
   );
 };

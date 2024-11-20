@@ -1,7 +1,6 @@
 import { useTaskStore } from "../store/taskStore";
 import TodoItems from "./TodoItems";
 import AddTask from "./AddTask"; // Assuming you have a component for adding new tasks
-import { PlusCircleIcon } from '@heroicons/react/24/solid'; // Example of a Tailwind icon from Heroicons
 
 const Todo = () => {
   const { tasks } = useTaskStore(); // Access the tasks from the Zustand store
@@ -11,11 +10,13 @@ const Todo = () => {
   const completedToDos = tasks.filter((task) => task.completed).length; // Calculate completed to-dos
 
   return (
-    <div className="bg-gray-100 place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl">
-      <div className="flex items-center mt-7 gap-2">
-        {/* Using Heroicons with Tailwind */}
-        <PlusCircleIcon className="w-8 h-8 text-purple-500" />
-        <h1 className="text-3xl">To-Do List</h1>
+    <div className="bg-amber-50 place-self-center sm:w-11/12 max-w-xs sm:max-w-md flex flex-col p-4 min-h-[550px] rounded-xl mx-4 sm:mx-0">
+      <div className="flex items-center my-7 gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+        </svg>
+
+        <h1 className="text-4xl">Let's do it!</h1>
       </div>
 
       <AddTask /> {/* Assuming AddTask component for adding new tasks */}
@@ -27,7 +28,7 @@ const Todo = () => {
         ))}
       </div>
 
-      <div className="mt-5 text-slate-700 space-y-3">
+      <div className="mt-5 text-slate-700 space-y-3 ml-1">
         {/* Total to-dos */}
         <div className="flex items-center gap-2">
           <svg
@@ -45,7 +46,7 @@ const Todo = () => {
             />
           </svg>
           <p className="text-lg">
-            You {totalToDos === 1 ? "has" : "have"} <span className="font-bold text-purple-500">{totalToDos}</span> {totalToDos === 1 ? "to-do" : "to-dos"} in your list.
+            You have <span className="font-bold text-purple-500">{totalToDos}</span> {totalToDos === 1 ? "to-do" : "to-dos"} in your list.
           </p>
         </div>
 
@@ -55,7 +56,10 @@ const Todo = () => {
             <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.95a1 1 0 00.95.69h4.211c.969 0 1.371 1.24.588 1.81l-3.417 2.482a1 1 0 00-.364 1.118l1.286 3.95c.3.921-.755 1.688-1.54 1.118L12 15.347l-3.417 2.482c-.784.57-1.838-.197-1.539-1.118l1.286-3.95a1 1 0 00-.364-1.118L4.55 9.377c-.783-.57-.38-1.81.588-1.81h4.21a1 1 0 00.951-.69l1.287-3.95z" />
           </svg>
           <p className="text-lg">
-            Great job! <span className="font-bold text-green-500">{completedToDos}</span> {completedToDos === 1 ? "to-do" : "to-dos"} {completedToDos === 1 ? "is" : "are"} done.
+            You have <span className="font-bold text-green-500">{completedToDos}</span> {completedToDos === 1 ? "to-do" : "to-dos"} done.
+            {completedToDos > 0 && (
+              <span className="ml-2 text-green-500 font-bold">Yey!</span>
+            )}
           </p>
         </div>
 

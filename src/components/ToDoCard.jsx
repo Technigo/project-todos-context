@@ -1,5 +1,6 @@
 import { useToDoStore } from "../stores/useToDoStore";
 import { ToDoSubmit } from "./ToDoSubmit";
+import { Checkbox } from "./CheckBox";
 import "./ToDoCard.css";
 
 export const ToDoCard = () => {
@@ -22,9 +23,7 @@ export const ToDoCard = () => {
             >
               {todo.text}
             </span>
-            <button onClick={() => toggleTodo(todo.id)}>
-              {todo.completed ? "✅" : "❌"}
-            </button>
+            <Checkbox todo={todo} />
             <button onClick={() => removeTodo(todo.id)}>Delete</button>
           </div>
         ))}
@@ -32,3 +31,5 @@ export const ToDoCard = () => {
     </div>
   );
 };
+
+

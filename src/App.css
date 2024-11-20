@@ -1,7 +1,9 @@
 /* Global CSS Variables */
 :root {
-  --primary-color: #f5f5f5;
-  --secondary-color: #001f3f;
+  --primary-light: #f5f5f5;
+  --secondary-light: #001f3f;
+  --primary-dark: #001f3f;
+  --secondary-dark: #f5f5f5;
   --accent-color: #ff69b4;
   --primary-font: Arial, Helvetica, sans-serif;
 }
@@ -19,8 +21,69 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transition: background-color 0.3, color 0.3s;
+}
+
+body.light {
+  --primary-color: var(--primary-light);
+  --secondary-color: var(--secondary-light);
+}
+
+body.dark {
+  --primary-color: var(--primary-dark);
+  --secondary-color: var(--secondary-dark);
+}
+
+.theme-switch {
+  background-color: var(--secondary-light);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 200px;
+  height: 40px;
+  padding: 0 15px;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+body.dark .theme-switch {
+  background-color: var(--secondary-dark);
+  justify-content: flex-start;
+}
+
+.toggle-circle {
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-light);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-in-out;
+}
+
+body.dark .toggle-circle {
+  background-color: var(--primary-dark);
+  left: calc(100% - 25px);
+}
+
+.toggle-text {
+  position: absolute;
+  font-size: 1rem;
+  color: var(--secondary-dark);
+  transition: color 0.3s ease-in-out;
+}
+
+body.dark .toggle-text {
+  color: var(--secondary-light);
 }

@@ -1,3 +1,5 @@
+import "./App.css";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return <div>Hello, Productivity!</div>;
 };

@@ -10,7 +10,7 @@ const Section = styled.section`
   width: 100vw;
   min-height: 100vh;
   padding: 2rem;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -21,41 +21,42 @@ const Section = styled.section`
 
 const Header = styled.header`
   margin-bottom: 2rem;
+  width: 100%;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 
   h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -0.02em;
+    line-height: var(--line-height-tight);
   }
 
   p {
-    color: #666;
+    color: #4a5568;
     font-size: 1.1rem;
+    line-height: var(--line-height-normal);
+    max-width: 600px;
+    font-weight: var(--font-weight-normal);
   }
 `;
 
 export const App = () => {
-  const [isDropped, setIsDropped] = useState(false);
-  const draggableMarkup = <Task>Drag me</Task>;
-
-  const handleDragEnd = (event) => {
-    if (event.over && event.over.id === "project-list") {
-      setIsDropped(true);
-    }
-  };
-
   return (
     <Section>
       <Header>
-        <h1>Task List</h1>
+        <h1>Mikas Task Master</h1>
       </Header>
       <FilterButtons />
       <TaskInput />
-      <DndContext onDragEnd={handleDragEnd}>
-        {!isDropped ? draggableMarkup : null}
-        <TaskList />
-        {isDropped ? draggableMarkup : "Drop here"}
-        <ProjectList />
-      </DndContext>
+      <TaskList />
+      <ProjectList />
     </Section>
   );
 };

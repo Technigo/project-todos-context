@@ -33,7 +33,8 @@ export const TaskHeader = styled.div`
 export const Tag = styled.span`
   padding: 0.3rem 1rem;
   border-radius: 20px;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-medium);
   background-color: ${(props) =>
     props.category === "work" ? "#e8f0fe" : "#fce8ff"};
   color: ${(props) => (props.category === "work" ? "#1a73e8" : "#c026d3")};
@@ -93,15 +94,19 @@ export const TaskTitle = styled.div`
 
 export const TaskText = styled.span`
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
-  color: ${(props) => (props.completed ? "#666" : "inherit")};
+  color: ${(props) => (props.completed ? "#718096" : "#2d3748")};
+  font-weight: var(--font-weight-medium);
+  font-size: 1rem;
+  line-height: var(--line-height-normal);
 `;
 
 export const TaskFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #666;
-  font-size: 0.9rem;
+  color: #718096;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-normal);
 `;
 
 export const DeleteButton = styled.button`

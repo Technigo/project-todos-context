@@ -1,6 +1,6 @@
 import { useTaskStore } from "../store/taskStore";
 import TodoItems from "./TodoItems";
-import AddTask from "./AddTask"; // Assuming you have a component for adding new tasks
+import AddTask from "./AddTask";
 
 const Todo = () => {
   const { tasks } = useTaskStore(); // Access the tasks from the Zustand store

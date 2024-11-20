@@ -22,15 +22,15 @@ export const TodoForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="todoInput">To-Do:</label>
+      <label htmlFor="todoInput"></label>
       <input
         id="todoInput"
         type="text"
         value={input}
         onChange={handleInputChange}
-        placeholder="Write your task here"
+        placeholder="Write your to-do here"
         />
-        <button type="submit">Add your To-Do</button>
+        <button type="submit">Add task</button>
     </form>
   );
 };

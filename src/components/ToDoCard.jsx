@@ -2,15 +2,14 @@ import { useToDoStore } from "../stores/useToDoStore";
 import { ToDoSubmit } from "./ToDoSubmit";
 import { Checkbox } from "./CheckBox";
 import "./ToDoCard.css";
+import { AddTaskButton } from "../ui/AddTaskButton";
 
 export const ToDoCard = () => {
   const { todos, removeTodo, toggleTodo, showForm, toggleForm } = useToDoStore();
 
   return (
     <div>
-      <button onClick={toggleForm}>
-        {showForm ? "Cancel" : "Add Task"}
-      </button>
+      <AddTaskButton />
       {showForm && <ToDoSubmit />}
 
       <div className="todo-card-container">

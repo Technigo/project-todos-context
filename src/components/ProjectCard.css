@@ -1,0 +1,16 @@
+.project-card {
+    height: 100px;
+    width: 200px;
+    background-color: #e8f3ff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+p,
+h3 {
+    margin: 0;
+    padding: 0;
+}

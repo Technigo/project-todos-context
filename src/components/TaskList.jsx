@@ -5,7 +5,8 @@ const {
   tasks, 
   toggleTaskCompletion, 
   totalTaskCount, 
-  completedTaskCount 
+  completedTaskCount,
+  removeTask 
   } = useTaskStore();
 
 return (
@@ -28,6 +29,7 @@ return (
             />
             {task.text}
           </label>
+          <button onClick={() => removeTask(task.id)}>Remove</button>
         </li>
       ))}
     </ul>

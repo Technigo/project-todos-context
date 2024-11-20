@@ -1,6 +1,9 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-export const useTaskStore = create ((set, get) => ({
+export const useTaskStore = create(
+  persist( //Use persist to locally store state properties 
+  (set, get) => ({
   //State of the input field value in TaskForm, set to an empty string 
   addTask: "",
 
@@ -11,8 +14,6 @@ export const useTaskStore = create ((set, get) => ({
     { id: 3, text: "Walk the dog", completed: false },
   ],
 
-
-
   //COUNT
   // Get the total task count using get method
   totalTaskCount: () => get().tasks.length,
@@ -20,9 +21,6 @@ export const useTaskStore = create ((set, get) => ({
   // Get the count of completed tasks using get method
   completedTaskCount: () =>
   get().tasks.filter((task) => task.completed).length,
-
-
-
 
   //ACTION FUNCTIONS
   // Update the addTask input value
@@ -45,5 +43,14 @@ export const useTaskStore = create ((set, get) => ({
       tasks: state.tasks.map((task) =>
         task.id === taskId ? { ...task, completed: !task.completed } : task),
     })),
-
-}));
+  // Remove a task by its id
+  removeTask: (taskId) =>
+    set((state) => ({
+      tasks: state.tasks.filter((task) => task.id !== taskId),
+      })),
+  }),
+  {
+    name: "task-storage", // Name for the key under which the data is saved in localStorage
+  }
+  )
+);

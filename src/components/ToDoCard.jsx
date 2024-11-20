@@ -1,15 +1,9 @@
-import { useState } from "react";
 import { useToDoStore } from "../stores/useToDoStore";
 import { ToDoSubmit } from "./ToDoSubmit";
 import "./ToDoCard.css";
 
 export const ToDoCard = () => {
-  const { todos, removeTodo, toggleTodo } = useToDoStore();
-  const [showForm, setShowForm] = useState(false);
-
-  const toggleForm = () => {
-    setShowForm((prev) => !prev);
-  };
+  const { todos, removeTodo, toggleTodo, showForm, toggleForm } = useToDoStore();
 
   return (
     <div>

@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 export const useToDoStore = create((set, get) => ({
     todos: [],
+    showForm: false,
 
     addTodo: (text) => set((state) => ({
         todos: [...state.todos, {
@@ -17,5 +18,6 @@ export const useToDoStore = create((set, get) => ({
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
         )
     })),
+    toggleForm: () => set((state) => ({ showForm: !state.showForm })),
     getNumber: () => get((state) => state.todos.length)
 }))

@@ -1,11 +1,11 @@
 .todo-card-container {
-    width: 300px;
+    min-width: 300px;
 }
 
 .todo-item {
     margin: 1rem 0rem 1rem 0rem;
     background-color: white;
-    width: 100%;
+    min-width: 280px;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -15,5 +15,4 @@
 
 .card-button-container {
     display: flex;
-
 }

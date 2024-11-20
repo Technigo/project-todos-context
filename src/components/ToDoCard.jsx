@@ -24,7 +24,12 @@ export const ToDoCard = () => {
             </span>
             <div className="card-button-container">
               <Checkbox todo={todo} />
-              <button onClick={() => removeTodo(todo.id)}>Delete</button>
+              <img
+                src="./assets/bin.png"
+                alt="Delete"
+                style={{ cursor: "pointer", marginLeft: "10px" }}
+                onClick={() => removeTodo(todo.id)}
+              />
             </div>
           </div>
         ))}

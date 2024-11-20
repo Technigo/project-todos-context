@@ -1,7 +1,7 @@
 //Component to create new to-do/task
 import React from "react";
 import { useState } from "react";
-import { useTodoStore } from "../store/TodoStore.jsx"; //It's working even though it's a red underline, not to self
+import { useTodoStore } from "../store/TodoStore"; //It's working even though it's a red underline, not to self
 
 export const TodoForm = () => {
   const [input, setInput] = useState(""); //Local state for the input
@@ -22,13 +22,13 @@ export const TodoForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="todoInput">Create a new To-Do:</label>
+      <label htmlFor="todoInput">To-Do:</label>
       <input
         id="todoInput"
         type="text"
         value={input}
         onChange={handleInputChange}
-        placeholder="What do you need to do?"
+        placeholder="Write your task here"
         />
         <button type="submit">Add your To-Do</button>
     </form>

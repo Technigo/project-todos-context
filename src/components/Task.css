@@ -1,0 +1,51 @@
+/* Task.css */
+
+.task-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.task-container> :last-child {
+  margin-left: auto;
+  /* Skjuter sista barnet längst till höger */
+}
+
+.remove-btn {
+  background: none;
+  /* Ta bort standard bakgrund */
+  border: none;
+  /* Ta bort standardramar */
+  padding: 0;
+  /* Ta bort extra padding */
+  margin: 0;
+  /* Ta bort extra marginal */
+  cursor: pointer;
+  /* Ändra till en pekare för bättre UX */
+  display: inline-flex;
+  /* Gör det flexibelt för att centrera innehållet */
+  justify-content: center;
+  /* Centrera ikonen horisontellt */
+  align-items: center;
+  /* Centrera ikonen vertikalt */
+}
+
+.remove-btn .remove-icon {
+  color: pink;
+  /* Färg på ikonen */
+  font-size: 32px;
+  /* Gör ikonen större */
+}
+
+.remove-btn:hover .remove-icon {
+  color: red;
+  /* Ändra färg vid hover */
+}
+
+.remove-btn:focus {
+  outline: none;
+  /* Ta bort focus outline */
+}

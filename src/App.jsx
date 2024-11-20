@@ -1,3 +1,19 @@
+// App.jsx
+
+import { Footer } from "./sections/Footer";
+import { Header } from "./sections/Header";
+import { NewTask } from "./sections/NewTask";
+import { TaskCounter } from "./sections/TaskCounter";
+import { Tasks } from "./sections/Tasks";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return (
+    <>
+      <Header />
+      <TaskCounter />
+      <NewTask />
+      <Tasks />
+      <Footer />
+    </>
+  );
 };

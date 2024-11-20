@@ -1,0 +1,57 @@
+form {
+  display: flex;
+  /* Gör att input och knapp ligger bredvid varandra */
+  align-items: center;
+  /* Vertikal centrering */
+  gap: 10px;
+  /* Mellanrum mellan input och knapp */
+}
+
+input[type="text"] {
+  flex: 1;
+  /* Gör inputfältet flexibelt för att ta upp så mycket utrymme som möjligt */
+  padding: 10px;
+  /* Ge lite utrymme inuti fältet */
+  font-size: 16px;
+  /* Gör texten mer läsbar */
+  border: 1px solid #ccc;
+  /* Lägg till en ram */
+  border-radius: 5px;
+  /* Rundade hörn */
+}
+
+.add-btn {
+  background: none;
+  /* Ta bort standard bakgrund */
+  border: none;
+  /* Ta bort standardramar */
+  padding: 0;
+  /* Ta bort extra padding */
+  margin: 0;
+  /* Ta bort extra marginal */
+  cursor: pointer;
+  /* Ändra till en pekare för bättre UX */
+  display: inline-flex;
+  /* Gör det flexibelt för att centrera innehållet */
+  justify-content: center;
+  /* Centrera ikonen horisontellt */
+  align-items: center;
+  /* Centrera ikonen vertikalt */
+}
+
+.add-btn .add-icon {
+  color: pink;
+  /* Färg på ikonen */
+  font-size: 32px;
+  /* Gör ikonen större */
+}
+
+.add-btn:hover .add-icon {
+  color: red;
+  /* Ändra färg vid hover */
+}
+
+.add-btn:focus {
+  outline: none;
+  /* Ta bort focus outline */
+}

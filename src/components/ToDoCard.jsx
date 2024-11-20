@@ -15,15 +15,16 @@ export const ToDoCard = () => {
       <div className="todo-card-container">
         {todos.map((todo) => (
           <div key={todo.id} className="todo-item">
-            <button onClick={() => toggleTodo(todo.id)}>
-              {todo.completed ? "Mark as Incomplete" : "Mark as Complete"}
-            </button>
+
             <span
               style={{ textDecoration: todo.completed ? "line-through" : "none" }}
               onClick={() => toggleTodo(todo.id)}
             >
               {todo.text}
             </span>
+            <button onClick={() => toggleTodo(todo.id)}>
+              {todo.completed ? "✅" : "❌"}
+            </button>
             <button onClick={() => removeTodo(todo.id)}>Delete</button>
           </div>
         ))}

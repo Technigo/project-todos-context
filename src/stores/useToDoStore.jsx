@@ -1,24 +1,50 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-export const useToDoStore = create((set, get) => ({
-    todos: [],
-    showForm: false,
+export const useToDoStore = create(
+  persist(
+    (set, get) => ({
+      todos: [],
+      showForm: false,
 
-    addTodo: (text) => set((state) => ({
-        todos: [...state.todos, {
-            id: state.todos.length > 0 ? state.todos[state.todos.length - 1].id + 1 : 1,
-            text, completed: false
-        }]
-    })),
-    removeTodo: (id) => set((state) => ({
-        todos: state.todos.filter((todo) => todo.id !== id)
-    })),
-    toggleTodo: (id) => set((state) => ({
-        todos: state.todos.map((todo) =>
+      addTodo: (text) => {
+        const newTodo = {
+          id: get().todos.length > 0 ? get().todos[get().todos.length - 1].id + 1 : 1,
+          text,
+          completed: false,
+        };
+        set((state) => ({
+          todos: [...state.todos, newTodo]
+        }));
+      },
+
+      removeTodo: (id) => {
+        set((state) => ({
+          todos: state.todos.filter((todo) => todo.id !== id)
+        }));
+      },
+
+      toggleTodo: (id) => {
+        set((state) => ({
+          todos: state.todos.map((todo) =>
             todo.id === id ? { ...todo, completed: !todo.completed } : todo
-        )
-    })),
-    toggleForm: () => set((state) => ({ showForm: !state.showForm })),
-    closeForm: () => set({ showForm: false }),
-    getNumber: () => get((state) => state.todos.length)
-}))
+          )
+        }));
+      },
+
+      toggleForm: () => {
+        set((state) => ({ showForm: !state.showForm }));
+      },
+
+      closeForm: () => {
+        set({ showForm: false });
+      },
+
+      getNumber: () => get().todos.length,
+    }),
+    {
+      name: "todo-storage",
+      getStorage: () => localStorage,
+    }
+  )
+);

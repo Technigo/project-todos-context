@@ -19,5 +19,6 @@ export const useToDoStore = create((set, get) => ({
         )
     })),
     toggleForm: () => set((state) => ({ showForm: !state.showForm })),
+    closeForm: () => set({ showForm: false }),
     getNumber: () => get((state) => state.todos.length)
 }))

@@ -10,7 +10,7 @@ export const ToDoCard = () => {
       <button onClick={toggleForm}>
         {showForm ? "Cancel" : "Add Task"}
       </button>
-      {showForm && <ToDoSubmit closeForm={toggleForm} />}
+      {showForm && <ToDoSubmit />}
 
       <div className="todo-card-container">
         {todos.map((todo) => (

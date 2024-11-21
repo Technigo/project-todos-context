@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TaskContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
   padding: 1rem;
   width: 100%;
@@ -16,6 +16,8 @@ export const TaskCard = styled.div`
   opacity: ${(props) => (props.completed ? 0.5 : 1)};
   transition: all 0.2s ease;
   border: 1px solid #eee;
+  max-height: 150px;
+  overflow-y: auto;
 
   &:hover {
     transform: translateY(-2px);
@@ -78,6 +80,7 @@ export const MoreButton = styled.button`
   background: none;
   cursor: pointer;
   color: #666;
+  font-size: 0.5rem;
 `;
 
 export const TaskContent = styled.div`

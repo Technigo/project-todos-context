@@ -20,13 +20,13 @@ export const useProjectStore = create(
 
         removeProject: (id) => {
             set((state) => ({
-                projects: state.projects.filter((project) => project.id !== id)  // Korrektur hier: project statt todo
+                projects: state.projects.filter((project) => project.id !== id)
             }));
         },
 
         toggleProject: (id) => {
             set((state) => ({
-                projects: state.projects.map((project) =>  // Korrektur hier: project statt todo
+                projects: state.projects.map((project) =>
                     project.id === id ? { ...project, completed: !project.completed } : project
                 )
             }));
@@ -35,8 +35,8 @@ export const useProjectStore = create(
         getNumber: () => get().projects.length,
     }),
         {
-            name: "project-storage",  // der Name des gespeicherten Zustands im localStorage
-            getStorage: () => localStorage,  // speichert im localStorage
+            name: "project-storage",
+            getStorage: () => localStorage,
         }
     )
 );

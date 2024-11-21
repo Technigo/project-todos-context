@@ -3,6 +3,7 @@ import { ToDoSubmit } from "./ToDoSubmit";
 import { Checkbox } from "./CheckBox";
 import "./ToDoCard.css";
 import { AddTaskButton } from "../ui/AddTaskButton";
+import { BinButton } from "../ui/BinButton";
 
 export const ToDoCard = () => {
   const { todos, removeTodo, toggleTodo, showForm, toggleForm } = useToDoStore();
@@ -24,12 +25,7 @@ export const ToDoCard = () => {
             </span>
             <div className="card-button-container">
               <Checkbox todo={todo} />
-              <img
-                src="./assets/bin.png"
-                alt="Delete"
-                style={{ cursor: "pointer", marginLeft: "10px" }}
-                onClick={() => removeTodo(todo.id)}
-              />
+              <BinButton todoId={todo.id} />
             </div>
           </div>
         ))}

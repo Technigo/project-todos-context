@@ -16,13 +16,14 @@ export const ToDoCard = () => {
       <div className="todo-card-container">
         {todos.map((todo) => (
           <div key={todo.id} className="todo-item">
-
-            <span
-              className={`todo-text ${todo.completed ? "completed" : ""}`}
-              onClick={() => toggleTodo(todo.id)}
-            >
-              {todo.text}
-            </span>
+            <div className="text-wrapper">
+              <span
+                className={`todo-text ${todo.completed ? "completed" : ""}`}
+                onClick={() => toggleTodo(todo.id)}
+              >
+                {todo.text}
+              </span>
+            </div>
             <div className="card-button-container">
               <Checkbox todo={todo} />
               <BinButton todoId={todo.id} />

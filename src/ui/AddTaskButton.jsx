@@ -5,7 +5,7 @@ export const AddTaskButton = () => {
     const { showForm, toggleForm } = useToDoStore();
     return (
         <button onClick={toggleForm} className="add-task-button">
-            {showForm ? "Cancel" : "Add Task"}
+            {showForm ? "Close" : "Add Task"}
         </button>
     )
 }

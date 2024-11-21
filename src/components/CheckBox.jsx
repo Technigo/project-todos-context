@@ -9,7 +9,7 @@ export const Checkbox = ({ todo }) => {
   };
 
   return (
-    <div className="checkbox-wrapper-59">
+    <div className="checkbox-wrapper">
       <label className="switch">
         <input
           type="checkbox"

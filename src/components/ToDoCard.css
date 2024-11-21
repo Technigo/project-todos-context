@@ -6,8 +6,11 @@
 
 .todo-card-container {
     width: 100%;
-    border: solid green 2px;
-    padding: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .todo-item {
@@ -17,7 +20,6 @@
     display: flex;
     justify-content: space-between;
     border-radius: 20px;
-    border: red solid 2px;
     width: 100%;
 }
 
@@ -25,7 +27,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    width: 30%;
+    gap: 0.5rem;
 }
 
 .todo-text {
@@ -34,10 +37,13 @@
     cursor: pointer;
     transition: color 0.3s ease;
     overflow-wrap: break-word;
-    max-width: 200px;
 }
 
 .todo-text.completed {
     text-decoration: line-through;
     color: gray;
+}
+
+.text-wrapper {
+    width: 60%;
 }

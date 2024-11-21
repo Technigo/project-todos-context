@@ -1,4 +1,5 @@
 import { useTaskStore } from "../stores/useTaskStore";
+import SleepingSloth from "../assets/sleeping-sloth.jpg";
 import { Task } from "./Task";
 
 export const TaskList = () => {
@@ -26,6 +27,22 @@ export const TaskList = () => {
     // Initial value for the accumulator (an empty object to store categories)
     {}
   );
+
+  // Render sloth image if no tasks exist
+  if (tasks.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full">
+        <img
+          src={SleepingSloth}
+          alt="A drawing of a sleeping sloth"
+          className="w-64 h-64 object-contain"
+        />
+        <p className="text-secondary mt-4 text-lg">
+          Nothing to do? Time to take a nap!
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">

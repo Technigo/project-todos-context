@@ -1,6 +1,7 @@
 import { useTaskStore } from "../stores/TaskStore";
 import { useProjectStore } from "../stores/ProjectStore";
 import { useState } from "react";
+import { DatePickerDemo } from "./dashboard/DatePicker";
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -139,9 +140,7 @@ export const TaskInput = () => {
           Personal
         </RadioLabel>
       </RadioGroup>
-
-      <Input
-        type="date"
+      <DatePickerDemo
         value={taskInput.dueDate}
         onChange={(e) =>
           setTaskInput({ ...taskInput, dueDate: e.target.value })

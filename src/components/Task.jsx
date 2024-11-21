@@ -6,11 +6,11 @@ const TaskContainer = styled.div`
   display: flex; 
   flex-direction: column;
   justify-content: space-between; /* Ensures content is evenly spaced */
-  background-color: ${(props) => (props.completed ? "#cfc" : "#f4d4d4")}; // Green for completed, red for incomplete
+  background-color: ${(props) => (props.completed ? "#cfc" : "#f4d4d4")}; // Green for completed, pink for incomplete
   padding: 1rem;
   width: 250px;
   height: 250px;
-  box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.356);
   position: relative;
   
 `;
@@ -49,7 +49,7 @@ const TrashIcon = styled.i`
   color: black; /* Red color for trash bin */
   margin: 5px 0px 10px 5px; /* Adds space between the icon and content */
   &:hover {
-    color: #d32f2f; /* Darker red when hovered */
+    color: #d32f2f; /* Red when hovered */
   }
   transition: color 0.3s ease;
   position: absolute; 

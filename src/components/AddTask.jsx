@@ -30,7 +30,7 @@ const Textarea = styled.textarea`
   max-width: 450px;
   width: 100%;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 18px;
   /* Ensures mobile browsers don’t zoom in */
 
 `
@@ -43,12 +43,13 @@ const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10rem;
-  height: 3rem;
-  padding: 0.8rem;
-  background: #970a68;
+  width: 9rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  background: #BEA9DF;
   box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-  color: white; 
+  border-radius: 5px; 
+  color: #000; 
   margin: 0; 
   margin-top: 10px; 
   font-size: 16px; 
@@ -101,7 +102,7 @@ export const AddTask = () => {
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         {/* Button to submit the task */}
         <Button type="submit" aria-label="Add task">
-          ☑️ Add task ☑️
+          Add task
         </Button>
       </Form>
     </div>

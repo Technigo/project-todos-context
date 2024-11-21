@@ -3,6 +3,19 @@ import { useProjectStore } from "../stores/ProjectStore";
 import { useState } from "react";
 import { DatePickerDemo } from "./dashboard/DatePicker";
 import styled from "styled-components";
+import { Input } from "./dashboard/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./dashboard/ui/select";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/components/dashboard/ui/radio-group";
+import { Separator } from "@radix-ui/react-select";
 
 const Form = styled.form`
   display: flex;
@@ -18,29 +31,14 @@ const Form = styled.form`
   }
 `;
 
-const Input = styled.input`
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  flex: 1;
-  font-size: 1rem;
-  transition: border-color 0.2s ease;
-  background: white;
-
-  &:focus {
-    outline: none;
-    border-color: #1a73e8;
-  }
-`;
-
-const RadioGroup = styled.div`
-  display: flex;
-  gap: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  background: white;
-`;
+// const RadioGroup = styled.div`
+//   display: flex;
+//   gap: 1rem;
+//   padding: 0.5rem;
+//   border: 1px solid #ccc;
+//   border-radius: 12px;
+//   background: white;
+// `;
 
 const RadioLabel = styled.label`
   display: flex;
@@ -104,6 +102,10 @@ export const TaskInput = () => {
     });
   };
 
+  const addProject = () => {
+    console.log("Add Project");
+  };
+
   return (
     <Form onSubmit={handleSubmit}>
       <Input
@@ -113,8 +115,31 @@ export const TaskInput = () => {
         placeholder="Add a new task..."
         required
       />
-
-      <RadioGroup>
+      <RadioGroup defaultValue="option-one">
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem
+            name="category"
+            value="work"
+            checked={taskInput.category === "work"}
+            onChange={(e) =>
+              setTaskInput({ ...taskInput, category: e.target.value })
+            }
+          />
+          <RadioLabel htmlFor="work">Work</RadioLabel>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem
+            name="category"
+            value="personal"
+            checked={taskInput.category === "personal"}
+            onChange={(e) =>
+              setTaskInput({ ...taskInput, category: e.target.value })
+            }
+          />
+          <RadioLabel htmlFor="personal">Personal</RadioLabel>
+        </div>
+      </RadioGroup>
+      {/* <RadioGroup>
         <RadioLabel>
           <input
             type="radio"
@@ -139,27 +164,33 @@ export const TaskInput = () => {
           />
           Personal
         </RadioLabel>
-      </RadioGroup>
+      </RadioGroup> */}
       <DatePickerDemo
-        value={taskInput.dueDate}
-        onChange={(e) =>
-          setTaskInput({ ...taskInput, dueDate: e.target.value })
-        }
+        value={taskInput.dueDate || new Date()}
+        onChange={(date) => setTaskInput({ ...taskInput, dueDate: date })}
       />
+      {console.log("Due Date: ", taskInput.dueDate)}
 
-      <ProjectSelect
+      <Select
         value={taskInput.projectId}
         onChange={(e) =>
           setTaskInput({ ...taskInput, projectId: e.target.value })
         }
       >
-        <option value="">Select a project</option>
-        {projects.map((project) => (
-          <option key={project.id} value={project.id}>
-            {project.name}
-          </option>
-        ))}
-      </ProjectSelect>
+        <SelectTrigger>
+          <SelectValue placeholder="Select a project" />
+        </SelectTrigger>
+        <SelectContent>
+          {projects.map((project) => (
+            <SelectItem key={project.id} value={project.id}>
+              {project.name}
+            </SelectItem>
+          ))}
+          <SelectItem value="Create New +" onSubmit={addProject}>
+            Create New +
+          </SelectItem>
+        </SelectContent>
+      </Select>
 
       <Button type="submit">Add Task</Button>
     </Form>

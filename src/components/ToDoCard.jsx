@@ -9,7 +9,7 @@ export const ToDoCard = () => {
   const { todos, removeTodo, toggleTodo, showForm, toggleForm } = useToDoStore();
 
   return (
-    <div>
+    <div className="to-do-box">
       <AddTaskButton />
       {showForm && <ToDoSubmit />}
 

@@ -1,9 +1,11 @@
 .add-task-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50px;
-    width: 300px;
+    width: 280px;
     background-color: #5f33e2;
     border: 0;
     border-radius: 20px;
-    margin: 1rem;
     color: whitesmoke;
 }

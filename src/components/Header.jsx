@@ -1,4 +1,5 @@
 import { useToDoStore } from "../stores/useToDoStore"
+import { BodyText } from "../ui/Typography";
 import "./Header.css";
 
 export const Header = () => {
@@ -7,7 +8,7 @@ export const Header = () => {
   return (
     <header>
       <h1>My-To-Do-List</h1>
-      <p>Total tasks: {getNumber()}</p>
+      <BodyText>Total tasks: {getNumber()}</BodyText>
     </header>
   )
 }

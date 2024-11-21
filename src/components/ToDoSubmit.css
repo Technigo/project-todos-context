@@ -1,0 +1,17 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.textarea {
+    width: 200px;
+}

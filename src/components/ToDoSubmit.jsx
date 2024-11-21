@@ -47,7 +47,7 @@ export const ToDoSubmit = () => {
               checked={selection === "project"}
               onChange={() => setSelection("project")}
             />
-            Projekt
+            Project
           </label>
         </div>
 

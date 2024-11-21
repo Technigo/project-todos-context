@@ -14,7 +14,7 @@ display: flex;
 export const AddTodoButton = () => {
     return (
         <AddTodoButtonStyle>
-            Add To-Do
+            Add
         </AddTodoButtonStyle>
     )
 }

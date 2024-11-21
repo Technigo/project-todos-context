@@ -1,4 +1,4 @@
-import { useUserStore } from "../stores/useUserStore";
+import { useUserStore } from "../../stores/useUserStore";
 import { useState } from "react";
 
 export const UserSettings = () => {

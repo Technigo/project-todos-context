@@ -1,4 +1,4 @@
-import { useTaskStore } from "../stores/useTaskStore";
+import { useTaskStore } from "../../stores/useTaskStore";
 
 export const TaskForm = () => {
   const { addTask, setAddTask, setTasks } = useTaskStore();

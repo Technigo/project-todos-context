@@ -1,14 +1,12 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* White text */
+  font-family: 'San Francisco', Helvetica, Arial, san-serif;
+}
+
+button, input, select {
+  font-family: inherit;
+  color: inherit;
+  background: inherit;
 }

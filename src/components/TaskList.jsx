@@ -1,4 +1,5 @@
 import { useTaskStore } from "../stores/useTaskStore";
+import { useThemeStore } from "../stores/useThemeStore";
 import SleepingSloth from "../assets/sleeping-sloth.jpg";
 import { Task } from "./Task";
 
@@ -7,6 +8,8 @@ export const TaskList = () => {
   const tasks = useTaskStore((state) => state.tasks);
   // Access toggleTask
   const toggleTask = useTaskStore((state) => state.toggleTask);
+  // Access theme
+  const theme = useThemeStore((state) => state.theme);
 
   // Group tasks by category
   const tasksByCategory = tasks.reduce(
@@ -28,16 +31,19 @@ export const TaskList = () => {
     {}
   );
 
-  // Render sloth image if no tasks exist
+  // Render sloth image if there are no tasks
   if (tasks.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-full">
+      <div className="flex flex-col items-center justify-center">
         <img
           src={SleepingSloth}
           alt="A drawing of a sleeping sloth"
-          className="w-64 h-64 object-contain"
+          className="w-64 h-64 rounded-md object-contain"
         />
-        <p className="text-secondary mt-4 text-lg">
+        <p
+          className={` mt-4 text-lg 
+        ${theme === "light" ? "text-primary" : "text-secondary"}`}
+        >
           Nothing to do? Time to take a nap!
         </p>
       </div>

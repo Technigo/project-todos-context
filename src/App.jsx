@@ -11,7 +11,7 @@ export const App = () => {
     <div
       className={`min-h-screen flex flex-col xl:flex-row ${
         theme === "light"
-          ? "bg-bgLight text-primary"
+          ? "bg-secondary text-primary"
           : "bg-bgDark text-secondary"
       }`}
     >

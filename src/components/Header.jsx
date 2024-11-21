@@ -32,7 +32,7 @@ const HeaderImg = styled.img`
 const HeaderContent = styled.div`
   h1 {
     font-size: 2.3rem; /* Default font size for mobile */
-    color: #333;
+    color: #FFF;
     margin: 0;
     font-family: "Reenie Beanie";
 

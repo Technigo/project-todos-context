@@ -52,8 +52,8 @@ const Button = styled.button`
   margin: 0; 
   margin-top: 10px; 
   font-size: 16px; 
-  font-family: "Poppins"
-`
+  font-family: "Poppins";
+`;
 
 export const AddTask = () => {
   const [title, setTitle] = useState(''); // Local state for input

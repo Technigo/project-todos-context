@@ -6,7 +6,7 @@ const TaskContainer = styled.div`
   display: flex; 
   flex-direction: column;
   justify-content: space-between; /* Ensures content is evenly spaced */
-  background-color: ${(props) => (props.completed ? "turquoise" : "#f4d4d4")}; // Green for completed, red for incomplete
+  background-color: ${(props) => (props.completed ? "#cfc" : "#f4d4d4")}; // Green for completed, red for incomplete
   padding: 1rem;
   width: 250px;
   height: 250px;
@@ -24,15 +24,15 @@ const CheckMark = styled.input`
   width: 20px; /* Set the desired width */
   height: 20px; /* Set the desired height */
   cursor: pointer; // Make it look clickable
+
 `;
 
 const H2 = styled.h2`
- font-size: 30px;
+ font-size: 25px;
  font-family: "Reenie Beanie";  
  font-weight: 500;
  text-align: center; 
  margin: 0; 
- /* margin-top: 15px;  */
 
 `
 const StyledP = styled.p`
@@ -40,19 +40,21 @@ const StyledP = styled.p`
  font-family: "Reenie Beanie";  
  font-weight: 500;
  margin: 0;
- text-align: center; /* Centers text within the container */
+ text-align: left; /* Centers text within the container */
 `
 
 const TrashIcon = styled.i`
   cursor: pointer;
-  font-size: 20px; /* Size of the icon */
+  font-size: 22px; /* Size of the icon */
   color: black; /* Red color for trash bin */
-  margin-top: 15px; /* Adds space between the icon and content */
-  margin-left: 5px;
+  margin: 5px 0px 10px 5px; /* Adds space between the icon and content */
   &:hover {
     color: #d32f2f; /* Darker red when hovered */
   }
   transition: color 0.3s ease;
+  position: absolute; 
+  top: 10px; /* Distance from the top */
+  right: 10px; /* Distance from the right */
 `;
 
 export const Task = ({ task }) => {
@@ -70,7 +72,7 @@ export const Task = ({ task }) => {
         {task.title}
       </H2>
       <TrashIcon
-        className="fas fa-trash"
+        className="fa fa-trash-o"
         onClick={() => removeTask(task.id)}
       />
       <StyledP>Created: {new Date(task.createdAt).toLocaleString()}</StyledP>

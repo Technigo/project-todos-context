@@ -12,6 +12,13 @@ const TaskSection = styled.section`
   width: fit-content; /* Adjust the section width to fit the grid content */
   max-width: 100%; /* Prevent it from exceeding the viewport width */
   margin: 0 auto; /* Center the section itself */
+  transition: transform .15s linear;
+
+  
+:hover {
+  transform: scale(1.1);
+}
+
 
   /* Media query for tablets (3 tasks per row) */
   @media (max-width: 1200px) {

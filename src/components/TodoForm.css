@@ -1,3 +1,46 @@
+.new-task-wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 32px;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-bottom: 32px;
+}
+
+.new-task-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  background-color: #f0f0f0; 
+  border-radius: 8px;
+  max-width: 324px;
+  min-height: 100px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;  
+  gap: 16px; 
+  align-items: center;
+  justify-content: center; 
+  padding: 24px;
+}
+
 .add-task-button {
-    border-radius: 16px;
+  width: 100px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+.add-task-button:hover {
+  background-color: #45a049;
+}
+
+@media (min-width: 768px) {
+  .new-task-wrapper {
+    gap: 35px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

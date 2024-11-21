@@ -13,23 +13,27 @@ export const TodoList = () => {
 
 
   return (
-    <div>
-      {/* Incomplete Tasks */}
-      <h2>Incomplete Tasks</h2>
-      {incompleteTodos.length === 0 ? (
-        <p>Hurray, you've completed all your to-do's!</p>
-      ) : (
-        incompleteTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
-      )}
+      <div className="tasks-container">
+        {/* Incomplete Tasks */}
+        <div className="incomplete-tasks-container">
+          <h2>Incomplete Tasks</h2>
+          {incompleteTodos.length === 0 ? (
+            <p>Hurray, you've completed all your to-do's!</p>
+          ) : (
+            incompleteTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
+          )}
+        </div>
 
-      {/* Completed Tasks */}
-      <h2>Completed Tasks</h2>
-      {completedTodos.lenght === 0 ? (
-        // Why is the text below in the paragraph not showing on the site?
-        <p>No completed to-do's yet but you're doing great!</p>
-      ) : (
-        completedTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
-      )}
-    </div>
+        <div className="completed-tasks-container">
+          {/* Completed Tasks */}
+          <h2>Completed Tasks</h2>
+          {completedTodos.length === 0 ? (
+            // Why is the text below in the paragraph not showing on the site?
+            <p>No completed to-do's yet but you're doing great!</p>
+          ) : (
+            completedTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
+          )}
+        </div>
+      </div>
   );
 };

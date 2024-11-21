@@ -1,0 +1,30 @@
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.incomplete-tasks-container,
+.completed-tasks-container {
+  padding: 16px;
+  background-color: #f0f0f0; /* Optional: adds some visual separation */
+  border-radius: 8px;
+  min-height: 200px;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 768px) {
+  .tasks-container {
+    flex-direction: row;
+    gap: 35px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .incomplete-tasks-container,
+  .completed-tasks-container {
+    flex: 1; /* Equal width for both containers */
+  }
+}

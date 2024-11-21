@@ -1,7 +1,34 @@
+.header {
+  display: flex;               
+  align-items: center;         
+  justify-content: center;     
+  padding: 20px;
+  width: 100%;                
+  flex-direction: column;
+  text-align: center;   
+  font-family: Kumar One;       
+  letter-spacing: 8px;
+}
+
 .title {
-  text-align: center;
+  margin-bottom: 10px;  
+  font-size: 2rem;      
 }
 
 .sub-title {
-  text-align: center;
+  margin-top: 10px;  
+  font-size: 1.2rem; 
+  color: #c19646;
+}
+
+.animation-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  margin: 0 20px;          
+}
+
+.lottie-animation {
+  width: 70%;    
+  height: 70%;   
 }

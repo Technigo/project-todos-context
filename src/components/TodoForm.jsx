@@ -32,7 +32,7 @@ export const TodoForm = () => {
               type="text"
               value={input}
               onChange={handleInputChange}
-              placeholder="Write something here"
+              placeholder="Write something here" className="textfield"
               />
               <button className="add-task-button" type="submit">Add task</button>
             </div>

@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #faf5ba;
+  /* change later if i wanna change specific text-colors */
+  color: #4a4400;
+  /* color: #337fbd; */
+}
+
 body {
   margin: 0;
   font-family: inter;

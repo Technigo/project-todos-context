@@ -2,6 +2,8 @@
 import React from "react";
 import { useTodoStore } from "../store/TodoStore";
 import { TodoItem } from "../components/TodoItem";
+import thumbIcon from "../assets/thumbIcon.png";
+import waitIcon from "../assets/waitIcon.png";
 import "../components/TodoList.css";
 
 export const TodoList = () => {
@@ -16,7 +18,10 @@ export const TodoList = () => {
       <div className="tasks-container">
         {/* Incomplete Tasks */}
         <div className="incomplete-tasks-container">
-          <h2>Incomplete Tasks</h2>
+          <h2>
+            Incomplete Tasks
+            <img src={waitIcon} alt="hourglass" className="wait-icon" />
+          </h2>
           {incompleteTodos.length === 0 ? (
             <p>Hurray, you've completed all your to-do's!</p>
           ) : (
@@ -26,7 +31,10 @@ export const TodoList = () => {
 
         <div className="completed-tasks-container">
           {/* Completed Tasks */}
-          <h2>Completed Tasks</h2>
+          <h2>
+            Completed Tasks 
+            <img src={thumbIcon} alt="thumbs up" className="thumb-icon" /> 
+          </h2>
           {completedTodos.length === 0 ? (
             // Why is the text below in the paragraph not showing on the site?
             <p>No completed to-do's yet but you're doing great!</p>

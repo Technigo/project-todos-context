@@ -12,10 +12,13 @@
   display: flex;
   justify-content: center; 
   align-items: center;
-  background-color: #f0f0f0; 
-  border-radius: 8px;
+  background-color: #faf5ba; 
+  border-radius: 24px;
   max-width: 324px;
   min-height: 100px;
+  font-family: kumar one;
+  font-size: 20px;
+  border: 2px solid rgba(214, 178, 0, 0.3); 
 }
 
 .input-container {
@@ -27,14 +30,29 @@
   padding: 24px;
 }
 
+.textfield {
+  font-family: robot;
+  font-size: 14px;
+  border-color: #d6b200;
+  border-radius: 8px;
+  height: 50px;
+  text-align: center;
+}
+
 .add-task-button {
-  width: 100px;
-  height: 35px;
+  width: 90px;
+  height: 32px;
   border-radius: 50px;
+  border: none;
+  background-color: #006400;
+  color: white;
+  font-weight: 600;
+  font-family: kumar one;
+  font-size: 12px;
 }
 
 .add-task-button:hover {
-  background-color: #45a049;
+  background-color: #c19646;
 }
 
 @media (min-width: 768px) {

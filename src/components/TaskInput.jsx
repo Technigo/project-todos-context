@@ -1,7 +1,8 @@
 import { useTaskStore } from "../stores/TaskStore";
-import styled from "styled-components";
 import { useProjectStore } from "../stores/ProjectStore";
 import { useState } from "react";
+import styled from "styled-components";
+
 const Form = styled.form`
   display: flex;
   gap: 1rem;
@@ -69,45 +70,89 @@ const ProjectSelect = styled.select`
 `;
 
 export const TaskInput = () => {
-  const { setNewTask, addTask, newTask, dueDate, setDueDate } = useTaskStore();
+  // Local state for form inputs
+  const [taskInput, setTaskInput] = useState({
+    name: "",
+    category: "personal",
+    dueDate: "",
+    projectId: "",
+  });
+
+  const { addTask } = useTaskStore();
   const { projects } = useProjectStore();
-  const [selectedProjectId, setSelectedProjectId] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const category = formData.get("category");
-    const timestamp = Date.now();
 
-    const projectId = selectedProjectId ? Number(selectedProjectId) : null;
+    if (!taskInput.name.trim()) return; // Don't submit empty tasks
 
-    addTask(newTask, category, dueDate, projectId, timestamp);
-    setNewTask("");
-    setSelectedProjectId("");
+    addTask(
+      taskInput.name,
+      taskInput.category,
+      taskInput.dueDate,
+      taskInput.projectId,
+      Date.now() // timestamp
+    );
+
+    // Reset form
+    setTaskInput({
+      name: "",
+      category: "personal",
+      dueDate: "",
+      projectId: "",
+    });
   };
 
   return (
     <Form onSubmit={handleSubmit}>
       <Input
         type="text"
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        value={taskInput.name}
+        onChange={(e) => setTaskInput({ ...taskInput, name: e.target.value })}
         placeholder="Add a new task..."
         required
       />
+
       <RadioGroup>
         <RadioLabel>
-          <input type="radio" name="category" value="work" required />
+          <input
+            type="radio"
+            name="category"
+            value="work"
+            checked={taskInput.category === "work"}
+            onChange={(e) =>
+              setTaskInput({ ...taskInput, category: e.target.value })
+            }
+          />
           Work
         </RadioLabel>
         <RadioLabel>
-          <input type="radio" name="category" value="personal" required />
+          <input
+            type="radio"
+            name="category"
+            value="personal"
+            checked={taskInput.category === "personal"}
+            onChange={(e) =>
+              setTaskInput({ ...taskInput, category: e.target.value })
+            }
+          />
           Personal
         </RadioLabel>
       </RadioGroup>
+
+      <Input
+        type="date"
+        value={taskInput.dueDate}
+        onChange={(e) =>
+          setTaskInput({ ...taskInput, dueDate: e.target.value })
+        }
+      />
+
       <ProjectSelect
-        value={selectedProjectId}
-        onChange={(e) => setSelectedProjectId(e.target.value)}
+        value={taskInput.projectId}
+        onChange={(e) =>
+          setTaskInput({ ...taskInput, projectId: e.target.value })
+        }
       >
         <option value="">Select a project</option>
         {projects.map((project) => (
@@ -116,12 +161,7 @@ export const TaskInput = () => {
           </option>
         ))}
       </ProjectSelect>
-      <Input
-        type="date"
-        value={dueDate}
-        onChange={(e) => setDueDate(e.target.value)}
-        placeholder="Due date"
-      />
+
       <Button type="submit">Add Task</Button>
     </Form>
   );

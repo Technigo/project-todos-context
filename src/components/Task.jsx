@@ -21,6 +21,8 @@ export const Task = ({ task }) => {
     return null;
   }
 
+  console.log(task.completedAt);
+
   const { toggleTask, deleteTask } = useTaskStore();
 
   return (
@@ -46,7 +48,11 @@ export const Task = ({ task }) => {
         </TaskTitle>
 
         <TaskFooter>
-          <span>{moment(task.timestamp).endOf(task.dueDate).fromNow()}</span>
+          <span>
+            {task.completed
+              ? task.completedAt && `Completed ${moment(task.completedAt).fromNow()}`
+              : `Created ${moment(task.timestamp).fromNow()}`}
+          </span>
           <DeleteButton onClick={() => deleteTask(task.id)}>
             Delete
           </DeleteButton>

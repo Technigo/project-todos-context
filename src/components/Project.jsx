@@ -26,20 +26,6 @@ const ProjectHeader = styled.div`
   }
 `;
 
-// const DeleteButton = styled.button`
-//   padding: 0.25rem 0.5rem;
-//   background: #fee2e2;
-//   color: #dc2626;
-//   border: none;
-//   border-radius: 4px;
-//   cursor: pointer;
-//   font-size: 0.875rem;
-
-//   &:hover {
-//     background: #fecaca;
-//   }
-// `;
-
 const TaskList = styled.ul`
   list-style: none;
   padding: 0;

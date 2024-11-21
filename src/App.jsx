@@ -6,6 +6,7 @@ import { ProjectList } from "./components/ProjectList";
 import { DndContext } from "@dnd-kit/core";
 import { useState } from "react";
 import { Task } from "./components/Task";
+import { Dashboard } from "./components/Dashboard";
 
 const Section = styled.section`
   width: 100vw;
@@ -66,6 +67,7 @@ export const App = () => {
       <Section>
         <Header>
           <h1>Mikas Task Master</h1>
+          <Dashboard />
         </Header>
         <FilterButtons />
         <TaskInput />

@@ -10,6 +10,7 @@ const getInitialState = () => {
         newTask: "",
         activeFilter: "all",
         dueDate: "",
+        timestamp: "",
       };
 };
 
@@ -17,10 +18,10 @@ export const useTaskStore = create(
   localStorageMiddleware("tasks")((set) => ({
     ...getInitialState(),
 
-    setNewTask: (value) => set({ newTask: value }),
-    setTimestamp: (timestamp) => set({ timestamp: timestamp }),
+    // setNewTask: (value) => set({ newTask: value }),
+    // setTimestamp: (timestamp) => set({ timestamp: timestamp }),
     setFilter: (filter) => set({ activeFilter: filter }),
-    setDueDate: (date) => set({ dueDate: date }),
+    // setDueDate: (date) => set({ dueDate: date }),
     addTask: (taskName, category, dueDate, projectId, timestamp) =>
       set((state) => ({
         tasks: [
@@ -29,6 +30,7 @@ export const useTaskStore = create(
             id: Date.now(),
             name: taskName,
             completed: false,
+            completedAt: null,
             timestamp: timestamp,
             category: category,
             dueDate: dueDate,
@@ -39,7 +41,13 @@ export const useTaskStore = create(
     toggleTask: (taskId) =>
       set((state) => ({
         tasks: state.tasks.map((task) =>
-          task.id === taskId ? { ...task, completed: !task.completed } : task
+          task.id === taskId
+            ? {
+                ...task,
+                completed: !task.completed,
+                completedAt: !task.completed ? new Date().toISOString() : null,
+              }
+            : task
         ),
       })),
     deleteTask: (taskId) =>

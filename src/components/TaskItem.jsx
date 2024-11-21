@@ -77,6 +77,7 @@ export const TaskItem = ({ task, categoryId, onToggle }) => {
       .split("T")[0];
     const taskDate = task.date || "";
 
+    if (!taskDate) return "No Date";
     if (taskDate === today) return "Today";
     if (taskDate === tomorrow) return "Tomorrow";
     if (new Date(taskDate) < new Date(today)) return "Overdue";
@@ -88,8 +89,9 @@ export const TaskItem = ({ task, categoryId, onToggle }) => {
     const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
       .toISOString()
       .split("T")[0];
-    const taskDate = task.date || "";
-
+    const taskDate = task.date;
+  
+    if (!taskDate || isNaN(new Date(taskDate).getTime())) return "No Date"; // Handle invalid or missing dates
     if (taskDate === today) return "Today";
     if (taskDate === tomorrow) return "Tomorrow";
     if (new Date(taskDate) < new Date(today)) return "Overdue";
@@ -108,7 +110,9 @@ export const TaskItem = ({ task, categoryId, onToggle }) => {
           onClick={() => onToggle(categoryId, task.id)}
         />
         <TaskTextWrapper>
-          <TaskText completed={task.completed}>{task.name || "Unnamed Task"}</TaskText>
+          <TaskText completed={task.completed}>
+            {task.name || "Unnamed Task"}
+          </TaskText>
           <Badge status={getBadgeStatus()}>{getFormattedDate()}</Badge>
         </TaskTextWrapper>
       </TaskContent>

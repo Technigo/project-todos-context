@@ -8,7 +8,7 @@ export const TaskForm = () => {
   // State for task title
   const [title, setTitle] = useState("");
   // State for task category
-  const [category, setCategory] = useState("Other");
+  const [category, setCategory] = useState("To Do");
 
   // Access the 'addTask' action
   const addTask = useTaskStore((state) => state.addTask);
@@ -35,7 +35,7 @@ export const TaskForm = () => {
     });
 
     // Reset the input fields
-    setTitle(""), setCategory("General");
+    setTitle(""), setCategory("To Do");
     setIsFormVisible(false); // Hide the form after submitting
   };
 
@@ -54,13 +54,15 @@ export const TaskForm = () => {
       {/* Task form (always visible on lg and larger) */}
       <form
         onSubmit={handleSubmit}
-        className={`"bg-accent mt-4 p-5 flex flex-col gap-4 ${
+        className={`"bg-secondary mt-4 p-5 flex flex-col gap-4 ${
           isFormVisible ? "block" : "hidden"
-        } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg ${
+        } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg 
+        ${
           theme === "light"
             ? "bg-secondary text-primary"
-            : "bg-primary text-secondary"
-        }`}
+            : "bg-primary text-secondary border-secondary"
+        }
+        "`}
       >
         {/* Input field for task */}
         <input
@@ -77,6 +79,7 @@ export const TaskForm = () => {
           onChange={(event) => setCategory(event.target.value)}
           className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none"
         >
+          <option value="General">To Do</option>
           <option value="Personal">Personal Tasks</option>
           <option value="Work">Work/Professional</option>
           <option value="Home">Home & Family</option>

@@ -1,6 +1,14 @@
 .bin-button {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    background-color: #e8f3ff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bin-button:hover {
+    background-color: #8895a6;
 }
 
 .image-bin {

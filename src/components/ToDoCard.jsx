@@ -18,7 +18,7 @@ export const ToDoCard = () => {
           <div key={todo.id} className="todo-item">
 
             <span
-              style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+              className={`todo-text ${todo.completed ? "completed" : ""}`}
               onClick={() => toggleTodo(todo.id)}
             >
               {todo.text}
@@ -33,5 +33,3 @@ export const ToDoCard = () => {
     </div>
   );
 };
-
-

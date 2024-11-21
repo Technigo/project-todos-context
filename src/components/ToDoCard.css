@@ -1,5 +1,5 @@
 .todo-card-container {
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .todo-item {
@@ -15,4 +15,21 @@
 
 .card-button-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.todo-text {
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    overflow-wrap: break-word;
+    max-width: 200px;
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    color: gray;
 }

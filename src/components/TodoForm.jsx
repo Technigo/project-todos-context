@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { useTodoStore } from "../store/TodoStore"; //It's working even though it's a red underline, not to self
+import "../components/TodoForm.css";
 
 export const TodoForm = () => {
   const [input, setInput] = useState(""); //Local state for the input
@@ -30,7 +31,7 @@ export const TodoForm = () => {
         onChange={handleInputChange}
         placeholder="Write your to-do here"
         />
-        <button type="submit">Add task</button>
+        <button className="add-task-button" type="submit">Add task</button>
     </form>
   );
 };

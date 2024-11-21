@@ -1,6 +1,7 @@
 //Component for single to-do, create toggle function inside here
 import React from "react";
 import { useTodoStore } from "../store/TodoStore";
+import "../components/TodoItem.css";
 
 export const TodoItem =({ id }) => {
   const todo = useTodoStore((state) => state.todos.find((todo) => todo.id === id)); //Find the specific to-do

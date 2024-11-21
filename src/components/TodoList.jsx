@@ -2,6 +2,7 @@
 import React from "react";
 import { useTodoStore } from "../store/TodoStore";
 import { TodoItem } from "../components/TodoItem";
+import "../components/TodoList.css";
 
 export const TodoList = () => {
   const todos = useTodoStore((state) => state.todos); //Access the list of to-do's from Zustand

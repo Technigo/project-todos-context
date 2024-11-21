@@ -6,7 +6,7 @@ import { ProjectList } from "./components/ProjectList";
 import { DndContext } from "@dnd-kit/core";
 import { useState } from "react";
 import { Task } from "./components/Task";
-import { Dashboard } from "./components/Dashboard";
+import { Dashboard } from "./components/dashboard/Dashboard";
 
 const Section = styled.section`
   width: 100vw;
@@ -61,12 +61,15 @@ const StyledSection = styled(Section)`
   flex-direction: row;
 `;
 
+const user = {
+  name: "Mika",
+};
 export const App = () => {
   return (
     <StyledSection>
       <Section>
         <Header>
-          <h1>Mikas Task Master</h1>
+          <h1>Welcome {user.name}, here are your weekly stats</h1>
           <Dashboard />
         </Header>
         <FilterButtons />

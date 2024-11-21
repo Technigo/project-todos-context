@@ -11,7 +11,7 @@ export const Header = () => {
         theme === "light"
           ? "bg-secondary text-primary"
           : "bg-primary text-secondary"
-      } flex flex-col justify-center xl:justify-between p-5 md:pt-10 lg:p-12 shadow-md w-full xl:w-[45%] xl:h-screen gap-4`}
+      } flex flex-col justify-center xl:justify-between p-5 md:pt-10 lg:p-12 shadow-md w-full xl:w-[45%] xl:h-screen gap-y-6`}
     >
       <div>
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold md:text-center">
@@ -26,7 +26,7 @@ export const Header = () => {
       <div className="hidden xl:block mt-4">
         <img
           src={Sloth}
-          alt="Large Screen Only"
+          alt="Illustration of a sloth to inspire productivity"
           className="rounded-lg shadow-md object-cover"
         />
       </div>

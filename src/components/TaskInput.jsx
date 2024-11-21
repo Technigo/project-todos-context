@@ -7,8 +7,8 @@ const Form = styled.form`
   gap: 1rem;
   margin: 1rem 0;
   padding: 1rem;
-  background: white;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
@@ -19,10 +19,11 @@ const Form = styled.form`
 const Input = styled.input`
   padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 12px;
   flex: 1;
   font-size: 1rem;
   transition: border-color 0.2s ease;
+  background: white;
 
   &:focus {
     outline: none;
@@ -35,7 +36,8 @@ const RadioGroup = styled.div`
   gap: 1rem;
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 12px;
+  background: white;
 `;
 
 const RadioLabel = styled.label`
@@ -48,7 +50,7 @@ const RadioLabel = styled.label`
 const Button = styled.button`
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 24px;
   background-color: #1a73e8;
   color: white;
   cursor: pointer;
@@ -61,8 +63,9 @@ const Button = styled.button`
 const ProjectSelect = styled.select`
   padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 12px;
   flex: 1;
+  background: white;
 `;
 
 export const TaskInput = () => {
@@ -74,12 +77,11 @@ export const TaskInput = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const category = formData.get("category");
+    const timestamp = Date.now();
 
-    
-    
     const projectId = selectedProjectId ? Number(selectedProjectId) : null;
 
-    addTask(newTask, category, dueDate, projectId);
+    addTask(newTask, category, dueDate, projectId, timestamp);
     setNewTask("");
     setSelectedProjectId("");
   };

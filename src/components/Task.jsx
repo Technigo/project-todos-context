@@ -46,7 +46,7 @@ export const Task = ({ task }) => {
         </TaskTitle>
 
         <TaskFooter>
-          <span>{moment().endOf(task.dueDate).fromNow()}</span>
+          <span>{moment(task.timestamp).endOf(task.dueDate).fromNow()}</span>
           <DeleteButton onClick={() => deleteTask(task.id)}>
             Delete
           </DeleteButton>

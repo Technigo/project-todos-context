@@ -11,13 +11,16 @@ const Section = styled.section`
   width: 100vw;
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+  background: linear-gradient(
+    35deg,
+    hsl(206deg 61.27% 80.09%) 0%,
+    #9ab8ee 100%
+  );
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  max-width: 1440px;
 `;
 
 const Header = styled.header`

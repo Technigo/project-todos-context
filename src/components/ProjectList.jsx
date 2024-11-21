@@ -8,7 +8,7 @@ import styled from "styled-components";
 const ProjectSection = styled.section`
   margin-top: 2rem;
   padding: 1rem;
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -29,7 +29,7 @@ const ProjectForm = styled.form`
     flex: 1;
     padding: 0.75rem;
     border: 1px solid #e2e8f0;
-    border-radius: 4px;
+    border-radius: 12px;
     font-size: 1rem;
 
     &:focus {
@@ -43,7 +43,7 @@ const ProjectForm = styled.form`
     background: #1a73e8;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 24px;
     cursor: pointer;
     font-weight: var(--font-weight-medium);
 

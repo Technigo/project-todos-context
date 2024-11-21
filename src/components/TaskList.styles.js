@@ -112,7 +112,7 @@ export const TaskFooter = styled.div`
 export const DeleteButton = styled.button`
   padding: 0.4rem 0.8rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 24px;
   background-color: transparent;
   color: #dc2626;
   font-size: 0.9rem;

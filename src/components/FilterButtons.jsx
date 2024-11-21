@@ -15,7 +15,7 @@ const FilterContainer = styled.div`
 const FilterButton = styled.button`
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   background-color: ${(props) => (props.active ? "#1a73e8" : "#e8f0fe")};
   color: ${(props) => (props.active ? "white" : "#1a73e8")};
@@ -27,8 +27,8 @@ const FilterButton = styled.button`
   }
 
   span {
-    background: ${props => props.active ? 'white' : '#1a73e8'};
-    color: ${props => props.active ? '#1a73e8' : 'white'};
+    background: ${(props) => (props.active ? "white" : "#1a73e8")};
+    color: ${(props) => (props.active ? "#1a73e8" : "white")};
     padding: 0.1rem 0.5rem;
     border-radius: 12px;
     margin-left: 0.5rem;
@@ -46,9 +46,7 @@ export const FilterButtons = () => {
         onClick={() => setFilter("all")}
       >
         All
-        <span>
-          {tasks.length}
-        </span>
+        <span>{tasks.length}</span>
       </FilterButton>
       <FilterButton
         active={activeFilter === "work"}
@@ -56,7 +54,10 @@ export const FilterButtons = () => {
       >
         Work
         <span>
-          {tasks.filter(task => task.category === "work" && !task.completed).length}
+          {
+            tasks.filter((task) => task.category === "work" && !task.completed)
+              .length
+          }
         </span>
       </FilterButton>
       <FilterButton
@@ -65,7 +66,11 @@ export const FilterButtons = () => {
       >
         Personal
         <span>
-          {tasks.filter(task => task.category === "personal" && !task.completed).length}
+          {
+            tasks.filter(
+              (task) => task.category === "personal" && !task.completed
+            ).length
+          }
         </span>
       </FilterButton>
       <FilterButton
@@ -73,9 +78,7 @@ export const FilterButtons = () => {
         onClick={() => setFilter("completed")}
       >
         Completed
-        <span>
-          {tasks.filter(task => task.completed).length}
-        </span>
+        <span>{tasks.filter((task) => task.completed).length}</span>
       </FilterButton>
     </FilterContainer>
   );

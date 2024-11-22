@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import todo from "../assets/todolist.jpg"
+
 
 const HeaderFlex = styled.div`
   display: flex;
@@ -8,40 +8,25 @@ const HeaderFlex = styled.div`
   text-align: center;
   padding: 15px;
   justify-content: flex-start; /* Push content to the top of the screen */
-
-
-  @media (min-width: 768px) {
-    padding: 40px;
-  }
-`;
-
-const HeaderImg = styled.img`
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px; /* Adds spacing between the image and the heading */
-
-  @media (min-width: 768px) {
-    max-width: 50%; /* Adjust image size for tablets and larger screens */
-  }
-
-  @media (min-width: 1024px) {
-    max-width: 30%; /* Adjust image size for desktops */
-  }
 `;
 
 const HeaderContent = styled.div`
   h1 {
-    font-size: 2.3rem; /* Default font size for mobile */
+    font-size: 4rem; /* Default font size for mobile */
     color: #FFF;
     margin: 0;
     font-family: "Reenie Beanie";
 
-    @media (min-width: 768px) {
-      font-size: 3rem; /* Larger font size for tablets */
+    @media (max-width: 480px) {
+      font-size: 2.8rem; /* Larger font size for tablets */
     }
 
+    @media (max-width: 768px) {
+    padding-top: 40px;  
+  }
+
     @media (min-width: 1024px) {
-      font-size: 4rem; /* Even larger font size for desktops */
+      font-size: 5rem; /* Even larger font size for desktops */
     }
   }
 `;
@@ -52,7 +37,6 @@ export const Header = () => {
   return (
     <header>
       <HeaderFlex>
-        <HeaderImg src={todo} alt="To do list" className="todo" />
         <HeaderContent>
           <h1>My To Do List ✔️</h1>
         </HeaderContent>

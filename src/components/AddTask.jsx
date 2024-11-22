@@ -11,14 +11,14 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 30px;
+  padding: 30px 10px 15px 10px;
   border: solid grey;
   background-color: #f2f0f0;
   border-width: thin;
-  box-shadow: 10px 5px 0px black;
+  box-shadow: 5px 5px 0px black;
 
   @media (max-width: 500px) {
-    max-width: 300px;
+    max-width: 90%;
   }
 `;
 

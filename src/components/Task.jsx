@@ -13,10 +13,24 @@ const TaskContainer = styled.div`
   box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.356);
   position: relative;
   word-wrap: break-word; /* Ensure long words break and wrap */
+
+  /* Adjust size for smaller screens */
+  @media (max-width: 768px) {
+    width: 80%; /* Use 80% of the screen width */
+    height: auto; 
+    padding: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%; /* Full width for very small screens */
+    padding: 0.5rem;
+  }
+
 `;
 // Use styled-components' shouldForwardProp utility to prevent "completed" from being forwarded to the DOM
 TaskContainer.defaultProps = {
   as: ({ completed, ...props }) => <div {...props} />, // Remove "completed" when rendering
+
 };
 
 const CheckMark = styled.i`

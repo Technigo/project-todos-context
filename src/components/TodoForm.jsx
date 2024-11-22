@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import { useTodoStore } from "../store/TodoStore"; 
+import { useTodoStore } from "../store/TodoStore.jsx"; 
 import "../components/TodoForm.css";
 
 export const TodoForm = () => {

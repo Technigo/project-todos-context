@@ -22,7 +22,7 @@ export const TodoList = () => {
           <h2>
             Incomplete Tasks 
             <span>({incompleteTodos.length})</span>
-            <img src={waitIcon} alt="hourglass" className="wait-icon" />
+            <img src={waitIcon} alt="Hourglass in light blue and orange" className="wait-icon" />
           </h2>
           {incompleteTodos.length === 0 ? (
             <p>You're a star!</p>
@@ -36,7 +36,7 @@ export const TodoList = () => {
           <h2>
             Completed Tasks 
             <span>({completedTodos.length})</span>
-            <img src={thumbIcon} alt="thumbs up" className="thumb-icon" /> 
+            <img src={thumbIcon} alt="A hand doing thumbs-up with small yellow stars above" className="thumb-icon" /> 
           </h2>
           {completedTodos.length === 0 ? (
             // Why is the text below in the paragraph not showing on the site?

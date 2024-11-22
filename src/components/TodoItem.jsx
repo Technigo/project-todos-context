@@ -33,7 +33,7 @@ export const TodoItem =({ id }) => {
       {/* Delete clickable icon */}
       <img
         src={DeleteIcon}
-        alt="Delete task"
+        alt="Pastel green bin button"
         onClick={handleDeleteClick} 
         className="delete-icon"
       />

@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #001F3F;
+    /* Deep Blue Background */
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,6 +14,7 @@ body {
     width: 100%;
     max-width: 500px;
     background: #3A6D8C;
+    /* Soft Blue */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -21,6 +23,7 @@ body {
 h1 {
     text-align: center;
     color: #EAD8B1;
+    /* Warm Beige for Contrast */
 }
 
 .task-input {
@@ -41,11 +44,11 @@ h1 {
     padding: 10px 20px;
     background-color: #EAD8B1;
     color: #001F3F;
+    /* Dark Blue for Strong Contrast */
     border: solid 3px;
     border-radius: 4px;
     cursor: pointer;
     border-color: #001F3F;
-
 }
 
 .task-input button:hover {
@@ -79,12 +82,13 @@ h1 {
 }
 
 .task-item button {
-    background: #dc3545;
-    color: white;
-    border: none;
+    background: #3A6D8C;
+    color: #EAD8B1;
+    border: solid 3px;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+    border-color: #001F3F;
 }
 
 .task-item button:hover {
@@ -94,6 +98,8 @@ h1 {
 .task-count {
     margin-bottom: 20px;
     font-size: 16px;
-    color: #EAD8B1;
+    color: #FFFFFF;
+    /* White for Higher Contrast */
     text-align: center;
+    font-weight: bold;
 }

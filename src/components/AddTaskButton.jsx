@@ -20,6 +20,17 @@ const FloatingButton = styled.button`
   }
 `;
 
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: ${({ visible }) => (visible ? "block" : "none")};
+  z-index: 5;
+`;
+
 const BottomSheet = styled.div`
   position: fixed;
   bottom: 0;
@@ -31,6 +42,7 @@ const BottomSheet = styled.div`
   border-top-right-radius: 12px;
   transform: translateY(${({ visible }) => (visible ? "0" : "100%")});
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
 `;
 
 const Input = styled.input`
@@ -86,6 +98,7 @@ export const AddTaskButton = ({ availableCategories, onAddTask }) => {
   return (
     <>
       <FloatingButton onClick={() => setVisible(true)}>+</FloatingButton>
+      <Overlay visible={visible} onClick={() => setVisible(false)} />
       <BottomSheet visible={visible}>
         {availableCategories.length > 0 && (
           <Select

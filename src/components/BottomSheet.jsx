@@ -13,6 +13,7 @@ const SheetContainer = styled.div`
   border-top-right-radius: 12px;
   transform: translateY(${({ visible }) => (visible ? "0" : "100%")});
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
 `;
 
 const Overlay = styled.div`
@@ -23,31 +24,49 @@ const Overlay = styled.div`
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   display: ${({ visible }) => (visible ? "block" : "none")};
+  z-index: 5;
 `;
 
 const AddTaskForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
+  width: 100%;
 `;
 
 const Input = styled.input`
+  width: 100%;
+  max-width: 500px;
   padding: 0.75rem;
   border: 1px solid #333;
   border-radius: 8px;
   background: #121212;
   color: white;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #ff69b4;
+  }
 `;
 
 const Button = styled.button`
+  width: 100%;
+  max-width: 500px;
   padding: 0.75rem;
   background: #007bff;
   color: white;
   border: none;
   border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #0056b3;
+  }
 `;
 
-export const BottomSheet = ({ visible, onClose, onSubmit }) => {
+export function BottomSheet({ visible, onClose, onSubmit }) {
   const [category, setCategory] = useState("");
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
@@ -58,13 +77,25 @@ export const BottomSheet = ({ visible, onClose, onSubmit }) => {
     setCategory("");
     setTask("");
     setDate("");
-    onClose();
+    onClose(); // Close the sheet after submission
   };
 
   return (
     <>
-      <Overlay visible={visible} onClick={onClose} />
-      <SheetContainer visible={visible}>
+      <Overlay
+        visible={visible}
+        onClick={() => {
+          console.log("Overlay clicked");
+          onClose();
+        }}
+      />
+      <SheetContainer
+        visible={visible}
+        onClick={(e) => {
+          console.log("Sheet clicked");
+          e.stopPropagation();
+        }}
+      >
         <AddTaskForm onSubmit={handleSubmit}>
           <Input
             placeholder="Category"
@@ -86,4 +117,4 @@ export const BottomSheet = ({ visible, onClose, onSubmit }) => {
       </SheetContainer>
     </>
   );
-};
+}

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { CategoryList } from "./CategoryList";
 import { AddTaskButton } from "./AddTaskButton";
 
-export const TaskManager = () => {
+export function TaskManager() {
   const [categories, setCategories] = useState([]);
   const [availableCategories, setAvailableCategories] = useState([]);
 
   // Add a new category or task
-  const handleAddTask = ({ category, task, date }) => {
+  function handleAddTask({ category, task, date }) {
     setCategories((prevCategories) => {
       const existingCategory = prevCategories.find((c) => c.title === category);
 
@@ -32,14 +32,14 @@ export const TaskManager = () => {
             },
           ],
         };
-        setAvailableCategories([...availableCategories, category]);
+        setAvailableCategories((prev) => [...prev, category]);
         return [...prevCategories, newCategory];
       }
     });
-  };
+  }
 
   // Toggle task completion
-  const toggleTaskCompletion = (categoryId, taskId) => {
+  function toggleTaskCompletion(categoryId, taskId) {
     setCategories((prevCategories) =>
       prevCategories.map((category) =>
         category.id === categoryId
@@ -54,29 +54,44 @@ export const TaskManager = () => {
           : category
       )
     );
-  };
+  }
 
-  // Handle drag-and-drop
-  const handleDragAndDrop = (categoryId, sourceIndex, destinationIndex) => {
+  // Delete a task
+  function handleDeleteTask(categoryId, taskId) {
     setCategories((prevCategories) =>
-      prevCategories.map((category) => {
-        if (category.id === categoryId) {
-          const updatedTasks = Array.from(category.tasks);
-          const [movedTask] = updatedTasks.splice(sourceIndex, 1);
-          updatedTasks.splice(destinationIndex, 0, movedTask);
-          return { ...category, tasks: updatedTasks };
-        }
-        return category;
-      })
+      prevCategories.map((category) =>
+        category.id === categoryId
+          ? {
+              ...category,
+              tasks: category.tasks.filter((task) => task.id !== taskId),
+            }
+          : category
+      )
     );
-  };
+  }
+
+  // Delete a category
+  function handleDeleteCategory(categoryId) {
+    setCategories((prevCategories) => {
+      const updatedCategories = prevCategories.filter(
+        (category) => category.id !== categoryId
+      );
+      // Update availableCategories
+      const updatedAvailableCategories = updatedCategories.map(
+        (category) => category.title
+      );
+      setAvailableCategories(updatedAvailableCategories);
+      return updatedCategories;
+    });
+  }
 
   return (
     <>
       <CategoryList
         categories={categories}
         onToggleTask={toggleTaskCompletion}
-        onDragAndDrop={handleDragAndDrop}
+        onDeleteTask={handleDeleteTask}
+        onDeleteCategory={handleDeleteCategory} // Pass delete category function
       />
       <AddTaskButton
         availableCategories={availableCategories}
@@ -84,4 +99,4 @@ export const TaskManager = () => {
       />
     </>
   );
-};
+}

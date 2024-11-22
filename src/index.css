@@ -5,8 +5,3 @@ body {
   font-family: 'San Francisco', Helvetica, Arial, san-serif;
 }
 
-button, input, select {
-  font-family: inherit;
-  color: inherit;
-  background: inherit;
-}

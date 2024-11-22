@@ -4,10 +4,15 @@ import { Category } from "./Category";
 
 const ListContainer = styled.div`
   padding: 1rem;
-  background: #121212; /* Dark background */
+  background: #121212; 
 `;
 
-export const CategoryList = ({ categories, onToggleTask, onDragAndDrop }) => {
+export function CategoryList({
+  categories,
+  onToggleTask,
+  onDeleteTask,
+  onDeleteCategory,
+}) {
   return (
     <ListContainer>
       {categories.map((category) => (
@@ -15,9 +20,10 @@ export const CategoryList = ({ categories, onToggleTask, onDragAndDrop }) => {
           key={category.id}
           category={category}
           onToggleTask={onToggleTask}
-          onDragAndDrop={onDragAndDrop}
+          onDeleteTask={onDeleteTask}
+          onDeleteCategory={onDeleteCategory} 
         />
       ))}
     </ListContainer>
   );
-};
+}

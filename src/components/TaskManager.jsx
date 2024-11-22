@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { CategoryList } from "./CategoryList";
 import { AddTaskButton } from "./AddTaskButton";
+import { Header } from "./Header";
 
 export function TaskManager() {
   const [categories, setCategories] = useState([]);
   const [availableCategories, setAvailableCategories] = useState([]);
+  const [title, setTitle] = useState("Checklist"); // Header title state
 
   // Add a new category or task
   function handleAddTask({ category, task, date }) {
@@ -87,6 +89,7 @@ export function TaskManager() {
 
   return (
     <>
+      <Header title={title} onTitleChange={setTitle} />
       <CategoryList
         categories={categories}
         onToggleTask={toggleTaskCompletion}

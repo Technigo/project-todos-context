@@ -1,57 +1,90 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import editIcon from "../assets/icons/edit.png";
 
-const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #1d1f21;
-  color: white;
-`;
-
-const Title = styled.h1`
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #ffffff;
-  flex-grow: 1;
+const HeaderContainer = styled.div`
   text-align: center;
+  margin-bottom: 2rem;
 `;
 
-const EditButton = styled.button`
-  background: none;
-  border: none;
-  color: #6c757d;
-  cursor: pointer;
-  font-size: 1rem;
+const TitleWrapper = styled.div`
+  display: inline-flex;
+  align-items: center;
+  position: relative;
 
-  &:hover {
-    color: white;
+  &:hover img {
+    opacity: 1;
   }
 `;
 
-export const Header = () => {
-  const [title, setTitle] = useState("Checklist");
-  const [isEditing, setIsEditing] = useState(false);
+const Title = styled.h1`
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+`;
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
+const EditIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  opacity: 0;
+  filter: invert(1); /* Invert the colors of the icon */
+  transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
+`;
+
+const Input = styled.input`
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background: none;
+  border: none;
+  outline: none;
+  margin: 0;
+
+  &::placeholder {
+    color: gray;
+  }
+`;
+
+export function Header({ title, onTitleChange }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [draftTitle, setDraftTitle] = useState(title);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleInputChange = (e) => {
+    setDraftTitle(e.target.value);
+  };
+
+  const handleInputBlur = () => {
+    if (draftTitle.trim() === "") {
+      setDraftTitle(title); // Revert to the original title if the input is empty
+    } else {
+      onTitleChange(draftTitle); // Update the title when editing is complete
+    }
+    setIsEditing(false);
   };
 
   return (
     <HeaderContainer>
       {isEditing ? (
-        <input
-          type="text"
-          value={title}
-          onChange={handleTitleChange}
-          onBlur={() => setIsEditing(false)}
+        <Input
+          value={draftTitle}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
           autoFocus
         />
       ) : (
-        <Title onClick={() => setIsEditing(true)}>{title}</Title>
+        <TitleWrapper>
+          <Title>{title}</Title>
+          <EditIcon src={editIcon} alt="Edit Title" onClick={handleEditClick} />
+        </TitleWrapper>
       )}
-      <EditButton onClick={() => setIsEditing(true)}>✏️</EditButton>
     </HeaderContainer>
   );
-};
+}

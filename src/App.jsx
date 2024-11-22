@@ -16,7 +16,7 @@ export const App = () => {
       }`}
     >
       <Header />
-      <main className="flex-grow relative p-5">
+      <main className="flex-grow relative p-5 pb-20">
         <TaskForm />
         <TaskList />
       </main>

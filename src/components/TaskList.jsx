@@ -8,6 +8,8 @@ export const TaskList = () => {
   const tasks = useTaskStore((state) => state.tasks);
   // Access toggleTask
   const toggleTask = useTaskStore((state) => state.toggleTask);
+  // Access deleteTask
+  const deleteTask = useTaskStore((state) => state.deleteTask);
   // Access theme
   const theme = useThemeStore((state) => state.theme);
 
@@ -31,6 +33,17 @@ export const TaskList = () => {
     {}
   );
 
+  // Define category colors
+  const categoryColors = {
+    Personal: "bg-personal text-personal-text",
+    Work: "bg-work text-work-text",
+    Home: "bg-home text-home-text",
+    School: "bg-school text-school-text",
+    Social: "bg-social text-social-text",
+    Creative: "bg-creative text-creative-text",
+    Other: "bg-other text-other-text",
+  };
+
   // Render sloth image if there are no tasks
   if (tasks.length === 0) {
     return (
@@ -38,7 +51,7 @@ export const TaskList = () => {
         <img
           src={SleepingSloth}
           alt="A drawing of a sleeping sloth"
-          className="w-64 h-64 rounded-md object-contain"
+          className="w-64 h-64 rounded-md object-contain opacity-70 pt-10"
         />
         <p
           className={` mt-4 text-lg 
@@ -56,7 +69,12 @@ export const TaskList = () => {
       {Object.keys(tasksByCategory).map((category) => (
         <div
           key={category}
-          className="bg-secondary text-primary p-4 rounded-lg shadow-md w-full sm:flex-basis-[48%] md:flex-basis-[30%] flex-shrink"
+          className={
+            // "bg-secondary text-primary p-4 rounded-lg shadow-md w-full sm:flex-basis-[48%] md:flex-basis-[30%] flex-shrink"
+            `p-4 rounded-lg shadow-md ${
+              categoryColors[category] || "bg-other text-other-text"
+            }`
+          }
         >
           {/* Category Header */}
           <h2 className="text-lg font-semibold border-b pb-2 mb-4">
@@ -65,7 +83,12 @@ export const TaskList = () => {
           <ul className="flex flex-col gap-2">
             {/* Use Task component to render individual tasks */}
             {tasksByCategory[category].map((task) => (
-              <Task key={task.id} task={task} toggleTask={toggleTask} />
+              <Task
+                key={task.id}
+                task={task}
+                toggleTask={toggleTask}
+                deleteTask={deleteTask}
+              />
             ))}
           </ul>
         </div>

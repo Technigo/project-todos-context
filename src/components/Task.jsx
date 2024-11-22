@@ -1,7 +1,7 @@
 import { FaCheck } from "react-icons/fa";
 
 // Task Component: Renders a single task item with a checkbox and title
-export const Task = ({ task, toggleTask }) => {
+export const Task = ({ task, toggleTask, deleteTask }) => {
   return (
     <li className="flex items-center justify-between p-2 border rounded-md">
       {/* Label wraps the checkbox and title for accessibility */}
@@ -27,6 +27,16 @@ export const Task = ({ task, toggleTask }) => {
           {task.title}
         </span>
       </label>
+
+      {/* Delete button */}
+      <button
+        // Call deleteTask with task ID
+        onClick={() => deleteTask(task.id)}
+        aria-label={`Delete task: ${task.title}`}
+        className="text-red-500 hover:text red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+      >
+        &#10005;
+      </button>
     </li>
   );
 };

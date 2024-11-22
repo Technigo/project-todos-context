@@ -1,4 +1,9 @@
 footer {
   background-color: pink;
   height: 100vh;
+  text-align: end;
+}
+
+footer p {
+  padding: 15px;
 }

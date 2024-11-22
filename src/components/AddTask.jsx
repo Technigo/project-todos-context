@@ -84,6 +84,13 @@ export const AddTask = () => {
   const totalTasks = getTotalTasks();
   const completedTasks = getCompletedTasks();
 
+  // Handle Enter key to submit the form
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      handleSubmit(event);
+    }
+  };
+
   return (
     <div className="add-task">
       <Form onSubmit={handleSubmit}>
@@ -96,6 +103,7 @@ export const AddTask = () => {
           name="addTask"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
+          onKeyDown={handleKeyDown} // Listen for the Enter key press
           rows="2"
           cols="40"
           placeholder="New task..."

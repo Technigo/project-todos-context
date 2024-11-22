@@ -28,18 +28,18 @@ const CheckMark = styled.i`
 `
 
 const H2 = styled.h2`
- font-size: 30px;
- font-family: "Reenie Beanie";  
- font-weight: 600;
+ font-size: 20px;
+ font-family: "Indie Flower", cursive;  
+ font-weight: 500;
  text-align: center; 
  margin: 0; 
 `
 const StyledP = styled.p`
- font-size: 18px;
- font-family: "Reenie Beanie";  
- font-weight: 500;
+ font-size: 11px;
+ font-family: "Poppins"; 
+ font-weight: 400;
  margin: 0;
- text-align: left; /* Centers text within the container */
+ text-align: left; 
 `
 
 const TrashIcon = styled.i`
@@ -77,7 +77,8 @@ export const Task = ({ task }) => {
         className="fa fa-trash-o"
         onClick={() => removeTask(task.id)}
       />
-      <StyledP>Created: {new Date(task.createdAt).toLocaleString()}</StyledP>
+      <StyledP>Created: {new Date(task.createdAt).toLocaleDateString("en-GB")} at {new Date(task.createdAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</StyledP>
+      {/* "en-gb" gives the date in the format dd/mm/yyyy (or your region's default date format. */}
     </TaskContainer>
   );
 };

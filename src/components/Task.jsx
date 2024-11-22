@@ -16,7 +16,7 @@ const TaskContainer = styled.div`
 
   /* Adjust size for smaller screens */
   @media (max-width: 768px) {
-    width: 80%; /* Use 80% of the screen width */
+    width: 100%; /* Use 80% of the screen width */
     height: auto; 
     padding: 0.8rem;
   }

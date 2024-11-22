@@ -12,20 +12,20 @@ const TaskContainer = styled.div`
   height: 250px;
   box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.356);
   position: relative;
-  
+  word-wrap: break-word; /* Ensure long words break and wrap */
 `;
 // Use styled-components' shouldForwardProp utility to prevent "completed" from being forwarded to the DOM
 TaskContainer.defaultProps = {
   as: ({ completed, ...props }) => <div {...props} />, // Remove "completed" when rendering
 };
 
-const CheckMark = styled.input`
+const CheckMark = styled.i`
   margin-right: 30px; // Space between checkbox and task title
-  width: 20px; /* Set the desired width */
-  height: 20px; /* Set the desired height */
-  cursor: pointer; // Make it look clickable
+  font-size: 30px; 
+  cursor: pointer;
+  color: ${(props) => (props.completed ? "#28a745" : "#000")}; /* Green for completed, black otherwise */
 
-`;
+`
 
 const H2 = styled.h2`
  font-size: 25px;
@@ -64,9 +64,11 @@ export const Task = ({ task }) => {
     <TaskContainer completed={task.completed}>
       {/* Checkbox to toggle task completion */}
       <CheckMark
-        type="checkbox" aria-label="checkbox"
-        checked={task.completed}
-        onChange={() => toggleTask(task.id)} // Toggling completion state
+        className={`fa ${task.completed ? "fa-check-square" : "fa-square-o"}`}
+        completed={task.completed}
+        aria-checked={task.completed} // Describes the checked state
+        aria-label={task.completed ? "Mark task as incomplete" : "Mark task as completed"}
+        onClick={() => toggleTask(task.id)}
       />
       <H2 style={{ textDecoration: task.completed ? "line-through" : "none" }}>
         {task.title}

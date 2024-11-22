@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 export const useTaskStore = create(
   // persist middleware, automatically handles saving and retrieving state from local storage.
   persist(
-    (set) => ({
+    (set, get) => ({
       tasks: [], //Empty list from the beginning
 
       // Function to add a new task
@@ -31,6 +31,13 @@ export const useTaskStore = create(
             task.id === id ? { ...task, completed: !task.completed } : task
           ),
         })),
+      // Derived state: Total number of tasks, get() is used to access the current state inside derived state methods.
+      getTotalTasks: () => get().tasks.length,  //A computed value that returns the total number of tasks (tasks.length).
+
+      // Derived state: Number of completed tasks
+      getCompletedTasks: () =>
+        get().tasks.filter((task) => task.completed).length, //A computed value that returns the number of tasks where completed is true.
+
     }),
     {
       name: "task-storage",   //Name of the key in localStorage

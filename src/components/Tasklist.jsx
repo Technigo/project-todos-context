@@ -7,12 +7,12 @@ const TaskSection = styled.section`
   display: grid; 
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
-  padding: 40px;
+  padding: 30px;
   justify-content: center; /* Center items horizontally */
   width: fit-content; /* Adjust the section width to fit the grid content */
   max-width: 100%; /* Prevent it from exceeding the viewport width */
   margin: 0 auto; /* Center the section itself */
-  transition: transform .15s linear;
+  transition: transform 0.15s linear ease-out;
 
   
 :hover {
@@ -28,11 +28,22 @@ const TaskSection = styled.section`
   /* Media query for mobile (2 tasks per row) */
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+
+    /* Disable hover effect on mobile */
+    &:hover {
+      transform: none;
+    }
   }
+  
 
    /* Media query for mobile (2 tasks per row) */
    @media (max-width: 480px) {
     grid-template-columns: repeat(1, 1fr);
+
+     /* Disable hover effect on mobile */
+    &:hover {
+      transform: none;
+    }
   }
 `;
 

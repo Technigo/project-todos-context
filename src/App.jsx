@@ -5,6 +5,7 @@ import { Header } from "./sections/Header";
 import { NewTask } from "./sections/NewTask";
 import { TaskCounter } from "./sections/TaskCounter";
 import { Tasks } from "./sections/Tasks";
+import "./App.css";
 
 export const App = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import "../components/animation.css";
+import "../components/Animation.css";
 
 export const Animation = () => {
   return (

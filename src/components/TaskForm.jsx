@@ -52,64 +52,66 @@ export const TaskForm = () => {
         {isFormVisible ? <FaTimes size={24} /> : <FaPlus size={24} />}
       </button>
       {/* Task form (always visible on lg and larger) */}{" "}
-      <form
-        onSubmit={handleSubmit}
-        className={`bg-secondary p-5 flex flex-col gap-4 ${
-          isFormVisible ? "block" : "hidden"
-        } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg ${
-          theme === "light"
-            ? "bg-secondary text-primary"
-            : "bg-primary text-secondary border-secondary"
-        }`}
-      >
-        {/* Input field for task with label for screen reader */}
-        <label htmlFor="task-title" className="sr-only">
-          Task Title
-        </label>
-        <input
-          id="task-title"
-          type="text"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-          placeholder="Name a task..."
-          className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none flex-grow h-10"
-        />
-
-        {/* Dropdown menu for task category */}
-        <div>
-          {/* Hidden Label for Accessibility */}
-          <label htmlFor="task-category" className="sr-only">
-            Task Category
-          </label>
-
-          {/* Select Dropdown */}
-          <select
-            id="task-category"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none w-full h-10"
-          >
-            <option value="" disabled>
-              Choose a category
-            </option>
-            <option value="Personal">Personal Tasks</option>
-            <option value="Work">Work/Professional</option>
-            <option value="Home">Home & Family</option>
-            <option value="School">School/Education</option>
-            <option value="Social">Social & Relationships</option>
-            <option value="Creative">Creative Projects</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        {/* Submit button */}
-        <button
-          type="submit"
-          className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/80 focus:ring-2 focus:ring-primary focus:outline-none h-10"
+      <div className="flex flex-col items-center">
+        <form
+          onSubmit={handleSubmit}
+          className={`bg-secondary p-5 flex flex-col gap-4 w-full md:max-w-lg lg:max-w-xl ${
+            isFormVisible ? "block" : "hidden"
+          } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg ${
+            theme === "light"
+              ? "bg-secondary text-primary"
+              : "bg-primary text-secondary border-secondary"
+          }`}
         >
-          Add Task
-        </button>
-      </form>
+          {/* Input field for task with label for screen reader */}
+          <label htmlFor="task-title" className="sr-only">
+            Task Title
+          </label>
+          <input
+            id="task-title"
+            type="text"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            placeholder="Name a task..."
+            className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none flex-grow h-10"
+          />
+
+          {/* Dropdown menu for task category */}
+          <div>
+            {/* Hidden Label for Accessibility */}
+            <label htmlFor="task-category" className="sr-only">
+              Task Category
+            </label>
+
+            {/* Select Dropdown */}
+            <select
+              id="task-category"
+              value={category}
+              onChange={(event) => setCategory(event.target.value)}
+              className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none w-full h-10"
+            >
+              <option value="" disabled>
+                Choose a category
+              </option>
+              <option value="Personal">Personal Tasks</option>
+              <option value="Work">Work/Professional</option>
+              <option value="Home">Home & Family</option>
+              <option value="School">School/Education</option>
+              <option value="Social">Social & Relationships</option>
+              <option value="Creative">Creative Projects</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          {/* Submit button */}
+          <button
+            type="submit"
+            className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/80 focus:ring-2 focus:ring-primary focus:outline-none h-10"
+          >
+            Add Task
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

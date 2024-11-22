@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { format } from "date-fns";
 
 const getLocalTasks = () => {
   const storedTasks = localStorage.getItem("tasks");
@@ -13,7 +14,12 @@ export const useTaskStore = create((set) => ({
   // Action: Add a new task to the store
   addTask: (task) =>
     set((state) => {
-      const updatedTasks = [...state.tasks, task];
+      const newTask = {
+        ...task,
+        // Add the current timestamp
+        createdAt: new Date().toISOString(),
+      };
+      const updatedTasks = [...state.tasks, newTask];
       // Save to local storage
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
       return { tasks: updatedTasks };
@@ -28,7 +34,7 @@ export const useTaskStore = create((set) => ({
           task.id === id ? { ...task, completed: !task.completed } : task
         // Otherwise, return task as is
       );
-      // Save to local storage
+      // Save updated tasks to local storage
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
       return { tasks: updatedTasks };
     }),

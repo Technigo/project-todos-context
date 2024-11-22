@@ -11,7 +11,7 @@ export const Header = () => {
         theme === "light"
           ? "bg-secondary text-primary"
           : "bg-primary text-secondary"
-      } flex flex-col justify-center xl:justify-between p-6 md:pt-10 lg:p-12 shadow-md w-full xl:w-[45%] xl:h-screen gap-2`}
+      } flex flex-col justify-center xl:justify-between p-6 md:p-10 md:gap-10 lg:p-12 lg:gap-12 shadow-md w-full xl:w-[40%] xl:h-screen gap-6`}
     >
       <div>
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold md:text-center">
@@ -22,7 +22,7 @@ export const Header = () => {
             theme === "light" ? "text-gray-600" : "text-gray-300"
           } text-xl font-medium mt-2 md:text-center `}
         >
-          Welcome to finally getting stuff done.
+          Welcome to getting stuff done.
         </h2>
       </div>
 

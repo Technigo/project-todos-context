@@ -9,7 +9,7 @@ export const TaskCounter = () => {
   const completedTasks = tasks.filter((task) => task.completed).length;
 
   return (
-    <article className="bg-accent-gradient text-white p-4 rounded-lg shadow-md ring-4 ring-pink-500 ring-opacity-50 mx-auto max-w-full sm:max-w-md md:max-w-lg">
+    <article className="bg-accent-gradient text-white p-5 rounded-lg shadow-md ring-4 ring-pink-500 ring-opacity-50 mx-auto max-w-full sm:max-w-md md:max-w-lg">
       <h3 className="text-2xl font-bold">Today's Progress Summary</h3>
       <p className="mt-2 text-lg">
         {totalTasks > 0

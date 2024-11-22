@@ -2,6 +2,7 @@ import { useTaskStore } from "../stores/useTaskStore";
 import { useThemeStore } from "../stores/useThemeStore";
 import SleepingSloth from "../assets/sleeping-sloth.jpg";
 import { Task } from "./Task";
+import { FaCheckDouble } from "react-icons/fa";
 
 export const TaskList = () => {
   // Access tasks
@@ -56,8 +57,9 @@ export const TaskList = () => {
         <div className="flex justify-center items-center">
           <button
             onClick={completeAllTasks}
-            className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/90"
+            className="flex items-center gap-2 bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/90"
           >
+            <FaCheckDouble />
             Mark All Tasks Complete
           </button>
         </div>

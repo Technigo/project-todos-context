@@ -28,12 +28,11 @@ const CheckMark = styled.i`
 `
 
 const H2 = styled.h2`
- font-size: 25px;
+ font-size: 30px;
  font-family: "Reenie Beanie";  
- font-weight: 500;
+ font-weight: 600;
  text-align: center; 
  margin: 0; 
-
 `
 const StyledP = styled.p`
  font-size: 18px;

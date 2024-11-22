@@ -17,7 +17,7 @@ export const Header = () => {
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold md:text-center">
           Hello, Productivity!
         </h1>
-        <h2 className="text-base font-medium text-gray-400 mt-2 md:text-center">
+        <h2 className="text-base font-medium text-gray-600 mt-2 md:text-center">
           Welcome to finally getting stuff done.
         </h2>
       </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTaskStore } from "../stores/useTaskStore";
 import { useThemeStore } from "../stores/useThemeStore";
+import { FaPlus, FaTimes } from "react-icons/fa";
 
 export const TaskForm = () => {
   // State to toggle form visibility
@@ -8,7 +9,7 @@ export const TaskForm = () => {
   // State for task title
   const [title, setTitle] = useState("");
   // State for task category
-  const [category, setCategory] = useState("To Do");
+  const [category, setCategory] = useState("");
 
   // Access the 'addTask' action
   const addTask = useTaskStore((state) => state.addTask);
@@ -35,7 +36,7 @@ export const TaskForm = () => {
     });
 
     // Reset the input fields
-    setTitle(""), setCategory("To Do");
+    setTitle(""), setCategory("");
     setIsFormVisible(false); // Hide the form after submitting
   };
 
@@ -48,23 +49,25 @@ export const TaskForm = () => {
         aria-label={isFormVisible ? "Close form" : "Open form"}
       >
         {/* Change icon based on visibility */}
-        {isFormVisible ? "X" : "+"}
+        {isFormVisible ? <FaTimes size={24} /> : <FaPlus size={24} />}
       </button>
 
       {/* Task form (always visible on lg and larger) */}
       <form
         onSubmit={handleSubmit}
-        className={`"bg-secondary mt-4 p-5 flex flex-col gap-4 ${
+        className={`bg-secondary mt-4 p-5 flex flex-col gap-4 ${
           isFormVisible ? "block" : "hidden"
         } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg 
         ${
           theme === "light"
             ? "bg-secondary text-primary"
             : "bg-primary text-secondary border-secondary"
-        }
-        "`}
+        }`}
       >
-        {/* Input field for task */}
+        {/* Input field for task with label for screen reader */}
+        <label htmlFor="task-title" className="sr-only">
+          Task Title
+        </label>
         <input
           type="text"
           value={title}
@@ -74,20 +77,31 @@ export const TaskForm = () => {
         />
 
         {/* Dropdown menu for task category */}
-        <select
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
-          className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none"
-        >
-          <option value="General">To Do</option>
-          <option value="Personal">Personal Tasks</option>
-          <option value="Work">Work/Professional</option>
-          <option value="Home">Home & Family</option>
-          <option value="School">School/Education</option>
-          <option value="Social">Social & Relationships</option>
-          <option value="Creative">Creative Projects</option>
-          <option value="Other">Other</option>
-        </select>
+        <div>
+          {/* Hidden Label for Accessibility */}
+          <label htmlFor="task-category" className="sr-only">
+            Task Category
+          </label>
+
+          {/* Select Dropdown */}
+          <select
+            id="task-category"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+            className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none w-full"
+          >
+            <option value="" disabled>
+              Choose a category
+            </option>
+            <option value="Personal">Personal Tasks</option>
+            <option value="Work">Work/Professional</option>
+            <option value="Home">Home & Family</option>
+            <option value="School">School/Education</option>
+            <option value="Social">Social & Relationships</option>
+            <option value="Creative">Creative Projects</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
 
         {/* Submit button */}
         <button

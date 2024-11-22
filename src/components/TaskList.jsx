@@ -51,7 +51,7 @@ export const TaskList = () => {
         <img
           src={SleepingSloth}
           alt="A drawing of a sleeping sloth"
-          className="w-64 h-64 rounded-md object-contain opacity-70 pt-10"
+          className="w-64 h-64 rounded-md object-contain pt-10"
         />
         <p
           className={` mt-4 text-lg 

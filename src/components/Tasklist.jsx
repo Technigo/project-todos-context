@@ -58,7 +58,8 @@ const P = styled.p`
  font-size: 30px;
  font-family: "Reenie Beanie";  
  font-weight: 500;
- margin: 40px;
+ margin: 20px;
+ color: #FFF;
  text-align: center; /* Centers text within the container */
 `
 

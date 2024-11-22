@@ -104,13 +104,15 @@ export const AddTask = () => {
         <Button type="submit">Add task</Button>
       </Form>
 
-      {/* Task Counter Display directly inside the AddTask component */}
-      <CounterContainer>
-        <p>
-          Completed Tasks: <strong>{completedTasks}</strong> /{" "}
-          <strong>{totalTasks}</strong>
-        </p>
-      </CounterContainer>
+      {/* Conditionally render the counter only if there are tasks */}
+      {totalTasks > 0 && (
+        <CounterContainer>
+          <p>
+            Completed Tasks: <strong>{completedTasks}</strong> /{" "}
+            <strong>{totalTasks}</strong>
+          </p>
+        </CounterContainer>
+      )}
     </div>
   );
 };

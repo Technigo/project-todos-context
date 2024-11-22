@@ -69,6 +69,7 @@ export const TaskForm = () => {
           Task Title
         </label>
         <input
+          id="task-title"
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
@@ -106,7 +107,7 @@ export const TaskForm = () => {
         {/* Submit button */}
         <button
           type="submit"
-          className="bg-accent text-secondary px-4 py-2 rounded-md shadow hover:bg-primary/90"
+          className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/80 focus:ring-2 focus:ring-primary focus:outline-none"
         >
           Add Task
         </button>

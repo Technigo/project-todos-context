@@ -1,5 +1,6 @@
 import "./App.css";
 import { Header } from "./components/Header";
+import { TaskCounter } from "./components/TaskCounter";
 import { TaskForm } from "./components/TaskForm";
 import { TaskList } from "./components/TaskList";
 import { useThemeStore } from "./stores/useThemeStore";
@@ -16,7 +17,8 @@ export const App = () => {
       }`}
     >
       <Header />
-      <main className="flex-grow relative p-5 pb-20">
+      <main className="flex-grow relative p-8 lg:p-12 pb-20  gap-6">
+        <TaskCounter />
         <TaskForm />
         <TaskList />
       </main>

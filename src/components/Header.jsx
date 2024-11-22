@@ -11,13 +11,17 @@ export const Header = () => {
         theme === "light"
           ? "bg-secondary text-primary"
           : "bg-primary text-secondary"
-      } flex flex-col justify-center xl:justify-between p-5 md:pt-10 lg:p-12 shadow-md w-full xl:w-[45%] xl:h-screen gap-y-4 `}
+      } flex flex-col justify-center xl:justify-between p-6 md:pt-10 lg:p-12 shadow-md w-full xl:w-[45%] xl:h-screen gap-y-4 `}
     >
       <div>
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold md:text-center">
           Hello, Productivity!
         </h1>
-        <h2 className="text-base font-medium text-gray-600 mt-2 md:text-center">
+        <h2
+          className={`${
+            theme === "light" ? "text-gray-600" : "text-gray-300"
+          } text-xl font-medium mt-2 md:text-center `}
+        >
           Welcome to finally getting stuff done.
         </h2>
       </div>

@@ -9,6 +9,8 @@ export default {
         accent: "#ff69b4", // Pink
         bgLight: "rgb(255 250 250)", // Main background for light mode
         bgDark: "rgb(0 20 39)", // Main background for dark mode
+
+        // Category colors:
         personal: {
           DEFAULT: "#bfdbfe", // Light blue
           text: "#1e3a8a", // Dark blue
@@ -37,6 +39,10 @@ export default {
           DEFAULT: "#e5e7eb", // Light gray
           text: "#374151", // Dark gray
         },
+      },
+      backgroundImage: {
+        "accent-gradient":
+          "linear-gradient(to top right, #e05298, #ff69b4, #ff85c0)",
       },
     },
   },

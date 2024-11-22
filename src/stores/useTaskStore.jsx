@@ -30,4 +30,13 @@ export const useTaskStore = create((set) => ({
       // Filter out the task with the matching 'id'
       tasks: state.tasks.filter((task) => task.id !== id),
     })),
+
+  // Action: Mark all tasks as completed
+  completeAllTasks: () =>
+    set((state) => ({
+      tasks: state.tasks.map((task) => ({
+        ...task,
+        completed: true,
+      })),
+    })),
 }));

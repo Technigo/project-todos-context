@@ -1,16 +1,8 @@
-# Todo - useContext Project
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
+# The Project
+This week's project we've built a to-do app using Zustand for Global State Management.
 
 ### The Problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+At first I found it hard to understand all the logical parts with Zustand. I started out with planning the structure and deciding what kind of components I needed. I also sketched out my ideas on a piece of paper and wanted to have a playful design. I found a Lottie animation I wanted to import which I managed to do with some help from google. I tried to reasearch a lot before starting with the code but I had to turn to chatgbt a bit to help me make it work. After I've made it work I moved onto styling the app. This week I also started with mobile first which helped me a lot when making the app responsive. 
 
 ### View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
 

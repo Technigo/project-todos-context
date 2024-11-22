@@ -1,7 +1,7 @@
 //Component for single task
 
 import React from "react";
-import { useTodoStore } from "../store/TodoStore";
+import { useTodoStore } from "../store/useTodoStore";
 import DeleteIcon from "../assets/DeleteIcon.svg";
 import "../components/TodoItem.css";
 

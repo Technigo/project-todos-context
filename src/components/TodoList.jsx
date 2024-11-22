@@ -1,7 +1,7 @@
 //List that shows all of the created tasks
 
 import React from "react";
-import { useTodoStore } from "../store/TodoStore";
+import { useTodoStore } from "../store/useTodoStore";
 import { TodoItem } from "../components/TodoItem";
 import thumbIcon from "../assets/thumbIcon.png";
 import waitIcon from "../assets/waitIcon.png";

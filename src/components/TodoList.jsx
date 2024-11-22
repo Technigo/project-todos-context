@@ -1,4 +1,5 @@
-//List that shows all of the created to do's/tasks
+//List that shows all of the created tasks
+
 import React from "react";
 import { useTodoStore } from "../store/TodoStore";
 import { TodoItem } from "../components/TodoItem";

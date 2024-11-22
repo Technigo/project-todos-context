@@ -56,6 +56,9 @@
   background-color: #444C38;
 }
 
+/* Media queries */
+
+/* Smaller screens */
 @media (max-width: 767px) {
   .new-task-wrapper {
     padding-left: 35px; 
@@ -86,6 +89,7 @@
   }
 }
 
+/* Larger screens */
 @media (min-width: 768px) {
   .new-task-wrapper {
     gap: 35px;

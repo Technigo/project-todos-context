@@ -1,4 +1,5 @@
-//Component for single to-do, create toggle function inside here
+//Component for single task
+
 import React from "react";
 import { useTodoStore } from "../store/TodoStore";
 import DeleteIcon from "../assets/DeleteIcon.svg";
@@ -28,7 +29,7 @@ export const TodoItem =({ id }) => {
         id={`todo-${todo.id}`}
       />
       <label htmlFor={`todo-${todo.id}`}>{todo.text}</label>
-      {/* Delete button */}
+      {/* Delete clickable icon */}
       <img
         src={DeleteIcon}
         alt="Delete task"

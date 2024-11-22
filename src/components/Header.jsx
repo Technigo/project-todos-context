@@ -9,7 +9,7 @@ export const Header = () => {
         <h1 className="title">To-Do List</h1>
       <h2 className="sub-title">Work smarter, Not harder</h2>
       <div className="animation-container">
-          <Animation />  {/* Insert the animation component here */}
+          <Animation />
         </div>
     </header>
     </div>

@@ -1,4 +1,4 @@
-// Create state management with Zustand here (stores information about the to-do's, done or not e.g.)
+// Create state management with Zustand 
 import { create } from "zustand";
 
 export const useTodoStore = create((set) => ({
@@ -27,5 +27,3 @@ export const useTodoStore = create((set) => ({
       getCompletedCount: () =>
         get().todos.filter((todo) => todo.completed).length,
 }));
-
-

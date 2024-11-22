@@ -1,7 +1,8 @@
-//Component to create new to-do/task
+//Component to create new tasks
+
 import React from "react";
 import { useState } from "react";
-import { useTodoStore } from "../store/TodoStore"; //It's working even though it's a red underline, not to self
+import { useTodoStore } from "../store/TodoStore"; 
 import "../components/TodoForm.css";
 
 export const TodoForm = () => {

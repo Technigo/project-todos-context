@@ -8,7 +8,7 @@ const TaskSection = styled.section`
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
   padding: 30px;
-  justify-content: center; /* Center items horizontally */
+  justify-content: center; 
   width: fit-content; /* Adjust the section width to fit the grid content */
   max-width: 100%; /* Prevent it from exceeding the viewport width */
   margin: 0 auto; /* Center the section itself */
@@ -18,7 +18,6 @@ const TaskSection = styled.section`
 :hover {
   transform: scale(1.1);
 }
-
 
   /* Media query for tablets (3 tasks per row) */
   @media (max-width: 1200px) {
@@ -35,7 +34,6 @@ const TaskSection = styled.section`
     }
   }
   
-
    /* Media query for mobile (2 tasks per row) */
    @media (max-width: 480px) {
     grid-template-columns: repeat(1, 1fr);

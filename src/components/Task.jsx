@@ -46,15 +46,15 @@ const StyledP = styled.p`
 const TrashIcon = styled.i`
   cursor: pointer;
   font-size: 22px; /* Size of the icon */
-  color: black; /* Red color for trash bin */
+  color: black; 
   margin: 5px 0px 10px 5px; /* Adds space between the icon and content */
   &:hover {
-    color: #d32f2f; /* Red when hovered */
+    color: #d32f2f; 
   }
   transition: color 0.3s ease;
   position: absolute; 
-  top: 10px; /* Distance from the top */
-  right: 10px; /* Distance from the right */
+  top: 10px; 
+  right: 10px; 
 `;
 
 export const Task = ({ task }) => {
@@ -66,6 +66,7 @@ export const Task = ({ task }) => {
       <CheckMark
         className={`fa ${task.completed ? "fa-check-square" : "fa-square-o"}`}
         completed={task.completed}
+        role="checkbox"
         aria-checked={task.completed} // Describes the checked state
         aria-label={task.completed ? "Mark task as incomplete" : "Mark task as completed"}
         onClick={() => toggleTask(task.id)}

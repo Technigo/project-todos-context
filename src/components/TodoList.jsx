@@ -19,11 +19,12 @@ export const TodoList = () => {
         {/* Incomplete Tasks */}
         <div className="incomplete-tasks-container">
           <h2>
-            Incomplete Tasks
+            Incomplete Tasks 
+            <span>({incompleteTodos.length})</span>
             <img src={waitIcon} alt="hourglass" className="wait-icon" />
           </h2>
           {incompleteTodos.length === 0 ? (
-            <p>Hurray, you've completed all your to-do's!</p>
+            <p>You're a star!</p>
           ) : (
             incompleteTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
           )}
@@ -33,11 +34,12 @@ export const TodoList = () => {
           {/* Completed Tasks */}
           <h2>
             Completed Tasks 
+            <span>({completedTodos.length})</span>
             <img src={thumbIcon} alt="thumbs up" className="thumb-icon" /> 
           </h2>
           {completedTodos.length === 0 ? (
             // Why is the text below in the paragraph not showing on the site?
-            <p>No completed to-do's yet but you're doing great!</p>
+            <p>Hurray, you're doing great!</p>
           ) : (
             completedTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
           )}

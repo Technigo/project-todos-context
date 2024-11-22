@@ -1,6 +1,6 @@
 import { ListTodo } from "lucide-react";
-import { TodoInput } from "./components/TodoInput";
-import { TodoItem } from "./components/TodoItem";
+import { TodoInput } from "./components/ToDoInput";
+import { TodoItem } from "./components/ToDoItem";
 import { TodoStats } from "./components/ToDoStats";
 import { TodoFilters } from "./components/ToDoFilters";
 import { TodoActions } from "./components/ToDoActions";
@@ -29,7 +29,7 @@ export const App = () => {
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
-                Todo App
+                TaskTidy
               </h1>
             </div>
             <p className={isDark ? "text-gray-400" : "text-gray-600"}>

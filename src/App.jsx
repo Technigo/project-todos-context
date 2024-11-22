@@ -14,7 +14,7 @@ export const App = () => {
 
   return (
     <main className="app-container">
-      <h1>To-Do App</h1>
+      <h1>TaskMaster</h1>
       <TaskInput />
       <section className="task-count">
         <p>Total Tasks: {totalTasks}</p>

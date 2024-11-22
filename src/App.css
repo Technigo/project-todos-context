@@ -12,7 +12,7 @@ body {
 .app-container {
     width: 100%;
     max-width: 500px;
-    background: #ffffff;
+    background: #3A6D8C;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -20,7 +20,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333333;
+    color: #EAD8B1;
 }
 
 .task-input {
@@ -39,15 +39,18 @@ h1 {
 
 .task-input button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: #EAD8B1;
+    color: #001F3F;
+    border: solid 3px;
     border-radius: 4px;
     cursor: pointer;
+    border-color: #001F3F;
+
 }
 
 .task-input button:hover {
-    background-color: #0056b3;
+    background-color: #3A6D8C;
+    color: #EAD8B1;
 }
 
 .task-list {
@@ -91,6 +94,6 @@ h1 {
 .task-count {
     margin-bottom: 20px;
     font-size: 16px;
-    color: #555555;
+    color: #EAD8B1;
     text-align: center;
 }

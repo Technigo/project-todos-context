@@ -9,9 +9,9 @@ export const TaskCounter = () => {
 
   return (
     <div className="task-counter-container">
-      <h3>
+      <h2>
         Completed: {completedTasks.length}/{tasks.length}
-      </h3>
+      </h2>
     </div>
   );
 };

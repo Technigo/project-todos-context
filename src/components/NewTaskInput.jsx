@@ -27,7 +27,7 @@ export const NewTaskInput = () => {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)} // Update inputValue state
       />
-      <button type="submit" className="add-btn">
+      <button type="submit" className="add-btn" aria-label="add">
         <FontAwesomeIcon icon={faCirclePlus} className="add-icon" />
       </button>
     </form>

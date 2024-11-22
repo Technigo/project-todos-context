@@ -46,6 +46,12 @@
   top: 2px;
 }
 
+.delete-icon {
+  position: relative;
+  top: 5px;
+  margin-left: 4px;
+}
+
 /* Media queries */
 
 /* Smaller screens */
@@ -68,8 +74,8 @@
   }
   
   .wait-icon {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     margin-left: 4px;
     position: relative;
     top: 2px;

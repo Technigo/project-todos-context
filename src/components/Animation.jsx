@@ -10,6 +10,7 @@ export const Animation = () => {
       loop
       autoplay
       className="lottie-animation"
+      renderer="svg"
     />
     </div>
   );

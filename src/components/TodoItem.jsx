@@ -27,6 +27,7 @@ export const TodoItem =({ id }) => {
         checked={todo.completed}
         onChange={handleCheckboxChange} //When checked or unchecked it triggers toggle
         id={`todo-${todo.id}`}
+        className="checkbox"
       />
       <label htmlFor={`todo-${todo.id}`}>{todo.text}</label>
       {/* Delete clickable icon */}

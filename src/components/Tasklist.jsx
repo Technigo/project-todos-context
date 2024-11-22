@@ -39,11 +39,12 @@ const CenteredContainer = styled.div`
 `;
 
 const P = styled.p`
- font-size: 30px;
+ font-size: 40px;
  font-family: "Reenie Beanie";  
  font-weight: 500;
  margin: 40px;
  text-align: center; /* Centers text within the container */
+ color: white; 
 `
 
 export const Tasklist = () => {

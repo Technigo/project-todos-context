@@ -12,13 +12,13 @@ const HeaderFlex = styled.div`
 
 const HeaderContent = styled.div`
   h1 {
-    font-size: 4rem; /* Default font size for mobile */
+    font-size: 4rem; 
     color: #FFF;
     margin: 0;
     font-family: "Reenie Beanie";
 
     @media (max-width: 480px) {
-      font-size: 2.8rem; /* Larger font size for tablets */
+      font-size: 2.8rem; 
     }
 
     @media (max-width: 768px) {

@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { TaskList } from "./TaskList"
 import { TaskForm } from "./TasksForm"
-import { UserInfo } from "./UserInfo"
-import { UserSettings } from "./UserSettings"
+// import { UserInfo } from "./UserInfo"
+// import { UserSettings } from "./UserSettings"
 
 const TaskWrapper = styled.div`
 margin: 0 auto;
@@ -17,8 +17,6 @@ flex-direction: column;
 export const TaskContainer = () => {
   return(
     <TaskWrapper>
-      <UserInfo/>
-      <UserSettings/>
       <TaskForm/>
       <TaskList/>
     </TaskWrapper>

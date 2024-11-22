@@ -32,7 +32,10 @@ export const useTaskStore = create(
       set((state) => ({
       tasks: [
       ...state.tasks, 
-      { id: Date.now(), text: newTask, completed: false }],
+      { id: Date.now(), 
+        text: newTask, 
+        completed: false, 
+      }],
       addTask: "", //Clears the input field
     }));
   }

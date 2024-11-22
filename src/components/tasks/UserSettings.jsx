@@ -12,7 +12,6 @@ export const UserSettings = () => {
 
   return(
     <div>
-    <h2>User Settings</h2>  
     <p>Status: {isLoggedIn ? "online" : "offline"}</p>
     <button onClick={toggleLogIn}>Log in/Log out</button>
     <label>

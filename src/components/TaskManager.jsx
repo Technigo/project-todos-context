@@ -1,12 +1,36 @@
 import React, { useState } from "react";
 import { CategoryList } from "./CategoryList";
 import { AddTaskButton } from "./AddTaskButton";
+import styled from "styled-components";
+import emptyFolder from "../assets/icons/empty-folder.png";
 import { Header } from "./Header";
+
+const EmptyStateContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 150px); /* Adjust based on header and bottomsheet */
+  text-align: center;
+  color: #6c757d;
+`;
+
+const EmptyIcon = styled.img`
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: invert(1);
+`;
+
+const EmptyText = styled.p`
+  font-size: 1.2rem;
+  color: #6c757d;
+`;
 
 export function TaskManager() {
   const [categories, setCategories] = useState([]);
   const [availableCategories, setAvailableCategories] = useState([]);
-  const [title, setTitle] = useState("Checklist"); // Header title state
+  const [title, setTitle] = useState("Checklist");
 
   // Add a new category or task
   function handleAddTask({ category, task, date }) {
@@ -78,7 +102,6 @@ export function TaskManager() {
       const updatedCategories = prevCategories.filter(
         (category) => category.id !== categoryId
       );
-      // Update availableCategories
       const updatedAvailableCategories = updatedCategories.map(
         (category) => category.title
       );
@@ -90,12 +113,19 @@ export function TaskManager() {
   return (
     <>
       <Header title={title} onTitleChange={setTitle} />
-      <CategoryList
-        categories={categories}
-        onToggleTask={toggleTaskCompletion}
-        onDeleteTask={handleDeleteTask}
-        onDeleteCategory={handleDeleteCategory} // Pass delete category function
-      />
+      {categories.length === 0 ? (
+        <EmptyStateContainer>
+          <EmptyIcon src={emptyFolder} alt="Empty folder icon" />
+          <EmptyText>Add some items to your checklist to get started!</EmptyText>
+        </EmptyStateContainer>
+      ) : (
+        <CategoryList
+          categories={categories}
+          onToggleTask={toggleTaskCompletion}
+          onDeleteTask={handleDeleteTask}
+          onDeleteCategory={handleDeleteCategory}
+        />
+      )}
       <AddTaskButton
         availableCategories={availableCategories}
         onAddTask={handleAddTask}

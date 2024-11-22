@@ -51,14 +51,12 @@ export const TaskForm = () => {
         {/* Change icon based on visibility */}
         {isFormVisible ? <FaTimes size={24} /> : <FaPlus size={24} />}
       </button>
-
-      {/* Task form (always visible on lg and larger) */}
+      {/* Task form (always visible on lg and larger) */}{" "}
       <form
         onSubmit={handleSubmit}
-        className={`bg-secondary mt-4 p-5 flex flex-col gap-4 ${
+        className={`bg-secondary p-5 flex flex-col gap-4 ${
           isFormVisible ? "block" : "hidden"
-        } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg 
-        ${
+        } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg ${
           theme === "light"
             ? "bg-secondary text-primary"
             : "bg-primary text-secondary border-secondary"
@@ -73,8 +71,8 @@ export const TaskForm = () => {
           type="text"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
-          placeholder="What's next on your to-do list?"
-          className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none flex-grow"
+          placeholder="Name a task..."
+          className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none flex-grow h-10"
         />
 
         {/* Dropdown menu for task category */}
@@ -89,7 +87,7 @@ export const TaskForm = () => {
             id="task-category"
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none w-full"
+            className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none w-full h-10"
           >
             <option value="" disabled>
               Choose a category
@@ -107,7 +105,7 @@ export const TaskForm = () => {
         {/* Submit button */}
         <button
           type="submit"
-          className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/80 focus:ring-2 focus:ring-primary focus:outline-none"
+          className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/80 focus:ring-2 focus:ring-primary focus:outline-none h-10"
         >
           Add Task
         </button>

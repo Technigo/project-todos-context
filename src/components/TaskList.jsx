@@ -50,10 +50,10 @@ export const TaskList = () => {
     tasks.length > 0 && tasks.every((task) => task.completed);
 
   return (
-    <div className="p-4">
-      {/* complete All button (only show if there are tasks) */}
+    <section className="flex flex-col gap-5 h-full">
+      {/* Button to mark all tasks complete (only show if there are tasks) */}
       {!allTasksCompleted && tasks.length > 0 && (
-        <div className="flex justify-center items-center h-20 mb-4">
+        <div className="flex justify-center items-center">
           <button
             onClick={completeAllTasks}
             className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/90"
@@ -64,12 +64,14 @@ export const TaskList = () => {
       )}
       {/* Display Sleeping Sloth when all tasks are complete */}
       {allTasksCompleted ? (
-        <div className="flex flex-col items-center justify-center">
-          <img
-            src={SleepingSloth}
-            alt="A drawing of a sleeping sloth"
-            className="w-64 h-64 rounded-md object-contain pt-10"
-          />
+        <div className="flex flex-col items-center justify-center h-full">
+          <div className="w-64 h-64 rounded-lg overflow-hidden">
+            <img
+              src={SleepingSloth}
+              alt="A drawing of a sleeping sloth"
+              className="w-full h-full object-cover"
+            />
+          </div>
           <p
             className={` mt-4 text-lg 
             ${theme === "light" ? "text-primary" : "text-secondary"}`}
@@ -78,7 +80,7 @@ export const TaskList = () => {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Loop through the categories */}
           {Object.keys(tasksByCategory).map((category) => (
             <div
@@ -109,6 +111,6 @@ export const TaskList = () => {
           ))}
         </div>
       )}
-    </div>
+    </section>
   );
 };

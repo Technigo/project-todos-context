@@ -17,7 +17,7 @@ export const App = () => {
       }`}
     >
       <Header />
-      <main className="flex-grow relative p-8 lg:p-12 pb-20  gap-6">
+      <main className="flex flex-col flex-grow relative p-8 lg:p-12 pb-20 gap-6 xl:gap-12">
         <TaskCounter />
         <TaskForm />
         <TaskList />

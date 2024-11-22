@@ -7,8 +7,8 @@ export default {
         primary: "#000f3f", // Dark blue
         secondary: "#fafafa", // Light gray
         accent: "#ff69b4", // Pink
-        bgLight: "rgb(255 250 250)", // Main background for light mode
-        bgDark: "rgb(0 20 39)", // Main background for dark mode
+        bgLight: "#fffafa", // Main background for light mode
+        bgDark: "#001427", // Main background for dark mode
 
         // Category colors:
         personal: {

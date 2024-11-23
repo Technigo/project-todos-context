@@ -1,12 +1,16 @@
-import AddTaskForm from "./components/AddTaskForm";
-import TaskList from "./components/TaskList";
-import TaskCount from "./components/TaskCount";
+import { AddTaskForm } from "./components/AddTaskForm";
+import { TaskList } from "./components/TaskList";
+import { TaskCount } from "./components/TaskCount";
+import '@fortawesome/fontawesome-free/css/all.css';
+import "./App.css";
+
+
 
 export const App = () => {
   return (
-    <div>
+    <div className="app-container">
       <header>
-        <h1>To-Do App</h1>
+        <h1>TO DO LIST</h1>
         <TaskCount />
       </header>
       <main>

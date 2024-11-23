@@ -1,16 +1,18 @@
-import useTaskStore from "../stores/taskStore";
-import TaskItem from "./TaskItem";
+import { useTaskStore } from "../stores/taskStore";
+import { TaskItem } from "./TaskItem";
 
-const TaskList = () => {
+import "./TaskList.css";
+
+export const TaskList = () => {
     const tasks = useTaskStore((state) => state.tasks) || [];
 
     return (
-        <ul>
+        <div className="task-list">
             {tasks.map((task) => (
-                <TaskItem key={task.id} task={task} />
+                <div key={task.id} className="task-container">
+                    <TaskItem task={task} />
+                </div>
             ))}
-        </ul>
+        </div>
     );
 };
-
-export default TaskList;

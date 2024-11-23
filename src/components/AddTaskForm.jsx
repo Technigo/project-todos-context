@@ -1,29 +1,35 @@
 import { useState } from "react";
-import useTaskStore from "../stores/taskStore";
+import { useTaskStore } from "../stores/taskStore";
+import "./AddTaskForm.css";
 
-const AddTaskForm = () => {
+
+export const AddTaskForm = () => {
     const [title, setTitle] = useState("");
     const addTask = useTaskStore((state) => state.addTask);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (title.trim()) {
             addTask(title);
             setTitle("");
+
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+
+        <form className="add-task-form" onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                placeholder="Add a new task"
+                placeholder="What Needs to Be Done?"
+                className="task-input"
+
             />
-            <button type="submit">Add Task</button>
+            <button className="add-task-button" type="submit">+</button>
         </form>
     );
 };
 
-export default AddTaskForm;

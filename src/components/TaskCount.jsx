@@ -1,16 +1,16 @@
-import useTaskStore from "../stores/taskStore";
+import { useTaskStore } from "../stores/taskStore";
+import "./TaskCount.css";
 
-const TaskCount = () => {
+export const TaskCount = () => {
     const tasks = useTaskStore((state) => state.tasks);
     const completedCount = tasks.filter((task) => task.completed).length;
     const uncompletedCount = tasks.filter((task) => !task.completed).length;
 
     return (
-        <div>
-            <p>Completed Tasks: {completedCount}</p>
-            <p>Uncompleted Tasks: {uncompletedCount}</p>
+        <div className="count-text">
+            <p>✓ Dealt With: {completedCount}</p>
+            <p>⏳ Still Haunting You: {uncompletedCount}</p>
         </div>
     );
 };
 
-export default TaskCount;

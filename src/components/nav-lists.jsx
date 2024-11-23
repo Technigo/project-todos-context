@@ -159,18 +159,18 @@ export function NavLists() {
                   />
                   <div className="flex items-center gap-3 justify-between">
                     <Button
-                      variant="default"
-                      className="flex-1 basis-full"
-                      onClick={handleAddList}
-                    >
-                      <PlusCircle /> Add
-                    </Button>
-                    <Button
                       variant="secondary"
                       className="flex-1 basis-full"
                       onClick={() => setIsAddingList(false)}
                     >
                       Cancel
+                    </Button>
+                    <Button
+                      variant="default"
+                      className="flex-1 basis-full"
+                      onClick={handleAddList}
+                    >
+                      <PlusCircle /> Add
                     </Button>
                   </div>
                 </form>

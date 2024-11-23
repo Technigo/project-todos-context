@@ -1,6 +1,3 @@
-//Combines all components and displays the counts.//
-
-
 import React from "react";
 import { TaskInput } from "./components/TaskInput";
 import { TaskList } from "./components/TaskList";

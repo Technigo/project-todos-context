@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #001F3F;
-    /* Deep Blue Background */
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,7 +13,6 @@ body {
     width: 100%;
     max-width: 500px;
     background: #3A6D8C;
-    /* Soft Blue */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -23,7 +21,6 @@ body {
 h1 {
     text-align: center;
     color: #EAD8B1;
-    /* Warm Beige for Contrast */
 }
 
 .task-input {
@@ -44,7 +41,6 @@ h1 {
     padding: 10px 20px;
     background-color: #EAD8B1;
     color: #001F3F;
-    /* Dark Blue for Strong Contrast */
     border: solid 3px;
     border-radius: 4px;
     cursor: pointer;
@@ -99,7 +95,6 @@ h1 {
     margin-bottom: 20px;
     font-size: 16px;
     color: #FFFFFF;
-    /* White for Higher Contrast */
     text-align: center;
     font-weight: bold;
 }

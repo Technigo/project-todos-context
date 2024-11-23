@@ -21,7 +21,6 @@ import {
   useSensors,
 } from "@dnd-kit/core";
 import {
-  arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
@@ -38,9 +37,6 @@ const TaskList = () => {
 
   // Find the selected list
   const selectedList = lists.find((list) => list.id === selectedListId);
-  if (!selectedList) return <h1>No list selected.</h1>;
-
-  const hasCompletedTasks = selectedList.tasks.some((task) => task.isCompleted);
 
   // onSubmit handler for adding a task
   const handleAddTask = (data) => {
@@ -76,6 +72,9 @@ const TaskList = () => {
       reorderTasks(selectedList.id, oldIndex, newIndex);
     }
   };
+
+  if (!selectedList) return <h1>No list selected.</h1>;
+  const hasCompletedTasks = selectedList.tasks.some((task) => task.isCompleted);
 
   return (
     <>

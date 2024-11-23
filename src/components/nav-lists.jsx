@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Edit, Trash2, PlusCircle, MoreHorizontal } from "lucide-react";
+
 import useTaskStore from "../stores/useTaskStore";
 import {
-  Edit,
-  ListChecks,
-  Trash2,
-  PlusCircle,
-  MoreHorizontal,
-} from "lucide-react";
-
-import { Button } from "./ui/button";
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuAction,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from "./ui/sidebar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,57 +36,76 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
-import {
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuAction,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from "./ui/sidebar";
+import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+
+const listSchema = z.object({
+  listName: z.string().min(1, "List name is required"),
+});
 
 export function NavLists() {
   const lists = useTaskStore((state) => state.lists);
   const selectedListId = useTaskStore((state) => state.selectedListId);
   const setSelectedList = useTaskStore((state) => state.setSelectedList);
-
   const addList = useTaskStore((state) => state.addList);
   const editList = useTaskStore((state) => state.editList);
   const deleteList = useTaskStore((state) => state.deleteList);
+  const { toggleSidebar, isMobile } = useSidebar();
 
-  const [newListName, setNewListName] = useState("");
   const [isAddingList, setIsAddingList] = useState(false);
+  const [editDialogState, setEditDialogState] = useState({
+    isOpen: false,
+    list: null,
+    name: "",
+  });
 
-  const handleAddList = () => {
-    if (newListName.trim() !== "") {
-      addList(newListName.trim());
-      setNewListName("");
-      setIsAddingList(false);
-    }
+  const form = useForm({
+    resolver: zodResolver(listSchema),
+    defaultValues: { listName: "" },
+  });
+
+  // Handle adding a new list
+  const handleAddList = (data) => {
+    addList(data.listName.trim());
+    form.reset();
+    setIsAddingList(false);
   };
 
-  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
-  const [editedListName, setEditedListName] = useState("");
-  const [listToEdit, setListToEdit] = useState(null);
-
+  // Open the edit dialog for a specific list
   const openEditDialog = (list) => {
-    setListToEdit(list);
-    setEditedListName(list.name);
-    setIsEditDialogOpen(true);
+    setEditDialogState({
+      isOpen: true,
+      list: list,
+      name: list.name,
+    });
   };
 
+  // Handle editing a list
   const handleEditList = () => {
-    if (editedListName.trim() !== "") {
-      editList(listToEdit.id, { name: editedListName.trim() });
-      setIsEditDialogOpen(false);
+    if (editDialogState.name.trim() !== "") {
+      editList(editDialogState.list.id, { name: editDialogState.name.trim() });
+      setEditDialogState({ isOpen: false, list: null, name: "" });
     }
   };
 
-  const form = useForm();
+  // Handle changes in the edit dialog input
+  const handleEditDialogChange = (e) => {
+    setEditDialogState((prevState) => ({
+      ...prevState,
+      name: e.target.value,
+    }));
+  };
 
-  const { isMobile } = useSidebar();
+  // Handle the "Add new list" button click
+  const handleAddNewListClick = (event) => {
+    setIsAddingList(true);
+    const parentElement = event.currentTarget.closest(
+      '[data-state="collapsed"]'
+    );
+    if (parentElement) {
+      toggleSidebar();
+    }
+  };
 
   return (
     <SidebarGroup>
@@ -131,14 +154,14 @@ export function NavLists() {
         </SidebarMenuItem>
         <SidebarMenuItem>
           {isAddingList ? (
-            <div className="flex w-full gap-2 px-2">
+            <div className="flex w-full gap-1">
               <Form {...form}>
                 <form
-                  onSubmit={handleAddList}
+                  onSubmit={form.handleSubmit(handleAddList)}
                   className="w-full flex gap-4 flex-col"
                 >
                   <FormField
-                    name="list-name"
+                    name="listName"
                     control={form.control}
                     render={({ field }) => (
                       <FormItem>
@@ -148,8 +171,6 @@ export function NavLists() {
                             {...field}
                             className="bg-white text-black"
                             placeholder="Enter list name..."
-                            value={newListName}
-                            onChange={(e) => setNewListName(e.target.value)}
                             autoFocus
                           />
                         </FormControl>
@@ -159,16 +180,17 @@ export function NavLists() {
                   />
                   <div className="flex items-center gap-3 justify-between">
                     <Button
+                      type="button"
                       variant="secondary"
-                      className="flex-1 basis-full"
+                      className="flex-1"
                       onClick={() => setIsAddingList(false)}
                     >
                       Cancel
                     </Button>
                     <Button
+                      type="submit"
                       variant="default"
-                      className="flex-1 basis-full"
-                      onClick={handleAddList}
+                      className="flex-1"
                     >
                       <PlusCircle /> Add
                     </Button>
@@ -177,40 +199,52 @@ export function NavLists() {
               </Form>
             </div>
           ) : (
-            <>
-              <SidebarMenuButton
-                tooltip="Add new list"
-                onClick={() => setIsAddingList(true)}
-              >
-                <PlusCircle />
-                <span>Add new list</span>
-              </SidebarMenuButton>
-            </>
+            <SidebarMenuButton
+              tooltip="Add new list"
+              onClick={handleAddNewListClick}
+            >
+              <PlusCircle />
+              <span>Add new list</span>
+            </SidebarMenuButton>
           )}
         </SidebarMenuItem>
       </SidebarMenu>
       {/* Edit List Dialog */}
       <Dialog
-        open={isEditDialogOpen}
-        onOpenChange={setIsEditDialogOpen}
+        open={editDialogState.isOpen}
+        onOpenChange={(isOpen) =>
+          setEditDialogState((prevState) => ({ ...prevState, isOpen }))
+        }
       >
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Edit List</DialogTitle>
             <DialogDescription>Update the name of your list.</DialogDescription>
           </DialogHeader>
-
           <form
             className="flex flex-col gap-4"
-            onSubmit={handleEditList}
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleEditList();
+            }}
           >
             <Input
-              value={editedListName}
-              onChange={(e) => setEditedListName(e.target.value)}
+              value={editDialogState.name}
+              onChange={handleEditDialogChange}
               placeholder="List name"
               autoFocus
             />
-            <Button onClick={handleEditList}>Save Changes</Button>
+            <div className="flex justify-end gap-2">
+              <Button
+                variant="secondary"
+                onClick={() =>
+                  setEditDialogState({ isOpen: false, list: null, name: "" })
+                }
+              >
+                Cancel
+              </Button>
+              <Button type="submit">Save Changes</Button>
+            </div>
           </form>
         </DialogContent>
       </Dialog>

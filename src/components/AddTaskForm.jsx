@@ -37,6 +37,9 @@ const AddTaskForm = ({
     if (selectedListId) {
       handleFormSubmit(data);
       form.reset(); // Clear the form after submission
+      if (onSuccess) {
+        onSuccess(); // Close the dialog only after successful submission
+      }
     } else {
       console.error("No list selected.");
     }
@@ -61,6 +64,7 @@ const AddTaskForm = ({
                 <Input
                   {...field} // Connect input to react-hook-form
                   placeholder="Enter task name..."
+                  autofocus
                 />
               </FormControl>
               <FormMessage /> {/* Displays validation errors */}
@@ -74,7 +78,7 @@ const AddTaskForm = ({
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Due Date</FormLabel>
+              <FormLabel>Due Date (optional)</FormLabel>
               <FormControl>
                 <Input
                   {...field}
@@ -91,7 +95,8 @@ const AddTaskForm = ({
           {!isEditing && (
             <Button
               variant="outline"
-              type="submit"
+              type="button"
+              onClick={form.handleSubmit(onSubmit)}
               className="mt-4"
             >
               Create task and add another
@@ -100,7 +105,6 @@ const AddTaskForm = ({
           <Button
             type="submit"
             className="mt-4"
-            onClick={onSuccess}
           >
             {initialValues.title ? "Update task" : "Create task"}
           </Button>

@@ -10,6 +10,7 @@ const TaskContainer = styled.div`
   padding: 1rem;
   width: 250px;
   height: 250px;
+  max-width: 100%; 
   box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.356);
   position: relative;
   word-wrap: break-word; /* Ensure long words in the task box/post it break and wrap */

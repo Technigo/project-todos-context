@@ -70,8 +70,13 @@ export const AddTask = () => {
     event.preventDefault(); // Prevent page reload on form submission
     const trimmedTitle = title.trim();
 
-    if (trimmedTitle.length > 100) {
-      setErrorMessage("Your task cannot be more than 100 characters long.");
+    if (!trimmedTitle) {
+      setErrorMessage("Task cannot be empty.");
+      return;
+    }
+
+    if (trimmedTitle.length > 140) {
+      setErrorMessage("Your task cannot be more than 140 characters long.");
       return;
     }
 
@@ -87,6 +92,11 @@ export const AddTask = () => {
   // Handle Enter key to submit the form
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
+      const trimmedTitle = title.trim();
+      if (!trimmedTitle) {
+        setErrorMessage("Task cannot be empty.");
+        return;
+      }
       handleSubmit(event);
     }
   };
@@ -109,7 +119,7 @@ export const AddTask = () => {
           placeholder="New task..."
         />
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <Button type="submit">Add task</Button>
+        <Button type="submit" disabled={!title.trim()}>Add task</Button>
       </Form>
 
       {/* Conditionally render the counter only if there are tasks */}

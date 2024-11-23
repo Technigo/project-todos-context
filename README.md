@@ -5,3 +5,4 @@ we didn't have to push too hard for comptability to make it responsive as the si
 
 One challenge we faced with using Zustand was understanding how to update the state correctly, especially when toggling the completed status or removing tasks. We fixed this by carefully reading the Zustand documentation and experimenting with how the set function works to make the updates smooth.
 
+View it live: https://taskmastertodoapp.netlify.app/

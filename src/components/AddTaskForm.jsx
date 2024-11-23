@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { nanoid } from "nanoid";
 import { z } from "zod";
 import { Button } from "./ui/button";
 import {
@@ -16,45 +15,52 @@ import useTaskStore from "../stores/useTaskStore";
 
 // Define Zod schema for validation
 const formSchema = z.object({
-  title: z.string().min(1, "Title is required"), // Ensure the title is not empty
+  title: z.string().min(1, "Task name is required"), // Ensure the title is not empty
   dueDate: z.string().nullable().optional(),
 });
 
-const AddTaskForm = () => {
-  const addTask = useTaskStore((state) => state.addTask);
+const AddTaskForm = ({
+  initialValues = { title: "", dueDate: "" },
+  onSubmit: handleFormSubmit,
+  onSuccess,
+}) => {
+  const selectedListId = useTaskStore((state) => state.selectedListId);
 
   // Initialize react-hook-form with Zod resolver
   const form = useForm({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      title: "",
-      dueDate: null,
-    },
+    defaultValues: initialValues,
   });
 
   // Handle form submission
   const onSubmit = (data) => {
-    addTask({
-      title: data.title,
-      dueDate: data.dueDate || null,
-    });
-    form.reset(); // Clear the form after submission
+    if (selectedListId) {
+      handleFormSubmit(data);
+      form.reset(); // Clear the form after submission
+    } else {
+      console.error("No list selected.");
+    }
   };
+
+  const isEditing = Boolean(initialValues.title);
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col gap-3"
+      >
         {/* Title input field */}
         <FormField
           name="title" // Field name must match the Zod schema
           control={form.control}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Task title</FormLabel>
+              <FormLabel>Task name</FormLabel>
               <FormControl>
                 <Input
                   {...field} // Connect input to react-hook-form
-                  placeholder="Add new task"
+                  placeholder="Enter task name..."
                 />
               </FormControl>
               <FormMessage /> {/* Displays validation errors */}
@@ -80,13 +86,25 @@ const AddTaskForm = () => {
           )}
         />
 
-        {/* Submit button */}
-        <Button
-          type="submit"
-          className="mt-4"
-        >
-          Add Task
-        </Button>
+        {/* Submit buttons */}
+        <div className="flex items-center justify-end gap-4">
+          {!isEditing && (
+            <Button
+              variant="outline"
+              type="submit"
+              className="mt-4"
+            >
+              Create task and add another
+            </Button>
+          )}
+          <Button
+            type="submit"
+            className="mt-4"
+            onClick={onSuccess}
+          >
+            {initialValues.title ? "Update task" : "Create task"}
+          </Button>
+        </div>
       </form>
     </Form>
   );

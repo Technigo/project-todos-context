@@ -2,11 +2,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
-
 }
 
 body {
-  /* background-color: #dccebd; */
+  cursor: url("./assets/pencil.png") 32 32, auto;
   background: linear-gradient(#efe7da, #c2b5a4);
   margin: 0;
   padding: 0;

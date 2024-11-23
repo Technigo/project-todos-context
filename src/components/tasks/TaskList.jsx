@@ -15,68 +15,83 @@ box-shadow: 2px 2px 1px 0px rgba(240,231,134,1),
 10px 4px 1px 0px rgba(240,231,134,1),
 12px 4px 1px 0px rgba(74,74,74,1);
 @media (max-width: 480px){
-  max-height: 25rem;
+  max-height: 30rem;
   box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.3), 8px 8px 20px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 `;
 
 const TaskCount = styled.div`
-  width: 500px;
+  width: 31.25rem;
   background-color: #32231c;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px;
+  padding: 1.25rem;
   font-family: courier, monospace;
-  font-size: 16px;
+  font-size: 1rem;
 
   @media (max-width: 425px) {
-    width: 300px;
+    width: 18.75rem;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     gap: 0.375rem;
   }
   @media (min-width:425px) and (max-width:580px) {
-    width: 400px;
+    width: 25rem;
   }
   @media (min-width: 1024px) {
-    width: 600px;
-    font-size: 20px;
+    width: 37.5rem;
+    font-size: 1.25rem;
+  }
+`;
+
+const NoTasks = styled.p `
+  font-family: "Indie Flower", cursive;
+  height: 5.3125rem;
+  font-size: 1.375rem;
+  background-color: #f0e786;
+  text-align: center;
+  padding: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+@media (min-width: 1024px) {
+  font-size: 1.875rem;
   }
 `;
 
 const ListWrapper = styled.div`
-  border-top: 5px #32231c;;
+  border-top: 0.3125rem #32231c;;
 `;
 
 const ListContainer = styled.ul`
   background-color: #f0e786;
-  font-size: 22px;
+  font-size: 1.375rem;
   padding: 0 !important;
   margin: 0;
-  width: 500px;
+  width: 31.25rem;
   font-family: "Indie Flower", cursive;
   font-weight: 550;
   @media (max-width: 480px) {
-    width: 300px;
+    width: 18.75rem;
   }
   @media (min-width:425px) and (max-width:580px) {
-    width: 400px;
+    width: 25rem;
   }
   @media (min-width: 1024px) {
-    width: 600px;
-    font-size: 25px;
+    width: 37.5rem;
+    font-size: 1.5625rem;
   }
 `;
 
 const List = styled.li`
   list-style: none;
-  border-bottom: 1px dotted #b4b3b3;
+  border-bottom: 0.0625rem dotted #b4b3b3;
   height: auto;
-  min-height: 90px;
-  padding: 10px;
+  min-height: 5.625rem;
+  padding: 0.625rem;
   text-transform: capitalize;
   display: flex;
   align-items: center;
@@ -93,40 +108,40 @@ const Label = styled.label`
 
 const Input = styled.input`
   appearance: none;
-  min-width: 20px;
-  max-width: 20px;
-  height: 20px;
-  border: 1px solid black;
+  min-width: 1.25rem;
+  max-width: 1.25rem;
+  height: 1.25rem;
+  border: 0.0625rem solid black;
   cursor: pointer;
   &:checked {
-    border: 2px solid green;
+    border: 0.125rem solid green;
     position: relative;
   }
   &:checked::after {
     content: '✓';
     color: green;
-    font-size: 30px;
+    font-size: 1.875rem;
     display: block;
     text-align: center;
-    line-height: 9px;
+    line-height: 0.5625rem;
  }
 `;
 
 const TaskText = styled.span`
   text-decoration: ${(props) => (props.$completed === "true" ? "line-through" : "none")};
-  margin-left: 10px;
+  margin-left: 0.625rem;
 `;
 
 const TaskDate = styled.span`
   position: absolute;
-  font-size: 12px;
-  right: 10px;
-  bottom: 5px;
+  font-size: 0.75rem;
+  right: 0.625rem;
+  bottom: 0.3125rem;
   font-family: courier, monospace;
-  letter-spacing: -0.9px;
+  letter-spacing: -0.05625rem;
   opacity: 0.6;
 @media (min-width: 1024px) {
-  font-size: 13px;
+  font-size: 0.8125rem;
   }
 `;
 
@@ -177,7 +192,7 @@ return (
       <p>Completed tasks: {completedTaskCount()}</p>
     </TaskCount>
     {tasks.length === 0 ? (
-    <p>No tasks available. Add some tasks!</p> //Alternative if there are no tasks
+    <NoTasks>You have no tasks yet. Let's add some!</NoTasks> 
     ) : (
     <ListWrapper>
     <ListContainer>

@@ -21,7 +21,7 @@ export const useTaskStore = create(
   completedTaskCount: () =>
   get().tasks.filter((task) => task.completed).length,
 
-  //ACTION FUNCTIONS
+  //ACTION FUNCTIONS:
   // Update the addTask input value
   setAddTask: (value) => set({ addTask: value }),
 

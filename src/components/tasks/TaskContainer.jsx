@@ -11,10 +11,7 @@ display: flex;
 align-items: center;
 justify-content: flex-start;
 flex-direction: column;
-margin-bottom: 50px;
-@media (max-width: 480px) {
-  min-height: 120vw;
-}
+margin-bottom: 3.125;
 `;
 
 export const TaskContainer = () => {

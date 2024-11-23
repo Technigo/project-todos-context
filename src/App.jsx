@@ -29,7 +29,7 @@ export const App = () => {
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
-                TaskTidy
+                TidyTask
               </h1>
             </div>
             <p className={isDark ? "text-gray-400" : "text-gray-600"}>

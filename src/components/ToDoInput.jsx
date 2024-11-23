@@ -4,15 +4,19 @@ import { useTodoStore } from "../store/useTodoStore";
 import { useThemeStore } from "../store/useThemeStore";
 
 export const TodoInput = () => {
+  // Local state to track the current input value
   const [text, setText] = useState("");
+  // Get the `addTodo` function from `useTodoStore` to add new todos
   const addTodo = useTodoStore((state) => state.addTodo);
+  // Get the `isDark` value from `useThemeStore` to determine the current theme
   const isDark = useThemeStore((state) => state.isDark);
 
+  // Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission behavior (page reload)
     if (text.trim()) {
-      addTodo(text.trim());
-      setText("");
+      addTodo(text.trim()); // Add the new todo, trimming any extra whitespace
+      setText(""); // Clear the input field after adding the todo
     }
   };
 

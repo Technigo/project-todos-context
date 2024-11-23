@@ -5,7 +5,7 @@ import AddTaskForm from "./AddTaskForm";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
 import { Label } from "./ui/label";
-import { Trash, Edit } from "lucide-react";
+import { Trash, Edit, GripVertical } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -13,6 +13,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
+
+// Drag and drop modules
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 const TaskListItem = ({ task, listId }) => {
   const toggleTaskCompletion = useTaskStore(
@@ -34,32 +44,67 @@ const TaskListItem = ({ task, listId }) => {
     setIsEditDialogOpen(false);
   };
 
+  // Sortable setup
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: task.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
   return (
-    <>
+    <li
+      ref={setNodeRef}
+      style={style}
+      className="flex items-center justify-between shadow gap-2 px-3 py-2 border-slate-200 border rounded has-[.is-completed]:line-through has-[.is-completed]:bg-green-100 has-[.is-completed]:border-green-600 has-[.is-overdue]:bg-red-100 has-[.is-overdue]:border-red-600"
+    >
       <div
         className={clsx(
-          "flex items-center gap-3 py-2 px-1 rounded w-full cursor-pointer", // Always included classes
+          "flex items-center gap-4 py-2 px-1 rounded w-full cursor-pointer",
           task.isCompleted && "group is-completed",
           isOverdue && "group is-overdue"
         )}
         id={task.id}
-        checked={task.isCompleted}
-        onClick={() => toggleTaskCompletion(listId, task.id)}
       >
-        <Checkbox
-          id={task.id}
-          checked={task.isCompleted}
-          onCheckedChange={() => toggleTaskCompletion(listId, task.id)}
-        />
-        <div>
-          <Label
-            htmlFor={task.id}
-            className="cursor-pointer"
-          >
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                {...attributes}
+                {...listeners}
+                className="cursor-grab p-2 border border-transparent group-[.is-completed]:hover:bg-white group-[.is-completed]:hover:border-green-500"
+                aria-label="Drag to reorder"
+                variant="ghost"
+              >
+                <GripVertical />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="top">Drag to reorder</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <Label className="cursor-pointer text-md font-semibold flex items-center gap-4 w-full">
+          <Checkbox
+            id={task.id}
+            checked={task.isCompleted}
+            onCheckedChange={() => toggleTaskCompletion(listId, task.id)}
+          />
+          <div>
             {task.title}
-          </Label>
-          <p className="text-sm">{task.dueDate}</p>
-        </div>
+            {task.dueDate && (
+              <p className="text-sm">
+                <span className="font-medium mr-1">Due:</span> {task.dueDate}
+              </p>
+            )}
+          </div>
+        </Label>
       </div>
 
       <div className="flex items-center gap-2">
@@ -69,12 +114,25 @@ const TaskListItem = ({ task, listId }) => {
           onOpenChange={setIsEditDialogOpen}
         >
           <DialogTrigger asChild>
-            <Button
-              variant="ghost"
-              size="icon"
-            >
-              <Edit />
-            </Button>
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className={clsx(
+                      "border border-transparent",
+                      task.isCompleted &&
+                        "hover:bg-white hover:border-green-400",
+                      isOverdue && "hover:bg-white hover:border-red-400"
+                    )}
+                  >
+                    <Edit />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="top">Edit task</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
@@ -92,15 +150,27 @@ const TaskListItem = ({ task, listId }) => {
         </Dialog>
 
         {/* Delete Task Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => deleteTask(listId, task.id)}
-        >
-          <Trash />
-        </Button>
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => deleteTask(listId, task.id)}
+                className={clsx(
+                  "border border-transparent",
+                  task.isCompleted && "hover:bg-white hover:border-green-400",
+                  isOverdue && "hover:bg-white hover:border-red-400"
+                )}
+              >
+                <Trash />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="top">Delete task</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
-    </>
+    </li>
   );
 };
 

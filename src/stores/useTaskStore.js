@@ -142,6 +142,26 @@ const useTaskStore = create(
             state.selectedListId === listId ? null : state.selectedListId,
         })),
 
+      // Reorder tasks within a list
+      reorderTasks: (listId, fromIndex, toIndex) =>
+        set((state) => {
+          const lists = state.lists.map((list) => {
+            if (list.id === listId) {
+              const updatedTasks = [...list.tasks];
+              const [movedTask] = updatedTasks.splice(fromIndex, 1);
+              updatedTasks.splice(toIndex, 0, movedTask);
+
+              return {
+                ...list,
+                tasks: updatedTasks,
+              };
+            }
+            return list;
+          });
+
+          return { lists };
+        }),
+
       // Action to set the selected list
       setSelectedList: (listId) => set({ selectedListId: listId }),
     }),

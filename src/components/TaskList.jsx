@@ -11,12 +11,30 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 
+// Drag n drop modules
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
+
 const TaskList = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const lists = useTaskStore((state) => state.lists);
   const selectedListId = useTaskStore((state) => state.selectedListId);
   const addTask = useTaskStore((state) => state.addTask);
   const clearCompletedTasks = useTaskStore((state) => state.clearCompleted);
+  const reorderTasks = useTaskStore((state) => state.reorderTasks);
 
   // Find the selected list
   const selectedList = lists.find((list) => list.id === selectedListId);
@@ -32,22 +50,57 @@ const TaskList = () => {
     });
   };
 
+  // Stuff for drag and drop
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5,
+      },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      const oldIndex = selectedList.tasks.findIndex(
+        (task) => task.id === active.id
+      );
+      const newIndex = selectedList.tasks.findIndex(
+        (task) => task.id === over.id
+      );
+
+      reorderTasks(selectedList.id, oldIndex, newIndex);
+    }
+  };
+
   return (
     <>
       <h1>{selectedList.name}</h1>
-      <ul className="flex flex-col gap-3">
-        {selectedList.tasks.map((task) => (
-          <li
-            key={task.id}
-            className="flex items-center justify-between shadow gap-2 px-4 py-2 border-slate-200 border rounded has-[.is-completed]:line-through has-[.is-completed]:bg-green-100 has-[.is-completed]:border-green-600 has-[.is-overdue]:bg-red-100 has-[.is-overdue]:border-red-600"
-          >
-            <TaskListItem
-              task={task}
-              listId={selectedList.id}
-            />
-          </li>
-        ))}
-      </ul>
+      <DndContext
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        modifiers={[restrictToVerticalAxis]}
+        onDragEnd={handleDragEnd}
+      >
+        <SortableContext
+          items={selectedList.tasks.map((task) => task.id)}
+          strategy={verticalListSortingStrategy}
+        >
+          <ul className="flex flex-col gap-3">
+            {selectedList.tasks.map((task) => (
+              <TaskListItem
+                key={task.id}
+                listId={selectedList.id}
+                task={task}
+              />
+            ))}
+          </ul>
+        </SortableContext>
+      </DndContext>
 
       <div className="flex items-center justify-between gap-4">
         <Dialog

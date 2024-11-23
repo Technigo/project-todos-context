@@ -95,7 +95,6 @@ export function NavLists() {
               data-active={selectedListId === list.id}
               onClick={() => setSelectedList(list.id)}
             >
-              <ListChecks />
               <span className="flex items-center gap-2">
                 {list.name}
                 <span className="text-xs leading-none text-white font-semibold pt-1 pb-[0.34rem] px-2 bg-foreground rounded-full">

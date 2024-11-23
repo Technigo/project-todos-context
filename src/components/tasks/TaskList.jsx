@@ -4,16 +4,16 @@ import bin from "../../assets/bin.png"
 
 //Styles
 const TaskMap = styled.div`
-max-height: 37.5rem;
-margin: 1.25rem;
-box-sizing: border-box;
-overflow: scroll;
-box-shadow: 2px 2px 1px 0px rgba(240,231,134,1),
-4px 2px 1px 0px rgba(74,74,74,1),
-6px 3px 1px 0px rgba(240,231,134,1),
-8px 3px 1px 0px rgba(74,74,74,1),
-10px 4px 1px 0px rgba(240,231,134,1),
-12px 4px 1px 0px rgba(74,74,74,1);
+  max-height: 37.5rem;
+  margin: 1.25rem;
+  box-sizing: border-box;
+  overflow: scroll;
+  box-shadow: 2px 2px 1px 0px rgba(240,231,134,1),
+  4px 2px 1px 0px rgba(74,74,74,1),
+  6px 3px 1px 0px rgba(240,231,134,1),
+  8px 3px 1px 0px rgba(74,74,74,1),
+  10px 4px 1px 0px rgba(240,231,134,1),
+  12px 4px 1px 0px rgba(74,74,74,1);
 @media (max-width: 480px){
   max-height: 30rem;
   box-shadow: -8px 8px 20px rgba(0, 0, 0, 0.3), 8px 8px 20px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -31,20 +31,20 @@ const TaskCount = styled.div`
   font-family: courier, monospace;
   font-size: 1rem;
 
-  @media (max-width: 425px) {
-    width: 18.75rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 0.375rem;
-  }
-  @media (min-width:425px) and (max-width:580px) {
-    width: 25rem;
-  }
-  @media (min-width: 1024px) {
-    width: 37.5rem;
-    font-size: 1.25rem;
-  }
+@media (max-width: 425px) {
+  width: 18.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+@media (min-width:425px) and (max-width:580px) {
+  width: 25rem;
+}
+@media (min-width: 1024px) {
+  width: 37.5rem;
+  font-size: 1.25rem;
+}
 `;
 
 const NoTasks = styled.p `
@@ -74,16 +74,16 @@ const ListContainer = styled.ul`
   width: 31.25rem;
   font-family: "Indie Flower", cursive;
   font-weight: 550;
-  @media (max-width: 480px) {
-    width: 18.75rem;
-  }
-  @media (min-width:425px) and (max-width:580px) {
-    width: 25rem;
-  }
-  @media (min-width: 1024px) {
-    width: 37.5rem;
-    font-size: 1.5625rem;
-  }
+@media (max-width: 480px) {
+  width: 18.75rem;
+}
+@media (min-width:425px) and (max-width:580px) {
+  width: 25rem;
+}
+@media (min-width: 1024px) {
+  width: 37.5rem;
+  font-size: 1.5625rem;
+}
 `;
 
 const List = styled.li`
@@ -113,17 +113,17 @@ const Input = styled.input`
   height: 1.25rem;
   border: 0.0625rem solid black;
   cursor: pointer;
-  &:checked {
-    border: 0.125rem solid green;
-    position: relative;
-  }
-  &:checked::after {
-    content: '✓';
-    color: green;
-    font-size: 1.875rem;
-    display: block;
-    text-align: center;
-    line-height: 0.5625rem;
+&:checked {
+  border: 0.125rem solid green;
+  position: relative;
+}
+&:checked::after {
+  content: '✓';
+  color: green;
+  font-size: 1.875rem;
+  display: block;
+  text-align: center;
+  line-height: 0.5625rem;
  }
 `;
 
@@ -142,7 +142,7 @@ const TaskDate = styled.span`
   opacity: 0.6;
 @media (min-width: 1024px) {
   font-size: 0.8125rem;
-  }
+}
 `;
 
 const RemoveButton = styled.button`
@@ -150,21 +150,21 @@ const RemoveButton = styled.button`
   padding: none;
   background-color: inherit;
   cursor: pointer;
-  img {
+img {
   filter: sepia(0) saturate(5) hue-rotate(60deg);
   width: 2rem;
   height: 2rem;
   transition: transform 0.3s ease, filter 0.3s ease;
-  }
-  &:hover {
-    transform: scale(1.2); 
-    filter: sepia(-2) saturate(10) hue-rotate(90deg);
-  }
+}
+&:hover {
+  transform: scale(1.2); 
+  filter: sepia(-2) saturate(10) hue-rotate(90deg);
+}
 @media (min-width: 1024px) {
   img{
   width:2.2rem;
   height: 2.2rem;   
-  }
+}
 }
 `;
 
@@ -175,7 +175,7 @@ const {
   totalTaskCount, 
   completedTaskCount,
   removeTask 
-  } = useTaskStore();
+} = useTaskStore();
 
 const formatDate = (timestamp) => {
   const date = new Date(timestamp);

@@ -79,27 +79,33 @@ const TaskList = () => {
   return (
     <>
       <h1>{selectedList.name}</h1>
-      <DndContext
-        sensors={sensors}
-        collisionDetection={closestCenter}
-        modifiers={[restrictToVerticalAxis]}
-        onDragEnd={handleDragEnd}
-      >
-        <SortableContext
-          items={selectedList.tasks.map((task) => task.id)}
-          strategy={verticalListSortingStrategy}
+      {selectedList.tasks.length > 0 ? (
+        <DndContext
+          sensors={sensors}
+          collisionDetection={closestCenter}
+          modifiers={[restrictToVerticalAxis]}
+          onDragEnd={handleDragEnd}
         >
-          <ul className="flex flex-col gap-3">
-            {selectedList.tasks.map((task) => (
-              <TaskListItem
-                key={task.id}
-                listId={selectedList.id}
-                task={task}
-              />
-            ))}
-          </ul>
-        </SortableContext>
-      </DndContext>
+          <SortableContext
+            items={selectedList.tasks.map((task) => task.id)}
+            strategy={verticalListSortingStrategy}
+          >
+            <ul className="flex flex-col gap-3">
+              {selectedList.tasks.map((task) => (
+                <TaskListItem
+                  key={task.id}
+                  listId={selectedList.id}
+                  task={task}
+                />
+              ))}
+            </ul>
+          </SortableContext>
+        </DndContext>
+      ) : (
+        <p className="text-lg text-gray-600 font-light mb-3">
+          An empty canvas 🎨 Let's start filling it out!
+        </p>
+      )}
 
       <div className="flex items-center justify-between gap-4">
         <Dialog

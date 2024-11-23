@@ -58,17 +58,18 @@ const TaskListItem = ({ task, listId }) => {
     transform: CSS.Transform.toString(transform),
     transition,
     opacity: isDragging ? 0.5 : 1,
+    zIndex: isDragging ? 999 : "auto",
   };
 
   return (
     <li
       ref={setNodeRef}
       style={style}
-      className="flex items-center justify-between shadow gap-1 md:gap-2 px-1 py-1 md:px-3 md:py-2 border-slate-200 border rounded has-[.is-completed]:line-through has-[.is-completed]:bg-green-100 has-[.is-completed]:border-green-600 has-[.is-overdue]:bg-red-100 has-[.is-overdue]:border-red-600"
+      className="flex items-center justify-between shadow px-1 md:px-2 hover:shadow-lg transition-shadow gap-1 md:gap-2 border-slate-200 border rounded has-[.is-completed]:line-through has-[.is-completed]:bg-green-100 has-[.is-completed]:border-green-600 has-[.is-overdue]:bg-red-100 has-[.is-overdue]:border-red-600"
     >
       <div
         className={clsx(
-          "flex items-center gap-1 md:gap-4 py-1 md:py-2 md:px-1 rounded w-full cursor-pointer",
+          "flex items-center gap-1 md:gap-2 rounded w-full cursor-pointer",
           task.isCompleted && "group is-completed",
           isOverdue && "group is-overdue"
         )}
@@ -90,16 +91,16 @@ const TaskListItem = ({ task, listId }) => {
             <TooltipContent side="top">Drag to reorder</TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <Label className="cursor-pointer text-sm md:text-md font-regular flex items-center gap-3 md:gap-4 w-full">
+        <Label className="cursor-pointer text-sm md:text-md font-regular flex items-center gap-3 md:gap-4 w-full py-3 md:py-4">
           <Checkbox
             id={task.id}
             checked={task.isCompleted}
             onCheckedChange={() => toggleTaskCompletion(listId, task.id)}
           />
-          <div>
-            {task.title}
+          <div className="relative top-[-2px]">
+            <p className="text-base">{task.title}</p>
             {task.dueDate && (
-              <p className="text-xs md:text-sm">
+              <p className="text-xs md:text-sm font-light text-slate-700">
                 <span className="mr-1">Due:</span>
                 <span className="font-regular">{task.dueDate}</span>
               </p>
@@ -135,9 +136,9 @@ const TaskListItem = ({ task, listId }) => {
               <TooltipContent side="top">Edit task</TooltipContent>
             </Tooltip>
           </TooltipProvider>
-          <DialogContent>
+          <DialogContent className="fixed md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 top-0 left-0 transform-none">
             <DialogHeader>
-              <DialogTitle>Edit Task</DialogTitle>
+              <DialogTitle>Edit task</DialogTitle>
             </DialogHeader>
             <AddTaskForm
               initialValues={{

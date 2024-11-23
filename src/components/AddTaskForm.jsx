@@ -45,6 +45,16 @@ const AddTaskForm = ({
     }
   };
 
+  // Handle form submission and keep dialog open
+  const onSubmitAndAddAnother = (data) => {
+    if (selectedListId) {
+      handleFormSubmit(data);
+      form.reset(); // Clear the form for the next task
+    } else {
+      console.error("No list selected.");
+    }
+  };
+
   const isEditing = Boolean(initialValues.title);
 
   return (
@@ -64,7 +74,7 @@ const AddTaskForm = ({
                 <Input
                   {...field} // Connect input to react-hook-form
                   placeholder="Enter task name..."
-                  autofocus
+                  autoFocus
                 />
               </FormControl>
               <FormMessage /> {/* Displays validation errors */}
@@ -96,7 +106,7 @@ const AddTaskForm = ({
             <Button
               variant="outline"
               type="button"
-              onClick={form.handleSubmit(onSubmit)}
+              onClick={form.handleSubmit(onSubmitAndAddAnother)}
               className="mt-4"
             >
               Create task and add another

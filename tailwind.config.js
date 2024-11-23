@@ -12,8 +12,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Noto Sans", Helvetia, Arial, sans-serif'],
-        serif: ["Noto Serif", "serif"],
+        sans: ['"Funnel Sans", Helvetia, Arial, sans-serif'],
+        serif: ['"Funnel Display", Helvetia, Arial, sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -78,9 +78,18 @@ module.exports = {
     require("tailwindcss-animate"),
     plugin(function ({ addBase, theme }) {
       addBase({
-        h1: { fontSize: theme("fontSize.3xl") },
-        h2: { fontSize: theme("fontSize.xl") },
-        h3: { fontSize: theme("fontSize.lg") },
+        h1: {
+          fontSize: theme("fontSize.3xl"),
+          fontWeight: theme("fontWeight.medium"),
+        },
+        h2: {
+          fontSize: theme("fontSize.xl"),
+          fontWeight: theme("fontWeight.medium"),
+        },
+        h3: {
+          fontSize: theme("fontSize.lg"),
+          fontWeight: theme("fontWeight.medium"),
+        },
       });
     }),
   ],

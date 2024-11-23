@@ -33,7 +33,7 @@ export function AppSidebar({ ...props }) {
         <NavLists />
       </SidebarContent>
       <SidebarFooter className="group-data-[collapsible=icon]:hidden">
-        <p className="text-sm font-light text-center my-4">
+        <p className="text-sm font-regular text-center my-4">
           Made by{" "}
           <a href="https://www.linkedin.com/in/helenewestrin/">
             Helene Westrin

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useTaskStore } from "../../stores/useTaskStore";
 
+//Styles
 const Form = styled.form`
   width: 31.25rem;
   height: 8.125rem;

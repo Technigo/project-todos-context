@@ -70,7 +70,7 @@ export const AddTask = () => {
     event.preventDefault(); // Prevent page reload on form submission
     const trimmedTitle = title.trim();
 
-    if (!trimmedTitle) {
+    if (!trimmedTitle) {  //Validation to ensure the input is not empty
       setErrorMessage("Task cannot be empty.");
       return;
     }
@@ -93,7 +93,7 @@ export const AddTask = () => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       const trimmedTitle = title.trim();
-      if (!trimmedTitle) {
+      if (!trimmedTitle) { //Prevent submission when pressing Enter if the input is empty.
         setErrorMessage("Task cannot be empty.");
         return;
       }
@@ -120,6 +120,7 @@ export const AddTask = () => {
         />
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Button type="submit" disabled={!title.trim()}>Add task</Button>
+        {/* //The button is disabled if the input is empty or contains only whitespace. */}
       </Form>
 
       {/* Conditionally render the counter only if there are tasks */}

@@ -9,7 +9,7 @@ const TaskSection = styled.section`
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
   padding: 20px;
-  justify-content: center; /* Center items horizontally */
+  justify-content: center; 
   width: fit-content; /* Adjust the section width to fit the grid content */
   max-width: 100%; /* Prevent it from exceeding the viewport width */
   margin: 0 auto; /* Center the section itself */

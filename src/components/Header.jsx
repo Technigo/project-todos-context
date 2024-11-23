@@ -33,18 +33,15 @@ const HeaderContent = styled.div`
 `;
 
 const HeaderImg = styled.img`
-max-width: 100%;    
-width: 4rem;
-height: auto;
+  max-width: 100%;    
+  width: 4rem;
+  height: auto;
 
-@media (max-width: 480px) {
-width: 3rem; 
+   @media (max-width: 480px) {
+   width: 3rem; 
 
-}
-`
-
-
-
+  }
+`;
 
 export const Header = () => {
   return (

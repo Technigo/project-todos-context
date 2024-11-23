@@ -62,7 +62,7 @@ const TaskList = () => {
               Create new task
             </Button>
           </DialogTrigger>
-          <DialogContent aria-describedby="Add a new task to your list here.">
+          <DialogContent>
             <DialogHeader>
               <DialogTitle>Create new task</DialogTitle>
             </DialogHeader>

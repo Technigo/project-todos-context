@@ -5,14 +5,16 @@ const HeaderWrapper = styled.div`
 font-family: "Indie Flower", cursive;
 font-weight: 400;
 font-size: 1.5rem;
-/* font-family: courier, monospace;  */
 height: 10rem;
 margin: 0;
 display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-gap: 10px;
+gap: 0.625rem;
+@media (max-width: 480px){
+  height: 8rem;
+}
 `;
 
 const HeaderImg = styled.img`

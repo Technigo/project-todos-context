@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 export const useTaskStore = create(
-  persist( //Use persist to locally store state properties 
+  persist( //Persist is used to locally store state properties 
   (set, get) => ({
   //State of the input field value in TaskForm, set to an empty string 
   addTask: "",
@@ -14,7 +14,6 @@ export const useTaskStore = create(
     { id: 3, text: "Walk the dog", completed: false },
   ],
 
-  //COUNT
   // Get the total task count using get method
   totalTaskCount: () => get().tasks.length,
 

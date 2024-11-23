@@ -3,22 +3,25 @@ import { useState } from "react";
 import { useTaskStore } from "../../stores/useTaskStore";
 
 const Form = styled.form`
-width: 500px;
-height: 100px;
-display: flex;
-flex-direction: column;
-gap: 8px;
+  width: 500px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+@media (max-width: 480px) {
+  width: 300px;
+}
+@media (min-width:425px) and (max-width:580px) {
+  width: 400px;
+}
+@media (min-width: 1024px) {
+  width: 600px;
+}
 `;
 
 const Input = styled.input`
-height: 50px;
+height: 70px;
 border: 1px solid #32231c;
-/* border-top: none; 
-border-right: none;
-border-left: none; */
-/* border-top: 1px dotted #b4b3b3; 
-border-right: 1px dotted #b4b3b3;
-border-left: 1px dotted #b4b3b3; */
 &:focus {
   outline: none; 
   padding-left: 15px;
@@ -32,6 +35,14 @@ border-left: 1px dotted #b4b3b3; */
   font-size: 16px;
   padding-left: 15px;
   }
+@media (min-width: 1024px) {
+  &:focus{
+    font-size: 20px;
+  }
+  &::placeholder{
+    font-size: 20px;
+  }
+}
 `;
 
 const TaskButton = styled.button`
@@ -48,6 +59,10 @@ const TaskButton = styled.button`
   background-color: white; 
   color: black; 
 }
+@media (min-width: 1024px) {
+  font-size: 18px;
+  width: 170px;
+}
 `;
 
 export const TaskForm = () => {
@@ -56,7 +71,7 @@ export const TaskForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setTasks(addTask); // Adds the task
+    setTasks(addTask); 
   };
 
   return (

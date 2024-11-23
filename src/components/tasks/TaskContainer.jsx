@@ -1,17 +1,20 @@
 import styled from "styled-components"
 import { TaskList } from "./TaskList"
 import { TaskForm } from "./TasksForm"
-// import { UserInfo } from "./UserInfo"
-// import { UserSettings } from "./UserSettings"
 
 const TaskWrapper = styled.div`
 margin: 0 auto;
 max-width: 80vw;
+min-height: 50vw;
 box-sizing: border-box;
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 flex-direction: column;
+margin-bottom: 50px;
+@media (max-width: 480px) {
+  min-height: 120vw;
+}
 `;
 
 export const TaskContainer = () => {

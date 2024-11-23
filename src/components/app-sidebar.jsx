@@ -19,13 +19,14 @@ export function AppSidebar({ ...props }) {
       {...props}
     >
       <SidebarHeader>
+        <LogoSquare
+          width="48"
+          height="48"
+          className="max-w-full h-auto group-data-[state=expanded]:hidden"
+        />
         <Logo
           width="100"
           className="max-w-full h-auto group-data-[state=collapsed]:hidden"
-        />
-        <LogoSquare
-          width="80"
-          className="max-w-full h-auto group-data-[state=expanded]:hidden"
         />
       </SidebarHeader>
       <SidebarContent>

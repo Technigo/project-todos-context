@@ -64,11 +64,11 @@ const TaskListItem = ({ task, listId }) => {
     <li
       ref={setNodeRef}
       style={style}
-      className="flex items-center justify-between shadow gap-2 px-3 py-2 border-slate-200 border rounded has-[.is-completed]:line-through has-[.is-completed]:bg-green-100 has-[.is-completed]:border-green-600 has-[.is-overdue]:bg-red-100 has-[.is-overdue]:border-red-600"
+      className="flex items-center justify-between shadow gap-1 md:gap-2 px-1 py-1 md:px-3 md:py-2 border-slate-200 border rounded has-[.is-completed]:line-through has-[.is-completed]:bg-green-100 has-[.is-completed]:border-green-600 has-[.is-overdue]:bg-red-100 has-[.is-overdue]:border-red-600"
     >
       <div
         className={clsx(
-          "flex items-center gap-4 py-2 px-1 rounded w-full cursor-pointer",
+          "flex items-center gap-1 md:gap-4 py-1 md:py-2 md:px-1 rounded w-full cursor-pointer",
           task.isCompleted && "group is-completed",
           isOverdue && "group is-overdue"
         )}
@@ -90,7 +90,7 @@ const TaskListItem = ({ task, listId }) => {
             <TooltipContent side="top">Drag to reorder</TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <Label className="cursor-pointer text-md font-semibold flex items-center gap-4 w-full">
+        <Label className="cursor-pointer text-sm md:text-md font-regular flex items-center gap-3 md:gap-4 w-full">
           <Checkbox
             id={task.id}
             checked={task.isCompleted}
@@ -99,24 +99,25 @@ const TaskListItem = ({ task, listId }) => {
           <div>
             {task.title}
             {task.dueDate && (
-              <p className="text-sm">
-                <span className="font-medium mr-1">Due:</span> {task.dueDate}
+              <p className="text-xs md:text-sm">
+                <span className="mr-1">Due:</span>
+                <span className="font-regular">{task.dueDate}</span>
               </p>
             )}
           </div>
         </Label>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1 md:gap-2">
         {/* Edit Task Button */}
         <Dialog
           open={isEditDialogOpen}
           onOpenChange={setIsEditDialogOpen}
         >
-          <DialogTrigger asChild>
-            <TooltipProvider delayDuration={0}>
-              <Tooltip>
-                <TooltipTrigger asChild>
+          <TooltipProvider delayDuration={0}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <DialogTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
@@ -129,11 +130,11 @@ const TaskListItem = ({ task, listId }) => {
                   >
                     <Edit />
                   </Button>
-                </TooltipTrigger>
-                <TooltipContent side="top">Edit task</TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </DialogTrigger>
+                </DialogTrigger>
+              </TooltipTrigger>
+              <TooltipContent side="top">Edit task</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>Edit Task</DialogTitle>

@@ -1,6 +1,7 @@
 import { useTaskStore } from "../stores/useTaskStore";
 import { Task } from "./Task";
 import styled from "styled-components"
+import stickyNote from "../assets/sticky-notes.png"
 
 
 const TaskSection = styled.section`
@@ -20,7 +21,7 @@ const TaskSection = styled.section`
   }
 
   /* Adjust for smaller screens (single-column layout) */
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,6 +34,7 @@ const TaskSection = styled.section`
 
 const CenteredContainer = styled.div`
   display: flex;
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -42,9 +44,27 @@ const P = styled.p`
  font-size: 40px;
  font-family: "Reenie Beanie";  
  font-weight: 500;
- margin: 40px;
+ margin: 40px 5px 10px;
  text-align: center; /* Centers text within the container */
  color: white; 
+
+ @media (max-width: 480px) {
+font-size: 35px; 
+
+} 
+`
+const Img = styled.img`
+max-width: 100%;    
+width: 8rem;
+height: auto;
+margin-top: 10px;
+
+
+@media (max-width: 480px) {
+width: 6rem; 
+
+} 
+
 `
 
 export const Tasklist = () => {
@@ -53,7 +73,7 @@ export const Tasklist = () => {
 
   return (
     <>
-      {tasks.length > 0 ? (
+      {tasks.length > 0 ? (   // If no tasks are added the below text will show. 
         <TaskSection>
           {tasks.map((task) =>
           (<Task key={task.id} task={task} />
@@ -62,6 +82,7 @@ export const Tasklist = () => {
       ) : (
         <CenteredContainer>
           <P>No tasks yet. Add one!</P>
+          <Img src={stickyNote} alt="Sticky-notes" className="stickynote" />
         </CenteredContainer>
       )}
     </>

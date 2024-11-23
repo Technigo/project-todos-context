@@ -5,27 +5,22 @@ import styled from "styled-components";
 const TaskContainer = styled.div`
   display: flex; 
   flex-direction: column;
-  justify-content: space-between; /* Ensures content is evenly spaced */
+  justify-content: space-between; 
   background-color: ${(props) => (props.completed ? "#cfc" : "#f4d4d4")}; // Green for completed, pink for incomplete
   padding: 1rem;
   width: 250px;
   height: 250px;
   box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.356);
   position: relative;
-  word-wrap: break-word; /* Ensure long words break and wrap */
+  word-wrap: break-word; /* Ensure long words in the task box/post it break and wrap */
 
   /* Adjust size for smaller screens */
-  @media (max-width: 768px) {
-    width: 80%; /* Use 80% of the screen width */
+  @media (max-width: 800px) {
+    width: 490px; 
+    max-width: 100%; 
     height: auto; 
     padding: 0.8rem;
   }
-
-  @media (max-width: 480px) {
-    width: 100%; /* Full width for very small screens */
-    padding: 0.5rem;
-  }
-
 `;
 // Use styled-components' shouldForwardProp utility to prevent "completed" from being forwarded to the DOM
 TaskContainer.defaultProps = {
@@ -54,6 +49,7 @@ const StyledP = styled.p`
  font-weight: 400;
  margin: 0;
  text-align: left; 
+ padding-top: 10px; 
 `
 
 const TrashIcon = styled.i`

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import checkMark from "../assets/check-solid.svg"
 
 
 const HeaderFlex = styled.div`
@@ -22,7 +23,7 @@ const HeaderContent = styled.div`
     }
 
     @media (max-width: 768px) {
-    padding-top: 40px;  
+    padding: 30px 0px 15px;  
   }
 
     @media (min-width: 1024px) {
@@ -31,6 +32,18 @@ const HeaderContent = styled.div`
   }
 `;
 
+const HeaderImg = styled.img`
+max-width: 100%;    
+width: 4rem;
+height: auto;
+
+@media (max-width: 480px) {
+width: 3rem; 
+
+}
+`
+
+
 
 
 export const Header = () => {
@@ -38,7 +51,7 @@ export const Header = () => {
     <header>
       <HeaderFlex>
         <HeaderContent>
-          <h1>My To Do List ✔️</h1>
+          <h1>My To Do List <HeaderImg src={checkMark} alt="Check-mark" className="checkmark" /></h1>
         </HeaderContent>
       </HeaderFlex>
     </header>

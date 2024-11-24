@@ -1,0 +1,46 @@
+.app-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	background-color: white;
+	overflow-x: hidden;
+}
+
+h1 {
+	font-size: 3rem;
+	color: #333;
+	padding: 30px;
+	position: relative;
+	font-family: Oswald, Oswald-fallback, sans-serif;
+	letter-spacing: 1rem;
+	font-weight: 300;
+	color: black;
+}
+
+/* Line */
+h1::after {
+	content: "";
+	display: block;
+	width: 600px;
+	height: 0.5px;
+	background-color: black;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@media (max-width: 480px) {
+
+	h1 {
+		font-size: 1.5rem;
+		letter-spacing: 0.5rem;
+	}
+
+	h1::after {
+		width: 270px;
+	}
+}

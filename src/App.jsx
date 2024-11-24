@@ -11,10 +11,12 @@ export const App = () => {
   return (
     <main>
       <Header />
-      <TaskCounter />
-      <div className="border">
-        <NewTask />
-        <Tasks />
+      <div className="task-background">
+        <TaskCounter />
+        <div className="border">
+          <NewTask />
+          <Tasks />
+        </div>
       </div>
       <Footer />
     </main>

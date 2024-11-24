@@ -1,11 +1,29 @@
 import { create } from 'zustand';
 
+const getTasksFromLocalStorage = () => {
+  try {
+    const tasks = localStorage.getItem("tasks");
+    return tasks ? JSON.parse(tasks) : [];
+  } catch (e) {
+    console.error("Error reading tasks from localStorage:", e);
+    return [];
+  }
+};
+
+const saveTasksToLocalStorage = (tasks) => {
+  try {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  } catch (e) {
+    console.error("Error saving tasks to localStorage:", e);
+  }
+};
+
 export const useTaskStore = create((set) => ({
-  tasks: JSON.parse(localStorage.getItem("tasks")) || [], // Läs från localStorage eller använd tom lista
+  tasks: getTasksFromLocalStorage(),
   addTask: (text) =>
     set((state) => {
       const newTasks = [...state.tasks, { id: Date.now(), text, completed: false }];
-      localStorage.setItem("tasks", JSON.stringify(newTasks)); // Spara uppgifterna i localStorage
+      saveTasksToLocalStorage(newTasks);
       return { tasks: newTasks };
     }),
   toggleTask: (id) =>
@@ -13,13 +31,13 @@ export const useTaskStore = create((set) => ({
       const newTasks = state.tasks.map((task) =>
         task.id === id ? { ...task, completed: !task.completed } : task
       );
-      localStorage.setItem("tasks", JSON.stringify(newTasks)); // Spara uppdaterade uppgifter i localStorage
+      saveTasksToLocalStorage(newTasks);
       return { tasks: newTasks };
     }),
   removeTask: (id) =>
     set((state) => {
       const newTasks = state.tasks.filter((task) => task.id !== id);
-      localStorage.setItem("tasks", JSON.stringify(newTasks)); // Spara de kvarvarande uppgifterna i localStorage
+      saveTasksToLocalStorage(newTasks);
       return { tasks: newTasks };
     }),
 }));

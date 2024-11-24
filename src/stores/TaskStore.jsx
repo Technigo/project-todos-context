@@ -18,10 +18,7 @@ export const useTaskStore = create(
   localStorageMiddleware("tasks")((set) => ({
     ...getInitialState(),
 
-    // setNewTask: (value) => set({ newTask: value }),
-    // setTimestamp: (timestamp) => set({ timestamp: timestamp }),
     setFilter: (filter) => set({ activeFilter: filter }),
-    // setDueDate: (date) => set({ dueDate: date }),
     addTask: (taskName, category, dueDate, projectId, timestamp) =>
       set((state) => ({
         tasks: [

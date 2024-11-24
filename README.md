@@ -1,34 +1,20 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
 
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
+Week 15th project. build a "to-do" app, with Global State Management and particularly, Zustand (external state management library). 
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+The app is intended to be a helpful tool for parents with teenagers. 
+The parents enters the home tasks (i.e. Tiddy your room, Walk the dog, Empty the dishwasher, etc) that tenagers "loves so much to do". And a list of pending tasks is shown on the teenagers cell. When each task is completed, just click on the check box under the parents approval. If its not done or not correctly done, unclick and the task is shown as pending again. 
 
-## Getting Started with the Project
+When the task is approved (one or all of them)  by click on the checkbox, the teenager will get a reward for each task satisfactorily achieved. 
 
-### Dependency Installation & Startup Development Server
+This total credits will be exchanged for extra benefits (previously agreed like: 1 reward = 1 hour video games; 2 rewards = 1 extra hour on friends meeting; 3 rewards = 10 $ extra to your week pocket money, etc. 
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
 
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
-
-### The Problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://tasks-for-teenagers-app.netlify.app/
 
 ## Instructions
 

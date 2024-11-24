@@ -34,6 +34,7 @@ const AddTask = () => {
         />
         <button
           type="submit"
+          aria-label="Add task"
           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-pink-500 text-white rounded-full h-12 w-12 flex items-center justify-center text-sm font-medium transition-transform duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-pink-700 focus:scale-95 hover:bg-white hover:shadow-none hover:border-2 hover:border-pink-500"
         >
           <svg

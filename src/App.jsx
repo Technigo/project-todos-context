@@ -1,3 +1,9 @@
+import { Page } from "./pages/page";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return (
+    <>
+      <Page />
+    </>
+  );
 };

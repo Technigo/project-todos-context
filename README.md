@@ -1,37 +1,15 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
+# Taskly – A todo app by Helene Westrin
 
-# Todo - useContext Project
+## The Project
 
-Replace this readme with your own information about your project.
+For this project I decided I wanted to try to use [shadcn/ui](https://ui.shadcn.com/) to experience what it is like to use a UI library built by someone else. Since they are using Tailwind so am I in this project.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+I started with setting up the basic Zustands store with tasks and a function to add and delete tasks. After I had gotten that to work I wanted to expand my app. I wanted to add the possibility to add different lists. That's when I decided to try their Sidebar component for for the layout and a nice way to access the lists.
 
-## Getting Started with the Project
+Here it got a little bit more complicated cause I needed to really get familiar with the Sidebar code in order to remove what I didn't need and also to add my lists and all the functionality I had built. It was a lot of back and forth, and quite a few bugs to fix, but I think I finally got it to work the way I wanted to.
 
-### Dependency Installation & Startup Development Server
+If I would have had more time I would have broken out more stuff in to separate components.
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
+## View it live
 
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
-
-### The Problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
-
-### View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+[https://taskly-by-helene.netlify.app](https://taskly-by-helene.netlify.app/)

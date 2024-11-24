@@ -81,7 +81,7 @@ const TaskListItem = ({ task, listId }) => {
               <Button
                 {...attributes}
                 {...listeners}
-                className="cursor-grab p-2 border border-transparent group-[.is-completed]:hover:bg-white group-[.is-completed]:hover:border-green-500"
+                className="cursor-grab p-2 border border-transparent group-[.is-completed]:hover:bg-white group-[.is-completed]:hover:border-green-500 select-none"
                 aria-label="Drag to reorder"
                 variant="ghost"
               >

@@ -9,7 +9,7 @@ export const TaskItem = ({ task }) => {
 
 	return (
 		<div className="task-item-wrapper">
-			{/* Arrows positioned outside the task field */}
+			{/* Arrow buttons*/}
 			<div className="task-arrows">
 				<button
 					className="move-button"

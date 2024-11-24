@@ -7,17 +7,17 @@ import "./App.css";
 
 
 export const App = () => {
-  return (
-    <div className="app-container">
-      <header>
-        <h1>TO DO LIST</h1>
-        <TaskCount />
-      </header>
-      <main>
-        <AddTaskForm />
-        <TaskList />
-      </main>
-    </div>
-  );
+	return (
+		<div className="app-container">
+			<header>
+				<h1>TO DO LIST</h1>
+				<TaskCount />
+			</header>
+			<main>
+				<AddTaskForm />
+				<TaskList />
+			</main>
+		</div>
+	);
 };
 

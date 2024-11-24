@@ -48,7 +48,7 @@ const RemoveIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-function TodoList() {
+function ToDoList() {
   const todos = useTodoStore((state) => state.todos);
   const toggleTodo = useTodoStore((state) => state.toggleTodo);
   const removeTodo = useTodoStore((state) => state.removeTodo);
@@ -75,4 +75,4 @@ function TodoList() {
   );
 }
 
-export default TodoList;
+export default ToDoList;

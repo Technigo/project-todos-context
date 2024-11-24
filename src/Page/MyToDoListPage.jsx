@@ -1,4 +1,4 @@
-import TodoList from '../components/TodoList';
+import ToDoList from '../components/ToDoList';
 import AddTodoForm from '../components/AddTodoForm';
 import Counter from '../components/Counter';
 import styled from "styled-components";
@@ -51,7 +51,7 @@ export const MyToDoListPage = () => {
     <StyledContainer>
       <h1>My To-Do List</h1>
       <div className="content">
-        <TodoList />
+        <ToDoList />
       </div>
       <StyledFormContainer>
         <AddTodoForm />

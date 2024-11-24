@@ -54,11 +54,19 @@ const Header = styled.header`
 
 const Sidebar = styled.div`
   width: 500px;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const StyledSection = styled(Section)`
   display: flex;
   flex-direction: row;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const user = {

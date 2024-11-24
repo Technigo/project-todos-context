@@ -65,7 +65,6 @@ export const Project = ({ project }) => {
   const { deleteProject } = useProjectStore();
   const { tasks, toggleTask, deleteTask } = useTaskStore();
 
-
   const projectTasks = tasks.filter((task) => task.projectId === project.id);
 
   const completedTasks = projectTasks.filter((task) => task.completed).length;

@@ -28,6 +28,12 @@ const Number = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
+
+  @media (max-width: 768px) {
+    font-size: 4rem;
+    height: 100px;
+
+  }
 `;
 
 const chartConfig = {

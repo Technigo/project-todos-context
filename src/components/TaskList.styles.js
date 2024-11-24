@@ -6,6 +6,10 @@ export const TaskContainer = styled.div`
   gap: 1rem;
   padding: 1rem;
   width: 100%;
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const TaskCard = styled.div`

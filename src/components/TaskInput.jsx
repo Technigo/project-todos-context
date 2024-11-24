@@ -15,7 +15,7 @@ import {
   RadioGroup,
   RadioGroupItem,
 } from "@/components/dashboard/ui/radio-group";
-import { Separator } from "@radix-ui/react-select";
+import { Button } from "./dashboard/ui/button";
 
 const Form = styled.form`
   display: flex;
@@ -25,47 +25,27 @@ const Form = styled.form`
   background: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  align-items: center;
 
   @media (max-width: 768px) {
     flex-direction: column;
+    gap: 0.75rem;
+    
+    > * {
+      width: 100%;
+    }
+    
+    button {
+      width: 100%;
+    }
   }
 `;
-
-// const RadioGroup = styled.div`
-//   display: flex;
-//   gap: 1rem;
-//   padding: 0.5rem;
-//   border: 1px solid #ccc;
-//   border-radius: 12px;
-//   background: white;
-// `;
 
 const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   gap: 0.25rem;
   cursor: pointer;
-`;
-
-const Button = styled.button`
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 24px;
-  background-color: #1a73e8;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #1557b0;
-  }
-`;
-
-const ProjectSelect = styled.select`
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  flex: 1;
-  background: white;
 `;
 
 export const TaskInput = () => {
@@ -115,78 +95,46 @@ export const TaskInput = () => {
         placeholder="Add a new task..."
         required
       />
-      <RadioGroup defaultValue="option-one">
+      <RadioGroup 
+        value={taskInput.category}
+        onValueChange={(value) => setTaskInput({ ...taskInput, category: value })}
+      >
         <div className="flex items-center space-x-2">
-          <RadioGroupItem
-            name="category"
-            value="work"
-            checked={taskInput.category === "work"}
-            onChange={(e) =>
-              setTaskInput({ ...taskInput, category: e.target.value })
-            }
-          />
+          <RadioGroupItem value="work" id="work" />
           <RadioLabel htmlFor="work">Work</RadioLabel>
         </div>
         <div className="flex items-center space-x-2">
-          <RadioGroupItem
-            name="category"
-            value="personal"
-            checked={taskInput.category === "personal"}
-            onChange={(e) =>
-              setTaskInput({ ...taskInput, category: e.target.value })
-            }
-          />
+          <RadioGroupItem value="personal" id="personal" />
           <RadioLabel htmlFor="personal">Personal</RadioLabel>
         </div>
       </RadioGroup>
-      {/* <RadioGroup>
-        <RadioLabel>
-          <input
-            type="radio"
-            name="category"
-            value="work"
-            checked={taskInput.category === "work"}
-            onChange={(e) =>
-              setTaskInput({ ...taskInput, category: e.target.value })
-            }
-          />
-          Work
-        </RadioLabel>
-        <RadioLabel>
-          <input
-            type="radio"
-            name="category"
-            value="personal"
-            checked={taskInput.category === "personal"}
-            onChange={(e) =>
-              setTaskInput({ ...taskInput, category: e.target.value })
-            }
-          />
-          Personal
-        </RadioLabel>
-      </RadioGroup> */}
       <DatePickerDemo
         value={taskInput.dueDate || new Date()}
         onChange={(date) => setTaskInput({ ...taskInput, dueDate: date })}
       />
-      {console.log("Due Date: ", taskInput.dueDate)}
-
       <Select
-        value={taskInput.projectId}
-        onChange={(e) =>
-          setTaskInput({ ...taskInput, projectId: e.target.value })
-        }
+        value={taskInput.projectId?.toString()}
+        onValueChange={(value) => {
+          if (value === "new") {
+            addProject();
+            return;
+          }
+          setTaskInput({ 
+            ...taskInput, 
+            projectId: value ? Number(value) : null
+          });
+        }}
       >
         <SelectTrigger>
           <SelectValue placeholder="Select a project" />
         </SelectTrigger>
         <SelectContent>
           {projects.map((project) => (
-            <SelectItem key={project.id} value={project.id}>
+            <SelectItem key={project.id} value={project.id.toString()}>
               {project.name}
             </SelectItem>
           ))}
-          <SelectItem value="Create New +" onSubmit={addProject}>
+          <SelectItem key="new" value="new">
             Create New +
           </SelectItem>
         </SelectContent>

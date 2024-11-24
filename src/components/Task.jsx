@@ -23,6 +23,7 @@ export const Task = ({ task }) => {
 
   const { toggleTask, deleteTask } = useTaskStore();
 
+
   return (
     <TaskCard completed={task.completed}>
       <TaskHeader>
@@ -33,6 +34,7 @@ export const Task = ({ task }) => {
           </OverdueTag>
         )}
         <MoreButton>•••</MoreButton>
+        {/* TODO - Add task to project through this button */}
       </TaskHeader>
 
       <TaskContent>

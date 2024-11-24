@@ -1,4 +1,4 @@
-import { CheckCircle2, Sun, Moon } from "lucide-react";
+import { CheckCircle2 as CompleteAllIcon, Sun, Moon } from "lucide-react";
 import { useTodoStore } from "../store/useTodoStore";
 import { useThemeStore } from "../store/useThemeStore";
 
@@ -14,7 +14,7 @@ export const TodoActions = () => {
           onClick={completeAll}
           className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors duration-200 text-sm sm:text-base"
         >
-          <CheckCircle2 size={18} className="sm:w-5 sm:h-5" />
+          <CompleteAllIcon size={18} className="sm:w-5 sm:h-5" />
           <span>Complete All</span>
         </button>
       )}

@@ -137,11 +137,21 @@ export function NavLists() {
                 side={isMobile ? "bottom" : "right"}
                 align={isMobile ? "end" : "start"}
               >
-                <DropdownMenuItem onClick={() => openEditDialog(list)}>
+                <DropdownMenuItem
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openEditDialog(list);
+                  }}
+                >
                   <Edit />
                   <span>Edit list</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => deleteList(list.id)}>
+                <DropdownMenuItem
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    deleteList(list.id);
+                  }}
+                >
                   <Trash2 />
                   <span>Delete list</span>
                 </DropdownMenuItem>
@@ -216,9 +226,9 @@ export function NavLists() {
           setEditDialogState((prevState) => ({ ...prevState, isOpen }))
         }
       >
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Edit List</DialogTitle>
+        <DialogContent className="fixed md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 top-0 left-0 transform-none">
+          <DialogHeader className="text-left">
+            <DialogTitle>Edit list</DialogTitle>
             <DialogDescription>Update the name of your list.</DialogDescription>
           </DialogHeader>
           <form

@@ -9,6 +9,7 @@ import { Trash, Edit, GripVertical } from "lucide-react";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -140,8 +141,11 @@ const TaskListItem = ({ task, listId }) => {
             </Tooltip>
           </TooltipProvider>
           <DialogContent className="fixed md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 top-0 left-0 transform-none">
-            <DialogHeader>
+            <DialogHeader className="text-left">
               <DialogTitle>Edit task</DialogTitle>
+              <DialogDescription className="sr-only">
+                Change name or due date.
+              </DialogDescription>
             </DialogHeader>
             <AddTaskForm
               initialValues={{

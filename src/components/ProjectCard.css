@@ -44,3 +44,21 @@
     justify-content: end;
     align-items: end;
 }
+
+.no-projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.notes-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notes-image {
+    width: 200px;
+}

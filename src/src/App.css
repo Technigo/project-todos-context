@@ -1,0 +1,258 @@
+/* App.css */
+
+/* Estilo general */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.container.dark-mode {
+    color: #fff;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    z-index: -1;
+    background-blend-mode: darken;
+    background: inherit;
+    color: #fff;
+}
+
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #daf6f1;
+    font-weight: bold;
+}
+
+/* Dark Mode */
+button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #4caf9d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 25px 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.task-item.dark-mode {
+    background-color: #444;
+    color: #fff;
+}
+
+.task-item.completed p {
+    text-decoration: line-through;
+    color: #4caf9d;
+}
+
+.task-checkbox {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 2px solid #4caf9d;
+    border-radius: 50%;
+    position: relative;
+}
+
+.task-checkbox.checked {
+    background-color: #4caf9d;
+}
+
+.task-checkbox.checked::after {
+    content: "✓";
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.task-description {
+    flex-grow: 1;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.reward-box {
+    background-color: #4caf9d;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.rewards-equivalence {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rewards-equivalence.dark-mode {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+.rewards-equivalence h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #4caf9d;
+}
+
+.rewards-equivalence ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.rewards-equivalence li {
+    font-size: 1rem;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #e8f5e9;
+}
+
+.rewards-equivalence li.dark-mode {
+    background-color: #555;
+    color: #fff;
+}
+
+.reward-message {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #333;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .reward-box {
+        font-size: 1.2rem;
+    }
+
+    .rewards-equivalence {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .reward-box {
+        font-size: 1rem;
+    }
+
+    .rewards-equivalence {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1000px;
+        padding: 30px;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .reward-box {
+        font-size: 2rem;
+        padding: 20px;
+    }
+
+    .rewards-equivalence {
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+        padding: 40px;
+    }
+
+    .title {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+
+    .reward-box {
+        font-size: 2.5rem;
+        padding: 30px;
+    }
+
+    .rewards-equivalence {
+        padding: 30px;
+        font-size: 1.3rem;
+        margin-top: 30px;
+    }
+}

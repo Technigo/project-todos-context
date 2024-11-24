@@ -4,9 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#000f3f", // Dark blue
+        primary: "#00003f", // Dark blue
         secondary: "#fafafa", // Light gray
         accent: "#ff69b4", // Pink
+        darkAccent: "#A6004C",
         bgLight: "#fffafa", // Main background for light mode
         bgDark: "#001427", // Main background for dark mode
 

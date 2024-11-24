@@ -1,7 +1,10 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
 import { useTaskStore } from "../stores/useTaskStore";
 import { useThemeStore } from "../stores/useThemeStore";
-import { FaPlus, FaTimes } from "react-icons/fa";
+import { useLanguageStore } from "../stores/useLanguageStore";
+import { translations } from "../data/translations";
+import { FaPlus, FaTimes, FaCalendarAlt } from "react-icons/fa";
 
 export const TaskForm = () => {
   // State to toggle form visibility
@@ -10,11 +13,16 @@ export const TaskForm = () => {
   const [title, setTitle] = useState("");
   // State for task category
   const [category, setCategory] = useState("");
+  // State for due date
+  const [dueDate, setDueDate] = useState(null);
 
   // Access the 'addTask' action
   const addTask = useTaskStore((state) => state.addTask);
   // Access the current theme
   const theme = useThemeStore((state) => state.theme);
+  // Access current language
+  const currentLanguage = useLanguageStore((state) => state.currentLanguage);
+  const text = translations[currentLanguage];
 
   const handleSubmit = (event) => {
     // Prevent page reload on form submission
@@ -32,11 +40,14 @@ export const TaskForm = () => {
       id: Date.now(),
       title,
       category,
+      dueDate,
       completed: false,
     });
 
     // Reset the input fields
-    setTitle(""), setCategory("");
+    setTitle("");
+    setCategory("");
+    setDueDate(null);
     setIsFormVisible(false); // Hide the form after submitting
   };
 
@@ -55,7 +66,7 @@ export const TaskForm = () => {
       <div className="flex flex-col items-center">
         <form
           onSubmit={handleSubmit}
-          className={`bg-secondary p-5 flex flex-col gap-4 w-full md:max-w-lg lg:max-w-xl ${
+          className={`bg-secondary p-5 flex flex-col gap-4 w-full xl:flex-wrap flex-grow ${
             isFormVisible ? "block" : "hidden"
           } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg ${
             theme === "light"
@@ -72,10 +83,9 @@ export const TaskForm = () => {
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            placeholder="Name a task..."
+            placeholder={text.inputPlaceholder}
             className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none flex-grow h-10"
           />
-
           {/* Dropdown menu for task category */}
           <div>
             {/* Hidden Label for Accessibility */}
@@ -91,24 +101,31 @@ export const TaskForm = () => {
               className="border border-primary text-primary p-2 rounded-md shadow-sm focus:ring-2 focus:ring-accent outline-none w-full h-10"
             >
               <option value="" disabled>
-                Choose a category
+                {text.categoryPlaceholder}
               </option>
-              <option value="Personal">Personal Tasks</option>
-              <option value="Work">Work/Professional</option>
-              <option value="Home">Home & Family</option>
-              <option value="School">School/Education</option>
-              <option value="Social">Social & Relationships</option>
-              <option value="Creative">Creative Projects</option>
-              <option value="Other">Other</option>
+              {Object.keys(translations.en.categories).map((key) => (
+                <option key={key} value={key}>
+                  {text.categories[key]}
+                </option>
+              ))}
             </select>
           </div>
-
+          {/* Due Date Picker */}
+          <div className="relative">
+            <DatePicker
+              selected={dueDate}
+              onChange={(date) => setDueDate(date)}
+              placeholderText={text.setDueDate}
+              className="border border-primary text-center text-primary p-2 rounded-md shadow-sm  w-full focus:ring2 focus:ring-accent outline-none w-full"
+            />
+            <FaCalendarAlt className="absolute top-3 left-3 text-primary pointer-events-none" />
+          </div>
           {/* Submit button */}
           <button
             type="submit"
-            className="bg-accent text-white px-4 py-2 rounded-md shadow hover:bg-accent/80 focus:ring-2 focus:ring-primary focus:outline-none h-10"
+            className="bg-accent text-primary font-bold px-4 py-2 rounded-md shadow shadow-md ring-2 ring-pink-500 ring-opacity-50 hover:bg-pink-500 focus:ring-2 focus:ring-primary focus:outline-none h-10"
           >
-            Add Task
+            {text.addTask}
           </button>
         </form>
       </div>

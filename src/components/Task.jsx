@@ -1,8 +1,15 @@
+import { useState } from "react";
 import { FaCheck, FaTrash } from "react-icons/fa";
 import { format } from "date-fns";
+import { useLanguageStore } from "../stores/useLanguageStore";
+import { translations } from "../data/translations";
 
 // Task Component: Renders a single task item with a checkbox and title
-export const Task = ({ task, toggleTask, deleteTask }) => {
+export const Task = ({ task, toggleTask, deleteTask, showDates }) => {
+  // Access the current language
+  const currentLanguage = useLanguageStore((state) => state.currentLanguage);
+  const text = translations[currentLanguage];
+
   return (
     <li className="flex flex-col items-start sm:items-center justify-between p-2 border rounded-md gap-2">
       {/* Label wraps the checkbox and title for accessibility */}
@@ -29,21 +36,33 @@ export const Task = ({ task, toggleTask, deleteTask }) => {
         </span>
       </label>
 
-      <div className="flex w-full justify-between">
-        {/* Task Timestamp */}
-        <span className="text-sm text-gray-400">
-          {format(new Date(task.createdAt), "MMM dd, yyyy, h:mm a")}
-        </span>
-        {/* Delete button */}
-        <button
-          // Call deleteTask with task ID
-          onClick={() => deleteTask(task.id)}
-          aria-label={`Delete task: ${task.title}`}
-          className="text-accent hover:scale-110 hover:brightness-125 focus:outline-none focus:ring-2 focus:ring-red-500"
-        >
-          <FaTrash />
-        </button>
-      </div>
+      {/* Dates Section */}
+      {showDates && (
+        <div className="flex flex-col sm:flex-row w-full justify-between items-start sm:items-center">
+          {/* Task Timestamp */}
+          <span className="text-sm text-gray-400">
+            {text.created}:{" "}
+            {format(new Date(task.createdAt), "MMM dd, yyyy, h:mm a")}
+          </span>
+
+          {/* Task Due Date */}
+          {task.dueDate && (
+            <span className="text-sm text-darkAccent font-bold">
+              {text.due}: {format(new Date(task.dueDate), "MMM dd, yyyy")}
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Delete button */}
+      <button
+        // Call deleteTask with task ID
+        onClick={() => deleteTask(task.id)}
+        aria-label={`${text.deleteTask}: ${task.title}`}
+        className="text-accent hover:scale-110 hover:brightness-125 focus:outline-none focus:ring-2 focus:ring-red-500 ml-auto"
+      >
+        <FaTrash />
+      </button>
     </li>
   );
 };

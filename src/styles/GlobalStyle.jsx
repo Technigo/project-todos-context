@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Arial, sans-serif;
     background-color: ${({ theme }) => {
       console.log("Theme in GlobalStyle:", theme);
-      return theme.isDarkMode ? '#121212' : '#ffffff';
+      return theme.isDarkMode ? '#252525' : '#ffffff';
     }};
     color: ${({ theme }) => (theme.isDarkMode ? '#ffffff' : '#121212')};
     margin: 0;

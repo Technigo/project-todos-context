@@ -6,7 +6,7 @@ const TaskContainer = styled.div`
   display: flex; 
   flex-direction: column;
   justify-content: space-between; 
-  background-color: ${(props) => (props.completed ? "#cfc" : "#f4d4d4")}; // Green for completed, pink for incomplete
+  background-color: ${(props) => (props.completed ? "#cfc" : "#bea9df")}; // Green for completed, #bea9df purple for incomplete
   padding: 1rem;
   width: 250px;
   height: 250px;

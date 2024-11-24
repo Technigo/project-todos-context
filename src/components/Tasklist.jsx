@@ -4,6 +4,7 @@ import styled from "styled-components"
 import stickyNote from "../assets/sticky-notes.png"
 
 
+
 const TaskSection = styled.section`
   display: grid; 
   gap: 20px;
@@ -55,14 +56,14 @@ font-size: 35px;
 `
 const Img = styled.img`
 max-width: 100%;    
-width: 8rem;
+width: 10rem;
 height: auto;
-margin-top: 10px;
+margin-top: 20px;
 
 
 @media (max-width: 480px) {
-width: 6rem; 
-
+width: 7rem; 
+margin-top: 15px;
 } 
 
 `
@@ -82,7 +83,7 @@ export const Tasklist = () => {
       ) : (
         <CenteredContainer>
           <P>No tasks yet. Add one!</P>
-          <Img src={stickyNote} alt="Sticky-notes" className="stickynote" />
+          <Img src={stickyNote} alt="sticky note" className="sticky note" />
         </CenteredContainer>
       )}
     </>

@@ -75,8 +75,8 @@ export const AddTask = () => {
       return;
     }
 
-    if (trimmedTitle.length > 140) {
-      setErrorMessage("Your task cannot be more than 140 characters long.");
+    if (trimmedTitle.length > 100) {
+      setErrorMessage("Your task cannot be more than 100 characters long.");
       return;
     }
 

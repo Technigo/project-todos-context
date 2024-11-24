@@ -1,8 +1,14 @@
 // App.jsx
 import { Home } from './pages/Home'
+import { GlobalStyle } from './styles/GlobalStyle'
 
 const App = () => {
-  return <Home />
+  return (
+    <>
+      <GlobalStyle />
+      <Home />
+    </>
+  )
 }
 
 export default App

@@ -13,32 +13,42 @@ export const GlobalStyle = createGlobalStyle`
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: all 0.3s ease;
-  }
-
-  input, button {
-    font-family: inherit;
   }
 
   button {
-    outline: none;
-    user-select: none;
+    font-family: inherit;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
   }
 
+  input {
+    font-family: inherit;
+  }
+
+  /* Remove default focus outlines and add custom ones */
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(62, 11, 157, 0.3);
+  }
+
+  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: ${props => props.theme[props.mode].background};
+    background: #f1f1f1;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${props => props.theme[props.mode].secondary};
+    background: #3E0B9D;
     border-radius: 4px;
   }
 
+  /* Placeholder text color */
   ::placeholder {
-    color: ${props => props.theme[props.mode].text}66;
+    color: rgba(0, 0, 0, 0.5);
   }
 `

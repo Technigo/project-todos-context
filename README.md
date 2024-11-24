@@ -6,9 +6,21 @@
 
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
+Todo App
+This Todo app is built using React and Zustand for state management. It features a responsive design with a mobile-first approach, and provides users with an interactive and organized task list.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+Key Technologies & Libraries:
+React: Used for building the user interface with reusable components.
+Zustand: A lightweight state management library for managing tasks globally.
+Tailwind CSS: For styling and responsive design.
+React Hooks: Utilized useState, useEffect, and custom hooks to manage state and side effects in the application.
+Features:
+Add, complete, and delete tasks.
+Displays total, completed, and uncompleted tasks with dynamic updates.
+Mobile-first design with responsive layout adjustments for tablets and laptops.
+This app showcases my skills in state management with Zustand, React hooks, and responsive design principles.
+
+
 
 ## Getting Started with the Project
 
@@ -27,8 +39,7 @@ npm i && code . && npm run dev
 Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
 
 ### View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://nella-todo.netlify.app/
 
 ## Instructions
 

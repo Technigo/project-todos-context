@@ -1,4 +1,3 @@
-// src/store/todoStore.js
 import { create } from "zustand";
 
 const useTodoStore = create((set) => ({

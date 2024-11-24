@@ -11,21 +11,17 @@ body {
 h1 {
   font-weight: 700;
   font-size: 2.5rem;
-  /* Justera storlek efter behov */
 }
 
 p {
   font-weight: 400;
   font-size: 1rem;
-  /* Standardstorlek */
   line-height: 1.6;
-  /* För bättre läsbarhet */
 }
 
 span {
   font-weight: 400;
   font-size: 0.875rem;
-  /* Justera för små textstycken */
 }
 
 input[type="checkbox"] {

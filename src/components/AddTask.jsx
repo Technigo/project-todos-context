@@ -3,13 +3,13 @@ import { useTaskStore } from "../store/taskStore";
 
 const AddTask = () => {
   const [taskText, setTaskText] = useState("");
-  const [charCount, setCharCount] = useState(0); // State för teckenräknaren
+  const [charCount, setCharCount] = useState(0);
   const addTask = useTaskStore((state) => state.addTask);
 
   const handleChange = (event) => {
     const text = event.target.value;
     setTaskText(text);
-    setCharCount(text.length); // Uppdatera teckenräknaren när användaren skriver
+    setCharCount(text.length);
   };
 
   const handleSubmit = (event) => {
@@ -17,7 +17,7 @@ const AddTask = () => {
     if (taskText.trim()) {
       addTask(taskText);
       setTaskText("");
-      setCharCount(0); // Återställ räknaren när uppgiften skickas
+      setCharCount(0);
     }
   };
 
@@ -53,8 +53,7 @@ const AddTask = () => {
         </button>
       </div>
 
-      {/* Teckenräknare */}
-      <div className="text-sm text-gray-500 mx-2">
+      <div className="text-sm text-gray-600 mx-2">
         {charCount} / 40
       </div>
     </form>

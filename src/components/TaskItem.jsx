@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import emptyIcon from "../assets/icons/empty.png";
 import checkIcon from "../assets/icons/check.png";
+import deleteIcon from "../assets/icons/delete.png";
 
 const TaskContainer = styled.div`
   display: flex;
@@ -43,10 +44,10 @@ const TaskText = styled.span`
 const Badge = styled.span`
   background-color: ${({ status }) =>
     status === "Today"
-      ? "rgba(34, 139, 34, 0.2)" // Green for today
+      ? "rgba(34, 139, 34, 0.2)" 
       : status === "Overdue"
-      ? "rgba(255, 68, 0, 0.226)" // Red for overdue
-      : "rgba(128, 128, 128, 0.3)"}; // Gray for tomorrow/other dates
+      ? "rgba(255, 68, 0, 0.226)" 
+      : "rgba(128, 128, 128, 0.3)"};
   color: ${({ status }) =>
     status === "Today" ? "#2bbe2b" : status === "Overdue" ? "#ff3300" : "#d2cfcf"};
   padding: 0.2rem 0.4rem;
@@ -55,7 +56,61 @@ const Badge = styled.span`
   font-weight: 600;
 `;
 
+const DotsMenu = styled.div`
+  font-size: 1.25rem;
+  color: #6c757d;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    color: #ffffff;
+  }
+`;
+
+const DeleteButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: #434343;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  z-index: 1;
+
+  &:hover {
+    background: #604040;
+  }
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
 export function TaskItem({ task, categoryId, onToggle, onDelete }) {
+  const [menuVisible, setMenuVisible] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleOutsideClick(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuVisible(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
   const getBadgeStatus = () => {
     const today = new Date().toISOString().split("T")[0];
     const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
@@ -63,7 +118,7 @@ export function TaskItem({ task, categoryId, onToggle, onDelete }) {
       .split("T")[0];
     const taskDate = task.date;
 
-    if (!taskDate || isNaN(new Date(taskDate).getTime())) return "No Date"; // Handle invalid or missing dates
+    if (!taskDate || isNaN(new Date(taskDate).getTime())) return "No Date"; 
     if (taskDate === today) return "Today";
     if (taskDate === tomorrow) return "Tomorrow";
     if (new Date(taskDate) < new Date(today)) return "Overdue";
@@ -77,7 +132,7 @@ export function TaskItem({ task, categoryId, onToggle, onDelete }) {
       .split("T")[0];
     const taskDate = task.date;
 
-    if (!taskDate || isNaN(new Date(taskDate).getTime())) return "No Deadline"; // Handle invalid or missing dates
+    if (!taskDate || isNaN(new Date(taskDate).getTime())) return "No Deadline";
     if (taskDate === today) return "Today";
     if (taskDate === tomorrow) return "Tomorrow";
     if (new Date(taskDate) < new Date(today)) return "Overdue";
@@ -102,6 +157,15 @@ export function TaskItem({ task, categoryId, onToggle, onDelete }) {
           <Badge status={getBadgeStatus()}>{getFormattedDate()}</Badge>
         </TaskTextWrapper>
       </TaskContent>
+      <div ref={menuRef} style={{ position: "relative" }}>
+        <DotsMenu onClick={() => setMenuVisible(!menuVisible)}>•••</DotsMenu>
+        {menuVisible && (
+          <DeleteButton onClick={() => onDelete(categoryId, task.id)}>
+            Delete
+            <img src={deleteIcon} alt="Delete" />
+          </DeleteButton>
+        )}
+      </div>
     </TaskContainer>
   );
 }

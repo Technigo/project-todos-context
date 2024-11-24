@@ -48,7 +48,7 @@ export const Footer = () => {
   const tasks = useTaskStore((state) => state.tasks);
   const markAllCompleted = useTaskStore((state) => state.markAllCompleted);
 
-  // Calculate progress and credits
+  //to calculate progress and credits
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
   const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;

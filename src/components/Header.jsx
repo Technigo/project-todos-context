@@ -30,7 +30,7 @@ const EditIcon = styled.img`
   margin-left: 0.5rem;
   cursor: pointer;
   opacity: 0;
-  filter: invert(1); /* Invert the colors of the icon */
+  filter: invert(1); 
   transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
 `;
 
@@ -63,9 +63,9 @@ export function Header({ title, onTitleChange }) {
 
   const handleInputBlur = () => {
     if (draftTitle.trim() === "") {
-      setDraftTitle(title); // Revert to the original title if the input is empty
+      setDraftTitle(title); 
     } else {
-      onTitleChange(draftTitle); // Update the title when editing is complete
+      onTitleChange(draftTitle); 
     }
     setIsEditing(false);
   };

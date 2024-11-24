@@ -10,7 +10,7 @@ const EmptyStateContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 150px); /* Adjust based on header and bottomsheet */
+  height: calc(100vh - 150px); 
   text-align: center;
   color: #6c757d;
 `;
@@ -32,7 +32,6 @@ export function TaskManager() {
   const [availableCategories, setAvailableCategories] = useState([]);
   const [title, setTitle] = useState("Checklist");
 
-  // Add a new category or task
   function handleAddTask({ category, task, date }) {
     setCategories((prevCategories) => {
       const existingCategory = prevCategories.find((c) => c.title === category);
@@ -64,7 +63,6 @@ export function TaskManager() {
     });
   }
 
-  // Toggle task completion
   function toggleTaskCompletion(categoryId, taskId) {
     setCategories((prevCategories) =>
       prevCategories.map((category) =>
@@ -82,7 +80,6 @@ export function TaskManager() {
     );
   }
 
-  // Delete a task
   function handleDeleteTask(categoryId, taskId) {
     setCategories((prevCategories) =>
       prevCategories.map((category) =>
@@ -96,7 +93,6 @@ export function TaskManager() {
     );
   }
 
-  // Delete a category
   function handleDeleteCategory(categoryId) {
     setCategories((prevCategories) => {
       const updatedCategories = prevCategories.filter(

@@ -11,9 +11,16 @@ const TaskContainer = styled.div`
   width: 250px;
   height: 250px;
   max-width: 100%; 
-  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.356);
+  box-shadow: 5px 5px 7px #000;
   position: relative;
   word-wrap: break-word; /* Ensure long words in the task box/post it break and wrap */
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 
+    inset 0 -40px 40px rgba(0, 0, 0, 0.2),
+    inset 0 15px 10px rgba(0, 0, 0, 0.2),
+    0 5px 6px 5px rgba(0, 0, 0, 0.2);
+
 
   /* Adjust size for smaller screens */
   @media (max-width: 800px) {

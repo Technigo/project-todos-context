@@ -26,7 +26,7 @@ const useTaskStore = create(
   persist(
     (set, get) => ({
       lists: [
-        createList("Start here 🥳"), // Default list
+        createList("Your first list 🥳"), // Default list
       ],
       selectedListId: null,
 

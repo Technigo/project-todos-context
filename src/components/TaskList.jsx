@@ -104,7 +104,9 @@ const TaskList = () => {
         </DndContext>
       ) : (
         <p className="text-lg text-gray-600 font-light mb-3">
-          An empty canvas 🎨 Let's start filling it out!
+          An empty canvas for your to-dos 🎨
+          <br />
+          Begin by adding your first task.
         </p>
       )}
 

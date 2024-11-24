@@ -1,9 +1,9 @@
 import { ListTodo } from "lucide-react";
-import { TodoInput } from "./components/TodoInput";
-import { TodoItem } from "./components/TodoItem";
-import { TodoStats } from "./components/TodoStats";
-import { TodoFilters } from "./components/TodoFilters";
-import { TodoActions } from "./components/TodoActions";
+import { TodoInput } from "./components/ToDoInput";
+import { TodoItem } from "./components/ToDoItem";
+import { TodoStats } from "./components/ToDoStats";
+import { TodoFilters } from "./components/ToDoFilters";
+import { TodoActions } from "./components/ToDoActions";
 import { useTodoStore } from "./store/useTodoStore";
 import { useThemeStore } from "./store/useThemeStore";
 

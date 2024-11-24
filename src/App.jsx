@@ -1,4 +1,3 @@
-
 import { Home } from "./sites/Home";
 import styled from "styled-components";
 
@@ -8,7 +7,6 @@ flex-direction: column;
 align-items: center;
 width: 100%;
 `
-
 export const App = () => {
   return (
     <>

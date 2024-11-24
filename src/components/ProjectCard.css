@@ -1,64 +1,64 @@
 .project-card {
-    display: flex;
-    overflow-x: hidden;
-    padding: 1rem;
-    position: relative;
-    display: flex;
-    margin-bottom: 1rem;
-    overflow-x: auto;
-    max-width: 100%;
-    scroll-snap-type: x mandatory;
+  display: flex;
+  overflow-x: hidden;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+  scroll-snap-type: x mandatory;
 }
 
 .project-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex: 0 0 auto;
-    width: 280px;
-    margin-right: 1rem;
-    background-color: #e8f3ff;
-    border-radius: 10px;
-    padding: 1rem;
-    cursor: pointer;
-    max-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 280px;
+  margin-right: 1rem;
+  background-color: #e8f3ff;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  max-height: 100px;
 }
 
 .project-item .completed {
-    text-decoration: line-through;
-    color: grey;
+  text-decoration: line-through;
+  color: grey;
 }
 
 .project-text {
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    overflow-wrap: break-word;
-    display: block;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  display: block;
 }
 
 .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: end;
-    align-items: end;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
 }
 
 .no-projects {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .notes-image-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .notes-image {
-    width: 200px;
+  width: 200px;
 }

@@ -1,28 +1,28 @@
 .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 1rem;
-    border: grey solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 1rem;
+  border: grey solid 2px;
 }
 
 .input-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem 0rem 1rem 0rem;
-    width: 100%;
-    padding: 0.5rem;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0rem 1rem 0rem;
+  width: 100%;
+  padding: 0.5rem;
+  gap: 0.5rem;
 }
 
 .textarea {
-    border-radius: 10px;
-    display: flex;
-    text-align: left;
-    padding: 10px;
-    cursor: text;
-    width: 70%;
+  border-radius: 10px;
+  display: flex;
+  text-align: left;
+  padding: 10px;
+  cursor: text;
+  width: 70%;
 }

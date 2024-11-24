@@ -32,7 +32,7 @@ export const App = () => {
                   isDark ? "text-white" : "text-gray-900"
                 }`}
               >
-                Todo App
+                TidyTask
               </h1>
             </div>
             <p

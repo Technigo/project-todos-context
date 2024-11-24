@@ -12,9 +12,9 @@ export const TodoActions = () => {
       {totalTodos > 0 && (
         <button
           onClick={completeAll}
-          className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-indigo-500 text-white hover:bg-indigo-600 transition-colors duration-200 text-sm sm:text-base"
+          className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg bg-indigo-700 dark:bg-indigo-600 text-white hover:bg-indigo-800 dark:hover:bg-indigo-700 transition-colors duration-200 text-sm sm:text-base"
         >
-          <CompleteAllIcon size={18} className="sm:w-5 sm:h-5" />
+          <CheckCircle2 size={18} className="sm:w-5 sm:h-5" />
           <span>Complete All</span>
         </button>
       )}
@@ -22,8 +22,8 @@ export const TodoActions = () => {
         onClick={toggleTheme}
         className={`p-2 rounded-lg transition-colors duration-200 ${
           isDark
-            ? "bg-white/5 hover:bg-white/10 text-white"
-            : "bg-gray-200 hover:bg-gray-300 text-gray-700"
+            ? "bg-gray-800 hover:bg-gray-700 text-gray-200"
+            : "bg-gray-200 hover:bg-gray-300 text-gray-800"
         }`}
         aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
       >

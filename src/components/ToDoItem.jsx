@@ -19,8 +19,8 @@ export const TodoItem = ({ todo }) => {
         onClick={() => toggleTodo(todo.id)}
         className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 flex items-center justify-center transition-colors duration-200 ${
           todo.completed
-            ? "bg-indigo-500 border-indigo-500"
-            : "border-gray-400 hover:border-indigo-500"
+            ? "bg-indigo-700 border-indigo-700"
+            : "border-gray-500 hover:border-indigo-800"
         }`}
         aria-label={`Mark todo as ${
           todo.completed ? "incomplete" : "complete"

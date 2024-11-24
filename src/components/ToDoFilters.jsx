@@ -19,10 +19,10 @@ export const TodoFilters = () => {
           onClick={() => setFilter(value)}
           className={`px-3 py-1 rounded-full text-sm transition-colors duration-200 ${
             filter === value
-              ? "bg-indigo-500 text-white"
+              ? "bg-indigo-700 text-white dark:bg-indigo-700"
               : isDark
-              ? "text-gray-400 hover:text-white"
-              : "text-gray-600 hover:text-gray-900"
+              ? "text-gray-200 hover:text-white hover:bg-gray-800"
+              : "text-gray-800 hover:text-gray-900 hover:bg-gray-100"
           }`}
         >
           {label}

@@ -1,42 +1,37 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 
-// persist is a wrapper function that ensures the state is saved to a persistent storage
-export const useProjectStore = create(
-  persist((set, get) => ({
-    projects: [],
-    showForm: false,
+export const useProjectStore = create((set, get) => ({
+  projects: [],
+  showForm: false,
 
-    addProject: (text) => {
-      const newProject = {
-        id: get().projects.length > 0 ? get().projects[get().projects.length - 1].id + 1 : 1,
-        text,
-        completed: false,
-      };
-      set((state) => ({
-        projects: [...state.projects, newProject]
-      }));
-    },
+  // Adds a new project to the store
+  addProject: (text) => {
+    const newProject = {
+      id: get().projects.length > 0 ? get().projects[get().projects.length - 1].id + 1 : 1,
+      text,
+      completed: false,
+    };
+    set((state) => ({
+      projects: [...state.projects, newProject]
+    }));
+  },
 
-    removeProject: (id) => {
-      set((state) => ({
-        projects: state.projects.filter((project) => project.id !== id)
-      }));
-    },
+  // Removes a project by its ID
+  removeProject: (id) => {
+    set((state) => ({
+      projects: state.projects.filter((project) => project.id !== id)
+    }));
+  },
 
-    toggleProject: (id) => {
-      set((state) => ({
-        projects: state.projects.map((project) =>
-          project.id === id ? { ...project, completed: !project.completed } : project
-        )
-      }));
-    },
+  // Toggles the completion status of a project
+  toggleProject: (id) => {
+    set((state) => ({
+      projects: state.projects.map((project) =>
+        project.id === id ? { ...project, completed: !project.completed } : project
+      )
+    }));
+  },
 
-    getProjectNumber: () => get().projects.length,
-  }),
-    {
-      name: "project-storage",
-      getStorage: () => localStorage,
-    }
-  )
-);
+  // Returns the current number of projects
+  getProjectNumber: () => get().projects.length,
+}));

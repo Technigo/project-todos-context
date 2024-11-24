@@ -4,7 +4,7 @@ import { Headline2 } from "../ui/Typography";
 import binImage from "../assets/bin.png"
 
 export const ProjectCard = () => {
-  const { projectId, removeProject, projects, toggleProject } = useProjectStore();
+  const { removeProject, projects, toggleProject } = useProjectStore();
 
   return (
     <>
@@ -20,9 +20,11 @@ export const ProjectCard = () => {
                 {project.text}
               </span>
             </div>
-            <button className="bin-button" onClick={() => removeProject(project.id)}>
-              <img className="image-bin" src={binImage} alt="Delete" />
-            </button>
+            <div className="button-container">
+              <button className="bin-button" onClick={() => removeProject(project.id)}>
+                <img className="image-bin" src={binImage} alt="Delete" />
+              </button>
+            </div>
           </div>
         ))}
       </div>

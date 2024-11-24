@@ -66,7 +66,6 @@ export const ToDoSubmit = () => {
             className="textarea"
           />
         )}
-
         <AddTodoButton type="submit" />
       </div>
     </form>

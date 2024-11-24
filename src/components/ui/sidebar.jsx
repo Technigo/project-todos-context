@@ -453,15 +453,10 @@ const SidebarMenu = React.forwardRef(({ className, ...props }, ref) => (
 SidebarMenu.displayName = "SidebarMenu";
 
 const SidebarMenuItem = React.forwardRef(({ className, ...props }, ref) => {
-  const { isMobile, toggleSidebar } = useSidebar();
-
   return (
     <li
       ref={ref}
       data-sidebar="menu-item"
-      onClick={() => {
-        if (isMobile) toggleSidebar();
-      }}
       className={cn("group/menu-item relative", className)}
       {...props}
     />

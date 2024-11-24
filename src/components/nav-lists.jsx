@@ -40,7 +40,13 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
 const listSchema = z.object({
-  listName: z.string().min(1, "List name is required"),
+  listName: z
+    .string()
+    .trim()
+    .min(
+      1,
+      "List name is required. Must contain at least 1 visible character."
+    ),
 });
 
 export function NavLists() {
@@ -56,7 +62,6 @@ export function NavLists() {
   const [editDialogState, setEditDialogState] = useState({
     isOpen: false,
     list: null,
-    name: "",
   });
 
   const form = useForm({
@@ -64,9 +69,14 @@ export function NavLists() {
     defaultValues: { listName: "" },
   });
 
+  const editForm = useForm({
+    resolver: zodResolver(listSchema),
+    defaultValues: { listName: "" },
+  });
+
   // Handle adding a new list
   const handleAddList = (data) => {
-    addList(data.listName.trim());
+    addList(data.listName);
     form.reset();
     setIsAddingList(false);
   };
@@ -76,24 +86,16 @@ export function NavLists() {
     setEditDialogState({
       isOpen: true,
       list: list,
-      name: list.name,
     });
+    // Set the default value in the form
+    editForm.reset({ listName: list.name });
   };
 
   // Handle editing a list
-  const handleEditList = () => {
-    if (editDialogState.name.trim() !== "") {
-      editList(editDialogState.list.id, { name: editDialogState.name.trim() });
-      setEditDialogState({ isOpen: false, list: null, name: "" });
-    }
-  };
-
-  // Handle changes in the edit dialog input
-  const handleEditDialogChange = (e) => {
-    setEditDialogState((prevState) => ({
-      ...prevState,
-      name: e.target.value,
-    }));
+  const handleEditList = (data) => {
+    editList(editDialogState.list.id, { name: data.listName });
+    setEditDialogState({ isOpen: false, list: null });
+    editForm.reset();
   };
 
   // Handle the "Add new list" button click
@@ -116,7 +118,10 @@ export function NavLists() {
             <SidebarMenuButton
               tooltip={list.name}
               data-active={selectedListId === list.id}
-              onClick={() => setSelectedList(list.id)}
+              onClick={() => {
+                setSelectedList(list.id);
+                if (isMobile) toggleSidebar();
+              }}
             >
               <span className="flex items-center gap-2">
                 {list.name}
@@ -138,6 +143,7 @@ export function NavLists() {
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem
+                  className="cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     openEditDialog(list);
@@ -147,6 +153,7 @@ export function NavLists() {
                   <span>Edit list</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem
+                  className="cursor-pointer"
                   onClick={(e) => {
                     e.stopPropagation();
                     deleteList(list.id);
@@ -184,7 +191,7 @@ export function NavLists() {
                             autoFocus
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-300" />
                       </FormItem>
                     )}
                   />
@@ -222,40 +229,53 @@ export function NavLists() {
       {/* Edit List Dialog */}
       <Dialog
         open={editDialogState.isOpen}
-        onOpenChange={(isOpen) =>
-          setEditDialogState((prevState) => ({ ...prevState, isOpen }))
-        }
+        onOpenChange={(isOpen) => {
+          setEditDialogState((prevState) => ({ ...prevState, isOpen }));
+          if (!isOpen) {
+            editForm.reset();
+          }
+        }}
       >
         <DialogContent className="fixed md:top-1/2 md:left-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 top-0 left-0 transform-none">
           <DialogHeader className="text-left">
             <DialogTitle>Edit list</DialogTitle>
             <DialogDescription>Update the name of your list.</DialogDescription>
           </DialogHeader>
-          <form
-            className="flex flex-col gap-4"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleEditList();
-            }}
-          >
-            <Input
-              value={editDialogState.name}
-              onChange={handleEditDialogChange}
-              placeholder="List name"
-              autoFocus
-            />
-            <div className="flex justify-end gap-2">
-              <Button
-                variant="secondary"
-                onClick={() =>
-                  setEditDialogState({ isOpen: false, list: null, name: "" })
-                }
-              >
-                Cancel
-              </Button>
-              <Button type="submit">Save Changes</Button>
-            </div>
-          </form>
+          <Form {...editForm}>
+            <form
+              className="flex flex-col gap-4"
+              onSubmit={editForm.handleSubmit(handleEditList)}
+            >
+              <FormField
+                name="listName"
+                control={editForm.control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="sr-only">List name</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        placeholder="Enter list name..."
+                        autoFocus
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <div className="flex justify-end gap-2">
+                <Button
+                  variant="secondary"
+                  onClick={() =>
+                    setEditDialogState({ isOpen: false, list: null, name: "" })
+                  }
+                >
+                  Cancel
+                </Button>
+                <Button type="submit">Save Changes</Button>
+              </div>
+            </form>
+          </Form>
         </DialogContent>
       </Dialog>
     </SidebarGroup>

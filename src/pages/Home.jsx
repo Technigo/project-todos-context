@@ -9,7 +9,7 @@ import todoAnimation from '../assets/todo-animation.json'
 
 const Animation = styled.div`
   width: 100%;
-  max-width: 300px; // Adjust size as needed
+  max-width: 400px; 
   margin: 0 auto;
 `
 
@@ -27,7 +27,7 @@ const Content = styled.div`
 const Title = styled.h1`
   color: #fff;
   font-size: 28px;
-  margin: 32px 0 40px 0;
+  margin: 20px 0 40px 0;
   font-weight: 500;
   text-align: center;
 `

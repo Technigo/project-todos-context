@@ -7,7 +7,7 @@ const ListContainer = styled.div`
   background: white;
   border-radius: 32px;
   padding: 24px;
-  margin-top: 24px;
+  margin: 24px 0 40px 0;
 `
 
 const List = styled.div`

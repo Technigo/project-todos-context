@@ -7,8 +7,12 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: ${({ theme }) => (theme.isDarkMode ? "#2b2b2b" : "#f9f9f9")};
+  background-color: ${({ theme }) => {
+      console.log("Theme in Header:", theme);
+      return theme.isDarkMode ? '#121212' : '#ffffff';
+    }};
   border-bottom: 1px solid ${({ theme }) => (theme.isDarkMode ? "#444" : "#ddd")};
+  color: ${({ theme }) => (theme.isDarkMode ? "#ddd" : "#444")};
 `;
 
 const Title = styled.h1`
@@ -31,7 +35,6 @@ const Button = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => (theme.isDarkMode ? "#6c63ff" : "#ece8ff")};
-    color: ${({ theme }) => (theme.isDarkMode ? "#fff" : "#6c63ff")};
   }
 `;
 

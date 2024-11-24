@@ -3,10 +3,14 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
   body {
     font-family: Arial, sans-serif;
-    background-color: ${({ theme }) => (theme.isDarkMode ? '#121212' : '#ffffff')};
+    background-color: ${({ theme }) => {
+      console.log("Theme in GlobalStyle:", theme);
+      return theme.isDarkMode ? '#121212' : '#ffffff';
+    }};
     color: ${({ theme }) => (theme.isDarkMode ? '#ffffff' : '#121212')};
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {

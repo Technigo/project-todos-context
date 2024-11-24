@@ -31,7 +31,7 @@ const TodoText = styled.span`
       : "#333"};
 `;
 
-const Button = styled.button`
+/* const Button = styled.button`
   background: none;
   border: none;
   color: ${({ theme }) => (theme.isDarkMode ? "#ff4d4d" : "#e60000")};
@@ -40,7 +40,7 @@ const Button = styled.button`
   &:hover {
     color: ${({ theme }) => (theme.isDarkMode ? "#ff9999" : "#ff6666")};
   }
-`;
+`; */
 
 
 const TodoItem = ({ todo }) => {
@@ -53,7 +53,7 @@ const TodoItem = ({ todo }) => {
         onChange={() => toggleTodo(todo.id)}
       />
       <TodoText completed={todo.completed}>{todo.text}</TodoText>
-      <Button onClick={() => deleteTodo(todo.id)}>🗑️</Button>
+      <button onClick={() => deleteTodo(todo.id)}>🗑️</button>
     </TodoContainer>
   );
 };

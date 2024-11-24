@@ -8,6 +8,8 @@ const ListContainer = styled.div`
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Image = styled.img `
@@ -19,7 +21,6 @@ const TodoList = () => {
   
     return (
         <ListContainer>
-        {/* {todos.length === 0 && <p>No todos yet. Add one!</p>} */}
         {todos.length === 0 && <Image src={empty} alt="No todo's yet!"/>}
         {todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} />

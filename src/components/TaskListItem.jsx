@@ -73,7 +73,6 @@ const TaskListItem = ({ task, listId }) => {
           task.isCompleted && "group is-completed",
           isOverdue && "group is-overdue"
         )}
-        id={task.id}
       >
         <TooltipProvider delayDuration={0}>
           <Tooltip>
@@ -91,7 +90,10 @@ const TaskListItem = ({ task, listId }) => {
             <TooltipContent side="top">Drag to reorder</TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <Label className="cursor-pointer text-sm md:text-md font-regular flex items-center gap-3 md:gap-4 w-full py-3 md:py-4">
+        <Label
+          htmlFor={task.id}
+          className="cursor-pointer text-sm md:text-md font-regular flex items-center gap-3 md:gap-4 w-full py-3 md:py-4"
+        >
           <Checkbox
             id={task.id}
             checked={task.isCompleted}
@@ -122,6 +124,7 @@ const TaskListItem = ({ task, listId }) => {
                   <Button
                     variant="ghost"
                     size="icon"
+                    aria-label="Edit task"
                     className={clsx(
                       "border border-transparent",
                       task.isCompleted &&
@@ -158,6 +161,7 @@ const TaskListItem = ({ task, listId }) => {
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label="Delete task"
                 onClick={() => deleteTask(listId, task.id)}
                 className={clsx(
                   "border border-transparent",

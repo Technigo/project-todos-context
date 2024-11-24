@@ -8,7 +8,7 @@ export const TodoStats = () => {
 
   return (
     <div
-      className={`flex gap-4 text-sm ${
+      className={`flex flex-wrap justify-center gap-3 sm:gap-4 text-xs sm:text-sm ${
         isDark ? "text-gray-400" : "text-gray-600"
       }`}
     >

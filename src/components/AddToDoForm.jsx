@@ -43,7 +43,7 @@ const StyledButton = styled.button`
 `;
 
 
-function AddTodoForm() {
+function AddToDoForm() {
   const [text, setText] = useState("");
   const addTodo = useTodoStore((state) => state.addTodo);
 
@@ -68,4 +68,4 @@ function AddTodoForm() {
   );
 }
 
-export default AddTodoForm;
+export default AddToDoForm;

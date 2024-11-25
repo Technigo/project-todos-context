@@ -50,7 +50,7 @@ export const TaskList = () => {
     tasks.length > 0 && tasks.every((task) => task.completed);
 
   return (
-    <section className="flex flex-col gap-5 h-full">
+    <section className="flex flex-col gap-5 h-full pb-10">
       {/* Button to mark all tasks complete (only show if there are tasks) */}
       {!allTasksCompleted && tasks.length > 0 && (
         <CompleteAllButton

@@ -6,7 +6,7 @@ import {
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
-import { format, isValid } from "date-fns";
+import { format, isValid, isPast, parseISO } from "date-fns";
 import { useTaskStore } from "../stores/useTaskStore";
 import { useLanguageStore } from "../stores/useLanguageStore";
 import { translations } from "../data/translations";
@@ -22,8 +22,16 @@ export const Task = ({ task }) => {
   // Local state to toggle visibility of additional details
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // Check if task is overdue
+  const isOverdue =
+    task.dueDate && isPast(parseISO(task.dueDate)) && !task.completed;
+
   return (
-    <li className="flex flex-col items-start sm:items-center justify-between p-2 border border-gray-200 rounded-md gap-2">
+    <li
+      className={`flex flex-col items-start sm:items-center justify-between p-2 border rounded-md gap-2 ${
+        isOverdue ? "border-red-500" : "border-gray-200"
+      }`}
+    >
       {/* Task Checkbox and Title */}
       <label className="flex justify-start gap-2 cursor-pointer flex-1 w-full">
         {/* Task Checkbox */}
@@ -36,7 +44,7 @@ export const Task = ({ task }) => {
           className="hidden peer"
         />
         {/* Custom Checkbox */}{" "}
-        <div className="w-5 h-5 bg-gray-200 border-2 border-gray-300 rounded peer-checked:bg-pink-500 peer-checked:border-pink-500 relative">
+        <div className="w-5 h-5 bg-gray-200 border-2 border-gray-300 rounded peer-hover:border-accent peer-checked:bg-pink-500 peer-checked:border-pink-500 relative">
           {task.completed && <FaCheck className="text-white" />}
         </div>
         {/* Task Title */}

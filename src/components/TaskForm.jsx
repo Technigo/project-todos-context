@@ -56,7 +56,7 @@ export const TaskForm = () => {
       {/* Button to toggle the form visibiilty*/}
       <button
         onClick={() => setIsFormVisible(!isFormVisible)} // Toggle form visibility
-        className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-md hover:bg-accent/80 fixed bottom-4 left-1/2 transform -translate-x-1/2 xl:hidden"
+        className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-md hover:bg-accent/80 fixed bottom-8 left-1/2 transform -translate-x-1/2 xl:hidden"
         aria-label={isFormVisible ? "Close form" : "Open form"}
       >
         {/* Change icon based on visibility */}

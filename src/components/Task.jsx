@@ -1,6 +1,12 @@
 import { useState } from "react";
-import { FaCheck, FaTrash, FaCalendarAlt } from "react-icons/fa";
-import { format } from "date-fns";
+import {
+  FaCheck,
+  FaTrash,
+  FaCalendarAlt,
+  FaChevronDown,
+  FaChevronUp,
+} from "react-icons/fa";
+import { format, isValid } from "date-fns";
 import { useTaskStore } from "../stores/useTaskStore";
 import { useLanguageStore } from "../stores/useLanguageStore";
 import { translations } from "../data/translations";
@@ -13,8 +19,9 @@ export const Task = ({ task }) => {
   // Access Zustand actions
   const toggleTask = useTaskStore((state) => state.toggleTask);
   const deleteTask = useTaskStore((state) => state.deleteTask);
-  // Local state to toggle date visibility
-  const [showDates, setShowDates] = useState(false);
+  // Local state to toggle visibility of additional details
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <li className="flex flex-col items-start sm:items-center justify-between p-2 border border-gray-200 rounded-md gap-2">
       {/* Task Checkbox and Title */}
@@ -41,45 +48,49 @@ export const Task = ({ task }) => {
         </span>
       </label>
 
-      {/* Dates Section */}
-      {showDates && (
+      {/* Show More/Hide Button */}
+      <div className="flex flex-row w-full justify-center">
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-primary focus:outline-none hover:text-accent"
+          aria-label={isExpanded ? text.hideDetails : text.showDetails}
+        >
+          {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
+        </button>
+      </div>
+
+      {/* Additional Details: Dates and Delete Button */}
+      {isExpanded && (
         <div className="flex flex-col w-full justify-between items-start items-center">
-          {/* Task Timestamp */}
           <span className="text-sm text-gray-400">
             {text.created}:{" "}
-            {format(new Date(task.createdAt), "MMM dd, yyyy, h:mm a")}
+            {isValid(new Date(task.createdAt))
+              ? format(new Date(task.createdAt), "MMM dd, yyyy, h:mm a")
+              : "Invalid Date"}
           </span>
 
           {/* Task Due Date */}
           {task.dueDate && (
             <span className="text-sm text-darkAccent font-bold">
-              {text.due}: {format(new Date(task.dueDate), "MMM dd, yyyy")}
+              {text.due}:{" "}
+              {isValid(new Date(task.dueDate))
+                ? format(new Date(task.dueDate), "MMM dd, yyyy")
+                : "Invalid Date"}
             </span>
           )}
+
+          {/* Delete button */}
+          <button
+            // Call deleteTask with task ID
+            onClick={() => deleteTask(task.id)}
+            aria-label={`${text.deleteTask}: ${task.title}`}
+            className="text-accent hover:scale-110 hover:brightness-125 focus:outline-none focus:ring-2 focus:ring-red-500 gap-2 mt-4 ml-auto border-2 border-gray-300 rounded p-2 flex items-center justify-center hover:border-red-500"
+          >
+            {text.deleteTask}
+            <FaTrash />
+          </button>
         </div>
       )}
-
-      {/* Action Buttons */}
-      <div className="flex justify-between items-center w-full">
-        {/* Toggle Dates Button */}
-        <button
-          onClick={() => setShowDates(!showDates)}
-          aria-label={showDates ? text.hideDates : text.showDates}
-          className="text-primary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary"
-        >
-          <FaCalendarAlt />
-        </button>
-
-        {/* Delete button */}
-        <button
-          // Call deleteTask with task ID
-          onClick={() => deleteTask(task.id)}
-          aria-label={`${text.deleteTask}: ${task.title}`}
-          className="text-accent hover:scale-110 hover:brightness-125 focus:outline-none focus:ring-2 focus:ring-red-500 ml-auto"
-        >
-          <FaTrash />
-        </button>
-      </div>
     </li>
   );
 };

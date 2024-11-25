@@ -8,7 +8,7 @@ const HeaderFlex = styled.div`
   align-items: center;
   text-align: center;
   padding: 15px;
-  justify-content: flex-start; /* Push content to the top of the screen */
+  justify-content: flex-start; 
 `;
 
 const HeaderContent = styled.div`
@@ -27,7 +27,7 @@ const HeaderContent = styled.div`
   }
 
     @media (min-width: 1024px) {
-      font-size: 5rem; /* Even larger font size for desktops */
+      font-size: 5rem; 
     }
   }
 `;

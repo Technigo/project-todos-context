@@ -42,7 +42,7 @@ const Button = styled.button`
   width: 9rem;
   height: 2.5rem;
   padding: 0.5rem;
-  background: #bea9df;
+  background: #9AC4C0;
   box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
   border-radius: 15px;
   color: #000;

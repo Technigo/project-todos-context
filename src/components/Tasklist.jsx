@@ -1,7 +1,7 @@
 import { useTaskStore } from "../stores/useTaskStore";
 import { Task } from "./Task";
 import styled from "styled-components"
-import stickyNote from "../assets/sticky-notes.png"
+import noTask from "../assets/no-task.png"
 
 
 
@@ -64,7 +64,6 @@ margin-top: 20px;
 
 @media (max-width: 480px) {
 width: 7rem; 
-margin-top: 15px;
 } 
 
 `
@@ -84,7 +83,7 @@ export const Tasklist = () => {
       ) : (
         <CenteredContainer>
           <P>No tasks yet. Add one!</P>
-          <Img src={stickyNote} alt="sticky note" className="sticky note" />
+          <Img src={noTask} alt="empty Task icon" className="no task" />
         </CenteredContainer>
       )}
     </>

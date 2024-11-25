@@ -6,8 +6,8 @@ export default {
       colors: {
         primary: "#00003f", // Dark blue
         secondary: "#fafafa", // Light gray
-        accent: "#ff69b4", // Pink
-        darkAccent: "#A6004C",
+        accent: "#fbcfe8", // Pink
+        darkAccent: "#E959A0", // Dark pink
         bgLight: "#fffafa", // Main background for light mode
         bgDark: "#001427", // Main background for dark mode
 

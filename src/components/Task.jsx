@@ -55,9 +55,16 @@ export const Task = ({ task }) => {
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           className="text-primary focus:outline-none hover:text-accent"
-          aria-label={isExpanded ? text.hideDetails : text.showDetails}
+          aria-expanded={isExpanded}
         >
-          {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
+          <span className="sr-only">
+            {isExpanded ? text.hideDetails : text.showDetails}
+          </span>
+          {isExpanded ? (
+            <FaChevronUp aria-hidden="true" />
+          ) : (
+            <FaChevronDown aria-hidden="true" />
+          )}
         </button>
       </div>
 

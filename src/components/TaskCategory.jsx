@@ -1,12 +1,6 @@
 import { Task } from "./Task";
 
-export const TaskCategory = ({
-  category,
-  tasks,
-  text,
-  toggleTask,
-  deleteTask,
-}) => {
+export const TaskCategory = ({ category, tasks, text }) => {
   const categoryColors = {
     personal: "bg-personal text-personal-text",
     work: "bg-work text-work-text",
@@ -28,12 +22,7 @@ export const TaskCategory = ({
       </h2>
       <ul className="flex flex-col gap-2">
         {tasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            toggleTask={toggleTask}
-            deleteTask={deleteTask}
-          />
+          <Task key={task.id} task={task} />
         ))}
       </ul>
     </div>

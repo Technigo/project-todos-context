@@ -19,7 +19,7 @@ export const Header = () => {
         theme === "light"
           ? "bg-secondary text-primary"
           : "bg-primary text-secondary"
-      } flex flex-col justify-center p-6 md:p-10 md:gap-10 lg:p-12 lg:gap-12 shadow-md w-full xl:w-[40%] xl:h-screen gap-6`}
+      } flex flex-col justify-center gap-4 xl:justify-between p-6 md:p-10 md:gap-10 lg:p-12 lg:gap-12 shadow-md w-full xl:w-[40%] xl:h-screen xl:gap-2 xl:p-8`}
     >
       <FlagButton />
       <div>

@@ -3,7 +3,6 @@ import { useTaskStore } from "../stores/useTaskStore";
 import { useThemeStore } from "../stores/useThemeStore";
 import { useLanguageStore } from "../stores/useLanguageStore";
 import { translations } from "../data/translations";
-import { Task } from "./Task";
 import { NoTasksMessage } from "./NoTasksMessage";
 import { CompleteAllButton } from "./CompleteAllButton";
 import { TaskCategory } from "./TaskCategory";
@@ -22,6 +21,9 @@ export const TaskList = () => {
   const currentLanguage = useLanguageStore((state) => state.currentLanguage);
   // Select translations
   const text = translations[currentLanguage];
+
+  // State to track whether dates are shown
+  const [showDates, setShowDates] = useState(true);
 
   // Group tasks by category
   const tasksByCategory = tasks.reduce(
@@ -43,17 +45,6 @@ export const TaskList = () => {
     {}
   );
 
-  // Define category colors
-  const categoryColors = {
-    personal: "bg-personal text-personal-text",
-    work: "bg-work text-work-text",
-    home: "bg-home text-home-text",
-    school: "bg-school text-school-text",
-    social: "bg-social text-social-text",
-    creative: "bg-creative text-creative-text",
-    other: "bg-other text-other-text",
-  };
-
   // Check if all tasks are completed
   const allTasksCompleted =
     tasks.length > 0 && tasks.every((task) => task.completed);
@@ -67,6 +58,7 @@ export const TaskList = () => {
           text={text.completed}
         />
       )}
+
       {/* Display Sleeping Sloth when all tasks are complete */}
       {allTasksCompleted ? (
         <NoTasksMessage />
@@ -79,8 +71,6 @@ export const TaskList = () => {
               category={category}
               tasks={tasksByCategory[category]}
               text={text}
-              toggleTask={toggleTask}
-              deleteTask={deleteTask}
             />
           ))}
         </div>

@@ -13,6 +13,7 @@ export const translations = {
     created: "Created",
     due: "Due",
     deleteTask: "Delete Task",
+    showDates: "Show Dates",
     categories: {
       personal: "Personal Tasks",
       work: "Work/Professional",
@@ -43,6 +44,8 @@ export const translations = {
     created: "Skapad",
     due: "Förfallodatum",
     deleteTask: "Ta bort uppgift",
+    showDates: "Visa datum",
+    hideDates: "Dölj datum",
     categories: {
       personal: "Personliga uppgifter",
       work: "Arbete/Professionellt",

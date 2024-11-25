@@ -37,7 +37,7 @@ export default {
           text: "#9a3412", // Dark orange
         },
         other: {
-          DEFAULT: "#e5e7eb", // Light gray
+          DEFAULT: "#f0f0f0", // Light gray
           text: "#374151", // Dark gray
         },
       },

@@ -68,7 +68,7 @@ export const TaskForm = () => {
           onSubmit={handleSubmit}
           className={`bg-secondary p-5 flex flex-col gap-4 w-full xl:flex-wrap flex-grow ${
             isFormVisible ? "block" : "hidden"
-          } xl:flex xl:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg ${
+          } lg:flex lg:flex-row xl:justify-center xl:gap-2 xl:h-full border border-primary rounded-lg shadow-lg max-w-md lg:max-w-full ${
             theme === "light"
               ? "bg-secondary text-primary"
               : "bg-primary text-secondary border-secondary"

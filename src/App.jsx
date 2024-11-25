@@ -3,20 +3,12 @@ import { TaskInput } from "./components/TaskInput";
 import { FilterButtons } from "./components/FilterButtons";
 import styled from "styled-components";
 import { ProjectList } from "./components/ProjectList";
-import { DndContext } from "@dnd-kit/core";
-import { useState } from "react";
-import { Task } from "./components/Task";
 import { Dashboard } from "./components/dashboard/Dashboard";
 
 const Section = styled.section`
   width: 100vw;
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(
-    35deg,
-    hsl(206deg 61.27% 80.09%) 0%,
-    #9ab8ee 100%
-  );
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -54,7 +46,7 @@ const Header = styled.header`
 
 const Sidebar = styled.div`
   width: 500px;
-  
+
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -63,7 +55,7 @@ const Sidebar = styled.div`
 const StyledSection = styled(Section)`
   display: flex;
   flex-direction: row;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
   }

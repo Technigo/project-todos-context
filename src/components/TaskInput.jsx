@@ -29,6 +29,7 @@ const Form = styled.form`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    width: 100%;
     gap: 0.75rem;
     
     > * {

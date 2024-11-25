@@ -6,20 +6,38 @@ const TaskContainer = styled.div`
   display: flex; 
   flex-direction: column;
   justify-content: space-between; 
-  background-color: ${(props) => (props.completed ? "#cfc" : "#bea9df")}; // Green for completed, #bea9df purple for incomplete
+  background-color: ${(props) => (props.completed ? "#dcfce7" : "#bea9df")}; // Green for completed, #bea9df purple for incomplete
   padding: 1rem;
   width: 250px;
-  height: 250px;
+  height: 240px;
   max-width: 100%; 
+  border-radius: -3px;
   box-shadow: 5px 5px 7px #000;
   position: relative;
   word-wrap: break-word; /* Ensure long words in the task box/post it break and wrap */
-  margin: 30px auto;
+  margin: 0px auto;
   padding: 20px;
-  box-shadow: 
-    inset 0 -40px 40px rgba(0, 0, 0, 0.2),
-    inset 0 15px 10px rgba(0, 0, 0, 0.2),
-    0 5px 6px 5px rgba(0, 0, 0, 0.2);
+  
+  :after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  right: 10px;
+  left: auto;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #000;
+  -webkit-box-shadow: 0 15px 10px #000;
+  -moz-box-shadow: 0 15px 10px #000;;
+  box-shadow: 0 15px 10px #000;;
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+}
 
 
   /* Adjust size for smaller screens */

@@ -47,7 +47,8 @@ const P = styled.p`
  font-weight: 500;
  margin: 40px 5px 10px;
  text-align: center; /* Centers text within the container */
- color: white; 
+ color: #FFF; 
+ 
 
  @media (max-width: 480px) {
 font-size: 35px; 

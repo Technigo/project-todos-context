@@ -1,11 +1,5 @@
 import { useState } from "react";
-import {
-  FaCheck,
-  FaTrash,
-  FaCalendarAlt,
-  FaChevronDown,
-  FaChevronUp,
-} from "react-icons/fa";
+import { FaCheck, FaTrash, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { format, isValid, isPast, parseISO } from "date-fns";
 import { useTaskStore } from "../stores/useTaskStore";
 import { useLanguageStore } from "../stores/useLanguageStore";

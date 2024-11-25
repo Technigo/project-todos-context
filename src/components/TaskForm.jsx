@@ -40,7 +40,7 @@ export const TaskForm = () => {
       id: Date.now(),
       title,
       category,
-      dueDate,
+      dueDate: dueDate ? dueDate.toISOString() : null,
       completed: false,
     });
 

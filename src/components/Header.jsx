@@ -43,6 +43,7 @@ export const Header = () => {
           width="406"
           height="400"
           className="rounded-lg shadow-md object-contain max-h-[50vh] w-full"
+          loading="lazy"
         />
       </div>
       <div className="mt-auto flex justify-center">

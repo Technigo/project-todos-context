@@ -36,7 +36,7 @@ export const Header = () => {
       </div>
 
       {/* Large Screen Image */}
-      <div className="hidden xl:block mt-4 p-12">
+      <div className="hidden xl:block mt-4 p-4">
         <img
           src={Sloth}
           alt="Illustration of a sloth to inspire productivity"

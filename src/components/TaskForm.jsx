@@ -123,7 +123,7 @@ export const TaskForm = () => {
           {/* Submit button */}
           <button
             type="submit"
-            className="bg-accent text-primary font-bold px-4 py-2 rounded-md shadow shadow-md ring-2 ring-pink-500 ring-opacity-50 hover:bg-pink-500 focus:ring-2 focus:ring-primary focus:outline-none h-10"
+            className="bg-accent text-primary font-bold px-4 py-2 rounded-md shadow shadow-md ring-2 ring-pink-500 ring-opacity-50 hover:bg-pink-500 focus:ring-2 focus:ring-primary focus:outline-none h-10 xl:mt-3"
           >
             {text.addTask}
           </button>

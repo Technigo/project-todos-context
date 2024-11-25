@@ -55,15 +55,17 @@ const FilterButton = styled.button`
 
 export const Home = () => {
   const todos = useTodoStore(state => state.todos)
-  const [filter, setFilter] = useState('all')
+  const [filter, setFilter] = useState('all') // Local state because it only affects this view
 
+  // Calculating the counts:
   const completedTodos = todos.filter(todo => todo.completed).length
   const activeTodos = todos.length - completedTodos
 
+  // Function that handles the text in the filter buttons
   const getFilterLabel = (filterType) => {
     switch(filterType) {
       case 'all':
-        return `All (${todos.length})`
+        return `All (${todos.length})` // Counts total amount of items
       case 'active':
         return `Active (${activeTodos})`
       case 'completed':
@@ -73,6 +75,7 @@ export const Home = () => {
     }
   }
 
+  // Filtering the todos
   const filteredTodos = todos.filter(todo => {
     if (filter === 'active') return !todo.completed
     if (filter === 'completed') return todo.completed
@@ -91,6 +94,8 @@ export const Home = () => {
         </Animation>
         <Title>Here are today's tasks:</Title>
         <TodoInput />
+
+        {/* Filter buttons that update when you click them */}
         <FilterContainer>
           {['all', 'active', 'completed'].map((filterType) => (
             <FilterButton

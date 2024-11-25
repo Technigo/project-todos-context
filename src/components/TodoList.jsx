@@ -18,7 +18,8 @@ const List = styled.div`
 
 export const TodoList = ({ todos }) => {
   return (
-    <ListContainer>
+    <ListContainer> 
+      {/* Show empty state */}
       {todos.length === 0 ? (
         <EmptyState />
       ) : (

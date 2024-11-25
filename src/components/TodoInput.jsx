@@ -28,14 +28,14 @@ const Input = styled.input`
 `
 
 export const TodoInput = () => {
-  const [input, setInput] = useState('')
-  const addTodo = useTodoStore(state => state.addTodo)
+  const [input, setInput] = useState('') // Local state for input field
+  const addTodo = useTodoStore(state => state.addTodo) // ToDo from Zustand
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (input.trim()) {
+    e.preventDefault() // Stops page refresh on submit
+    if (input.trim()) { // Check if input isn't just spaces
       addTodo(input.trim())
-      setInput('')
+      setInput('') // Clear input after adding a task
     }
   }
 

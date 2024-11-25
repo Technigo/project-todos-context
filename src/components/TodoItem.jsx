@@ -47,6 +47,7 @@ const DeleteButton = styled.button`
 `
 
 export const TodoItem = ({ todo }) => {
+  // Functions from our Zustand store
   const toggleTodo = useTodoStore(state => state.toggleTodo)
   const removeTodo = useTodoStore(state => state.removeTodo)
 
@@ -56,7 +57,7 @@ export const TodoItem = ({ todo }) => {
         checked={todo.completed}
         onChange={() => toggleTodo(todo.id)}
       />
-      <Text completed={todo.completed}>
+      <Text completed={todo.completed}> 
         {todo.text}
       </Text>
       <DeleteButton

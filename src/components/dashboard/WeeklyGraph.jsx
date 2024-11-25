@@ -31,6 +31,10 @@ export const StyledChartContainer = styled.div`
   > div {
     height: 100%;
   }
+
+  @media (max-width: 768px) {
+    min-height: 100px;
+  }
 `;
 
 export function WeeklyGraph({ chartData }) {

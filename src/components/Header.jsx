@@ -40,10 +40,9 @@ export const Header = () => {
         <img
           src={Sloth}
           alt="Illustration of a sloth to inspire productivity"
-          width="406"
+          width="400"
           height="400"
           className="rounded-lg shadow-md object-contain max-h-[50vh] w-full"
-          loading="lazy"
         />
       </div>
       <div className="mt-auto flex justify-center">

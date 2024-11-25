@@ -55,7 +55,7 @@ font-size: 35px;
 
 } 
 `
-const Img = styled.img`
+const Img = styled.img`   
 max-width: 100%;    
 width: 10rem;
 height: auto;
@@ -83,7 +83,7 @@ export const Tasklist = () => {
       ) : (
         <CenteredContainer>
           <P>No tasks yet. Add one!</P>
-          <Img src={noTask} alt="empty Task icon" className="no task" />
+          <a href="https://www.flaticon.com/free-icons/empty" title="Empty icons created by Freepik - Flaticon" target="_blank" rel="noopener noreferrer"><Img src={noTask} alt="no task icon" /></a>
         </CenteredContainer>
       )}
     </>

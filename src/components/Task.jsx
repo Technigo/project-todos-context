@@ -54,7 +54,7 @@ export const Task = ({ task }) => {
       <div className="flex flex-row w-full justify-center">
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="text-primary focus:outline-none hover:text-accent"
+          className="text-primary focus:outline-none hover:text-darkAccent"
           aria-expanded={isExpanded}
         >
           <span className="sr-only">
@@ -93,7 +93,7 @@ export const Task = ({ task }) => {
             // Call deleteTask with task ID
             onClick={() => deleteTask(task.id)}
             aria-label={`${text.deleteTask}: ${task.title}`}
-            className="text-accent hover:scale-110 hover:brightness-125 focus:outline-none focus:ring-2 focus:ring-red-500 gap-2 mt-4 ml-auto border-2 border-gray-300 rounded p-2 flex items-center justify-center hover:border-red-500"
+            className="text-darkAccent hover:scale-110 hover:brightness-125 focus:outline-none focus:ring-2 focus:ring-red-500 gap-2 mt-4 ml-auto border-2 border-gray-300 rounded p-2 flex items-center justify-center hover:border-red-500"
           >
             {text.deleteTask}
             <FaTrash />

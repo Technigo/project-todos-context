@@ -7,7 +7,7 @@ export const FlagButton = () => {
   return (
     <button
       onClick={toggleLanguage}
-      className="flex items-center gap-2 bg-secondary max-w-[200px] ml-auto text-primary p-2 rounded shadow"
+      className="flex items-center gap-2 bg-secondary max-w-[200px] ml-auto text-primary p-2 rounded shadow hover:bg-accent"
       aria-label={`Switch language to ${
         currentLanguage === "en" ? "Svenska" : "English"
       }`}

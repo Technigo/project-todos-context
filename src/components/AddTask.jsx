@@ -5,20 +5,19 @@ import { useTaskStore } from "../stores/useTaskStore";
 import { styled } from "styled-components";
 
 const Form = styled.form`
-  max-width: 500px;
+  width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  max-width: 100%;
   padding: 30px 10px 15px 10px;
-  border: solid grey;
   background-color: #f2f0f0;
-  border-width: thin;
+  /* border-width: thin; */
   box-shadow: 5px 5px 0px black;
 
   @media (max-width: 500px) {
-    max-width: 90%;
+    max-width: 95%;
   }
 `;
 
@@ -45,7 +44,7 @@ const Button = styled.button`
   padding: 0.5rem;
   background: #bea9df;
   box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
-  border-radius: 5px;
+  border-radius: 15px;
   color: #000;
   margin: 0;
   margin-top: 10px;

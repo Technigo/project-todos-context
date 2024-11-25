@@ -6,7 +6,7 @@ const TaskContainer = styled.div`
   display: flex; 
   flex-direction: column;
   justify-content: space-between; 
-  background-color: ${(props) => (props.completed ? "#dcfce7" : "#bea9df")}; // Green for completed, #bea9df purple for incomplete
+  background-color: ${(props) => (props.completed ? "#C1F5F0" : "#bea9df")}; // Green for completed,purple for incomplete
   padding: 1rem;
   width: 250px;
   height: 240px;
@@ -58,7 +58,7 @@ const CheckMark = styled.i`
   margin-right: 30px; // Space between checkbox and task title
   font-size: 30px; 
   cursor: pointer;
-  color: ${(props) => (props.completed ? "#28a745" : "#000")}; /* Green for completed, black otherwise */
+  color: ${(props) => (props.completed ? "#0d7c6f" : "#000")}; /* Green for completed, black otherwise */
 
 `
 

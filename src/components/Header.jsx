@@ -3,7 +3,7 @@ import { useLanguageStore } from "../stores/useLanguageStore";
 import { translations } from "../data/translations";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { FlagButton } from "./FlagButton";
-import Sloth from "../assets/sloth.jpg";
+import Sloth from "../assets/sloth.webp";
 
 export const Header = () => {
   // Access current theme from the theme store
@@ -41,6 +41,7 @@ export const Header = () => {
           src={Sloth}
           alt="Illustration of a sloth to inspire productivity"
           className="rounded-lg shadow-md object-contain max-h-[50vh] w-full"
+          loading="lazy"
         />
       </div>
       <div className="mt-auto flex justify-center">

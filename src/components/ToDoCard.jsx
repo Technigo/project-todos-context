@@ -21,22 +21,28 @@ export const ToDoCard = () => {
               <p>Start by typing something to add a new task</p>
             </div>
           </div>
-        ) : todos.map((todo) => (
-          <div key={todo.id} className="todo-item">
-            <div className="text-wrapper">
-              <span
-                className={`todo-text ${todo.completed ? "completed" : ""}`}
-                onClick={() => toggleTodo(todo.id)}
-              >
-                {todo.text}
-              </span>
-            </div>
-            <div className="card-button-container">
-              <Checkbox todo={todo} />
-              <BinButton todoId={todo.id} />
-            </div>
-          </div>
-        ))}
+        ) : (
+          <>
+            <Headline2>To-Do</Headline2>
+
+            {todos.map((todo) => (
+              <div key={todo.id} className="todo-item">
+                <div className="text-wrapper">
+                  <span
+                    className={`todo-text ${todo.completed ? "completed" : ""}`}
+                    onClick={() => toggleTodo(todo.id)}
+                  >
+                    {todo.text}
+                  </span>
+                </div>
+                <div className="card-button-container">
+                  <Checkbox todo={todo} />
+                  <BinButton todoId={todo.id} />
+                </div>
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </>
   );

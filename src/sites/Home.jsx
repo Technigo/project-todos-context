@@ -15,8 +15,8 @@ export const Home = () => {
     <>
       <HomeStyle>
         <Header />
-        {/* <ProjectCard /> */}
         <ToDoCard />
+        <ProjectCard />
       </HomeStyle>
     </>
   )

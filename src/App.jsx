@@ -1,3 +1,11 @@
+import { Header } from "./components/Header";
+import { TaskContainer } from "./components/tasks/TaskContainer";
+
 export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+  return (
+    <> 
+      <Header/>
+      <TaskContainer/>
+    </>
+  );
 };

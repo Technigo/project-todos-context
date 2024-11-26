@@ -5,14 +5,13 @@ import "./ToDoCard.css";
 import { AddTaskButton } from "../ui/AddTaskButton";
 import { BinButton } from "../ui/BinButton";
 import { Headline2 } from "../ui/Typography";
-import notesImage from "../assets/notes.png";
+import noToDoImg from "../assets/noToDoImg.png";
 
 export const ToDoCard = () => {
   const { todos, toggleTodo, showForm } = useToDoStore();
 
   return (
     <>
-      <Headline2>To-Do</Headline2>
       <div className="to-do-box">
         <AddTaskButton />
         {showForm && <ToDoSubmit />}
@@ -21,8 +20,9 @@ export const ToDoCard = () => {
           {todos.length === 0 ? (
             <div className="no-projects">
               <div className="notes-image-container">
-                <img src={notesImage} alt="No Projects" className="notes-image" />
-                <p>No To-Do available</p>
+                <img src={noToDoImg} alt="No Projects" className="notes-image" />
+                <Headline2>Oops, nothing here!</Headline2>
+                <p>Start by typing something to add a new task</p>
               </div>
             </div>
           ) : todos.map((todo) => (

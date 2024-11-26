@@ -24,7 +24,6 @@ export const ToDoCard = () => {
         ) : (
           <>
             <Headline2>To-Do</Headline2>
-
             {todos.map((todo) => (
               <div key={todo.id} className="todo-item">
                 <div className="text-wrapper">

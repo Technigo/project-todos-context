@@ -9,10 +9,8 @@ width: 100%;
 `
 export const App = () => {
   return (
-    <>
-      <AppStyle>
-        <Home />
-      </AppStyle>
-    </>
+    <AppStyle>
+      <Home />
+    </AppStyle>
   )
 };

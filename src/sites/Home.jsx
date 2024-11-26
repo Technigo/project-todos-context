@@ -11,12 +11,10 @@ align-items: center;
 `
 export const Home = () => {
   return (
-    <>
-      <HomeStyle>
-        <Header />
-        <ToDoCard />
-        <ProjectCard />
-      </HomeStyle>
-    </>
+    <HomeStyle>
+      <Header />
+      <ToDoCard />
+      <ProjectCard />
+    </HomeStyle>
   )
 }

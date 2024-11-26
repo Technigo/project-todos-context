@@ -34,4 +34,9 @@ export const useProjectStore = create((set, get) => ({
 
   // Returns the current number of projects
   getProjectNumber: () => get().projects.length,
+
+  // Returns the finished projects
+  getProjectFinished: () => {
+    return get().projects.filter((project) => project.completed)
+  }
 }));

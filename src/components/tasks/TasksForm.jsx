@@ -64,6 +64,7 @@ const TaskButton = styled.button`
   background-color: white; 
   color: black; 
   }
+  
   @media (min-width: 1024px) {
     font-size: 1.125rem;
     width: 10.625rem;

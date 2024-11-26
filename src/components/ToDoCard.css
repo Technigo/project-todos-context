@@ -1,8 +1,8 @@
-.to-do-box {
+/* .to-do-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .todo-card-container {
   width: 100%;

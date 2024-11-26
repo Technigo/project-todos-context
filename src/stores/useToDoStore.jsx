@@ -41,6 +41,11 @@ export const useToDoStore = create(
     },
 
     getNumber: () => get().todos.length,
+
+    // Returns the finished todos
+    getToDoFinished: () => {
+      return get().todos.filter((todo) => todo.completed)
+    }
   }),
     {
       name: "todo-storage",

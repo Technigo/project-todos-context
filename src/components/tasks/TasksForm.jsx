@@ -9,41 +9,44 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-@media (max-width: 480px) {
-  width: 18.75rem;
-}
-@media (min-width:425px) and (max-width:580px) {
-  width: 25rem;
-}
-@media (min-width: 1024px) {
-  width: 37.5rem;
-}
+
+  @media (max-width: 480px) {
+    width: 18.75rem;
+  }
+  @media (min-width:425px) and (max-width:580px) {
+    width: 25rem;
+  }
+  @media (min-width: 1024px) {
+    width: 37.5rem;
+  }
 `;
 
 const Input = styled.input`
   height: 4.375rem;
   border: 0.0625rem solid #32231c;
-&:focus {
-  outline: none; 
-  padding-left: 0.9375rem;
-  font-family: courier, monospace;
-  font-size: 1rem;
-  color: black;
-}
-&::placeholder{
-  color: black;
-  font-family: courier, monospace;
-  font-size: 1rem;
-  padding-left: 0.9375rem;
+
+  &:focus {
+    outline: none; 
+    padding-left: 0.9375rem;
+    font-family: courier, monospace;
+    font-size: 1rem;
+    color: black;
   }
-@media (min-width: 1024px) {
-  &:focus{
-    font-size: 1.25rem;
+  &::placeholder {
+    color: black;
+    font-family: courier, monospace;
+    font-size: 1rem;
+    padding-left: 0.9375rem;
   }
-  &::placeholder{
-    font-size: 1.25rem;
+
+  @media (min-width: 1024px) {
+    &:focus {
+      font-size: 1.25rem;
+    }
+    &::placeholder {
+      font-size: 1.25rem;
+    }
   }
-}
 `;
 
 const TaskButton = styled.button`
@@ -56,14 +59,15 @@ const TaskButton = styled.button`
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
+
   &:hover {
   background-color: white; 
   color: black; 
-}
-@media (min-width: 1024px) {
-  font-size: 1.125rem;
-  width: 10.625rem;
-}
+  }
+  @media (min-width: 1024px) {
+    font-size: 1.125rem;
+    width: 10.625rem;
+  }
 `;
 
 export const TaskForm = () => {
@@ -75,17 +79,17 @@ export const TaskForm = () => {
     setTasks(addTask); 
   };
 
-return (
-  <Form onSubmit={handleSubmit}>
-    <Input
-      type="text"
-      value={addTask}
-      onChange={(event) => setAddTask(event.target.value)}
-      placeholder={placeholder}
-      onFocus={() => setPlaceholder("")}
-      onBlur={() => setPlaceholder("What do I need to do?")}
-    />
-    <TaskButton type="submit">+ Add Task</TaskButton>
-  </Form>
-);
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        value={addTask}
+        onChange={(event) => setAddTask(event.target.value)}
+        placeholder={placeholder}
+        onFocus={() => setPlaceholder("")}
+        onBlur={() => setPlaceholder("What do I need to do?")}
+      />
+      <TaskButton type="submit">+ Add Task</TaskButton>
+    </Form>
+  );
 };

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import pencil from "../assets/pencil.png"
+import pencil from "../assets/pencil.png";
 
 const HeaderWrapper = styled.div`
   font-family: "Indie Flower", cursive;
@@ -12,9 +12,10 @@ const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
-@media (max-width: 480px){
-  height: 8rem;
-}
+
+  @media (max-width: 480px){
+    height: 8rem;
+  }
 `;
 
 const HeaderImg = styled.img`

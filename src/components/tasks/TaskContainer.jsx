@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import { TaskList } from "./TaskList"
-import { TaskForm } from "./TasksForm"
+import styled from "styled-components";
+import { TaskList } from "./TaskList";
+import { TaskForm } from "./TasksForm";
 
 const TaskWrapper = styled.div`
   margin: 0 auto;
@@ -11,7 +11,7 @@ const TaskWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  margin-bottom: 3.125;
+  margin-bottom: 3.125rem;
 `;
 
 export const TaskContainer = () => {

@@ -1,6 +1,22 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware";
 
+interface Task {
+title: string; 
+id: number;
+completed: boolean; 
+createdAt: string;
+}
+
+interface TaskStore {
+tasks: Task [];
+addTask: (title:string) =>void; 
+removeTask: (id:number) =>void; 
+toggleTask: (id:number) =>void; 
+getTotalTasks: ()=> number; 
+}
+
+
 export const useTaskStore = create(
   // persist middleware, automatically handles saving and retrieving state from local storage.
   persist(
@@ -8,7 +24,7 @@ export const useTaskStore = create(
       tasks: [], //Empty list from the beginning
 
       // Function to add a new task
-      addTask: (title) => {
+      addTask: (title:string) => {
         const newTask = {
           id: Date.now(), //A unique ID for each new task. 
           title, //The title, what you name the task. 
@@ -19,13 +35,13 @@ export const useTaskStore = create(
       },
 
       //A function to remove a task by its ID
-      removeTask: (id) =>
+      removeTask: (id:number) =>
         set((state) => ({
           tasks: state.tasks.filter((task) => task.id !== id),
         })),
 
       //A function to toggle a tasks´s completion status 
-      toggleTask: (id) =>
+      toggleTask: (id: number) =>
         set((state) => ({
           tasks: state.tasks.map((task) =>
             task.id === id ? { ...task, completed: !task.completed } : task

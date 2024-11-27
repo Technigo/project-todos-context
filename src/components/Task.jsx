@@ -18,7 +18,7 @@ const TaskContainer = styled.div`
   margin: 0px auto;
   padding: 20px;
   
-  :after {
+  :after {      
   z-index: -1;
   position: absolute;
   content: "";
@@ -29,7 +29,7 @@ const TaskContainer = styled.div`
   top: 80%;
   max-width:300px;
   background: #000;
-  -webkit-box-shadow: 0 15px 10px #000;
+  -webkit-box-shadow: 0 15px 10px #000; // Box shadow and transform for a 3D similar effect on the post its. 
   -moz-box-shadow: 0 15px 10px #000;;
   box-shadow: 0 15px 10px #000;;
   -webkit-transform: rotate(3deg);

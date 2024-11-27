@@ -30,7 +30,6 @@ const TaskSection = styled.section`
     gap: 10px;
 
   }
-
 `;
 
 const CenteredContainer = styled.div`
@@ -46,7 +45,7 @@ const P = styled.p`
  font-family: "Reenie Beanie";  
  font-weight: 500;
  margin: 40px 5px 10px;
- text-align: center; /* Centers text within the container */
+ text-align: center; 
  color: #FFF; 
  
 
@@ -65,7 +64,6 @@ margin-top: 20px;
 @media (max-width: 480px) {
 width: 7rem; 
 } 
-
 `
 
 export const Tasklist = () => {

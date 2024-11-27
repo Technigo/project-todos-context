@@ -2,16 +2,14 @@ import styled from "styled-components"
 import checkMark from "../assets/check-solid.svg"
 
 
-const HeaderFlex = styled.div`
+const HeaderContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 15px;
   justify-content: flex-start; 
-`;
 
-const HeaderContent = styled.div`
   h1 {
     font-size: 4rem; 
     color: #FFF;
@@ -46,11 +44,9 @@ const HeaderImg = styled.img`
 export const Header = () => {
   return (
     <header>
-      <HeaderFlex>
-        <HeaderContent>
-          <h1>My To Do List <HeaderImg src={checkMark} alt="Check-mark" className="checkmark" /></h1>
-        </HeaderContent>
-      </HeaderFlex>
+      <HeaderContent>
+        <h1>My To Do List <HeaderImg src={checkMark} alt="Check-mark" className="checkmark" /></h1>
+      </HeaderContent>
     </header>
   )
 }

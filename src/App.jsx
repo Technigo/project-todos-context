@@ -1,3 +1,14 @@
-export const App = () => {
-  return <div>Find me in App.jsx!</div>;
-};
+// App.jsx
+import { Home } from './pages/Home'
+import { GlobalStyle } from './styles/GlobalStyle'
+
+const App = () => {
+  return (
+    <>
+      <GlobalStyle />
+      <Home />
+    </>
+  )
+}
+
+export default App

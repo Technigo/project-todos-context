@@ -6,32 +6,18 @@
 
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+This week we learned about global state management and using Zustand to store information.
 
 ## Getting Started with the Project
 
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+I started with planning for my to do list. I wanted to have a post it like to do list. At first I did the same layout for desktop, tablet and mobile with a grid of cards but changed the mobile version to flexbox and slimmer, wider cards stacking on each other.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I had difficulties understanding what to put in the store and which functions to add but I looked a lot at Matildas live sessions and tried to follow that together with help from chatGPT. I also looked a lot at the happy thoughts project to get some inspiration and used some functions and conditionals from there. I found out after asking chat GPT about storage, that Zustand had a built in storage function called persist similar to locale.storage, so I used that.
+
+If I had more time I would go for another layout on mobile but I like the color switch and line trough that I have when a task is completed and that works best when having separate task boxes.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+https://my-todo-postits.netlify.app/

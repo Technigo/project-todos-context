@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useToDoStore } from "../stores/useToDoStore";
 import { useProjectStore } from "../stores/useProjectStore";
+import { useThemeStore } from "../stores/useThemeStore";
 import { BodyText } from "../ui/Typography";
 import "./ToDoSubmit.css";
 import { AddTodoButton } from "../ui/AddTodoButton";
@@ -11,6 +12,7 @@ export const ToDoSubmit = () => {
   const [todoText, setTodoText] = useState("");
   const [projectText, setProjectText] = useState("");
   const [selection, setSelection] = useState("todo");
+  const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +26,9 @@ export const ToDoSubmit = () => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
+    <form
+      className={`form-container ${isDarkMode ? "dark-theme" : "light-theme"}`}
+      onSubmit={handleSubmit}>
       <BodyText>Enter a new {selection === "todo" ? "task" : "project"}</BodyText>
 
       <div className="input-container">

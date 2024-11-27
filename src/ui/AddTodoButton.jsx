@@ -6,7 +6,7 @@ display: flex;
     align-items: center;
     height: 50px;
     width: 30%;
-    background-color: #5f33e2;
+    background-color: #04257c;
     border: 0;
     border-radius: 20px;
     color: whitesmoke;

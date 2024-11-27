@@ -13,3 +13,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: whitesmoke;
 }
+
+:root {
+  --bg-color-light: #d3e4fd;
+  --text-color-light: black;
+  --bg-color-dark: #04257c;
+  --text-color-dark: #ffffff;
+}
+
+.light-theme {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+.dark-theme {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}

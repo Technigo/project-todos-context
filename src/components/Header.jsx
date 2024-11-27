@@ -1,10 +1,14 @@
-import { useToDoStore } from "../stores/useToDoStore";
-import { useProjectStore } from "../stores/useProjectStore";
-import { BodyText } from "../ui/Typography";
+import { ThemeToggleButton } from "../ui/ToggleThemeBtn";
+import { useThemeStore } from "../stores/useThemeStore";
 import "./Header.css";
 
 export const Header = () => {
+  const isDarkMode = useThemeStore((state) => state.isDarkMode);
+
   return (
-    <h1>My-To-Do-List</h1>
-  )
+    <header className={`header ${isDarkMode ? "dark-theme" : "light-theme"}`}>
+      <h1>My To-Do List</h1>
+      <ThemeToggleButton />
+    </header>
+  );
 }

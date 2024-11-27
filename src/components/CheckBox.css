@@ -10,8 +10,8 @@
 }
 
 .checkbox-wrapper .switch {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 20px;
   position: relative;
   display: inline-block;
 }
@@ -27,7 +27,7 @@
   cursor: pointer;
   overflow: hidden;
   transition: 0.2s;
-  background-color: #5f33e2;
+  background-color: pink;
 }
 
 .checkbox-wrapper .slider:before {
@@ -42,7 +42,7 @@
 
 .checkbox-wrapper input:checked+.slider:before {
   transform: translateX(4px);
-  background-color: #ebe7fd;
+  background-color: #5f33e2;
 }
 
 .checkbox-wrapper input:checked+.slider {

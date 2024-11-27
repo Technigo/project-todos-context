@@ -3,13 +3,17 @@ import "./ProjectCard.css";
 import { Headline2 } from "../ui/Typography";
 import binImage from "../assets/bin.png";
 import notesImage from "../assets/notes.png";
+import { BodyText } from "../ui/Typography";
 
 export const ProjectCard = () => {
   const { removeProject, projects, toggleProject } = useProjectStore();
+  const { getProjectNumber, getProjectFinished } = useProjectStore();
+  const completedProjects = getProjectFinished().length;
 
   return (
     <>
       <Headline2>Projects</Headline2>
+      <BodyText>Total projects {getProjectNumber()} | Completed projects: {completedProjects}</BodyText>
       <div className="project-card">
         {projects.length === 0 ? (
           <div className="no-projects">

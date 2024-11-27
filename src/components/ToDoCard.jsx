@@ -3,11 +3,13 @@ import { ToDoSubmit } from "./ToDoSubmit";
 import { Checkbox } from "./CheckBox";
 import "./ToDoCard.css";
 import { BinButton } from "../ui/BinButton";
-import { Headline2 } from "../ui/Typography";
+import { BodyText, Headline2 } from "../ui/Typography";
 import noToDoImg from "../assets/noToDoImg.png";
 
 export const ToDoCard = () => {
   const { todos, toggleTodo } = useToDoStore();
+  const { getNumber, getToDoFinished } = useToDoStore()
+  const completedTasks = getToDoFinished().length;
 
   return (
     <>
@@ -24,6 +26,7 @@ export const ToDoCard = () => {
         ) : (
           <>
             <Headline2>To-Do</Headline2>
+            <BodyText>Total tasks: {getNumber()} | Completed tasks: {completedTasks}</BodyText>
             {todos.map((todo) => (
               <div key={todo.id} className="todo-item">
                 <div className="text-wrapper">

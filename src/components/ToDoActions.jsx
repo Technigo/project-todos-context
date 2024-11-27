@@ -1,4 +1,4 @@
-import { CheckCircle2 as CompleteAllIcon, Sun, Moon } from "lucide-react";
+import { CheckCircle2, Sun, Moon } from "lucide-react";
 import { useTodoStore } from "../store/useTodoStore";
 import { useThemeStore } from "../store/useThemeStore";
 

@@ -1,23 +1,20 @@
-/* Default button styles */
 .theme-toggle-btn {
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
-  background-color: #ddd;
-  color: #000;
   border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 50px;
+  height: 50px;
 }
 
-/* Light theme styles */
 .light-theme .theme-toggle-btn {
   background-color: var(--bg-color-light);
   color: var(--text-color-light);
 }
 
-/* Dark theme styles */
 .dark-theme .theme-toggle-btn {
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
+}
+
+.theme-icon {
+  width: 100%;
 }

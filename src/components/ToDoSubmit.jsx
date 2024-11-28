@@ -33,7 +33,7 @@ export const ToDoSubmit = () => {
 
       <div className="input-container">
         <div>
-          <label>
+          <label className="label">
             <input
               type="radio"
               name="selection"
@@ -43,7 +43,7 @@ export const ToDoSubmit = () => {
             />
             To-Do
           </label>
-          <label>
+          <label className="label">
             <input
               type="radio"
               name="selection"

@@ -21,6 +21,6 @@ export const Headline2 = styled.h2`
 export const BodyText = styled.p`
 margin: 0;
 padding: 0;
-font-size: 16px;
+font-size: 20px;
 font-weight: 500;
 `

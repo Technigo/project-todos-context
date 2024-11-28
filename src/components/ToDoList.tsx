@@ -3,6 +3,12 @@ import useTodoStore from "../stores/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+type Todo = {
+  id: string;
+  text: string;
+  completed: boolean;
+};
+
 
 const List = styled.ul`
   list-style: none;
@@ -23,7 +29,7 @@ const ListItem = styled.li`
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 `;
 
-const Label = styled.label`
+const Label = styled.label<{ $completed: boolean }>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -47,16 +53,18 @@ const RemoveIcon = styled(FontAwesomeIcon)`
   }
 `;
 
+
+
 const ToDoList = () => {
-  const todos = useTodoStore((state) => state.todos);
-  const toggleTodo = useTodoStore((state) => state.toggleTodo);
-  const removeTodo = useTodoStore((state) => state.removeTodo);
+  const todos: Todo[] = useTodoStore((state) => state.todos);
+  const toggleTodo: (id: string) => void = useTodoStore((state) => state.toggleTodo);
+  const removeTodo: (id: string) => void = useTodoStore((state) => state.removeTodo);
 
   return (
     <List>
       {todos.map((todo) => (
         <ListItem key={todo.id}>
-          <Label completed={todo.completed}>
+          <Label $completed={todo.completed}>
             <Checkbox
               type="checkbox"
               checked={todo.completed}

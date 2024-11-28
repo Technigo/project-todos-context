@@ -1,6 +1,6 @@
 import ToDoList from '../components/ToDoList';
 import AddToDoForm from '../components/AddToDoForm';
-import Counter from '../components/counter';
+import Counter from '../components/Counter';
 import styled from "styled-components";
 
 const StyledContainer = styled.div`

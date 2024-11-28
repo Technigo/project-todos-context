@@ -19,6 +19,11 @@ body {
   --text-color-light: black;
   --bg-color-dark: #04257c;
   --text-color-dark: #d3e4fd;
+
+  --bg-color-light-project: rgb(207, 240, 207);
+  --text-color-light-project: black;
+  --bg-color-dark-project: rgb(2, 60, 2);
+  --text-color-dark-project: rgb(207, 240, 207);
 }
 
 .light-theme {
@@ -29,4 +34,14 @@ body {
 .dark-theme {
   background-color: var(--bg-color-dark);
   color: var(--text-color-dark);
+}
+
+.light-theme-project {
+  background-color: var(--bg-color-light-project);
+  color: var(--text-color-light-project);
+}
+
+.dark-theme-project {
+  background-color: var(--bg-color-dark-project);
+  color: var(--text-color-dark-project);
 }

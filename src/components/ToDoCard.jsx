@@ -23,7 +23,7 @@ export const ToDoCard = () => {
             <div className="notes-image-container">
               <img src={noToDoImg} alt="No Projects" className="notes-image" />
               <Headline2>Oops, nothing here!</Headline2>
-              <p>Start by typing something to add a new task</p>
+              <BodyText>Start by typing something to add a new task</BodyText>
             </div>
           </div>
         ) : (

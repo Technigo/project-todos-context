@@ -15,6 +15,16 @@
   color: var(--text-color-dark);
 }
 
+.light-theme-project .theme-toggle-btn {
+  background-color: var(--bg-color-light-project);
+  color: var(--text-color-light-project);
+}
+
+.dark-theme-project .theme-toggle-btn {
+  background-color: var(--bg-color-dark-project);
+  color: var(--text-color-dark-project);
+}
+
 .theme-icon {
   width: 100%;
 }

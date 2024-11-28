@@ -5,12 +5,16 @@ import brightness from "../assets/brightness.png"
 
 export const ThemeToggleButton = () => {
   const isDarkMode = useThemeStore((state) => state.isDarkMode);
+  const isDarkModeProject = useThemeStore((state) => state.isDarkModeProject);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
+  const toggleProjectCardTheme = useThemeStore((state) => state.toggleProjectCardTheme);
 
   return (
     <>
       <button
-        onClick={toggleTheme}
+        onClick={() => {
+          toggleTheme(); toggleProjectCardTheme();
+        }}
         className="theme-toggle-btn"
       >
         <img
@@ -22,4 +26,3 @@ export const ThemeToggleButton = () => {
     </>
   );
 }
-

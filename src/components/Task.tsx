@@ -1,22 +1,22 @@
 import { useTaskStore } from "../stores/useTaskStore";
 import styled from "styled-components";
 
+interface TaskContainerProps {
+  completed: boolean;
+}
 
-const TaskContainer = styled.div`
-  display: flex; 
+const TaskContainer = styled.div.withConfig({    //withConfig and shouldForwardProp: Prevent completed from being forwarded to the DOM. Help from chatGPT. 
+  shouldForwardProp: (prop) => prop !== "completed",
+})<TaskContainerProps>`
+  display: flex;
   flex-direction: column;
-  justify-content: space-between; 
-  background-color: ${(props) => (props.completed ? "#9AC4C0" : "#f5f5f5")}; // Green for completed,white for incomplete.
-  padding: 1rem;
+  justify-content: space-between;
+  background-color: ${(props) => (props.completed ? "#9AC4C0" : "#f5f5f5")};
+  padding: 20px;
   width: 250px;
   height: 240px;
-  max-width: 100%; 
-  border-radius: -3px;
+  border-radius: 5px;
   box-shadow: 5px 5px 7px #000;
-  position: relative;
-  word-wrap: break-word; /* Ensure long words in the task box/post it break and wrap */
-  margin: 0px auto;
-  padding: 20px;
   
   :after {      
   z-index: -1;
@@ -48,13 +48,18 @@ const TaskContainer = styled.div`
     padding: 0.8rem;
   }
 `;
-// Use styled-components' shouldForwardProp utility to prevent "completed" from being forwarded to the DOM
-TaskContainer.defaultProps = {
-  as: ({ completed, ...props }) => <div {...props} />, // Remove "completed" when rendering
+// // Use styled-components' shouldForwardProp utility to prevent "completed" from being forwarded to the DOM
+// TaskContainer.defaultProps = {
+//   as: ({ completed, ...props }) => <div {...props} />, // Remove "completed" when rendering
 
-};
+// };
 
-const CheckMark = styled.i`
+
+interface CheckMarkProps {
+  completed: boolean;
+}
+
+const CheckMark = styled.i<CheckMarkProps>`
   margin-right: 30px; // Space between checkbox and task title
   font-size: 30px; 
   cursor: pointer;
@@ -92,29 +97,40 @@ const TrashIcon = styled.i`
   right: 10px; 
 `;
 
-export const Task = ({ task }) => {
+interface TaskProps {
+  task: {
+    id: number;
+    title: string;
+    completed: boolean;
+    createdAt: string; // Adjust the type if it's not a string
+  };
+}
+
+export const Task: React.FC<TaskProps> = ({ task }) => {
   const { toggleTask, removeTask } = useTaskStore();
 
   return (
     <TaskContainer completed={task.completed}>
-      {/* Checkbox to toggle task completion */}
       <CheckMark
         className={`fa ${task.completed ? "fa-check-square" : "fa-square-o"}`}
         completed={task.completed}
         role="checkbox"
-        aria-checked={task.completed} // Describes the checked state
+        aria-checked={task.completed}
         aria-label={task.completed ? "Mark task as incomplete" : "Mark task as completed"}
         onClick={() => toggleTask(task.id)}
       />
       <H2 style={{ textDecoration: task.completed ? "line-through" : "none" }}>
         {task.title}
       </H2>
-      <TrashIcon
-        className="fa fa-trash-o"
-        onClick={() => removeTask(task.id)}
-      />
-      <StyledP>Created: {new Date(task.createdAt).toLocaleDateString("en-GB")} at {new Date(task.createdAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}</StyledP>
-      {/* "en-gb" gives the date in the format dd/mm/yyyy (or your region's default date format. */}
+      <TrashIcon className="fa fa-trash-o" onClick={() => removeTask(task.id)} />
+      <StyledP>
+        Created: {new Date(task.createdAt).toLocaleDateString("en-GB")} at{" "}
+        {new Date(task.createdAt).toLocaleTimeString("en-GB", {
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
+      </StyledP>
     </TaskContainer>
   );
 };
+

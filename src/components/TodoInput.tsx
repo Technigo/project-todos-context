@@ -1,6 +1,6 @@
-// components/TodoInput.jsx
+// components/TodoInput.tsx
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, FormEvent, ChangeEvent } from 'react'
 import { useTodoStore } from '../stores/TodoStore'
 
 const InputWrapper = styled.form`
@@ -31,7 +31,7 @@ export const TodoInput = () => {
   const [input, setInput] = useState('') // Local state for input field
   const addTodo = useTodoStore(state => state.addTodo) // ToDo from Zustand
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault() // Stops page refresh on submit
     if (input.trim()) { // Check if input isn't just spaces
       addTodo(input.trim())
@@ -44,7 +44,7 @@ export const TodoInput = () => {
       <Input
         type="text"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}
         placeholder="Add a task.."
         aria-label="New todo input"
       />

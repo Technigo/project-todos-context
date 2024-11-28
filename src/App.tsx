@@ -1,4 +1,4 @@
-// App.jsx
+// App.tsx
 import { Home } from './pages/Home'
 import { GlobalStyle } from './styles/GlobalStyle'
 

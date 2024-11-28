@@ -1,7 +1,12 @@
-// components/TodoList.jsx
+// components/TodoList.tsx
 import styled from 'styled-components'
 import { TodoItem } from './TodoItem'
 import { EmptyState } from './EmptyState'
+import type { Todo } from '../types/todo'
+
+interface TodoListProps {
+  todos: Todo[]
+}
 
 const ListContainer = styled.div`
   background: white;
@@ -16,7 +21,7 @@ const List = styled.div`
   gap: 12px;
 `
 
-export const TodoList = ({ todos }) => {
+export const TodoList = ({ todos }: TodoListProps) => {
   return (
     <ListContainer> 
       {/* Show empty state */}

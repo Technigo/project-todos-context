@@ -1,4 +1,4 @@
-// components/EmptyState.jsx
+// components/EmptyState.tsx
 import styled from 'styled-components'
 import Lottie from 'lottie-react'
 import tumbleweedAnimation from '../assets/tumbleweed.json'

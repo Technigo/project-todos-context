@@ -1,6 +1,15 @@
-// components/TodoItem.jsx
+// components/TodoItem.tsx
 import styled from 'styled-components'
 import { useTodoStore } from '../stores/TodoStore'
+import type { Todo } from '../types/todo'
+
+interface TodoItemProps {
+  todo: Todo
+}
+
+interface TextProps {
+   $completed: boolean
+}
 
 const Item = styled.div`
   display: flex;
@@ -24,10 +33,10 @@ const Checkbox = styled.input.attrs({ type: 'checkbox' })`
   }
 `
 
-const Text = styled.span`
+const Text = styled.span<TextProps>`
   font-size: 18px;
   color: #000;
-  text-decoration: ${props => props.completed ? 'line-through' : 'none'};
+  text-decoration: ${props => props.$completed ? 'line-through' : 'none'};
   flex-grow: 1;
 `
 
@@ -46,7 +55,7 @@ const DeleteButton = styled.button`
   }
 `
 
-export const TodoItem = ({ todo }) => {
+export const TodoItem = ({ todo }: TodoItemProps) => {
   // Functions from our Zustand store
   const toggleTodo = useTodoStore(state => state.toggleTodo)
   const removeTodo = useTodoStore(state => state.removeTodo)
@@ -57,7 +66,7 @@ export const TodoItem = ({ todo }) => {
         checked={todo.completed}
         onChange={() => toggleTodo(todo.id)}
       />
-      <Text completed={todo.completed}> 
+      <Text $completed={todo.completed}> 
         {todo.text}
       </Text>
       <DeleteButton

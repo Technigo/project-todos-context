@@ -1,4 +1,4 @@
-// pages/Home.jsx
+// pages/Home.tsx
 import styled from 'styled-components'
 import { useState } from 'react'
 import { useTodoStore } from '../stores/TodoStore'
@@ -6,6 +6,13 @@ import { TodoInput } from '../components/TodoInput'
 import { TodoList } from '../components/TodoList'
 import Lottie from 'lottie-react'
 import todoAnimation from '../assets/todo-animation.json'
+
+type FilterType = 'all' | 'active' | 'completed'
+
+// Type for the styled-component props
+interface FilterButtonProps {
+  active: boolean
+}
 
 const Animation = styled.div`
   width: 100%;
@@ -43,7 +50,7 @@ const FilterContainer = styled.div`
   }
 `
 
-const FilterButton = styled.button`
+const FilterButton = styled.button<{ $active: boolean }>`
   padding: 12px 14px;
   background: ${props => props.active ? '#FFA5FC' : '#fff'};
   border: none;
@@ -55,14 +62,14 @@ const FilterButton = styled.button`
 
 export const Home = () => {
   const todos = useTodoStore(state => state.todos)
-  const [filter, setFilter] = useState('all') // Local state because it only affects this view
+  const [filter, setFilter] = useState<FilterType>('all') // Local state because it only affects this view
 
   // Calculating the counts:
   const completedTodos = todos.filter(todo => todo.completed).length
   const activeTodos = todos.length - completedTodos
 
   // Function that handles the text in the filter buttons
-  const getFilterLabel = (filterType) => {
+  const getFilterLabel = (filterType: FilterType):string => {
     switch(filterType) {
       case 'all':
         return `All (${todos.length})` // Counts total amount of items
@@ -97,10 +104,10 @@ export const Home = () => {
 
         {/* Filter buttons that update when you click them */}
         <FilterContainer>
-          {['all', 'active', 'completed'].map((filterType) => (
+          {(['all', 'active', 'completed']as const).map((filterType) => (
             <FilterButton
               key={filterType}
-              active={filter === filterType}
+              $active={filter === filterType}
               onClick={() => setFilter(filterType)}
             >
               {getFilterLabel(filterType)}

@@ -1,11 +1,29 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
     "target": "ES6",
     "module": "ESNext",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  }
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@stores/*": [
+        "src/stores/*"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

@@ -33,7 +33,7 @@
   flex: 0 0 auto;
   width: 280px;
   margin-right: 1rem;
-  background-color: #e8f3ff;
+  background-color: white;
   border-radius: 10px;
   padding: 1rem;
   cursor: pointer;
@@ -46,11 +46,12 @@
 }
 
 .project-text {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   overflow-wrap: break-word;
   display: block;
+  color: black;
 }
 
 .button-container {

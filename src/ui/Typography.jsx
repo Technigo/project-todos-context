@@ -5,10 +5,6 @@ export const Headline1 = styled.h1`
   font-size: 2rem;
   font-weight: 700;
   line-height: 130%;
-
-  /* @media (min-width: 1200px){
-    font-size: 2.25rem;
-  } */
 `;
 
 export const Headline2 = styled.h2`

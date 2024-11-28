@@ -21,11 +21,10 @@ const AddTodoButtonStyle = styled.button`
     border-color: #a3c9f1;
   }
 `
-
 export const AddTodoButton = () => {
-    return (
-        <AddTodoButtonStyle>
-            Add
-        </AddTodoButtonStyle>
-    )
+  return (
+    <AddTodoButtonStyle>
+      Add
+    </AddTodoButtonStyle>
+  )
 }

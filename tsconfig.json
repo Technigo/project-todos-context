@@ -7,11 +7,10 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true},
+    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "allowJs": true,
-    "include": ["src/**/*", "declarations.d.ts"]
-
+    "allowJs": true
+  },
+  "include": ["src/**/*", "assets/**/*"],
+  "files": ["src/declarations.d.ts"]
 }
-
-

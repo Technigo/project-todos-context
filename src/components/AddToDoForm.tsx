@@ -1,6 +1,6 @@
 // AddToDoForm
 
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import useTodoStore from "../stores/store";
 import styled from "styled-components";
 
@@ -46,10 +46,10 @@ const StyledButton = styled.button`
 
 
 const AddToDoForm = () => {
-  const [text, setText] = useState("");
-  const addTodo = useTodoStore((state) => state.addTodo);
+  const [text, setText] = useState<string>("");
+  const addTodo: (text: string) => void = useTodoStore((state) => state.addTodo);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (text.trim()) {
       addTodo(text);

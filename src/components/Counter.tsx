@@ -1,4 +1,4 @@
-// counter.tsx
+// counter.jsx
 
 import useTodoStore from "../stores/store";
 

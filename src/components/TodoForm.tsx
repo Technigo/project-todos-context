@@ -35,7 +35,7 @@ export const TodoForm = () => {
               placeholder="Write something here" className="textfield"
               />
               <button className="add-task-button" type="submit">Add task</button>
-            </div>
+          </div>
         </form>
       </div>
     </div>

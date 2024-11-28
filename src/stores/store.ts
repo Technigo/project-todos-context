@@ -2,7 +2,20 @@
 
 import { create } from 'zustand';
 
-const useTodoStore = create((set) => ({ // Creates a store using `create`. The function takes `set`, used to update the state.
+type Todo = {
+  id: string;
+  text: string;
+  completed: boolean;
+};
+
+type TodoStore = {
+  todos: Todo[];
+  addTodo: (text: string) => void;
+  removeTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
+};
+
+const useTodoStore = create<TodoStore>((set) => ({ // Creates a store using `create`. The function takes `set`, used to update the state.
 
   todos: [ // Defines the initial state, an array of objects representing tasks.
     { id: "1", text: "Buy groceries", completed: false }, // Task 1

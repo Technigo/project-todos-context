@@ -15,8 +15,10 @@ export const ProjectCard = () => {
   return (
     <>
       <div className={`project-container ${isDarkModeProject ? "dark-theme-project" : "light-theme-project"}`}>
-        <Headline2>Projects</Headline2>
-        <BodyText>Total projects {getProjectNumber()} | Completed projects: {completedProjects}</BodyText>
+        <div className="project-card-text">
+          <Headline2>Projects</Headline2>
+          <BodyText>Total projects {getProjectNumber()} | Completed projects: {completedProjects}</BodyText>
+        </div>
         <div className="project-card">
           {projects.length === 0 ? (
             <div className="no-projects">

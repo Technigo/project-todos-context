@@ -1,3 +1,11 @@
-export const App = () => {
-  return <div>Find me in App.jsx!</div>;
-};
+import MyToDoListPage from "./Page/MyToDoListPage";
+
+function App() {
+  return (
+    <div>
+      <MyToDoListPage />
+    </div>
+  );
+}
+
+export default App; 

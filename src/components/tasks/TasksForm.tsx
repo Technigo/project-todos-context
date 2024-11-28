@@ -75,7 +75,7 @@ export const TaskForm = () => {
   const { addTask, setAddTask, setTasks } = useTaskStore();
   const [placeholder, setPlaceholder] = useState("What do I need to do?");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => { //added HTMLformelement
     event.preventDefault();
     setTasks(addTask);
   };
@@ -85,7 +85,7 @@ export const TaskForm = () => {
       <Input
         type="text"
         value={addTask}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setAddTask(event.target.value)}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setAddTask(event.target.value)} //added HTMLinputelement
         placeholder={placeholder}
         onFocus={() => setPlaceholder("")}
         onBlur={() => setPlaceholder("What do I need to do?")}

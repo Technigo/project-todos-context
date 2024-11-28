@@ -48,7 +48,7 @@ const TaskCount = styled.div`
   }
 `;
 
-const NoTasks = styled.p `
+const NoTasks = styled.p`
   font-family: "Indie Flower", cursive;
   height: 5.3125rem;
   font-size: 1.375rem;
@@ -131,7 +131,7 @@ const Input = styled.input`
   }
 `;
 
-const TaskText = styled.span`
+const TaskText = styled.span<{ $completed: string }>`
   text-decoration: ${(props) => (props.$completed === "true" ? "line-through" : "none")};
   margin-left: 0.625rem;
 `;
@@ -177,15 +177,15 @@ const RemoveButton = styled.button`
 `;
 
 export const TaskList = () => {
-  const { 
-    tasks, 
-    toggleTaskCompletion, 
-    totalTaskCount, 
+  const {
+    tasks,
+    toggleTaskCompletion,
+    totalTaskCount,
     completedTaskCount,
-    removeTask 
+    removeTask
   } = useTaskStore();
 
-  const formatDate = (timestamp) => {
+  const formatDate = (timestamp: number): string => { //added number and string
     const date = new Date(timestamp);
     return date.toLocaleDateString("en-US", {
       month: "numeric",
@@ -200,24 +200,24 @@ export const TaskList = () => {
         <p>Completed tasks: {completedTaskCount()}</p>
       </TaskCount>
       {tasks.length === 0 ? (
-        <NoTasks>You have no tasks yet. Let's add some!</NoTasks> 
+        <NoTasks>You have no tasks yet. Let's add some!</NoTasks>
       ) : (
-      <ListWrapper>
-        <ListContainer>
-          {tasks.map((task) => (
-            <List key={task.id}>
-              <Label>
-                <Input
-                  type="checkbox"
-                  checked={task.completed}
-                  onChange={() => toggleTaskCompletion(task.id)}
-                />
-                <TaskText $completed={task.completed.toString()}>{task.text}</TaskText>
-                <TaskDate>Added {formatDate(task.id)}</TaskDate>
-              </Label>
-              <RemoveButton onClick={() => removeTask(task.id)}><img src={bin} alt="Delete-Button" /></RemoveButton>
-            </List>
-          ))}
+        <ListWrapper>
+          <ListContainer>
+            {tasks.map((task) => (
+              <List key={task.id}>
+                <Label>
+                  <Input
+                    type="checkbox"
+                    checked={task.completed}
+                    onChange={() => toggleTaskCompletion(task.id)}
+                  />
+                  <TaskText $completed={task.completed.toString()}>{task.text}</TaskText>
+                  <TaskDate>Added {formatDate(task.id)}</TaskDate>
+                </Label>
+                <RemoveButton onClick={() => removeTask(task.id)}><img src={bin} alt="Delete-Button" /></RemoveButton>
+              </List>
+            ))}
           </ListContainer>
         </ListWrapper>
       )}

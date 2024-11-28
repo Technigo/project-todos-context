@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+//Defines the id, text and completed
 interface Task {
   id: number;
   text: string;
@@ -8,17 +9,17 @@ interface Task {
 }
 
 interface Store {
-  tasks: Task[]; // State for task array
-  addTask: string; // State for input value
-  totalTaskCount: () => number; // Getter for total tasks
-  completedTaskCount: () => number; // Getter for completed tasks
-  setAddTask: (value: string) => void; // Action to set input value
-  setTasks: (newTask: string) => void; // Action to add a new task
-  toggleTaskCompletion: (taskId: number) => void; // Action to toggle task completion
-  removeTask: (taskId: number) => void; // Action to remove a task
+  tasks: Task[]; // Defines state for task array
+  addTask: string; // Defines state for input value to string
+  totalTaskCount: () => number; // Defines the getter for total tasks as number
+  completedTaskCount: () => number; // Defines the getter for completed tasks as number
+  setAddTask: (value: string) => void; // Defines action to set input value - void = no new value is added 
+  setTasks: (newTask: string) => void; // Defines action to add a new task 
+  toggleTaskCompletion: (taskId: number) => void; // Defines action to toggle task 
+  removeTask: (taskId: number) => void; // Defines action to remove a task 
 }
 
-export const useTaskStore = create<Store>()(
+export const useTaskStore = create<Store>()( //generic call 
   persist( //Persist is used to locally store state properties 
     (set, get) => ({
       //State of the input field value in TaskForm, set to an empty string 

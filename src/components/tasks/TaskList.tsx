@@ -131,7 +131,7 @@ const Input = styled.input`
   }
 `;
 
-const TaskText = styled.span<{ $completed: string }>`
+const TaskText = styled.span<{ $completed: string }>` //changed the $completed from "any" to "string"
   text-decoration: ${(props) => (props.$completed === "true" ? "line-through" : "none")};
   margin-left: 0.625rem;
 `;

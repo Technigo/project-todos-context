@@ -19,7 +19,7 @@ interface Store {
   removeTask: (taskId: number) => void; // Defines action to remove a task 
 }
 
-export const useTaskStore = create<Store>()( //generic call 
+export const useTaskStore = create<Store>()( //creates a store with a state shape defined by the Store type.
   persist( //Persist is used to locally store state properties 
     (set, get) => ({
       //State of the input field value in TaskForm, set to an empty string 

@@ -6,29 +6,35 @@
 
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
+The purpose of this project was to create a to-do app using Zustand. The app features a form where users can enter tasks, which are then displayed in a list. The list includes:
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+- The total count of tasks.
+- The count of completed tasks.
+- The date each task was added.
 
-## Getting Started with the Project
+Users can mark tasks as completed or remove them entirely.
 
-### Dependency Installation & Startup Development Server
+### The Process and problems
 
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
+- I started by importing Zustand and creating a store to manage the initial state for the form and the task array. I then built two components:
+  TaskForm: Handles the form for adding tasks.
+  TaskList: Displays the list of tasks.
 
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
+- To update form values and modify the tasks array I used the set method.
 
-```bash
-npm i && code . && npm run dev
-```
+- To calculate the total number of tasks and the number of completed tasks, I added get methods.
 
-### The Problem
+- I included a timestamp for each task to indicate when it was created. The timestamp is stored as a raw JavaScript Date object and then formatted into a string using the toLocaleDateString() method. Since this approach was quite simple, I found it unnecessary to import a third-party library.
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+- Finally I implemented the toggleTaskCompletion method to toggle tasks between completed and uncompleted states, and the removeTask method to delete tasks by their ID.
+
+- To ensure data persistence (so tasks remain after a page refresh), I wrapped the entire store in Persist.
+
+- Since there wasn’t a predefined design, I found it quite challenging to create a layout. My idea was to style the task list like a notepad. With more time, I would refine the code to make it cleaner and the design more polished.
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://fannys-taskbuddy.netlify.app/
 
 ## Instructions
 

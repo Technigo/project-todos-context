@@ -13,13 +13,13 @@ interface Store {
   addTask: string; // Defines state for input value to string
   totalTaskCount: () => number; // Defines the getter for total tasks as number
   completedTaskCount: () => number; // Defines the getter for completed tasks as number
-  setAddTask: (value: string) => void; // Defines action to set input value - void = no new value is added 
+  setAddTask: (value: string) => void; // Defines action to set input value (void = no new value is added) 
   setTasks: (newTask: string) => void; // Defines action to add a new task 
   toggleTaskCompletion: (taskId: number) => void; // Defines action to toggle task 
   removeTask: (taskId: number) => void; // Defines action to remove a task 
 }
 
-export const useTaskStore = create<Store>()( //creates a store with a state shape defined by the Store type.
+export const useTaskStore = create<Store>()( //creates a store with a state shape defined by the Store type
   persist( //Persist is used to locally store state properties 
     (set, get) => ({
       //State of the input field value in TaskForm, set to an empty string 

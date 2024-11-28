@@ -131,7 +131,7 @@ const Input = styled.input`
   }
 `;
 
-const TaskText = styled.span<{ $completed: string }>` //changed the $completed from "any" to "string"
+const TaskText = styled.span<{ $completed: string }>` //changed the $completed from type "any" to "string"
   text-decoration: ${(props) => (props.$completed === "true" ? "line-through" : "none")};
   margin-left: 0.625rem;
 `;
@@ -185,7 +185,7 @@ export const TaskList = () => {
     removeTask
   } = useTaskStore();
 
-  const formatDate = (timestamp: number): string => { //added number and string
+  const formatDate = (timestamp: number): string => { //added type "number" and "string" for timestamp
     const date = new Date(timestamp);
     return date.toLocaleDateString("en-US", {
       month: "numeric",

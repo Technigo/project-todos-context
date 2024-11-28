@@ -5,9 +5,10 @@ interface TaskContainerProps {
   completed: boolean;
 }
 
-const TaskContainer = styled.div.withConfig({        //withConfig and shouldForwardProp: Prevent completed from being forwarded to the DOM. Help from chatGPT. 
+const TaskContainer = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== "completed",
 })<TaskContainerProps>`
+  position: relative; /* Ensure positioning context for pseudo-element */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,26 +20,19 @@ const TaskContainer = styled.div.withConfig({        //withConfig and shouldForw
   box-shadow: 5px 5px 7px #000;
   
   :after {      
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  right: 10px;
-  left: auto;
-  width: 50%;
-  top: 80%;
-  max-width:300px;
-  background: #000;
-  -webkit-box-shadow: 0 15px 10px #000; // Box shadow and transform for a 3D similar effect on the post its. 
-  -moz-box-shadow: 0 15px 10px #000;;
-  box-shadow: 0 15px 10px #000;;
-  -webkit-transform: rotate(3deg);
-  -moz-transform: rotate(3deg);
-  -o-transform: rotate(3deg);
-  -ms-transform: rotate(3deg);
-  transform: rotate(3deg);
-}
-
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    right: 10px;
+    left: auto;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #000;
+    box-shadow: 0 15px 10px #000;
+    transform: rotate(3deg);
+  }
 
   /* Adjust size for smaller screens */
   @media (max-width: 800px) {

@@ -1,3 +1,12 @@
-export const App = () => {
-  return <div>Find me in App.jsx!</div>;
+import { BrowserRouter, Routes } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes"; 
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>{AppRoutes}</Routes>
+    </BrowserRouter>
+  );
 };
+
+export default App;

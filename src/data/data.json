@@ -1,0 +1,57 @@
+{
+  "title": "Project ToDo List",
+  "description": "This week, the task is to build a Todo app using Zustand for state management.",
+  "taskTitle": "Requirements:", 
+  "tasks": [
+    {
+      "id": 1,
+      "text": "The should list all tasks - completed or uncompleted.",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "text": "You should be able to mark an uncompleted task as complete (and change it back to uncompleted).",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "text": "You should be able to add and remove tasks.",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "text": "Your app should show a count of the tasks. Either all tasks or all uncompleted tasks (or both).",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "text": "Make your app responsive (it should look good on devices from 320px width up to 1600px).",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "text": "Your project should be following accessibility guidelines to ensure your website is usable by a diverse range of users.",
+      "completed": false
+    },
+    {
+      "id": 7,
+      "text": "You should have a score of at least 95 in Lighthouse.",
+      "completed": false
+    },
+    {
+      "id": 8,
+      "text": "All images should have alt attributes and proper sizes.",
+      "completed": false
+    },
+    {
+      "id": 9,
+      "text": "All contrasts should be OK.",
+      "completed": false
+    },
+    {
+      "id": 10,
+      "text": "Follow the guidelines on how to write clean code.",
+      "completed": false
+    }
+  ]
+}

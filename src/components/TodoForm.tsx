@@ -1,20 +1,20 @@
 //Component to create new tasks
 
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useTodoStore } from "../store/useTodoStore";
 import "../components/TodoForm.css";
 
 export const TodoForm = () => {
-  const [input, setInput] = useState(""); //Local state for the input
+  const [input, setInput] = useState<string>(""); //Local state for the input
   const addTodo = useTodoStore((state) => state.addTodo); //Access Zustand function
 
   //Handle input submission
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 
   //Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim() === "") return; //No empty to-do's
     addTodo(input); //Add the new to-do to the store 

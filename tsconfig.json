@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     /* Basic Setup */
-    "target": "es5",                                      /* Make sure the target is compatible with older browsers. */
+    "target": "ES2015",                                      /* Make sure the target is compatible with older browsers. */
     "module": "esnext",                                    /* ESModules. */
     "moduleResolution": "node",                            /* Use Node.js resolution strategy. */
     "jsx": "react-jsx",                                    /* Use React 17 JSX transform. */
@@ -44,7 +44,8 @@
   
   /* Include source files and exclude unnecessary files */
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "src/assets.d.tsx"
   ],
   "exclude": [
     "node_modules",

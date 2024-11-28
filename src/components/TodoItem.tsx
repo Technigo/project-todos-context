@@ -4,7 +4,11 @@ import { useTodoStore } from "../store/useTodoStore";
 import DeleteIcon from "../assets/DeleteIcon.svg";
 import "../components/TodoItem.css";
 
-export const TodoItem =({ id }) => {
+interface TodoItemProps {
+  id: number;
+}
+
+export const TodoItem =({ id }: TodoItemProps) => {
   const todo = useTodoStore((state) => state.todos.find((todo) => todo.id === id)); //Find the specific to-do
   const toggleTodo = useTodoStore((state) => state.toggleTodo); //Access toggle function from Zustand
   const deleteTodo = useTodoStore ((state) => state.deleteTodo); //Access delete function
@@ -18,6 +22,8 @@ export const TodoItem =({ id }) => {
   const handleDeleteClick = () => {
     deleteTodo(id); //Remove the task from list
   };
+
+  if (!todo) return null;
 
   return (
     <div className={`todo-item ${todo.completed ? "completed" : ""}`}>

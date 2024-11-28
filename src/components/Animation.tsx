@@ -1,7 +1,7 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import "../components/Animation.css";
 
-export const Animation = () => {
+export const Animation: React.FC = () => {
   return (
     <div className="animation-container">
     <DotLottieReact
@@ -9,7 +9,7 @@ export const Animation = () => {
       loop
       autoplay
       className="lottie-animation"
-      renderer="svg"
+      // renderer="svg"
     />
     </div>
   );

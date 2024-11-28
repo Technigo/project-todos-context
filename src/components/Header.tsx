@@ -1,7 +1,7 @@
 import { Animation } from "./Animation";
 import "../components/Header.css";
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <div>
       <header className="header">

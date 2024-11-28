@@ -15,20 +15,20 @@ export const TodoList = () => {
 
 
   return (
-      <div className="tasks-container">
-        {/* Incomplete Tasks */}
-        <div className="incomplete-tasks-container">
-          <h2>
-            Incomplete Tasks 
-            <span>({incompleteTodos.length})</span>
-            <img src={waitIcon} alt="Hourglass in light blue and orange" className="wait-icon" />
-          </h2>
-          {incompleteTodos.length === 0 ? (
-            <p>You're a star!</p>
+    <div className="tasks-container">
+      {/* Incomplete Tasks */}
+      <div className="incomplete-tasks-container">
+        <h2>
+          Incomplete Tasks 
+          <span>({incompleteTodos.length})</span>
+          <img src={waitIcon} alt="Hourglass in light blue and orange" className="wait-icon" />
+        </h2>
+      {incompleteTodos.length === 0 ? (
+          <p>You're a star!</p>
           ) : (
-            incompleteTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
+          incompleteTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
           )}
-        </div>
+      </div>
 
         <div className="completed-tasks-container">
           {/* Completed Tasks */}
@@ -44,6 +44,6 @@ export const TodoList = () => {
             completedTodos.map((todo) => <TodoItem key={todo.id} id={todo.id} />)
           )}
         </div>
-      </div>
+    </div>
   );
 };

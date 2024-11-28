@@ -1,7 +1,24 @@
 // Create state management with Zustand 
 import { create } from "zustand";
 
-export const useTodoStore = create((set, get) => ({
+//Define type for a single to-do item
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+
+//Define the state and actions types for the store
+interface TodoStore {
+  todos: Todo[];
+  addTodo: (text: string) => void;
+  toggleTodo: (id: number) => void;
+  deleteTodo: (id: number) => void;
+  getIncompleteCount: () => number;
+  getCompletedCount: () => number;
+}
+
+export const useTodoStore = create<TodoStore>((set, get) => ({
   todos: [],
   
   // Add a new todo

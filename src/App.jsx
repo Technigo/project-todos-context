@@ -1,4 +1,4 @@
-import MyToDoListPage from "./Page/MyToDoListPage";
+import MyToDoListPage from "./page/MyToDoListPage";
 
 function App() {
   return (

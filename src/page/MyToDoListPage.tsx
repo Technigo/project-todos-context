@@ -4,6 +4,7 @@ import ToDoList from '../components/ToDoList';
 import AddToDoForm from '../components/AddToDoForm';
 import Counter from "../components/Counter";
 import styled from "styled-components";
+import { FC } from "react";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -51,7 +52,7 @@ const StyledFormContainer = styled.div`
   z-index: 1;
 `;
 
-const MyToDoListPage = () => {
+const MyToDoListPage: FC = () => {
   return (
     <StyledContainer>
       <h1>My To-Do List</h1>

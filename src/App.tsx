@@ -1,10 +1,10 @@
 import React from "react";
 import { useTheme } from "./context/ThemeContext";
-import { GlobalStyle } from "./styles/GlobalStyle";
+import { GlobalStyle } from "./styles/GlobalStyle.js";
 import Header from "./components/Header";
 import TodoList from "./components/TodoList";
-import AddTodoPopup from "./components/AddTodoPopup";
-import AddTodoButton from "./components/AddTodoButton";
+import AddTodoPopup from "./components/AddTodoPopup.jsx";
+import AddTodoButton from "./components/AddTodoButton.js";
 
 
 export const App: React.FC = () => {

@@ -1,5 +1,5 @@
 import useTodoStore from "../store/todoStore";
-import TodoItem from "../components/TodoItem";
+import TodoItem from "./TodoItem";
 import styled from "styled-components";
 import empty from "../assets/Detective-check-footprint 1.png"
 

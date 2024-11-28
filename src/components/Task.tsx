@@ -5,7 +5,7 @@ interface TaskContainerProps {
   completed: boolean;
 }
 
-const TaskContainer = styled.div.withConfig({    //withConfig and shouldForwardProp: Prevent completed from being forwarded to the DOM. Help from chatGPT. 
+const TaskContainer = styled.div.withConfig({        //withConfig and shouldForwardProp: Prevent completed from being forwarded to the DOM. Help from chatGPT. 
   shouldForwardProp: (prop) => prop !== "completed",
 })<TaskContainerProps>`
   display: flex;

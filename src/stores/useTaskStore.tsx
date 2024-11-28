@@ -11,9 +11,11 @@ createdAt: string;
 interface TaskStore {
 tasks: Task [];
 addTask: (title:string) =>void; 
+//void is used to indicate that a function does not return any value. addTask, removeTask, and toggleTask functions, they perform actions like modifying the store's state but don’t return any data back to the caller.
 removeTask: (id:number) =>void; 
 toggleTask: (id:number) =>void; 
 getTotalTasks: ()=> number; 
+getCompletedTasks: ()=>number; 
 }
 
 
@@ -31,19 +33,19 @@ export const useTaskStore = create(
           completed: false, //The task starts as uncompleted 
           createdAt: new Date().toISOString(), //Timestamp
         };
-        set((state) => ({ tasks: [...state.tasks, newTask] }));
+        set((state:TaskStore) => ({ tasks: [...state.tasks, newTask] })); //The state parameter in your set function refers to the current state of the store. In TypeScript, you should type it as TaskStore to ensure the state conforms to the structure defined in your TaskStore interface.
       },
 
       //A function to remove a task by its ID
       removeTask: (id:number) =>
-        set((state) => ({
-          tasks: state.tasks.filter((task) => task.id !== id),
+        set((state: TaskStore) => ({
+          tasks: state.tasks.filter((task: Task) => task.id !== id),
         })),
 
       //A function to toggle a tasks´s completion status 
-      toggleTask: (id: number) =>
-        set((state) => ({
-          tasks: state.tasks.map((task) =>
+      toggleTask: (id:number) =>
+        set((state: TaskStore) => ({
+          tasks: state.tasks.map((task: Task) =>
             task.id === id ? { ...task, completed: !task.completed } : task
           ),
         })),
@@ -52,7 +54,7 @@ export const useTaskStore = create(
 
       // Derived state: Number of completed tasks
       getCompletedTasks: () =>
-        get().tasks.filter((task) => task.completed).length, //A computed value that returns the number of tasks where completed is true.
+        get().tasks.filter((task: Task) => task.completed).length, //A computed value that returns the number of tasks where completed is true.
 
     }),
     {

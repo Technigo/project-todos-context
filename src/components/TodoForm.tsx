@@ -1,6 +1,5 @@
 //Component to create new tasks
 
-import React from "react";
 import { useState } from "react";
 import { useTodoStore } from "../store/useTodoStore";
 import "../components/TodoForm.css";

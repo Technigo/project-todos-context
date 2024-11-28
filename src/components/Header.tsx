@@ -1,5 +1,4 @@
-import React from "react";
-import { Animation } from "../components/Animation.jsx";
+import { Animation } from "./Animation";
 import "../components/Header.css";
 
 export const Header = () => {

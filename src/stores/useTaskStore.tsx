@@ -19,46 +19,36 @@ getCompletedTasks: ()=>number;
 }
 
 
-export const useTaskStore = create(
-  // persist middleware, automatically handles saving and retrieving state from local storage.
+export const useTaskStore = create<TaskStore>()(  
+  //a generic call to create, where TaskStore is the type of the store, ensuring TypeScript knows the store’s structure and provides type safety for state management.
   persist(
     (set, get) => ({
-      tasks: [], //Empty list from the beginning
-
-      // Function to add a new task
-      addTask: (title:string) => {
+      tasks: [],
+      addTask: (title: string) => {
         const newTask = {
-          id: Date.now(), //A unique ID for each new task. 
-          title, //The title, what you name the task. 
-          completed: false, //The task starts as uncompleted 
-          createdAt: new Date().toISOString(), //Timestamp
+          id: Date.now(),
+          title,
+          completed: false,
+          createdAt: new Date().toISOString(),
         };
-        set((state:TaskStore) => ({ tasks: [...state.tasks, newTask] })); //The state parameter in your set function refers to the current state of the store. In TypeScript, you should type it as TaskStore to ensure the state conforms to the structure defined in your TaskStore interface.
+        set((state) => ({ tasks: [...state.tasks, newTask] }));
       },
-
-      //A function to remove a task by its ID
-      removeTask: (id:number) =>
-        set((state: TaskStore) => ({
-          tasks: state.tasks.filter((task: Task) => task.id !== id),
+      removeTask: (id: number) =>
+        set((state) => ({
+          tasks: state.tasks.filter((task) => task.id !== id),
         })),
-
-      //A function to toggle a tasks´s completion status 
-      toggleTask: (id:number) =>
-        set((state: TaskStore) => ({
-          tasks: state.tasks.map((task: Task) =>
+      toggleTask: (id: number) =>
+        set((state) => ({
+          tasks: state.tasks.map((task) =>
             task.id === id ? { ...task, completed: !task.completed } : task
           ),
         })),
-      // Derived state: Total number of tasks, get() is used to access the current state inside derived state methods.
-      getTotalTasks: () => get().tasks.length,  //A computed value that returns the total number of tasks (tasks.length).
-
-      // Derived state: Number of completed tasks
+      getTotalTasks: () => (get() as TaskStore).tasks.length,
       getCompletedTasks: () =>
-        get().tasks.filter((task: Task) => task.completed).length, //A computed value that returns the number of tasks where completed is true.
-
+        (get() as TaskStore).tasks.filter((task) => task.completed).length, // (get() as TaskStore) explicitly tells TypeScript that the state returned by get() should be treated as an object of type TaskStore.
     }),
     {
-      name: "task-storage",   //Name of the key in localStorage
+      name: 'task-storage', // Name of the key in localStorage
     }
   )
-); 
+);

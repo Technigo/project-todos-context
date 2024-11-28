@@ -60,15 +60,9 @@ const CounterContainer = styled.div`
   text-align: center;
 `;
 
-interface TaskStore {
-  addTask: (title: string) => void;
-  getTotalTasks: () => number;
-  getCompletedTasks: () => number;
-}
-
 export const AddTask = () => {
   const [title, setTitle] = useState<string>("");
-  const { addTask, getTotalTasks, getCompletedTasks } = useTaskStore() as TaskStore;
+  const { addTask, getTotalTasks, getCompletedTasks } = useTaskStore();
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {

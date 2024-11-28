@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import checkMark from "../assets/check-solid.svg"
+import checkMark from "../assets/check-solid.svg" 
 
 
 const HeaderContent = styled.div`

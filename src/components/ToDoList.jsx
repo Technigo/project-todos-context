@@ -1,6 +1,5 @@
-import React from "react";
 import styled from "styled-components";
-import useTodoStore from "../stores/Store";
+import useTodoStore from "../stores/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
@@ -48,7 +47,7 @@ const RemoveIcon = styled(FontAwesomeIcon)`
   }
 `;
 
-function ToDoList() {
+const ToDoList = () => {
   const todos = useTodoStore((state) => state.todos);
   const toggleTodo = useTodoStore((state) => state.toggleTodo);
   const removeTodo = useTodoStore((state) => state.removeTodo);

@@ -1,8 +1,8 @@
 // counter.jsx
 
-import useTodoStore from "../stores/Store";
+import useTodoStore from "../stores/store";
 
-function Counter() {
+const Counter = () => {
   const todos = useTodoStore((state) => state.todos);
   const uncompletedCount = todos.filter((todo) => !todo.completed).length;
 

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import useTodoStore from "../stores/Store";
+import { useState } from "react";
+import useTodoStore from "../stores/store";
 import styled from "styled-components";
 
 
@@ -43,7 +43,7 @@ const StyledButton = styled.button`
 `;
 
 
-function AddToDoForm() {
+const AddToDoForm = () => {
   const [text, setText] = useState("");
   const addTodo = useTodoStore((state) => state.addTodo);
 

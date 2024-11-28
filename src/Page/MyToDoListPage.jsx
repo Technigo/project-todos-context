@@ -17,12 +17,6 @@ const StyledContainer = styled.div`
   border-radius: 100px;
   overflow: hidden; 
 
-  .content {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto; 
-    padding: 10px;
-  }
 
   @media (min-width: 1024px) {
     width: 36vw; 
@@ -36,6 +30,15 @@ const StyledContainer = styled.div`
   }
 `;
 
+const StyledToDoList = styled.div`
+width: 100%;
+height: 100 %;
+overflow - y: auto;
+padding: 10px;
+`;
+
+
+
 const StyledFormContainer = styled.div`
   position: sticky; 
   bottom: 0; 
@@ -46,13 +49,13 @@ const StyledFormContainer = styled.div`
   z-index: 1;
 `;
 
-export const MyToDoListPage = () => {
+const MyToDoListPage = () => {
   return (
     <StyledContainer>
       <h1>My To-Do List</h1>
-      <div className="content">
+      <StyledToDoList>
         <ToDoList />
-      </div>
+      </StyledToDoList>
       <StyledFormContainer>
         <AddToDoForm />
       </StyledFormContainer>

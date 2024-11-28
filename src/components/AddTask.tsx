@@ -13,7 +13,6 @@ const Form = styled.form`
   max-width: 100%;
   padding: 30px 10px 15px 10px;
   background-color: #f2f0f0;
-  /* border-width: thin; */
   box-shadow: 5px 5px 0px black;
 
   @media (max-width: 500px) {

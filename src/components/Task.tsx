@@ -18,6 +18,7 @@ const TaskContainer = styled.div.withConfig({
   height: 240px;
   border-radius: 5px;
   box-shadow: 5px 5px 7px #000;
+  word-wrap: break-word; /* Ensure long words in the task box/post it break and wrap */
   
   :after {      
     z-index: -1;
@@ -42,12 +43,6 @@ const TaskContainer = styled.div.withConfig({
     padding: 0.8rem;
   }
 `;
-// // Use styled-components' shouldForwardProp utility to prevent "completed" from being forwarded to the DOM
-// TaskContainer.defaultProps = {
-//   as: ({ completed, ...props }) => <div {...props} />, // Remove "completed" when rendering
-
-// };
-
 
 interface CheckMarkProps {
   completed: boolean;

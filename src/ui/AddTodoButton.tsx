@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AddTodoButtonStyle = styled.button`
+const AddTodoButtonStyle = styled.button<{ type?: "button" | "submit" | "reset" }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,9 +21,9 @@ const AddTodoButtonStyle = styled.button`
     border-color: #a3c9f1;
   }
 `
-export const AddTodoButton = () => {
+export const AddTodoButton = ({ type }: { type?: "button" | "submit" | "reset" }) => {
   return (
-    <AddTodoButtonStyle>
+    <AddTodoButtonStyle type={type}>
       Add
     </AddTodoButtonStyle>
   )

@@ -23,7 +23,12 @@ const FloatingButton = styled.button`
   }
 `;
 
-const AddTodoButton = ({ onClick }) => {
+
+interface AddTodoButtonProps {
+  onClick: () => void;
+}
+
+const AddTodoButton: React.FC<AddTodoButtonProps> = ({ onClick }) => {
   return <FloatingButton onClick={onClick}>+</FloatingButton>;
 };
 

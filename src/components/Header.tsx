@@ -40,7 +40,10 @@ const Button = styled.button`
   }
 `;
 
-/* const Header = () => {
+/* 
+GAMLA KODEN UTAN TYPESCRIPT
+
+const Header = () => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
@@ -54,14 +57,20 @@ const Button = styled.button`
 }; */
 
 // to typescript
-const Header: React.FC = () => {
+
+interface HeaderProps {
+  theme: { isDarkMode: boolean }; 
+  togglePopup: () => void; 
+}
+
+const Header: React.FC<HeaderProps> = ({ theme, togglePopup }) => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <HeaderContainer>
       <Title>TODO LIST</Title>
       <div>
-        <Button onClick={toggleTheme}>{isDarkMode ? '☀️' : '🌙'}</Button>
+        <Button onClick={toggleTheme}>{isDarkMode ? "☀️" : "🌙"}</Button>
       </div>
     </HeaderContainer>
   );

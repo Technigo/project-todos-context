@@ -26,7 +26,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   );
 };
 
-// Hook för att använda ThemeContext
+// Hook too use themecontext or give an error
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {

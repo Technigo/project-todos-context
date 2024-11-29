@@ -17,7 +17,7 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })`
   cursor: pointer;
 `;
 
-const TodoText = styled.span`
+const TodoText = styled.span<{ completed: boolean }>`
   flex: 1;
   margin-left: 10px;
   text-decoration: ${({ completed }) => (completed ? "line-through" : "none")};
@@ -31,19 +31,19 @@ const TodoText = styled.span`
       : "#333"};
 `;
 
-/* const Button = styled.button`
-  background: none;
-  border: none;
-  color: ${({ theme }) => (theme.isDarkMode ? "#ff4d4d" : "#e60000")};
-  cursor: pointer;
 
-  &:hover {
-    color: ${({ theme }) => (theme.isDarkMode ? "#ff9999" : "#ff6666")};
-  }
-`; */
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+
+interface TodoItemProps {
+  todo: Todo;
+}
 
 
-const TodoItem = ({ todo }) => {
+const TodoItem: React.FC <TodoItemProps> = ({ todo }) => {
   const { toggleTodo, deleteTodo } = useTodoStore();
 
   return (

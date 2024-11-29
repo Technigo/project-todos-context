@@ -16,7 +16,9 @@ const Image = styled.img `
     margin: 0 auto;
 `;
 
-const TodoList = () => {
+
+
+const TodoList: React.FC = () => {
     const todos = useTodoStore((state) => state.todos);
   
     return (

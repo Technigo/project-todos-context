@@ -2,7 +2,11 @@ import binImage from "../assets/bin.png"
 import "./BinButton.css";
 import { useToDoStore } from "../stores/useToDoStore";
 
-export const BinButton = ({ todoId }) => {
+interface BinButtonProps {
+  todoId: number;
+}
+
+export const BinButton: React.FC<BinButtonProps> = ({ todoId }) => {
   const removeTodo = useToDoStore(state => state.removeTodo)
   return (
     <button className="bin-button" onClick={() => removeTodo(todoId)}>

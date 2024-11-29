@@ -8,11 +8,9 @@ display: flex;
 flex-direction: column;
 width: 100%;
 align-items: center;
-background-color: #5476de;
 `
 export const Home = () => {
   return (
-
     <HomeStyle>
       <Header />
       <ToDoCard />

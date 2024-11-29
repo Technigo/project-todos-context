@@ -1,10 +1,9 @@
 import { useProjectStore } from "../stores/useProjectStore";
 import { useThemeStore } from "../stores/useThemeStore";
+import { Headline2, BodyText } from "../ui/Typography";
 import "./ProjectCard.css";
-import { Headline2 } from "../ui/Typography";
 import binImage from "../assets/bin.png";
 import notesImage from "../assets/notes.png";
-import { BodyText } from "../ui/Typography";
 
 export const ProjectCard = () => {
   const { removeProject, projects, toggleProject } = useProjectStore();

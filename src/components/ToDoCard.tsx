@@ -2,9 +2,9 @@ import { useToDoStore } from "../stores/useToDoStore";
 import { useThemeStore } from "../stores/useThemeStore";
 import { ToDoSubmit } from "./ToDoSubmit";
 import { Checkbox } from "./CheckBox";
-import "./ToDoCard.css";
 import { BinButton } from "../ui/BinButton";
 import { BodyText, Headline2 } from "../ui/Typography";
+import "./ToDoCard.css";
 import noToDoImg from "../assets/noToDoImg.png";
 
 

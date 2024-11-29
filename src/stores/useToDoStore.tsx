@@ -1,5 +1,5 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from 'zustand';
+import { persist, PersistStorage } from 'zustand/middleware';
 
 interface Todo {
   id: number;
@@ -18,6 +18,20 @@ interface TodoState {
   getNumber: () => number;
   getToDoFinished: () => Todo[];
 }
+
+// Custom storage implementation
+const localStoragePersist: PersistStorage<TodoState> = {
+  getItem: (name) => {
+    const item = localStorage.getItem(name);
+    return item ? JSON.parse(item) : null; // Parse stored JSON
+  },
+  setItem: (name, value) => {
+    localStorage.setItem(name, JSON.stringify(value)); // Stringify and store
+  },
+  removeItem: (name) => {
+    localStorage.removeItem(name); // Remove the item
+  },
+};
 
 export const useToDoStore = create<TodoState>()(
   persist(
@@ -65,8 +79,8 @@ export const useToDoStore = create<TodoState>()(
       },
     }),
     {
-      name: "todo-storage",
-      getStorage: (): Storage => localStorage,
+      name: 'todo-storage',
+      storage: localStoragePersist,
     }
   )
 );

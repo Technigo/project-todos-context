@@ -1,6 +1,6 @@
 // AddToDoForm
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import useTodoStore from "../stores/store";
 import styled from "styled-components";
 
@@ -62,7 +62,7 @@ const AddToDoForm = () => {
       <StyledInput
         type="text"
         value={text}
-        onChange={(e) => setText(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
         placeholder="Add a new task.."
       />
       <StyledButton type="submit">Add</StyledButton>

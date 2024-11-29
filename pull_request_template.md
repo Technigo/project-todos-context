@@ -1,2 +1,2 @@
 ## Netlify link
-https://elinatodoapp3.netlify.app/
+https://elinatodoapptypescript.netlify.app/

@@ -1,58 +1,51 @@
 # Project Description
-This project is a task management application built with React and Zustand. It includes two main sections: a Project Tracker and a To-Do List, allowing users to add, remove, and toggle tasks as completed. The state of both sections is managed using Zustand.
+This project provides a To-Do and Project Management application using React, Zustand for state management, and TypeScript for type safety. It is enhanced with localStorage persistence, allowing users to create, update, and delete tasks (To-Dos) and projects, as well as manage their themes (light/dark mode).
 
 # Features
-## Projects Section:
-Add new projects with unique IDs.
+## Manage To-Dos and Projects:
 
-Remove projects by ID.
+Add, remove, and toggle the completion status of tasks and projects.
+View the total number of tasks or projects and the count of completed ones.
+## Persistent Storage:
 
-Toggle project completion status.
+Stores tasks and projects data in the browser's localStorage for persistence across sessions.
+## Dark/Light Mode:
 
-Display a list of projects, with the ability to mark each as completed.
-## To-Do Section:
+Users can toggle between light and dark themes for both the app and individual project/task cards.
+## Dynamic Forms:
 
-Add new tasks.
-
-Remove tasks by ID.
-
-Toggle task completion status.
-
-Option to show or hide the task creation form.
-
-Persistence via localStorage to retain tasks between sessions.
+Users can choose to add either a new To-Do or a new Project using a single form with radio buttons to toggle between them.
 
 # Tech Stack
-React: The user interface is built with React, providing a component-based architecture for rendering the project and task lists.
+React: UI library for building the app.
 
-Zustand: Zustand is used for global state management. The state is split into two stores (useProjectStore and useToDoStore), enabling the management of projects and tasks separately.
+Zustand: A small, fast state management library.
 
-useProjectStore manages projects.
+Styled-Components: For styling the components with ease.
 
-useToDoStore manages to-do items and includes persistence using the Zustand middleware persist.
+localStorage: For storing state persistently in the browser.
 
-CSS: Custom styles for layout and design, including separate styles for Project and To-Do Cards (ProjectCard.css, ToDoCard.css).
-
-localStorage: For the To-Do section, tasks are saved to local storage, ensuring they persist even after a page refresh.
+TypeScript: Provides static type checking to ensure better developer experience and code quality.
 
 # Improvements
-To further enhance this project, there are several areas that I would like to work on:
+1. Add Time to To-Dos and Projects
 
-## Improve UI Structure:
+To improve the functionality and usability of the app, I plan to implement time tracking for both To-Dos and Projects. Users will be able to set a due date or deadline for each task and project. This feature will help users stay organized and on track with their goals.
 
-Currently, the submit button for adding tasks is placed within the content area. To improve user experience and accessibility, it would be better to move the button to the header or at least position it at the top of each section. This way, users can easily access the action to add new projects or tasks without scrolling down.
+2. Edit Text of To-Dos and Projects
+Currently, users can only add new tasks or projects. I like to implement an option to edit the text of an existing To-Do or Project. This allows users to correct or update any task or project description as their needs evolve.
 
-## Add Deadlines to Projects and To-Dos:
-A valuable feature would be the ability to set a deadline for each project or to-do item. This can be achieved by adding a date picker or calendar UI to allow users to select a deadline when adding a new project or task. The deadline could then be displayed alongside the task, and the system could even include a way to visually indicate overdue tasks for better management.
+Users will be able to click on the task or project text and make edits directly in the UI, similar to how tasks are toggled for completion. A save button will be provided to confirm the changes.
+This feature will enhance the flexibility of the application and make it more intuitive for managing tasks and projects that evolve over time.
 
-## Add Project Tasks with Checkboxes:
-Currently, the project list only tracks a simple project title with a completion status. To improve task tracking within projects, it would be useful to allow users to add sub-tasks or tasks under each project. These tasks would have individual checkboxes for marking completion. This way, users could break down larger projects into smaller, manageable tasks, providing more granular control over project progress.
+3. Project Detail Page
+To provide more detail and better project management, I will create a dedicated page for each project. This page will allow users to define the project and its tasks more comprehensively, offering the following features:
 
-## Task Prioritization and Sorting:
-Adding priority levels (e.g., High, Medium, Low) to both projects and to-dos would help users prioritize their tasks. Additionally, introducing sorting functionality (by deadline, priority, or completion status) would make it easier to organize tasks and projects based on user preferences.
-
-## Notifications or Alerts:
-Integrating notifications for approaching deadlines or overdue tasks would further improve the app's utility. This can be implemented either via browser notifications or by highlighting overdue tasks in the UI to ensure users don't miss important deadlines.
+Define Project Details: Users will be able to set a more detailed description of the project, set specific goals, and track progress.
+Add and Track Tasks: Users can add specific tasks to each project, making it easy to break down larger projects into manageable steps.
+Mark Tasks as Completed: As tasks within a project are completed, users can mark them off individually. The project page will automatically update to show the completion status of each task.
+Progress Tracker: A progress bar or completion percentage will be visible on the project page, helping users track how much of the project has been completed based on task completion.
+Each project will be clickable from the main dashboard, which will open the Project Detail Page to allow users to manage and track their projects in-depth.
 
 ### View it live
 https://gittes-to-do-list-application.netlify.app/

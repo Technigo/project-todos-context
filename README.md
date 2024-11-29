@@ -1,37 +1,8 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
-
-# Todo - useContext Project
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+# The Project
+This week's project was to add typescript to a project we've already created. I chose this project, the to-do app.
 
 ### The Problem
-
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+I was a bit confused towards the end when merging and creating a new pull request. I've been working on a new branch where I added typescript. I merged the branch with the main after all changes were made and I couldn't create a new pull request and got lots of errors on netlify. After some trial and error I managed to do a new pull request on the new branch but my old pull request seem to be updated with the recent changes including typescript too (due to the merge I'm guessing). I felt like maybe I got a bit confused there. I solved the problem but the original pull request is now updated as well. Didn't dare to reset the main one in case something would go wrong. 
 
 ### View it live
-
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+https://elinatodoapptypescript.netlify.app/

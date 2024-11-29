@@ -1,0 +1,41 @@
+.todo-item {
+  display: flex;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.delete-icon {
+  cursor: pointer; 
+  width: 20px;
+  height: 20px;
+  display: inline-block; 
+  margin-top: -4px; 
+}
+
+.checkbox {
+  width: 40px;
+  height: 18px;
+}
+
+/* Media queries  */
+
+/* Smaller screens */
+@media (max-width: 767px) {
+  .todo-item {
+    font-size: 16px;
+    position: relative;
+  }
+
+  .delete-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block; 
+    margin-top: -5px; 
+  }
+
+  .checkbox {
+    width: 35px;
+    height: 12px
+  }
+}

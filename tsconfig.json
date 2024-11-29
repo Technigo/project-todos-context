@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    /* Basic Setup */
+    "target": "ES2015",                                     
+    "module": "esnext",                                    
+    "moduleResolution": "node",                            
+    "jsx": "react-jsx",                                    
+    "esModuleInterop": true,                               
+    "forceConsistentCasingInFileNames": true,              
+    
+    /* Strict Mode */
+    "strict": true,                                        
+    "skipLibCheck": true,                                  
+    
+    /* Additional Options for React Projects */
+    "noImplicitAny": true,                                 
+    "resolveJsonModule": true,                             
+    
+    /* Paths & Base URL */
+    "baseUrl": ".",                                        
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]               
+    },
+    
+    /* Source Maps */
+    "sourceMap": true,                                     
+    
+    /* Type Checking */
+    "noUnusedLocals": true,                                
+    "noUnusedParameters": true,                            
+    "noImplicitReturns": true,                             
+
+    /* Emitting settings */
+    "outDir": "./dist",                                    
+    "removeComments": true,                               
+    
+    /* Linting */
+    "noEmitOnError": true                                   
+  },
+  
+  /* Include source files and exclude unnecessary files */
+  "include": [
+    "src/**/*",
+    "src/assets.d.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}

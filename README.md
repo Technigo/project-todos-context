@@ -1,8 +1,8 @@
 # The Project
-This week's project we've built a to-do app using Zustand for Global State Management.
+This week's project was to add typescript to a project we've already created. I chose this project, the to-do app.
 
 ### The Problem
-At first I found it hard to understand all the logical parts with Zustand. I started out with planning the structure and deciding what kind of components I needed. I also sketched out my ideas on a piece of paper and wanted to have a playful design. I found a Lottie animation I wanted to import which I managed to do with some help from google. I tried to reasearch a lot before starting with the code but I had to turn to chatgbt a bit to help me make it work. After I've made it work I moved onto styling the app. This week I also started with mobile first which helped me a lot when making the app responsive. 
+I was a bit confused towards the end when merging and creating a new pull request. I've been working on a new branch where I added typescript. I merged the branch with the main after all changes were made and I couldn't create a new pull request and got lots of errors on netlify. After some trial and error I managed to do a new pull request on the new branch but my old pull request seem to be updated with the recent changes including typescript too (due to the merge I'm guessing). I felt like maybe I got a bit confused there. I solved the problem but the original pull request is now updated as well. Didn't dare to reset the main one in case something would go wrong. 
 
 ### View it live
-https://elinatodoapp3.netlify.app/
+https://elinatodoapptypescript.netlify.app/

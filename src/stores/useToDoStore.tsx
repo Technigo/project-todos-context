@@ -66,8 +66,7 @@ export const useToDoStore = create<TodoState>()(
     }),
     {
       name: "todo-storage",
-      getStorage: () => localStorage,
+      getStorage: (): Storage => localStorage,
     }
   )
 );
-

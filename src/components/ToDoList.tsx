@@ -2,12 +2,9 @@ import styled from "styled-components";
 import useTodoStore from "../stores/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Todo } from "../types";
 
-type Todo = {
-  id: string;
-  text: string;
-  completed: boolean;
-};
+
 
 
 const List = styled.ul`
@@ -34,8 +31,8 @@ const Label = styled.label<{ $completed: boolean }>`
   align-items: center;
   gap: 10px;
   font-size: 16px;
-  text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
-  color: ${(props) => (props.completed ? "#000000" : "#010101")};
+  text-decoration: ${(props) => (props.$completed ? "line-through" : "none")};
+  color: ${(props) => (props.$completed ? "#000000" : "#010101")};
 `;
 
 const Checkbox = styled.input`

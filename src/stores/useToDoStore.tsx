@@ -1,55 +1,73 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-// persist is a wrapper function that ensures the state is saved to a persistent storage
-export const useToDoStore = create(
-  persist((set, get) => ({
-    todos: [],
-    showForm: false,
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
 
-    addTodo: (text) => {
-      const newTodo = {
-        id: get().todos.length > 0 ? get().todos[get().todos.length - 1].id + 1 : 1,
-        text,
-        completed: false,
-      };
-      set((state) => ({
-        todos: [...state.todos, newTodo]
-      }));
-    },
+interface TodoState {
+  todos: Todo[];
+  showForm: boolean;
+  addTodo: (text: string) => void;
+  removeTodo: (id: number) => void;
+  toggleTodo: (id: number) => void;
+  toggleForm: () => void;
+  closeForm: () => void;
+  getNumber: () => number;
+  getToDoFinished: () => Todo[];
+}
 
-    removeTodo: (id) => {
-      set((state) => ({
-        todos: state.todos.filter((todo) => todo.id !== id)
-      }));
-    },
+export const useToDoStore = create<TodoState>()(
+  persist(
+    (set, get) => ({
+      todos: [],
+      showForm: false,
 
-    toggleTodo: (id) => {
-      set((state) => ({
-        todos: state.todos.map((todo) =>
-          todo.id === id ? { ...todo, completed: !todo.completed } : todo
-        )
-      }));
-    },
+      addTodo: (text) => {
+        const newTodo: Todo = {
+          id: get().todos.length > 0 ? get().todos[get().todos.length - 1].id + 1 : 1,
+          text,
+          completed: false,
+        };
+        set((state) => ({
+          todos: [...state.todos, newTodo],
+        }));
+      },
 
-    toggleForm: () => {
-      set((state) => ({ showForm: !state.showForm }));
-    },
+      removeTodo: (id) => {
+        set((state) => ({
+          todos: state.todos.filter((todo) => todo.id !== id),
+        }));
+      },
 
-    closeForm: () => {
-      set({ showForm: false });
-    },
+      toggleTodo: (id) => {
+        set((state) => ({
+          todos: state.todos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+          ),
+        }));
+      },
 
-    getNumber: () => get().todos.length,
+      toggleForm: () => {
+        set((state) => ({ showForm: !state.showForm }));
+      },
 
-    // Returns the finished todos
-    getToDoFinished: () => {
-      return get().todos.filter((todo) => todo.completed)
-    }
-  }),
+      closeForm: () => {
+        set({ showForm: false });
+      },
+
+      getNumber: () => get().todos.length,
+
+      getToDoFinished: () => {
+        return get().todos.filter((todo) => todo.completed);
+      },
+    }),
     {
       name: "todo-storage",
       getStorage: () => localStorage,
     }
   )
 );
+

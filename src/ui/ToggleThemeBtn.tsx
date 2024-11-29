@@ -1,4 +1,4 @@
-import { useThemeStore } from '../stores/useThemeStore';
+import { useThemeStore } from "../stores/useThemeStore";
 import "./ToggleThemeBtn.css";
 import moon from "../assets/moon.png"
 import brightness from "../assets/brightness.png"

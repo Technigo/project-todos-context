@@ -1,6 +1,6 @@
 # Create a Todo app ✅
 
-This week's assignment involved building a fully functional Todo app using Zustand for state management and TypeScript to ensure type safety and scalability. The app allows users to manage tasks efficiently, adhering to best practices in responsiveness, accessibility, and clean code.
+This week's assignment involved building a fully functional Todo app using Zustand for state management and TypeScript to ensure type safety and scalability. The app allows users to manage tasks efficiently, adhering to best practices in responsiveness, accessibility and clean code.
 
 ### The Problem
 

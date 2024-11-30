@@ -1,31 +1,50 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-// Create a `useTodoStore` to manage the state and actions related to todos
-export const useTodoStore = create(
-  // Wrap the store with `persist` middleware to save and load state from localStorage
+// Define the filter type
+export type FilterType = "all" | "active" | "completed";
+
+// Define the shape of a single todo item
+interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+  createdAt: Date;
+}
+
+// Define the shape of the store's state and actions
+interface TodoStore {
+  todos: Todo[]; // State: Array of todo items
+  filter: "all" | "active" | "completed"; // State: Current filter
+
+  // Actions
+  addTodo: (text: string) => void;
+  toggleTodo: (id: string) => void;
+  removeTodo: (id: string) => void;
+  completeAll: () => void;
+  setFilter: (filter: "all" | "active" | "completed") => void;
+
+  // Getters
+  getTotalTodos: () => number;
+  getCompletedTodos: () => number;
+  getFilteredTodos: () => Todo[];
+}
+
+// Create the store with types
+export const useTodoStore = create<TodoStore>()(
   persist(
     (set, get) => ({
-      // State: Array to hold todo items
       todos: [],
-      // State: Filter for displaying todos (default is "all")
       filter: "all",
-      // Action: Adds a new todo item to the `todos` array
       addTodo: (text) => {
-        const newTodo = {
-          // Generate a unique ID for the todo
+        const newTodo: Todo = {
           id: crypto.randomUUID(),
-          // The text of the todo
           text,
-          // Default status of the todo (not completed)
           completed: false,
-          // Timestamp for when the todo was created
           createdAt: new Date(),
         };
-        // Prepend the new todo to the existing todos array
         set((state) => ({ todos: [newTodo, ...state.todos] }));
       },
-      // Action: Toggles the `completed` status of a todo by its `id`
       toggleTodo: (id) => {
         set((state) => ({
           todos: state.todos.map((todo) =>
@@ -33,44 +52,34 @@ export const useTodoStore = create(
           ),
         }));
       },
-      // Action: Removes a todo from the list by its `id`
       removeTodo: (id) => {
         set((state) => ({
           todos: state.todos.filter((todo) => todo.id !== id),
         }));
       },
-      // Action: Marks all todos as completed
       completeAll: () => {
         set((state) => ({
           todos: state.todos.map((todo) => ({ ...todo, completed: true })),
         }));
       },
-      // Action: Sets the current filter value (e.g., "all", "active", "completed")
       setFilter: (filter) => {
         set({ filter });
       },
-      // Getter: Returns the total number of todos
       getTotalTodos: () => get().todos.length,
-      // Getter: Returns the number of completed todos
       getCompletedTodos: () =>
         get().todos.filter((todo) => todo.completed).length,
-      // Getter: Returns todos based on the current filter
       getFilteredTodos: () => {
         const { todos, filter } = get();
         switch (filter) {
-          // Return only active (incomplete) todos
           case "active":
             return todos.filter((todo) => !todo.completed);
-          // Return only completed todos
           case "completed":
             return todos.filter((todo) => todo.completed);
-          // Return all todos if no filter is applied
           default:
             return todos;
         }
       },
     }),
-    // Configuration for `persist` middleware
-    { name: "todo-storage" } // Key under which the state is stored in localStorage
+    { name: "todo-storage" }
   )
 );

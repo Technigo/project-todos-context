@@ -1,18 +1,19 @@
-// `zustand` to create a state management store
 import { create } from "zustand";
-// `persist` middleware from `zustand` to enable persistent state storage
 import { persist } from "zustand/middleware";
 
-// Create a store to manage the theme (dark or light mode)
-export const useThemeStore = create(
-  // `persist` middleware to store the state in localStorage for persistence across sessions
+// Define the shape of the theme store
+interface ThemeStore {
+  isDark: boolean; // State: Whether the theme is in dark mode
+  toggleTheme: () => void; // Action: Toggles the theme
+}
+
+// Create a store to manage the theme with TypeScript
+export const useThemeStore = create<ThemeStore>()(
   persist(
     (set) => ({
       isDark: true, // Default to dark mode
-      //  Toggle the `isDark` state between true and false
-      toggleTheme: () => set((state) => ({ isDark: !state.isDark })),
+      toggleTheme: () => set((state) => ({ isDark: !state.isDark })), // Toggle the theme
     }),
-    // Configuration object for the `persist` middleware
-    { name: "theme-storage" } // The key used to store the theme state in localStorage
+    { name: "theme-storage" } // Key used to store the theme state in localStorage
   )
 );

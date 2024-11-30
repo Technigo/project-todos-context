@@ -3,7 +3,20 @@ import { formatDistanceToNow } from "date-fns";
 import { useTodoStore } from "../store/useTodoStore";
 import { useThemeStore } from "../store/useThemeStore";
 
-export const TodoItem = ({ todo }) => {
+// Define the shape of a Todo item
+interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+  createdAt: string | number | Date; // TypeScript recognizes multiple valid date types
+}
+
+// Props for the TodoItem component
+interface TodoItemProps {
+  todo: Todo;
+}
+
+export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const { toggleTodo, removeTodo } = useTodoStore();
   const isDark = useThemeStore((state) => state.isDark);
 

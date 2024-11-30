@@ -7,9 +7,17 @@ import { TodoActions } from "./components/ToDoActions";
 import { useTodoStore } from "./store/useTodoStore";
 import { useThemeStore } from "./store/useThemeStore";
 
-export const App = () => {
-  const todos = useTodoStore((state) => state.getFilteredTodos());
-  const isDark = useThemeStore((state) => state.isDark);
+// Define the type for a single Todo item
+interface Todo {
+  id: string;
+  text: string;
+  completed: boolean;
+  createdAt: string | number | Date;
+}
+
+export const App: React.FC = () => {
+  const todos: Todo[] = useTodoStore((state) => state.getFilteredTodos()); // State from store
+  const isDark: boolean = useThemeStore((state) => state.isDark); // State for theme
 
   return (
     <div

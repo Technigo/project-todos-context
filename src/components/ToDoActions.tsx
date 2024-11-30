@@ -5,7 +5,7 @@ import { useThemeStore } from "../store/useThemeStore";
 export const TodoActions = () => {
   const { completeAll, getTotalTodos } = useTodoStore();
   const { isDark, toggleTheme } = useThemeStore();
-  const totalTodos = getTotalTodos();
+  const totalTodos: number = getTotalTodos();
 
   return (
     <div className="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-end">

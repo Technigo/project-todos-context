@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import { PlusCircle } from "lucide-react";
 import { useTodoStore } from "../store/useTodoStore";
 import { useThemeStore } from "../store/useThemeStore";
 
 export const TodoInput = () => {
-  const [text, setText] = useState("");
-  const addTodo = useTodoStore((state) => state.addTodo);
-  const isDark = useThemeStore((state) => state.isDark);
+  const [text, setText] = useState<string>(""); // State for the input text
+  const addTodo = useTodoStore((state) => state.addTodo); // Add todo action
+  const isDark = useThemeStore((state) => state.isDark); // Theme state
 
-  const handleSubmit = (e) => {
+  // Handle form submission
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (text.trim()) {
       addTodo(text.trim());
-      setText("");
+      setText(""); // Clear input after submission
     }
+  };
+
+  // Handle input change
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    setText(e.target.value);
   };
 
   return (
@@ -22,7 +28,7 @@ export const TodoInput = () => {
         <input
           type="text"
           value={text}
-          onChange={(e) => setText(e.target.value)}
+          onChange={handleChange}
           placeholder="Add a new task..."
           className={`w-full px-4 py-2 sm:py-3 pr-12 rounded-lg transition-all duration-200 text-sm sm:text-base ${
             isDark

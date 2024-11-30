@@ -3,7 +3,10 @@ import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+// Ensure TypeScript understands the root element
+const rootElement = document.getElementById("root") as HTMLElement;
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

@@ -2,9 +2,9 @@ import { useTodoStore } from "../store/useTodoStore";
 import { useThemeStore } from "../store/useThemeStore";
 
 export const TodoStats = () => {
-  const totalTodos = useTodoStore((state) => state.getTotalTodos());
-  const completedTodos = useTodoStore((state) => state.getCompletedTodos());
-  const isDark = useThemeStore((state) => state.isDark);
+  const totalTodos = useTodoStore((state) => state.getTotalTodos()); // Number of total todos
+  const completedTodos = useTodoStore((state) => state.getCompletedTodos()); // Number of completed todos
+  const isDark = useThemeStore((state) => state.isDark); // Theme (dark mode)
 
   return (
     <div

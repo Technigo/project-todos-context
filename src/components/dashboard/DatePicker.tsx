@@ -13,11 +13,16 @@ import {
   PopoverTrigger,
 } from "@/components/dashboard/ui/popover";
 
-export function DatePickerDemo({ value, onChange }) {
-  const [date, setDate] = React.useState(value || new Date());
+interface DatePickerProps {
+  value: Date;
+  onChange: (date: Date) => void;
+}
+
+export function DatePickerDemo({ value, onChange }: DatePickerProps) {
+  const [date, setDate] = React.useState<Date>(value || new Date());
 
   // Handle date changes and propagate to parent
-  const handleDateSelect = (newDate) => {
+  const handleDateSelect = (newDate: Date) => {
     setDate(newDate);
     if (onChange) {
       onChange(newDate);

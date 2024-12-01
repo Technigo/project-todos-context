@@ -10,12 +10,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/dashboard/ui/card";
+} from "../../components/dashboard/ui/card";
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/dashboard/ui/chart";
+} from "../../components/dashboard/ui/chart";
 
 const chartConfig = {
   completed: {

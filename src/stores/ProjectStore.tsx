@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { localStorageMiddleware } from "../utils/localStorageMiddleware";
 import { Task } from "./TaskStore";
 
-interface Project {
+export interface Project {
   id: number;
   name: string;
   tasks: Task[];

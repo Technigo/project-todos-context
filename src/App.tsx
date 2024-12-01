@@ -69,7 +69,7 @@ const user: User = {
   name: "Mika",
 };
 
-export const App = (): JSX.Element => {
+export const App = (): React.ReactElement => {
   return (
     <StyledSection>
       <Section>

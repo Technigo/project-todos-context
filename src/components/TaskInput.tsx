@@ -10,11 +10,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./dashboard/ui/select";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/components/dashboard/ui/radio-group";
+} from "./dashboard/ui/select.tsx";
+import { RadioGroup, RadioGroupItem } from "./dashboard/ui/radio-group";
 import { Button } from "./dashboard/ui/button";
 
 const Form = styled.form`

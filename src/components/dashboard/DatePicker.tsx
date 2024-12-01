@@ -4,14 +4,15 @@ import * as React from "react";
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/dashboard/ui/button";
-import { Calendar } from "@/components/dashboard/ui/calendar";
+import { cn } from "../../lib/utils";
+import { Button } from "../../components/dashboard/ui/button";
+import { Calendar } from "../../components/dashboard/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/dashboard/ui/popover";
+} from "../../components/dashboard/ui/popover";
+import { SelectSingleEventHandler } from "react-day-picker";
 
 interface DatePickerProps {
   value: string;
@@ -46,7 +47,7 @@ export function DatePickerDemo({ value, onChange }: DatePickerProps) {
         <Calendar
           mode="single"
           selected={date}
-          onSelect={handleDateSelect}
+          onSelect={handleDateSelect as SelectSingleEventHandler}
           initialFocus
         />
       </PopoverContent>

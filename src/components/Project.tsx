@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useProjectStore } from "../stores/ProjectStore";
 import { useTaskStore } from "../stores/TaskStore";
 import { TaskText, TaskCard, DeleteButton } from "./TaskList.styles";
+import { Project as ProjectType } from "../stores/ProjectStore";
 
 const ProjectItem = styled.div`
   background: #f0f0f0;
@@ -61,7 +62,7 @@ const ProjectProgress = styled.div`
   color: #6b7280;
 `;
 
-export const Project = ({ project }) => {
+export const Project = ({ project }: { project: ProjectType }) => {
   const { deleteProject } = useProjectStore();
   const { tasks, toggleTask, deleteTask } = useTaskStore();
 

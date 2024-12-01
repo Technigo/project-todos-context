@@ -3,17 +3,14 @@ import * as RechartsPrimitive from "recharts"
 
 import { cn } from "../../../lib/utils";
 
-// Define valid theme names as a type
 type ThemeName = 'light' | 'dark';
 
-// Type the THEMES constant
 const THEMES: Record<ThemeName, string> = {
   light: "",
   dark: ".dark"
 } as const;
 
-// First, define the config type
-interface ChartConfig {
+export interface ChartConfig {
   [key: string]: {
     theme?: {
       light?: string;
@@ -25,7 +22,6 @@ interface ChartConfig {
   };
 }
 
-// Type the context
 interface ChartContextType {
   config: ChartConfig;
 }
@@ -42,7 +38,6 @@ function useChart() {
   return context
 }
 
-// Type the ChartContainer props
 interface ChartContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   id?: string;
   config: ChartConfig;

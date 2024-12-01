@@ -12,7 +12,7 @@ const FilterContainer = styled.div`
   }
 `;
 
-const FilterButton = styled.button`
+const FilterButton = styled.button<{ active: boolean }>`
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 12px;
@@ -36,7 +36,7 @@ const FilterButton = styled.button`
   }
 `;
 
-export const FilterButtons = () => {
+export const FilterButtons = (): React.ReactElement => {
   const { activeFilter, setFilter, tasks } = useTaskStore();
 
   return (

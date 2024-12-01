@@ -2,7 +2,7 @@
 
 import { Label, Pie, PieChart } from "recharts";
 import { StyledChartContainer } from "./WeeklyGraph";
-
+import { ChartConfig } from "../../components/dashboard/ui/chart";
 import {
   Card,
   CardContent,
@@ -10,12 +10,12 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/dashboard/ui/card";
+} from "../../components/dashboard/ui/card";
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/dashboard/ui/chart";
+} from "../../components/dashboard/ui/chart";
 
 const chartConfig = {
   tasks: {
@@ -59,7 +59,7 @@ export const TaskPieChart = ({
         </CardHeader>
         <CardContent className="flex-1 pb-0">
           <ChartContainer
-            config={chartConfig}
+            config={chartConfig as ChartConfig}
             className="mx-auto aspect-square max-h-[250px]"
           >
             <PieChart>

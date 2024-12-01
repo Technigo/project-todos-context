@@ -75,11 +75,11 @@ const ProjectGrid = styled.div`
   }
 `;
 
-export const ProjectList = () => {
+export const ProjectList = (): React.ReactElement => {
   const { projects, addProject } = useProjectStore();
   const [newProject, setNewProject] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (newProject.trim()) {
       addProject(newProject);

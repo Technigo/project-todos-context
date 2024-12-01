@@ -1,0 +1,111 @@
+/* Task.css */
+
+.task-container {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid rgb(90, 90, 90);
+  border-radius: 10px;
+  margin: 0 10px 10px 10px;
+  padding: 0 10px;
+}
+
+.task-container> :last-child {
+  margin-left: auto;
+  /* Skjuter sista barnet längst till höger */
+  padding-left: 10px;
+}
+
+.task-text {
+  font-size: 18px;
+  text-align: left;
+}
+
+.remove-btn {
+  background: none;
+  /* Ta bort standard bakgrund */
+  border: none;
+  /* Ta bort standardramar */
+  padding: 0;
+  /* Ta bort extra padding */
+  margin: 0;
+  /* Ta bort extra marginal */
+  cursor: pointer;
+  /* Ändra till en pekare för bättre UX */
+  display: inline-flex;
+  /* Gör det flexibelt för att centrera innehållet */
+  justify-content: center;
+  /* Centrera ikonen horisontellt */
+  align-items: center;
+  /* Centrera ikonen vertikalt */
+}
+
+.remove-btn .remove-icon {
+  color: pink;
+  /* Färg på ikonen */
+  font-size: 32px;
+  /* Gör ikonen större */
+}
+
+.remove-btn:hover .remove-icon {
+  color: red;
+  /* Ändra färg vid hover */
+}
+
+.remove-btn:focus {
+  outline: none;
+  /* Ta bort focus outline */
+}
+
+/* Gör checkboxen osynlig men behåller den funktionell */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Stil för själva checkboxen */
+.custom-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 27px;
+  /* Storlek på checkbox */
+  height: 27px;
+  /* Storlek på checkbox */
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Stil för "checkmark"-rutan */
+.custom-checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border: 1.5px solid rgb(90, 90, 90);
+  /* Ram runt checkboxen */
+  border-radius: 5px;
+  /* Gör checkboxen rundade hörn */
+  transition: all 0.2s ease;
+  /* Lägg till en smooth transition */
+}
+
+/* Effekt när checkboxen är markerad */
+.custom-checkbox input[type="checkbox"]:checked+.checkmark {
+  background-color: #4caf50;
+  /* Grön bakgrund */
+  border-color: #4caf50;
+  /* Matcha ramfärg */
+}
+
+/* "Rocka"-symbolen (✓) */
+.custom-checkbox input[type="checkbox"]:checked+.checkmark::after {
+  content: '✓';
+  color: white;
+  font-size: 18px;
+  /* Storlek på "rocka"-symbolen */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}

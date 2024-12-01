@@ -1,6 +1,6 @@
-export const localStorageMiddleware = (key) => (config) => (set, get, api) =>
+export const localStorageMiddleware = (key: string) => (config: any) => (set: any, get: any, api: any) =>
   config(
-    (...args) => {
+    (...args: any[]) => {
       const result = set(...args);
       const state = get();
       localStorage.setItem(key, JSON.stringify(state));

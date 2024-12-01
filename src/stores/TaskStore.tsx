@@ -1,7 +1,39 @@
 import { create } from "zustand";
 import { localStorageMiddleware } from "../utils/localStorageMiddleware";
 
-const getInitialState = () => {
+export interface Task {
+  id: number;
+  name: string;
+  completed: boolean;
+  completedAt: string | null;
+  timestamp: string;
+  category: string;
+  dueDate: string;
+  projectId: string;
+}
+
+interface TaskState {
+  tasks: Task[];
+  newTask: string;
+  activeFilter: string;
+  dueDate: string;
+  timestamp: string; }
+
+
+interface TaskMethods {
+  setFilter: (filter: string) => void;
+  addTask: (
+    taskName: string,
+    category: string,
+    dueDate: string,
+    projectId: string,
+    timestamp: string
+  ) => void;
+  toggleTask: (taskId: number) => void;
+  deleteTask: (taskId: number) => void;
+}
+
+const getInitialState = (): TaskState => {
   const savedState = localStorage.getItem("tasks");
   return savedState
     ? JSON.parse(savedState)
@@ -14,7 +46,9 @@ const getInitialState = () => {
       };
 };
 
-export const useTaskStore = create(
+type TaskStore = TaskState & TaskMethods;
+
+export const useTaskStore = create<TaskStore>()(
   localStorageMiddleware("tasks")((set) => ({
     ...getInitialState(),
 
@@ -28,11 +62,11 @@ export const useTaskStore = create(
             name: taskName,
             completed: false,
             completedAt: null,
-            timestamp: timestamp,
-            category: category,
-            dueDate: dueDate,
-            projectId: projectId,
-          },
+            timestamp,
+            category,
+            dueDate,
+            projectId,
+          } as Task,
         ],
       })),
     toggleTask: (taskId) =>

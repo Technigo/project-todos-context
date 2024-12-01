@@ -1,6 +1,6 @@
 import moment from "moment";
 
-const getDueStatus = (dueDate) => {
+const getDueStatus = (dueDate: string): string => {
   const today = moment();
   const due = moment(dueDate);
   const daysUntilDue = due.diff(today, "days");

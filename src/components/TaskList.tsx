@@ -1,8 +1,8 @@
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useTaskStore } from "../stores/TaskStore";
-import TaskContainer from "./TaskList.styles";
-import styled from "styled-components";
+import { TaskContainer } from "./TaskList.styles";
 import { Task } from "./Task";
+import styled from "styled-components";
 
 const EmptyState = styled.div`
   text-align: center;

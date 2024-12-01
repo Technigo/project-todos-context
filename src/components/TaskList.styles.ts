@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Task } from "../stores/TaskStore";
 
 export const TaskContainer = styled.div`
   display: grid;
@@ -6,13 +7,13 @@ export const TaskContainer = styled.div`
   gap: 1rem;
   padding: 1rem;
   width: 100%;
-  
+
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
 `;
 
-export const TaskCard = styled.div`
+export const TaskCard = styled.div<{ completed: boolean }>`
   background: white;
   border-radius: 12px;
   padding: 1rem;
@@ -36,7 +37,7 @@ export const TaskHeader = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Tag = styled.span`
+export const Tag = styled.span<{ category?: Task["category"] }>`
   padding: 0.3rem 1rem;
   border-radius: 20px;
   font-size: 0.875rem;
@@ -46,7 +47,9 @@ export const Tag = styled.span`
   color: ${(props) => (props.category === "work" ? "#1a73e8" : "#c026d3")};
 `;
 
-export const OverdueTag = styled(Tag)`
+export const OverdueTag = styled(Tag)<{
+  dueStatus: string;
+}>`
   ${({ dueStatus }) => {
     // If task is overdue
     if (dueStatus.includes("overdue")) {
@@ -99,7 +102,7 @@ export const TaskTitle = styled.div`
   gap: 0.5rem;
 `;
 
-export const TaskText = styled.span`
+export const TaskText = styled.span<{ completed: boolean }>`
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
   color: ${(props) => (props.completed ? "#718096" : "#2d3748")};
   font-weight: var(--font-weight-medium);

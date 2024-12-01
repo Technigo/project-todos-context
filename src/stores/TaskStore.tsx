@@ -1,13 +1,15 @@
 import { create } from "zustand";
 import { localStorageMiddleware } from "../utils/localStorageMiddleware";
 
+type TaskCategory = "work" | "personal";
+
 export interface Task {
   id: number;
   name: string;
   completed: boolean;
   completedAt: string | null;
   timestamp: string;
-  category: string;
+  category: TaskCategory;
   dueDate: string;
   projectId: string;
 }
@@ -24,7 +26,7 @@ interface TaskMethods {
   setFilter: (filter: "all" | "personal" | "work" | "completed") => void;
   addTask: (
     taskName: string,
-    category: string,
+    category: TaskCategory,
     dueDate: string,
     projectId: string,
     timestamp: string

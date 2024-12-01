@@ -21,7 +21,6 @@ export const Task = ({ task }: { task: TaskType }): JSX.Element | null => {
 
   const { toggleTask, deleteTask } = useTaskStore();
 
-
   return (
     <TaskCard completed={task.completed}>
       <TaskHeader>

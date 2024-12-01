@@ -4,7 +4,7 @@
   </a>
 </h1>
 
-# Todo - useContext Project
+# Todo - TypeScript conversion Project
 
 This project is a to-do application that uses Zustand for global state management. The app allows users to manage their tasks by adding, toggling completion, and removing tasks, while maintaining a clean and responsive design.
 

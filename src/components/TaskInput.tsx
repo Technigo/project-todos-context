@@ -148,7 +148,7 @@ export const TaskInput: React.FC = () => {
         }}
         aria-label="Select project"
       >
-        <SelectTrigger aria-label="Select project" type="button" role="option">
+        <SelectTrigger aria-label="Select project">
           <SelectValue placeholder="Select a project" />
         </SelectTrigger>
         <SelectContent>
@@ -156,14 +156,17 @@ export const TaskInput: React.FC = () => {
             <SelectItem
               key={project.id}
               value={project.id.toString()}
-              aria-label={project.name}
+              aria-label={`Select "${project.name}" project`}
+              aria-selected={taskInput.projectId === project.id}
+              role="option"
             >
               {project.name}
             </SelectItem>
           ))}
-          <SelectItem key="new" value="new">
+          {/* TODO - create project from this view */}
+          {/* <SelectItem key="new" value="new">
             Create New +
-          </SelectItem>
+          </SelectItem> */}
         </SelectContent>
       </Select>
 

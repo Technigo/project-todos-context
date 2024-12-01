@@ -170,7 +170,12 @@ export const TaskInput: React.FC = () => {
         </SelectContent>
       </Select>
 
-      <Button type="submit" aria-label="Add task" role="button">
+      <Button
+        type="submit"
+        aria-label="Add task"
+        role="button"
+        variant="ghost"
+      >
         Add Task
       </Button>
     </Form>

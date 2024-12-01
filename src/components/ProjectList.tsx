@@ -2,6 +2,7 @@ import { useProjectStore } from "../stores/ProjectStore";
 import { useState } from "react";
 import { Project } from "./Project";
 import styled from "styled-components";
+import { Button } from "./dashboard/ui/button";
 
 const ProjectSection = styled.section`
   margin-top: 2rem;
@@ -97,7 +98,9 @@ export const ProjectList = (): React.ReactElement => {
           onChange={(e) => setNewProject(e.target.value)}
           placeholder="New project name..."
         />
-        <button type="submit">Add Project</button>
+        <Button type="submit" aria-label="Add Project">
+          Add Project
+        </Button>
       </ProjectForm>
       <ProjectGrid>
         {projects.map((project) => (

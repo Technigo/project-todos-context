@@ -1,8 +1,6 @@
-import { useDraggable } from "@dnd-kit/core";
-import { useTaskStore } from "../stores/TaskStore";
+import { useTaskStore, Task as TaskType } from "../stores/TaskStore";
 import getDueStatus from "../utils/getDueDate";
 import moment from "moment";
-import styled from "styled-components";
 import {
   TaskHeader,
   Tag,
@@ -16,7 +14,7 @@ import {
   OverdueTag,
 } from "./TaskList.styles";
 
-export const Task = ({ task }) => {
+export const Task = ({ task }: { task: TaskType }): JSX.Element | null => {
   if (!task) {
     return null;
   }

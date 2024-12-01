@@ -61,10 +61,15 @@ const StyledSection = styled(Section)`
   }
 `;
 
-const user = {
+type User = {
+  name: string;
+};
+
+const user: User = {
   name: "Mika",
 };
-export const App = () => {
+
+export const App = (): JSX.Element => {
   return (
     <StyledSection>
       <Section>

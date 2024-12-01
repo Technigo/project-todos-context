@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useTaskStore } from "../stores/TaskStore";
-import { TaskContainer } from "./TaskList.styles";
+import TaskContainer from "./TaskList.styles";
 import styled from "styled-components";
 import { Task } from "./Task";
 
@@ -14,8 +14,8 @@ const EmptyState = styled.div`
   }
 `;
 
-export const TaskList = () => {
-  const { tasks, activeFilter, dueDate } = useTaskStore();
+export const TaskList = (): JSX.Element => {
+  const { tasks, activeFilter } = useTaskStore();
 
   const filteredTasks = tasks
     .filter((task) => {

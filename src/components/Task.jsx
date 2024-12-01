@@ -5,13 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import "./Task.css";
 
-export const Task = ({ taskIndex }) => {
-  const task = useTaskStore((state) => state.tasks[taskIndex]); // Hämta task direkt
-  const removeTask = useTaskStore((state) => state.removeTask); // Ta bort task
+export const Task = ({ task }) => {
+  const { id, text, completed } = task;
+  const removeTask = useTaskStore((state) => state.removeTask);
   const toggleTaskCompletion = useTaskStore((state) => state.toggleTaskCompletion);
-  const completedTasks = useTaskStore((state) => state.completedTasks);
-
-  const isCompleted = completedTasks.includes(taskIndex);
 
   return (
     <div className="task-container">
@@ -19,19 +16,17 @@ export const Task = ({ taskIndex }) => {
         <label className="custom-checkbox">
           <input
             type="checkbox"
-            checked={isCompleted}
-            onChange={() => toggleTaskCompletion(taskIndex)}
+            checked={completed}
+            onChange={() => toggleTaskCompletion(id)}
           />
           <span className="checkmark"></span>
         </label>
       </form>
-      <p className="task-text">
-        {task}
-      </p> {/* Visa task-text direkt */}
+      <p className={`task-text ${completed ? "completed" : ""}`}>{text}</p>
       <button
         className="remove-btn"
         aria-label="delete"
-        onClick={() => removeTask(taskIndex)}
+        onClick={() => removeTask(id)}
       >
         <FontAwesomeIcon icon={faCircleMinus} className="remove-icon" />
       </button>

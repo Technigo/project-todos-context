@@ -30,7 +30,8 @@ export const NewTaskInput = () => {
       <button
         type="submit"
         className="add-btn"
-        aria-label="add">
+        aria-label="add"
+      >
         <FontAwesomeIcon icon={faCirclePlus} className="add-icon" />
       </button>
     </form>

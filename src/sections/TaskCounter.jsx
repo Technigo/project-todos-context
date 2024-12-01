@@ -5,12 +5,12 @@ import "./TaskCounter.css"
 
 export const TaskCounter = () => {
   const tasks = useTaskStore((state) => state.tasks);
-  const completedTasks = useTaskStore((state) => state.completedTasks);
+  const completedTasksCount = tasks.filter((task) => task.completed).length;
 
   return (
     <div className="task-counter-container">
       <h2>
-        Completed: {completedTasks.length}/{tasks.length}
+        Completed: {completedTasksCount}/{tasks.length}
       </h2>
     </div>
   );

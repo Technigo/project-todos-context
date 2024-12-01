@@ -6,12 +6,11 @@ import emptyStateImage from "../assets/empty-state.png";
 import "./Tasks.css";
 
 export const Tasks = () => {
-  const tasks = useTaskStore((state) => state.tasks); // get all tasks from tasks array in Zustand
+  const tasks = useTaskStore((state) => state.tasks);
 
   return (
     <div className="tasks-container">
       {tasks.length === 0 ? (
-        // Show img if no tasks are added yet
         <div className="empty-state">
           <img
             src={emptyStateImage}
@@ -20,8 +19,8 @@ export const Tasks = () => {
           />
         </div>
       ) : (
-        // Render tasks if there are any
-        tasks.map((_, index) => <Task key={index} taskIndex={index} />)
+        tasks.map((task) =>
+          <Task key={task.id} task={task} />)
       )}
     </div>
   );

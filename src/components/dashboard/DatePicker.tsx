@@ -14,18 +14,17 @@ import {
 } from "@/components/dashboard/ui/popover";
 
 interface DatePickerProps {
-  value: Date;
-  onChange: (date: Date) => void;
+  value: string;
+  onChange: (date: string) => void;
 }
 
 export function DatePickerDemo({ value, onChange }: DatePickerProps) {
-  const [date, setDate] = React.useState<Date>(value || new Date());
+  const [date, setDate] = React.useState<Date>(value ? new Date(value) : new Date());
 
-  // Handle date changes and propagate to parent
-  const handleDateSelect = (newDate: Date) => {
-    setDate(newDate);
-    if (onChange) {
-      onChange(newDate);
+  const handleDateSelect = (newDate: Date | null) => {
+    if (newDate) {
+      setDate(newDate);
+      onChange(newDate.toISOString());
     }
   };
 

@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { Label, Pie, PieChart } from "recharts";
 import { StyledChartContainer } from "./WeeklyGraph";
 import styled from "styled-components";
 
@@ -32,7 +31,6 @@ const Number = styled.div`
   @media (max-width: 768px) {
     font-size: 4rem;
     height: 100px;
-
   }
 `;
 

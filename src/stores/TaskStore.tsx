@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { localStorageMiddleware } from "../utils/localStorageMiddleware";
 
-type TaskCategory = "work" | "personal";
+export type TaskCategory = "work" | "personal";
 
 export interface Task {
   id: number;
@@ -10,8 +10,8 @@ export interface Task {
   completedAt: string | null;
   timestamp: string;
   category: TaskCategory;
-  dueDate: string;
-  projectId: string;
+  dueDate: string | undefined;
+  projectId?: number | null;
 }
 
 interface TaskState {
@@ -27,9 +27,9 @@ interface TaskMethods {
   addTask: (
     taskName: string,
     category: TaskCategory,
-    dueDate: string,
-    projectId: string,
-    timestamp: string
+    timestamp: number,
+    dueDate: string | undefined,
+    projectId?: number | null,
   ) => void;
   toggleTask: (taskId: number) => void;
   deleteTask: (taskId: number) => void;
@@ -59,7 +59,7 @@ export const useTaskStore = create<TaskStore>()(
       taskName: string,
       category: string,
       dueDate: string,
-      projectId: string,
+      projectId: number | null,
       timestamp: string
     ) =>
       set((state: TaskState) => ({

@@ -1,4 +1,4 @@
-import { useTaskStore } from "../stores/TaskStore";
+import { useTaskStore, TaskCategory } from "../stores/TaskStore";
 import { useProjectStore } from "../stores/ProjectStore";
 import { useState } from "react";
 import { DatePickerDemo } from "./dashboard/DatePicker";
@@ -31,11 +31,11 @@ const Form = styled.form`
     flex-direction: column;
     width: 100%;
     gap: 0.75rem;
-    
+
     > * {
       width: 100%;
     }
-    
+
     button {
       width: 100%;
     }
@@ -49,19 +49,26 @@ const RadioLabel = styled.label`
   cursor: pointer;
 `;
 
-export const TaskInput = () => {
+type TaskInputState = {
+  name: string;
+  category: "personal" | "work";
+  dueDate?: string;
+  projectId?: number | null;
+};
+
+export const TaskInput: React.FC = () => {
   // Local state for form inputs
-  const [taskInput, setTaskInput] = useState({
+  const [taskInput, setTaskInput] = useState<TaskInputState>({
     name: "",
-    category: "personal",
-    dueDate: "",
-    projectId: "",
+    category: "personal" as TaskCategory,
+    dueDate: undefined,
+    projectId: null,
   });
 
   const { addTask } = useTaskStore();
   const { projects } = useProjectStore();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!taskInput.name.trim()) return; // Don't submit empty tasks
@@ -69,17 +76,17 @@ export const TaskInput = () => {
     addTask(
       taskInput.name,
       taskInput.category,
+      Date.now(), // timestamp
       taskInput.dueDate,
-      taskInput.projectId,
-      Date.now() // timestamp
+      taskInput.projectId
     );
 
     // Reset form
     setTaskInput({
       name: "",
-      category: "personal",
+      category: "personal" as TaskCategory,
       dueDate: "",
-      projectId: "",
+      projectId: null,
     });
   };
 
@@ -92,13 +99,17 @@ export const TaskInput = () => {
       <Input
         type="text"
         value={taskInput.name}
-        onChange={(e) => setTaskInput({ ...taskInput, name: e.target.value })}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setTaskInput({ ...taskInput, name: e.target.value })
+        }
         placeholder="Add a new task..."
         required
       />
-      <RadioGroup 
+      <RadioGroup
         value={taskInput.category}
-        onValueChange={(value) => setTaskInput({ ...taskInput, category: value })}
+        onValueChange={(value: TaskCategory) =>
+          setTaskInput({ ...taskInput, category: value })
+        }
       >
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="work" id="work" />
@@ -110,19 +121,24 @@ export const TaskInput = () => {
         </div>
       </RadioGroup>
       <DatePickerDemo
-        value={taskInput.dueDate || new Date()}
-        onChange={(date) => setTaskInput({ ...taskInput, dueDate: date })}
+        value={taskInput.dueDate || new Date().toISOString()}
+        onChange={(date: string) =>
+          setTaskInput({
+            ...taskInput,
+            dueDate: date,
+          })
+        }
       />
       <Select
         value={taskInput.projectId?.toString()}
-        onValueChange={(value) => {
+        onValueChange={(value: string) => {
           if (value === "new") {
             addProject();
             return;
           }
-          setTaskInput({ 
-            ...taskInput, 
-            projectId: value ? Number(value) : null
+          setTaskInput({
+            ...taskInput,
+            projectId: value ? Number(value) : null,
           });
         }}
       >

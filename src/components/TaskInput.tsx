@@ -50,7 +50,8 @@ type TaskInputState = {
   name: string;
   category: "personal" | "work";
   dueDate?: string;
-  projectId?: number | null;
+  projectId: number | null;
+  timestamp: number;
 };
 
 export const TaskInput: React.FC = () => {
@@ -60,6 +61,7 @@ export const TaskInput: React.FC = () => {
     category: "personal" as TaskCategory,
     dueDate: undefined,
     projectId: null,
+    timestamp: 0,
   });
 
   const { addTask } = useTaskStore();
@@ -73,9 +75,9 @@ export const TaskInput: React.FC = () => {
     addTask(
       taskInput.name,
       taskInput.category,
-      Date.now(), // timestamp
       taskInput.dueDate,
-      taskInput.projectId
+      taskInput.projectId,
+      new Date().toISOString()
     );
 
     // Reset form
@@ -84,6 +86,7 @@ export const TaskInput: React.FC = () => {
       category: "personal" as TaskCategory,
       dueDate: "",
       projectId: null,
+      timestamp: 0,
     });
   };
 

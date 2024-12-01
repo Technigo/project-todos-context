@@ -44,7 +44,7 @@ export const TaskList = (): JSX.Element => {
 
   return (
     <LayoutGroup>
-      <TaskContainer>
+      <TaskContainer role="list" aria-label="Task list">
         <AnimatePresence>
           {filteredTasks.map((task) => (
             <motion.div

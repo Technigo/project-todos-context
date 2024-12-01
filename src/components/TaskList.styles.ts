@@ -104,7 +104,7 @@ export const TaskTitle = styled.div`
 
 export const TaskText = styled.span<{ completed: boolean }>`
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
-  color: ${(props) => (props.completed ? "#718096" : "#2d3748")};
+  color: ${(props) => (props.completed ? "#5a6474" : "#2d3748")};
   font-weight: var(--font-weight-medium);
   font-size: 1rem;
   line-height: var(--line-height-normal);

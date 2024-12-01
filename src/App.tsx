@@ -69,21 +69,41 @@ const user: User = {
   name: "Mika",
 };
 
+const SkipLink = styled.a`
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+
+  &:focus {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`;
+
 export const App = (): React.ReactElement => {
   return (
-    <StyledSection>
-      <Section>
-        <Header>
-          <h1>Welcome {user.name}, here are your weekly stats</h1>
-          <Dashboard />
-        </Header>
-        <FilterButtons />
-        <TaskInput />
-        <TaskList />
-      </Section>
+    <>
+      <SkipLink href="#main-content">
+        Skip to main content
+      </SkipLink>
+      <StyledSection>
+        <Section id="main-content">
+          <Header>
+            <h1>Welcome {user.name}, here are your weekly stats</h1>
+            <Dashboard />
+          </Header>
+          <FilterButtons />
+          <TaskInput />
+          <TaskList />
+        </Section>
+      </StyledSection>
       <Sidebar>
         <ProjectList />
       </Sidebar>
-    </StyledSection>
+    </>
   );
 };

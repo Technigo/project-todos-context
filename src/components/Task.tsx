@@ -4,7 +4,6 @@ import moment from "moment";
 import {
   TaskHeader,
   Tag,
-  MoreButton,
   TaskContent,
   TaskTitle,
   TaskCard,
@@ -22,16 +21,30 @@ export const Task = ({ task }: { task: TaskType }): JSX.Element | null => {
   const { toggleTask, deleteTask } = useTaskStore();
 
   return (
-    <TaskCard completed={task.completed}>
+    <TaskCard 
+      completed={task.completed}
+      role="listitem"
+      aria-label={`Task: ${task.name}`}
+    >
       <TaskHeader>
-        {task.category && <Tag category={task.category}>{task.category}</Tag>}
+        {task.category && (
+          <Tag 
+            category={task.category}
+            role="status"
+            aria-label={`Category: ${task.category}`}
+          >
+            {task.category}
+          </Tag>
+        )}
         {task.dueDate && !task.completed && (
-          <OverdueTag dueStatus={getDueStatus(task.dueDate)}>
+          <OverdueTag 
+            dueStatus={getDueStatus(task.dueDate)}
+            role="status"
+            aria-label={`Due ${getDueStatus(task.dueDate)}`}
+          >
             {getDueStatus(task.dueDate)}
           </OverdueTag>
         )}
-        <MoreButton>•••</MoreButton>
-        {/* TODO - Add task to project through this button */}
       </TaskHeader>
 
       <TaskContent>
@@ -40,18 +53,27 @@ export const Task = ({ task }: { task: TaskType }): JSX.Element | null => {
             type="checkbox"
             checked={task.completed}
             onChange={() => toggleTask(task.id)}
+            aria-label={`Mark ${task.name} as ${task.completed ? 'incomplete' : 'complete'}`}
           />
-          <TaskText completed={task.completed}>{task.name}</TaskText>
+          <TaskText 
+            completed={task.completed}
+            aria-checked={task.completed}
+          >
+            {task.name}
+          </TaskText>
         </TaskTitle>
 
         <TaskFooter>
-          <span>
+          <span role="status">
             {task.completed
               ? task.completedAt &&
                 `Completed ${moment(task.completedAt).fromNow()}`
               : `Created ${moment(task.timestamp).fromNow()}`}
           </span>
-          <DeleteButton onClick={() => deleteTask(task.id)}>
+          <DeleteButton 
+            onClick={() => deleteTask(task.id)}
+            aria-label={`Delete task: ${task.name}`}
+          >
             Delete
           </DeleteButton>
         </TaskFooter>

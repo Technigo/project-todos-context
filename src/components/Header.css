@@ -1,0 +1,50 @@
+.header {
+  display: flex;               
+  align-items: center;         
+  justify-content: center;     
+  padding: 35px;
+  width: 100%;                
+  flex-direction: column;
+  text-align: center;   
+  font-family: Kumar One;
+  letter-spacing: 8px;       
+}
+
+.title {
+  margin-bottom: 10px;  
+  font-size: 2rem;      
+}
+
+.sub-title {
+  margin-top: 10px;  
+  font-size: 1.3rem; 
+  color: blue;
+  padding-left: 8px;
+  padding-right: 8px; 
+}
+
+.animation-container {
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  margin: 0 20px;          
+}
+
+.lottie-animation {
+  width: 70%;    
+  height: 70%;   
+}
+
+
+/* Media queries */
+
+/* Smaller screens  */
+@media (max-width: 767px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .sub-title {
+    font-size: 1.1rem;
+  }
+}

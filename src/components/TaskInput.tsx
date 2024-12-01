@@ -110,9 +110,16 @@ export const TaskInput: React.FC = () => {
           setTaskInput({ ...taskInput, category: value })
         }
         aria-label="Task category"
+        name="task-category"
       >
         <div className="flex items-center space-x-2">
-          <RadioGroupItem value="work" id="work" type="button" role="radio" />
+          <RadioGroupItem
+            value="work"
+            id="work"
+            type="button"
+            role="radio"
+            aria-label="Work"
+          />
           <RadioLabel htmlFor="work">Work</RadioLabel>
         </div>
         <div className="flex items-center space-x-2">
@@ -121,6 +128,7 @@ export const TaskInput: React.FC = () => {
             id="personal"
             type="button"
             role="radio"
+            aria-label="Personal"
           />
           <RadioLabel htmlFor="personal">Personal</RadioLabel>
         </div>

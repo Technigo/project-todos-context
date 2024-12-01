@@ -40,10 +40,12 @@ export const FilterButtons = (): React.ReactElement => {
   const { activeFilter, setFilter, tasks } = useTaskStore();
 
   return (
-    <FilterContainer>
+    <FilterContainer role="group" aria-label="Filter tasks">
       <FilterButton
         active={activeFilter === "all"}
         onClick={() => setFilter("all")}
+        aria-label={`Show all tasks (${tasks.length} tasks)`}
+        aria-pressed={activeFilter === "all"}
       >
         All
         <span>{tasks.length}</span>
@@ -51,31 +53,30 @@ export const FilterButtons = (): React.ReactElement => {
       <FilterButton
         active={activeFilter === "work"}
         onClick={() => setFilter("work")}
+        aria-label={`Show work tasks (${tasks.filter(task => task.category === "work" && !task.completed).length} tasks)`}
+        aria-pressed={activeFilter === "work"}
       >
         Work
         <span>
-          {
-            tasks.filter((task) => task.category === "work" && !task.completed)
-              .length
-          }
+          {tasks.filter((task) => task.category === "work" && !task.completed).length}
         </span>
       </FilterButton>
       <FilterButton
         active={activeFilter === "personal"}
         onClick={() => setFilter("personal")}
+        aria-label={`Show personal tasks (${tasks.filter(task => task.category === "personal" && !task.completed).length} tasks)`}
+        aria-pressed={activeFilter === "personal"}
       >
         Personal
         <span>
-          {
-            tasks.filter(
-              (task) => task.category === "personal" && !task.completed
-            ).length
-          }
+          {tasks.filter((task) => task.category === "personal" && !task.completed).length}
         </span>
       </FilterButton>
       <FilterButton
         active={activeFilter === "completed"}
         onClick={() => setFilter("completed")}
+        aria-label={`Show completed tasks (${tasks.filter(task => task.completed).length} tasks)`}
+        aria-pressed={activeFilter === "completed"}
       >
         Completed
         <span>{tasks.filter((task) => task.completed).length}</span>

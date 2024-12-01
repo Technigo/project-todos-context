@@ -100,10 +100,10 @@ export const App = (): React.ReactElement => {
           <TaskInput />
           <TaskList />
         </Section>
-      </StyledSection>
       <Sidebar>
         <ProjectList />
       </Sidebar>
+      </StyledSection>
     </>
   );
 };

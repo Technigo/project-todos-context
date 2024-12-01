@@ -19,7 +19,7 @@ const Form = styled.form`
   gap: 1rem;
   margin: 1rem 0;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   align-items: center;
@@ -95,21 +95,21 @@ export const TaskInput: React.FC = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} role="form" aria-label="Add new task">
       <Input
         type="text"
         value={taskInput.name}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setTaskInput({ ...taskInput, name: e.target.value })
-        }
+        onChange={(e) => setTaskInput({ ...taskInput, name: e.target.value })}
         placeholder="Add a new task..."
         required
+        aria-label="Task name"
       />
       <RadioGroup
         value={taskInput.category}
         onValueChange={(value: TaskCategory) =>
           setTaskInput({ ...taskInput, category: value })
         }
+        aria-label="Task category"
       >
         <div className="flex items-center space-x-2">
           <RadioGroupItem value="work" id="work" />
@@ -157,7 +157,9 @@ export const TaskInput: React.FC = () => {
         </SelectContent>
       </Select>
 
-      <Button type="submit">Add Task</Button>
+      <Button type="submit" aria-label="Add task">
+        Add Task
+      </Button>
     </Form>
   );
 };

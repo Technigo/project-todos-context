@@ -12,6 +12,14 @@
   --font-weight-bold: 600;
   --line-height-normal: 1.5;
   --line-height-tight: 1.2;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a5568;
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f7fafc;
+  --color-accent-primary: #1a73e8;
+  --color-accent-secondary: #1557b0;
+  --color-error: #dc2626;
+  --color-success: #059669;
 }
 
 body {
@@ -21,11 +29,11 @@ body {
   line-height: var(--line-height-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2d3748;
+  color: var(--color-text-primary);
   background: linear-gradient(
     35deg,
-    hsl(206deg 61.27% 80.09%) 0%,
-    #9ab8ee 100%
+    hsl(206deg 61.27% 85%) 0%,
+    #7a9ee8 100%
   );
 }
 

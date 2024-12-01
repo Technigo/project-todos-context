@@ -43,8 +43,10 @@ export const Tag = styled.span<{ category?: Task["category"] }>`
   font-size: 0.875rem;
   font-weight: var(--font-weight-medium);
   background-color: ${(props) =>
-    props.category === "work" ? "#e8f0fe" : "#fce8ff"};
-  color: ${(props) => (props.category === "work" ? "#1a73e8" : "#c026d3")};
+    props.category === "work" 
+      ? "var(--color-accent-primary)" 
+      : "#9c1db3"};
+  color: white;
 `;
 
 export const OverdueTag = styled(Tag)<{
@@ -103,8 +105,8 @@ export const TaskTitle = styled.div`
 `;
 
 export const TaskText = styled.span<{ completed: boolean }>`
+  color: ${(props) => (props.completed ? "var(--color-text-secondary)" : "var(--color-text-primary)")};
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
-  color: ${(props) => (props.completed ? "#5a6474" : "#2d3748")};
   font-weight: var(--font-weight-medium);
   font-size: 1rem;
   line-height: var(--line-height-normal);
@@ -135,5 +137,9 @@ export const DeleteButton = styled.button`
 
   &:hover {
     background-color: #fecaca;
+  }
+
+  &[aria-label] {
+    cursor: pointer;
   }
 `;

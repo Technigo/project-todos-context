@@ -6,7 +6,7 @@ import styled from "styled-components";
 const ProjectSection = styled.section`
   margin-top: 2rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   width: 100%;

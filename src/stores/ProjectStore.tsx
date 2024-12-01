@@ -17,7 +17,7 @@ interface ProjectMethods {
   deleteProject: (projectId: number) => void;
 }
 
-const getInitialProjectState = () => {
+const getInitialProjectState = (): ProjectState => {
   const savedState = localStorage.getItem("projectStore");
   return savedState
     ? JSON.parse(savedState)
@@ -30,16 +30,16 @@ const getInitialProjectState = () => {
 type ProjectStore = ProjectState & ProjectMethods;
 
 export const useProjectStore = create<ProjectStore>()(
-  localStorageMiddleware("projectStore")((set) => ({
+  localStorageMiddleware("projectStore")((set: any) => ({
     ...getInitialProjectState(),
 
-    addProject: (projectName) =>
-      set((state) => ({
+    addProject: (projectName: string) =>
+      set((state: ProjectState) => ({
         projects: [...state.projects, { id: Date.now(), name: projectName }],
       })),
 
-    deleteProject: (projectId) =>
-      set((state) => ({
+    deleteProject: (projectId: number) =>
+      set((state: ProjectState) => ({
         projects: state.projects.filter((project) => project.id !== projectId),
       })),
   }))

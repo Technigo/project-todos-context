@@ -15,13 +15,13 @@ export interface Task {
 interface TaskState {
   tasks: Task[];
   newTask: string;
-  activeFilter: string;
+  activeFilter: "all" | "personal" | "work" | "completed";
   dueDate: string;
-  timestamp: string; }
-
+  timestamp: string;
+}
 
 interface TaskMethods {
-  setFilter: (filter: string) => void;
+  setFilter: (filter: "all" | "personal" | "work" | "completed") => void;
   addTask: (
     taskName: string,
     category: string,
@@ -49,12 +49,18 @@ const getInitialState = (): TaskState => {
 type TaskStore = TaskState & TaskMethods;
 
 export const useTaskStore = create<TaskStore>()(
-  localStorageMiddleware("tasks")((set) => ({
+  localStorageMiddleware("tasks")((set: any) => ({
     ...getInitialState(),
 
-    setFilter: (filter) => set({ activeFilter: filter }),
-    addTask: (taskName, category, dueDate, projectId, timestamp) =>
-      set((state) => ({
+    setFilter: (filter: string) => set({ activeFilter: filter }),
+    addTask: (
+      taskName: string,
+      category: string,
+      dueDate: string,
+      projectId: string,
+      timestamp: string
+    ) =>
+      set((state: TaskState) => ({
         tasks: [
           ...state.tasks,
           {
@@ -69,8 +75,8 @@ export const useTaskStore = create<TaskStore>()(
           } as Task,
         ],
       })),
-    toggleTask: (taskId) =>
-      set((state) => ({
+    toggleTask: (taskId: number) =>
+      set((state: TaskState) => ({
         tasks: state.tasks.map((task) =>
           task.id === taskId
             ? {
@@ -81,8 +87,8 @@ export const useTaskStore = create<TaskStore>()(
             : task
         ),
       })),
-    deleteTask: (taskId) =>
-      set((state) => ({
+    deleteTask: (taskId: number) =>
+      set((state: TaskState) => ({
         tasks: state.tasks.filter((task) => task.id !== taskId),
       })),
   }))

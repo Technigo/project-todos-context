@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { TaskPieChart } from "./PieChart";
 import { TaskProgress } from "./TaskProgress";
 import { Task as TaskType } from "../../stores/TaskStore";
+import { PieData } from "./PieChart";
 
 type ChartDataPoint = {
   day: string;
@@ -13,12 +14,6 @@ type ChartDataPoint = {
 type WeeklyTaskCategories = {
   personal?: number;
   work?: number;
-};
-
-type PieChartDataPoint = {
-  category: "personal" | "work";
-  count: number;
-  fill: string;
 };
 
 const DashboardContainer = styled.div`
@@ -76,7 +71,7 @@ export const Dashboard = (): JSX.Element => {
   );
 
   // Transform the weekly category data into the format PieChart expects
-  const formattedPieChartData: PieChartDataPoint[] = [
+  const formattedPieChartData: PieData[] = [
     {
       category: "personal",
       count: weeklyTasksByCategory.personal || 0,
@@ -89,16 +84,16 @@ export const Dashboard = (): JSX.Element => {
     },
   ];
 
-  const totalCompletedWeeklyTasks = formattedPieChartData.reduce(
+  const totalCompletedWeeklyTasks: number = formattedPieChartData.reduce(
     (acc, task) => acc + task.count,
     0
   );
 
   const tasksDueThisWeek = tasks.filter((task) => {
-    const dueDate = new Date(task.dueDate);
+    const dueDate = task.dueDate && new Date(task.dueDate);
     const weekAgo = new Date();
     weekAgo.setDate(weekAgo.getDate() - 7);
-    return task.dueDate && dueDate > weekAgo;
+    return task.dueDate && dueDate && dueDate > weekAgo;
   });
 
   console.log("Weekly Tasks by Category: ", formattedPieChartData);

@@ -37,7 +37,12 @@ export const StyledChartContainer = styled.div`
   }
 `;
 
-export function WeeklyGraph({ chartData }) {
+interface ChartData {
+  day: string;
+  completed: number;
+}
+
+export function WeeklyGraph({ chartData }: { chartData: ChartData[] }) {
   return (
     <StyledChartContainer>
       <Card>

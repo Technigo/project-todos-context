@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Label, Pie, PieChart } from "recharts";
 import { StyledChartContainer } from "./WeeklyGraph";
 
@@ -34,8 +33,23 @@ const chartConfig = {
   },
 };
 
-export function TaskPieChart({ pieChartData, totalCompletedWeeklyTasks }) {
+export interface PieData {
+  category: string;
+  count: number;
+  fill: string;
+}
+
+interface TaskPieChartProps {
+  pieChartData: PieData[];
+  totalCompletedWeeklyTasks: number;
+}
+
+export const TaskPieChart = ({
+  pieChartData,
+  totalCompletedWeeklyTasks,
+}: TaskPieChartProps): JSX.Element => {
   console.log("Pie Chart Received Data: ", pieChartData);
+  console.log("total completed Received Data: ", totalCompletedWeeklyTasks);
   return (
     <StyledChartContainer>
       <Card className="flex flex-col">
@@ -101,4 +115,4 @@ export function TaskPieChart({ pieChartData, totalCompletedWeeklyTasks }) {
       </Card>
     </StyledChartContainer>
   );
-}
+};

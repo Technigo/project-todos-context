@@ -1,11 +1,15 @@
-// Task.jsx
+// Task.tsx
 
-import { useTaskStore } from "../stores/useTaskStore";
+import { useTaskStore, Task as TaskType } from "../stores/useTaskStore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import "./Task.css";
 
-export const Task = ({ task }) => {
+type TaskProps = {
+  task: TaskType;
+};
+
+export const Task: React.FC<TaskProps> = ({ task }) => {
   const { id, text, completed } = task;
   const removeTask = useTaskStore((state) => state.removeTask);
   const toggleTaskCompletion = useTaskStore((state) => state.toggleTaskCompletion);

@@ -1,11 +1,11 @@
-// Tasks.jsx
+// Tasks.tsx
 
-import { useTaskStore } from "../stores/useTaskStore";
-import { Task } from "../components/Task";
+import { useTaskStore } from "../stores/useTaskStore.jsx";
+import { Task } from "../components/Task.jsx";
 import emptyStateImage from "../assets/empty-state.png";
 import "./Tasks.css";
 
-export const Tasks = () => {
+export const Tasks: React.FC = () => {
   const tasks = useTaskStore((state) => state.tasks);
 
   return (

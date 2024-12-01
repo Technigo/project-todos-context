@@ -1,9 +1,9 @@
-// TaskCounter.jsx
+// TaskCounter.tsx
 
 import { useTaskStore } from "../stores/useTaskStore";
-import "./TaskCounter.css"
+import "./TaskCounter.css";
 
-export const TaskCounter = () => {
+export const TaskCounter: React.FC = () => {
   const tasks = useTaskStore((state) => state.tasks);
   const completedTasksCount = tasks.filter((task) => task.completed).length;
 

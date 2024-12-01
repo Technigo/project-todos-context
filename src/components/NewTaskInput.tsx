@@ -1,4 +1,4 @@
-// NewTaskInput.jsx
+// NewTaskInput.tsx
 
 import { useState } from "react";
 import { useTaskStore } from "../stores/useTaskStore";
@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import "./NewTaskInput.css";
 
-export const NewTaskInput = () => {
-  const [inputValue, setInputValue] = useState("");
+export const NewTaskInput: React.FC = () => {
+  const [inputValue, setInputValue] = useState<string>("");
   const addTask = useTaskStore((state) => state.addTask);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputValue.trim()) {
       addTask(inputValue); // Add a task in Zustand

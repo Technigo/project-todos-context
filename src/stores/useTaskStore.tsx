@@ -1,9 +1,28 @@
-// useTaskStore.jsx
+// useTaskStore.tsx
 
 import { create } from "zustand";
-import { persist } from "zustand/middleware"; // Built in handeling of saving and loading to Local Storage
+import { persist, PersistOptions } from "zustand/middleware"; // Built in handeling of saving and loading to Local Storage
 
-export const useTaskStore = create(
+export type Task = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
+
+type TaskStore = {
+  tasks: Task[];
+  addTask: (text: string) => void;
+  removeTask: (id: number) => void;
+  toggleTaskCompletion: (id: number) => void;
+};
+
+// Type for persist-configuration
+type PersistedStore = (
+  config: (set: any, get: any) => TaskStore,
+  options: PersistOptions<TaskStore>
+) => (set: any, get: any) => TaskStore;
+
+export const useTaskStore = create<TaskStore>()(
   persist(
     (set) => ({
       tasks: [], // Empty task array. Each task has id, text, and completed properties
@@ -38,6 +57,6 @@ export const useTaskStore = create(
     {
       name: "task-storage", // Key used in Local Storage
       getStorage: () => localStorage,
-    }
+    } as PersistOptions<TaskStore>
   )
 );

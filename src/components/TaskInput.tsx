@@ -74,7 +74,7 @@ export const TaskInput: React.FC = () => {
 
     addTask(
       taskInput.name,
-      taskInput.category,
+      taskInput.category || "personal",
       taskInput.dueDate,
       taskInput.projectId,
       new Date().toISOString()
@@ -112,11 +112,16 @@ export const TaskInput: React.FC = () => {
         aria-label="Task category"
       >
         <div className="flex items-center space-x-2">
-          <RadioGroupItem value="work" id="work" />
+          <RadioGroupItem value="work" id="work" type="button" role="radio" />
           <RadioLabel htmlFor="work">Work</RadioLabel>
         </div>
         <div className="flex items-center space-x-2">
-          <RadioGroupItem value="personal" id="personal" />
+          <RadioGroupItem
+            value="personal"
+            id="personal"
+            type="button"
+            role="radio"
+          />
           <RadioLabel htmlFor="personal">Personal</RadioLabel>
         </div>
       </RadioGroup>
@@ -141,13 +146,18 @@ export const TaskInput: React.FC = () => {
             projectId: value ? Number(value) : null,
           });
         }}
+        aria-label="Select project"
       >
-        <SelectTrigger>
+        <SelectTrigger aria-label="Select project" type="button" role="option">
           <SelectValue placeholder="Select a project" />
         </SelectTrigger>
         <SelectContent>
           {projects.map((project) => (
-            <SelectItem key={project.id} value={project.id.toString()}>
+            <SelectItem
+              key={project.id}
+              value={project.id.toString()}
+              aria-label={project.name}
+            >
               {project.name}
             </SelectItem>
           ))}
@@ -157,7 +167,7 @@ export const TaskInput: React.FC = () => {
         </SelectContent>
       </Select>
 
-      <Button type="submit" aria-label="Add task">
+      <Button type="submit" aria-label="Add task" role="button">
         Add Task
       </Button>
     </Form>

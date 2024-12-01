@@ -17,18 +17,19 @@ const FilterButton = styled.button<{ active: boolean }>`
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  background-color: ${(props) => (props.active ? "#1a73e8" : "#e8f0fe")};
-  color: ${(props) => (props.active ? "white" : "#1a73e8")};
+  background-color: ${(props) => (props.active ? "var(--color-accent-primary)" : "#e8f0fe")};
+  color: ${(props) => (props.active ? "white" : "var(--color-accent-secondary)")};
   font-size: 0.9rem;
   transition: all 0.2s ease;
+  font-weight: var(--font-weight-medium);
 
   &:hover {
-    background-color: ${(props) => (props.active ? "#1557b0" : "#d3e3fd")};
+    background-color: ${(props) => (props.active ? "var(--color-accent-secondary)" : "#d3e3fd")};
   }
 
   span {
-    background: ${(props) => (props.active ? "white" : "#1a73e8")};
-    color: ${(props) => (props.active ? "#1a73e8" : "white")};
+    background: ${(props) => (props.active ? "white" : "var(--color-accent-primary)")};
+    color: ${(props) => (props.active ? "var(--color-accent-primary)" : "white")};
     padding: 0.1rem 0.5rem;
     border-radius: 12px;
     margin-left: 0.5rem;

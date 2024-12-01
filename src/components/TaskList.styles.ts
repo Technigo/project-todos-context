@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Task } from "../stores/TaskStore";
+import { TaskCategory } from "../stores/TaskStore";
 
 export const TaskContainer = styled.div`
   display: grid;
@@ -37,15 +37,15 @@ export const TaskHeader = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const Tag = styled.span<{ category?: Task["category"] }>`
+export const Tag = styled.span<{ category?: TaskCategory }>`
   padding: 0.3rem 1rem;
   border-radius: 20px;
   font-size: 0.875rem;
   font-weight: var(--font-weight-medium);
   background-color: ${(props) =>
     props.category === "work" 
-      ? "var(--color-accent-primary)" 
-      : "#9c1db3"};
+      ? "var(--color-pink)" 
+      : "var(--color-blue)"};
   color: white;
 `;
 

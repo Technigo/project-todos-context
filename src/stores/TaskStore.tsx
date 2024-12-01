@@ -27,9 +27,9 @@ interface TaskMethods {
   addTask: (
     taskName: string,
     category: TaskCategory,
-    timestamp: number,
     dueDate: string | undefined,
-    projectId?: number | null,
+    projectId: number | null,
+    timestamp: string,
   ) => void;
   toggleTask: (taskId: number) => void;
   deleteTask: (taskId: number) => void;

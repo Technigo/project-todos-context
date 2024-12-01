@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Project } from "./Project";
 import styled from "styled-components";
 import { Button } from "./dashboard/ui/button";
+import { Input } from "./dashboard/ui/input";
 
 const ProjectSection = styled.section`
   margin-top: 2rem;
@@ -92,13 +93,20 @@ export const ProjectList = (): React.ReactElement => {
     <ProjectSection>
       <h2>Projects</h2>
       <ProjectForm onSubmit={handleSubmit}>
-        <input
+        <Input
           type="text"
           value={newProject}
           onChange={(e) => setNewProject(e.target.value)}
           placeholder="New project name..."
+          required
+          aria-label="Project name"
         />
-        <Button type="submit" aria-label="Add Project">
+        <Button
+          type="submit"
+          role="button"
+          aria-label="Add Project"
+          variant="ghost"
+        >
           Add Project
         </Button>
       </ProjectForm>

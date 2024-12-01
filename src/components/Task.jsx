@@ -30,6 +30,7 @@ export const Task = ({ taskIndex }) => {
       </p> {/* Visa task-text direkt */}
       <button
         className="remove-btn"
+        aria-label="delete"
         onClick={() => removeTask(taskIndex)}
       >
         <FontAwesomeIcon icon={faCircleMinus} className="remove-icon" />

@@ -16,7 +16,6 @@ const TaskContainer = styled.div.withConfig({
   padding: 20px;
   width: 250px;
   height: 240px;
-  border-radius: 5px;
   box-shadow: 5px 5px 7px #000;
   word-wrap: break-word; /* Ensure long words in the task box/post it break and wrap */
   

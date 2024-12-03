@@ -1,37 +1,18 @@
-<h1 align="center">
-  <a href="">
-    <img src="./src/assets/banner.svg" alt="Project Banner Image">
-  </a>
-</h1>
+# Create a Todo app ✅
 
-# Todo - useContext Project
-
-Replace this readme with your own information about your project.
-
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
-
-## Getting Started with the Project
-
-### Dependency Installation & Startup Development Server
-
-Once cloned, navigate to the project's root directory and this project uses npm (Node Package Manager) to manage its dependencies.
-
-The command below is a combination of installing dependencies, opening up the project on VS Code and it will run a development server on your terminal.
-
-```bash
-npm i && code . && npm run dev
-```
+This week's assignment involved building a fully functional Todo app using Zustand for state management and TypeScript to ensure type safety and scalability. The app allows users to manage tasks efficiently, adhering to best practices in responsiveness, accessibility and clean code.
 
 ### The Problem
 
-Describe how you approached to problem, and what tools and techniques you used to solve it. How did you plan? What technologies did you use? If you had more time, what would be next?
+The challenge was to implement a Todo app that meets the following requirements:
+
+- List all tasks (completed and uncompleted).
+- Mark tasks as completed or revert them back to uncompleted.
+- Add and remove tasks dynamically.
+- Display task counts (all tasks or uncompleted tasks).
+- Ensure responsiveness across devices (320px to 1600px).
+- Follow accessibility guidelines (e.g., alt attributes, proper color contrast).
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
-
-## Instructions
-
-<a href="instructions.md">
-   See instructions of this project
-  </a>
+[https://tidy-task.netlify.app/](https://tidy-task.netlify.app/)

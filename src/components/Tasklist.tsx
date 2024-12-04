@@ -21,7 +21,7 @@ const TaskSection = styled.section`
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Adjust for smaller screens (single-column layout) */
+  /* smaller screens (single-column layout) */
   @media (max-width: 800px) {
     display: flex;
     flex-direction: column;

@@ -1,0 +1,30 @@
+.theme-toggle-btn {
+  cursor: pointer;
+  border: none;
+  width: 50px;
+  height: 50px;
+}
+
+.light-theme .theme-toggle-btn {
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
+}
+
+.dark-theme .theme-toggle-btn {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+}
+
+.light-theme-project .theme-toggle-btn {
+  background-color: var(--bg-color-light-project);
+  color: var(--text-color-light-project);
+}
+
+.dark-theme-project .theme-toggle-btn {
+  background-color: var(--bg-color-dark-project);
+  color: var(--text-color-dark-project);
+}
+
+.theme-icon {
+  width: 100%;
+}

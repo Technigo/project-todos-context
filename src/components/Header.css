@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.spacer {
+  width: 50px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px;
+  }
+
+  .spacer {
+    width: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header-text-container {
+    justify-content: center;
+  }
+}

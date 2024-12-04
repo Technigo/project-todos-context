@@ -1,0 +1,113 @@
+.project-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.project-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.project-card-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 280px;
+  margin: 0.5rem;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  max-height: 100px;
+}
+
+.project-item .completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.project-text {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  display: block;
+  color: black;
+  text-align: center;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.no-projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.notes-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes-image {
+  width: 200px;
+}
+
+@media (max-width: 768px) {
+  .project-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .project-text {
+    font-size: 16px;
+  }
+
+  .project-card {
+    flex-direction: column;
+  }
+
+  .notes-image {
+    width: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .project-item {
+    flex: 1 1 280px;
+  }
+
+  .project-card {
+    justify-content: flex-start;
+  }
+
+  .project-text {
+    font-size: 20px;
+  }
+}

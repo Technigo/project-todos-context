@@ -21,14 +21,6 @@ const TodoText = styled.span<{ completed: boolean }>`
   flex: 1;
   margin-left: 10px;
   text-decoration: ${({ completed }) => (completed ? "line-through" : "none")};
-  color: ${({ theme, completed }) =>
-    completed
-      ? theme.isDarkMode
-        ? "#888"
-        : "#aaa"
-      : theme.isDarkMode
-      ? "#fff"
-      : "#333"};
 `;
 
 

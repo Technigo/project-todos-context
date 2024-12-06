@@ -1,5 +1,6 @@
 import useTodoStore from "../store/todoStore";
 import TodoItem from "./TodoItem";
+import TodoCount from "./TodoCount";
 import styled from "styled-components";
 import empty from "../assets/Detective-check-footprint 1.png"
 
@@ -23,6 +24,7 @@ const TodoList: React.FC = () => {
   
     return (
         <ListContainer>
+          <TodoCount />
         {todos.length === 0 && <Image src={empty} alt="No todo's yet!"/>}
         {todos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} />

@@ -18,12 +18,12 @@ export const App: React.FC = () => {
   return (
     <>
       <GlobalStyle theme={{ isDarkMode }} />
-      <div>
+      <section>
         <Header theme={{ isDarkMode }} togglePopup={() => setIsPopupOpen(true)} />
         <TodoList />
         {isPopupOpen && <AddTodoPopup onClose={() => setIsPopupOpen(false)} />}
         <AddTodoButton onClick={() => setIsPopupOpen(true)} /> 
-      </div>
+      </section>
     </>
   )
 };

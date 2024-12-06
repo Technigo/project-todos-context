@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+
 export const GlobalStyle = createGlobalStyle`
   body {
     font-family: Arial, sans-serif;
@@ -15,6 +16,11 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
+    color: ${({ theme }) => (theme.isDarkMode ? '#ffffff' : '#121212')};
+  }
+
+  article {
+    background-color: ${({ theme }) => (theme.isDarkMode ? '#333' : '#fff')};
   }
 
   button {
@@ -26,9 +32,9 @@ export const GlobalStyle = createGlobalStyle`
     padding: 8px;
     margin: 5px 0;
     border-radius: 4px;
-    border: 1px solid ${({ theme }) => (theme.isDarkMode ? '#444' : '#ccc')};
-    background-color: ${({ theme }) => (theme.isDarkMode ? '#333' : '#fff')};
-    color: ${({ theme }) => (theme.isDarkMode ? '#fff' : '#333')};
+    border: 1px solid ${({ theme }) => (theme.isDarkMode ? '#ccc' : '#444')};
+    background-color: ${({ theme }) => (theme.isDarkMode ? '#fff' : '#333')};
+    color: ${({ theme }) => (theme.isDarkMode ? '#333' : '#fff')};
     outline: none;
     transition: background-color 0.3s, color 0.3s;
   }

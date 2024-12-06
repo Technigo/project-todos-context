@@ -7,13 +7,16 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: ${({ theme }: { theme: { isDarkMode: boolean } }) =>
-    theme.isDarkMode ? "#121212" : "#ffffff"};
+  /* switchmode did not work on bg so are using bodystyling instead! */
+  /* background-color: ${({ theme }: { theme: { isDarkMode: boolean } }) =>
+      theme.isDarkMode ? "#444" : "#ddd"}; */
+  /* borderswitch does work, why? */
   border-bottom: 1px solid
     ${({ theme }: { theme: { isDarkMode: boolean } }) =>
       theme.isDarkMode ? "#444" : "#ddd"};
-  color: ${({ theme }: { theme: { isDarkMode: boolean } }) =>
-    theme.isDarkMode ? "#ddd" : "#444"};
+  /* switchmode did not work on bg so are using bodystyling instead! */
+  /* color: ${({ theme }: { theme: { isDarkMode: boolean } }) =>
+    theme.isDarkMode ? "#ddd" : "#444"}; */
 `;
 
 const Title = styled.h1`

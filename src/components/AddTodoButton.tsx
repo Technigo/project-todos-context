@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
+
 const FloatingButton = styled.button`
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 60px;
   height: 60px;
-  background-color: #6c63ff; /* Lila färg */
+  background-color: #6c63ff; 
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -19,7 +20,7 @@ const FloatingButton = styled.button`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #5a54e3; /* Lite mörkare lila vid hover */
+    background-color: #5a54e3; 
   }
 `;
 

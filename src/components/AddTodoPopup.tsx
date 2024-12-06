@@ -1,6 +1,8 @@
 import { useState } from "react";
 import useTodoStore from "../store/todoStore";
 import styled from "styled-components";
+import { GlobalStyle } from "../styles/GlobalStyle";
+import { useTheme } from "../context/ThemeContext";
 
 
 const Overlay = styled.div`
@@ -15,12 +17,14 @@ const Overlay = styled.div`
   justify-content: center;
 `;
 
-const PopupContainer = styled.div`
-  background-color: ${({ theme }) => (theme.isDarkMode ? "#2b2b2b" : "#fff")};
+const PopupContainer = styled.article`
+  /* background-color: ${({ theme }) => (theme.isDarkMode ? "#2b2b2b" : "#fff")}; */
   padding: 20px;
   width: 400px;
   border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid
+    ${({ theme }: { theme: { isDarkMode: boolean } }) =>
+      theme.isDarkMode ? "#444" : "#ddd"};
   text-align: center;
 `;
 
@@ -28,7 +32,7 @@ const Title = styled.h2`
   margin: 0;
   margin-bottom: 20px;
   font-size: 18px;
-  color: ${({ theme }) => (theme.isDarkMode ? "#fff" : "#333")};
+  /* color: ${({ theme }) => (theme.isDarkMode ? "#fff" : "#333")}; */
 `;
 
 const Input = styled.input`
@@ -89,6 +93,7 @@ interface AddTodoPopupProps {
 const AddTodoPopup: React.FC<AddTodoPopupProps> = ({ onClose }) => {
   const [text, setText] = useState<string>("");
   const addTodo = useTodoStore((state) => state.addTodo);
+  const { isDarkMode } = useTheme();
 
   const handleSubmit = () => {
     if (text.trim().length === 0) return;
@@ -98,9 +103,11 @@ const AddTodoPopup: React.FC<AddTodoPopupProps> = ({ onClose }) => {
   };
 
   return (
+    
     <Overlay>
+      <GlobalStyle theme={{ isDarkMode }} />
     <PopupContainer>
-      <h2>Add a new todo</h2>
+      <Title>Add a new todo</Title>
       <Input
         type="text"
         value={text}

@@ -18,7 +18,6 @@ const Overlay = styled.div`
 `;
 
 const PopupContainer = styled.article`
-  /* background-color: ${({ theme }) => (theme.isDarkMode ? "#2b2b2b" : "#fff")}; */
   padding: 20px;
   width: 400px;
   border-radius: 12px;
@@ -45,7 +44,7 @@ const Input = styled.input`
   outline: none;
   color: ${({ theme }) => (theme.isDarkMode ? "#fff" : "#333")};
   background-color: ${({ theme }) =>
-    theme.isDarkMode ? "#444" : "#f9f9f9"};
+    theme.isDarkMode ? "#444" : "#f9f9f9"}; 
 
   &::placeholder {
     color: #b2b2b2;
@@ -96,10 +95,11 @@ const AddTodoPopup: React.FC<AddTodoPopupProps> = ({ onClose }) => {
   const { isDarkMode } = useTheme();
 
   const handleSubmit = () => {
-    if (text.trim().length === 0) return;
-    addTodo(text); 
-    setText(""); 
-    onClose(); 
+    if (text.trim()) {
+      addTodo(text); 
+      setText(""); 
+    /* onClose();  */
+    }
   };
 
   return (
@@ -109,9 +109,14 @@ const AddTodoPopup: React.FC<AddTodoPopupProps> = ({ onClose }) => {
     <PopupContainer>
       <Title>Add a new todo</Title>
       <Input
+        autoFocus
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter")
+              handleSubmit();
+          }}
       />
       <ButtonGroup>
         <ApplyButton onClick={handleSubmit}>Add</ApplyButton>

@@ -7,7 +7,9 @@ import AddTodoPopup from "./components/AddTodoPopup";
 import AddTodoButton from "./components/AddTodoButton";
 
 
-export const App = () => {
+
+
+export const App: React.FC = () => {
   const { isDarkMode } = useTheme();
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
 

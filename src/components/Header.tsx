@@ -7,12 +7,13 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: ${({ theme }) => {
-      console.log("Theme in Header:", theme);
-      return theme.isDarkMode ? '#121212' : '#ffffff';
-    }};
-  border-bottom: 1px solid ${({ theme }) => (theme.isDarkMode ? "#444" : "#ddd")};
-  color: ${({ theme }) => (theme.isDarkMode ? "#ddd" : "#444")};
+  background-color: ${({ theme }: { theme: { isDarkMode: boolean } }) =>
+    theme.isDarkMode ? "#121212" : "#ffffff"};
+  border-bottom: 1px solid
+    ${({ theme }: { theme: { isDarkMode: boolean } }) =>
+      theme.isDarkMode ? "#444" : "#ddd"};
+  color: ${({ theme }: { theme: { isDarkMode: boolean } }) =>
+    theme.isDarkMode ? "#ddd" : "#444"};
 `;
 
 const Title = styled.h1`
@@ -34,18 +35,26 @@ const Button = styled.button`
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: ${({ theme }) => (theme.isDarkMode ? "#6c63ff" : "#ece8ff")};
+    background-color: ${({ theme }: { theme: { isDarkMode: boolean } }) =>
+      theme.isDarkMode ? "#6c63ff" : "#ece8ff"};
   }
 `;
 
-const Header = () => {
+
+
+interface HeaderProps {
+  theme: { isDarkMode: boolean }; 
+  togglePopup: () => void; 
+}
+
+const Header: React.FC<HeaderProps> = ({ theme, togglePopup }) => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <HeaderContainer>
       <Title>TODO LIST</Title>
       <div>
-        <Button onClick={toggleTheme}>{isDarkMode ? '☀️' : '🌙'}</Button>
+        <Button onClick={toggleTheme}>{isDarkMode ? "☀️" : "🌙"}</Button>
       </div>
     </HeaderContainer>
   );

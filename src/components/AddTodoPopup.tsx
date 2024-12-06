@@ -81,14 +81,20 @@ const ApplyButton = styled.button`
   }
 `;
 
-const AddTodoPopup = ({ onClose }) => {
-  const [text, setText] = useState('');
+
+interface AddTodoPopupProps {
+  onClose: () => void; 
+}
+
+const AddTodoPopup: React.FC<AddTodoPopupProps> = ({ onClose }) => {
+  const [text, setText] = useState<string>("");
   const addTodo = useTodoStore((state) => state.addTodo);
 
   const handleSubmit = () => {
-    addTodo(text);
-    setText('');
-    onClose();
+    if (text.trim().length === 0) return;
+    addTodo(text); 
+    setText(""); 
+    onClose(); 
   };
 
   return (

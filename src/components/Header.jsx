@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import editIcon from "../assets/icons/edit.png";
+import { useTaskStore } from "../contexts/store";
 
 const HeaderContainer = styled.div`
   text-align: center;
@@ -11,7 +12,6 @@ const TitleWrapper = styled.div`
   display: inline-flex;
   align-items: center;
   position: relative;
-
   &:hover img {
     opacity: 1;
   }
@@ -30,7 +30,7 @@ const EditIcon = styled.img`
   margin-left: 0.5rem;
   cursor: pointer;
   opacity: 0;
-  filter: invert(1); 
+  filter: invert(1);
   transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
 `;
 
@@ -43,15 +43,21 @@ const Input = styled.input`
   border: none;
   outline: none;
   margin: 0;
-
   &::placeholder {
     color: gray;
   }
 `;
 
-export function Header({ title, onTitleChange }) {
+export function Header() {
   const [isEditing, setIsEditing] = useState(false);
-  const [draftTitle, setDraftTitle] = useState(title);
+  const [draftTitle, setDraftTitle] = useState("");
+
+  const title = useTaskStore((state) => state.title);
+  const setTitle = useTaskStore((state) => state.setTitle);
+
+  React.useEffect(() => {
+    setDraftTitle(title);
+  }, [title]);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -63,9 +69,9 @@ export function Header({ title, onTitleChange }) {
 
   const handleInputBlur = () => {
     if (draftTitle.trim() === "") {
-      setDraftTitle(title); 
+      setDraftTitle(title);
     } else {
-      onTitleChange(draftTitle); 
+      setTitle(draftTitle);
     }
     setIsEditing(false);
   };

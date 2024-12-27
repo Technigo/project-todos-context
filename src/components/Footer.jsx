@@ -45,14 +45,15 @@ const Button = styled.button`
 `;
 
 export const Footer = () => {
-  const tasks = useTaskStore((state) => state.tasks);
+  const categories = useTaskStore((state) => state.categories);
   const markAllCompleted = useTaskStore((state) => state.markAllCompleted);
 
-  //to calculate progress and credits
-  const completedTasks = tasks.filter((task) => task.completed).length;
-  const totalTasks = tasks.length;
+  const allTasks = categories.flatMap((cat) => cat.tasks);
+  const completedTasks = allTasks.filter((t) => t.completed).length;
+  const totalTasks = allTasks.length;
+
   const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
-  const creditsEarned = completedTasks * 10;
+  const creditsEarned = completedTasks * 10; 
 
   return (
     <FooterContainer>

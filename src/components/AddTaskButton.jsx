@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useTaskStore } from "../contexts/store";
 
 const FloatingButton = styled.button`
   position: fixed;
@@ -79,16 +80,19 @@ const SubmitButton = styled.button`
   }
 `;
 
-export const AddTaskButton = ({ availableCategories, onAddTask }) => {
+export const AddTaskButton = () => {
   const [visible, setVisible] = useState(false);
   const [category, setCategory] = useState("");
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
 
+  // Pull from global store
+  const availableCategories = useTaskStore((state) => state.availableCategories);
+  const addTask = useTaskStore((state) => state.addTask);
+
   const handleSubmit = () => {
     if (!category || !task) return;
-
-    onAddTask({ category, task, date });
+    addTask({ category, task, date });
     setCategory("");
     setTask("");
     setDate("");

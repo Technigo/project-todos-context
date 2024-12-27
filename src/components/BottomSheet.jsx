@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useTaskStore } from "../contexts/store";
 
 const SheetContainer = styled.div`
   position: fixed;
@@ -66,18 +67,22 @@ const Button = styled.button`
   }
 `;
 
-export function BottomSheet({ visible, onClose, onSubmit }) {
+export function BottomSheet({ visible, onClose }) {
   const [category, setCategory] = useState("");
   const [task, setTask] = useState("");
   const [date, setDate] = useState("");
 
+  // Store action
+  const addTask = useTaskStore((state) => state.addTask);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ category, task, date });
+    if (!category || !task) return;
+    addTask({ category, task, date });
     setCategory("");
     setTask("");
     setDate("");
-    onClose(); // Close the sheet after submission
+    onClose();
   };
 
   return (

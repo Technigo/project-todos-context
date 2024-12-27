@@ -4,25 +4,14 @@ import { Category } from "./Category";
 
 const ListContainer = styled.div`
   padding: 1rem;
-  background: #121212; 
+  background: #121212;
 `;
 
-export function CategoryList({
-  categories,
-  onToggleTask,
-  onDeleteTask,
-  onDeleteCategory,
-}) {
+export function CategoryList({ categories }) {
   return (
     <ListContainer>
       {categories.map((category) => (
-        <Category
-          key={category.id}
-          category={category}
-          onToggleTask={onToggleTask}
-          onDeleteTask={onDeleteTask}
-          onDeleteCategory={onDeleteCategory} 
-        />
+        <Category key={category.id} category={category} />
       ))}
     </ListContainer>
   );

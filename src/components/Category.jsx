@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { TaskItem } from "./TaskItem";
 import deleteIcon from "../assets/icons/delete.png";
+import { TaskItem } from "./TaskItem";
+import { useTaskStore } from "../contexts/store";
 
 const CategoryContainer = styled.div`
   margin-bottom: 2rem;
@@ -60,18 +61,20 @@ const DeleteButton = styled.button`
   }
 `;
 
-export function Category({ category, onToggleTask, onDeleteTask, onDeleteCategory }) {
+export function Category({ category }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const menuRef = useRef(null);
 
-  // Close menu when clicking outside
+  // Store action
+  const deleteCategory = useTaskStore((state) => state.deleteCategory);
+
+  // Close the menu when clicking outside
   useEffect(() => {
     function handleOutsideClick(event) {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMenuVisible(false);
       }
     }
-
     document.addEventListener("mousedown", handleOutsideClick);
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
@@ -87,7 +90,7 @@ export function Category({ category, onToggleTask, onDeleteTask, onDeleteCategor
         <div ref={menuRef} style={{ position: "relative" }}>
           <DotsMenu onClick={() => setMenuVisible(!menuVisible)}>•••</DotsMenu>
           {menuVisible && (
-            <DeleteButton onClick={() => onDeleteCategory(category.id)}>
+            <DeleteButton onClick={() => deleteCategory(category.id)}>
               Delete
               <img src={deleteIcon} alt="Delete" />
             </DeleteButton>
@@ -96,13 +99,7 @@ export function Category({ category, onToggleTask, onDeleteTask, onDeleteCategor
       </CategoryHeader>
       <Divider />
       {category.tasks.map((task) => (
-        <TaskItem
-          key={task.id}
-          task={task}
-          categoryId={category.id}
-          onToggle={onToggleTask}
-          onDelete={onDeleteTask}
-        />
+        <TaskItem key={task.id} task={task} categoryId={category.id} />
       ))}
     </CategoryContainer>
   );

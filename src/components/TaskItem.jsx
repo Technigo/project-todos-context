@@ -3,6 +3,7 @@ import styled from "styled-components";
 import emptyIcon from "../assets/icons/empty.png";
 import checkIcon from "../assets/icons/check.png";
 import deleteIcon from "../assets/icons/delete.png";
+import { useTaskStore } from "../contexts/store";
 
 const TaskContainer = styled.div`
   display: flex;
@@ -44,9 +45,9 @@ const TaskText = styled.span`
 const Badge = styled.span`
   background-color: ${({ status }) =>
     status === "Today"
-      ? "rgba(34, 139, 34, 0.2)" 
+      ? "rgba(34, 139, 34, 0.2)"
       : status === "Overdue"
-      ? "rgba(255, 68, 0, 0.226)" 
+      ? "rgba(255, 68, 0, 0.226)"
       : "rgba(128, 128, 128, 0.3)"};
   color: ${({ status }) =>
     status === "Today" ? "#2bbe2b" : status === "Overdue" ? "#ff3300" : "#d2cfcf"};
@@ -94,9 +95,12 @@ const DeleteButton = styled.button`
   }
 `;
 
-export function TaskItem({ task, categoryId, onToggle, onDelete }) {
+export function TaskItem({ task, categoryId }) {
   const [menuVisible, setMenuVisible] = useState(false);
   const menuRef = useRef(null);
+
+  const toggleTask = useTaskStore((state) => state.toggleTask);
+  const deleteTask = useTaskStore((state) => state.deleteTask);
 
   useEffect(() => {
     function handleOutsideClick(event) {
@@ -104,7 +108,6 @@ export function TaskItem({ task, categoryId, onToggle, onDelete }) {
         setMenuVisible(false);
       }
     }
-
     document.addEventListener("mousedown", handleOutsideClick);
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
@@ -118,7 +121,7 @@ export function TaskItem({ task, categoryId, onToggle, onDelete }) {
       .split("T")[0];
     const taskDate = task.date;
 
-    if (!taskDate || isNaN(new Date(taskDate).getTime())) return "No Date"; 
+    if (!taskDate || isNaN(new Date(taskDate).getTime())) return "No Date";
     if (taskDate === today) return "Today";
     if (taskDate === tomorrow) return "Tomorrow";
     if (new Date(taskDate) < new Date(today)) return "Overdue";
@@ -148,7 +151,7 @@ export function TaskItem({ task, categoryId, onToggle, onDelete }) {
         <Checkbox
           src={task.completed ? checkIcon : emptyIcon}
           completed={task.completed}
-          onClick={() => onToggle(categoryId, task.id)}
+          onClick={() => toggleTask(categoryId, task.id)}
         />
         <TaskTextWrapper>
           <TaskText completed={task.completed}>
@@ -160,7 +163,7 @@ export function TaskItem({ task, categoryId, onToggle, onDelete }) {
       <div ref={menuRef} style={{ position: "relative" }}>
         <DotsMenu onClick={() => setMenuVisible(!menuVisible)}>•••</DotsMenu>
         {menuVisible && (
-          <DeleteButton onClick={() => onDelete(categoryId, task.id)}>
+          <DeleteButton onClick={() => deleteTask(categoryId, task.id)}>
             Delete
             <img src={deleteIcon} alt="Delete" />
           </DeleteButton>

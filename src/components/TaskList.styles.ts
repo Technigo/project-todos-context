@@ -21,12 +21,17 @@ export const TaskCard = styled.div<{ completed: boolean }>`
   opacity: ${(props) => (props.completed ? 0.5 : 1)};
   transition: all 0.2s ease;
   border: 1px solid #eee;
-  max-height: 150px;
+  max-height: 180px;
   overflow-y: auto;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    height: fit-content;
   }
 `;
 
@@ -43,10 +48,12 @@ export const Tag = styled.span<{ category?: TaskCategory }>`
   font-size: 0.875rem;
   font-weight: var(--font-weight-medium);
   background-color: ${(props) =>
-    props.category === "work" 
-      ? "var(--color-pink)" 
-      : "var(--color-blue)"};
+    props.category === "work" ? "var(--color-pink)" : "var(--color-blue)"};
   color: white;
+
+  @media (max-width: 768px) {
+    font-size: 0.675rem;
+  }
 `;
 
 export const OverdueTag = styled(Tag)<{
@@ -105,7 +112,10 @@ export const TaskTitle = styled.div`
 `;
 
 export const TaskText = styled.span<{ completed: boolean }>`
-  color: ${(props) => (props.completed ? "var(--color-text-secondary)" : "var(--color-text-primary)")};
+  color: ${(props) =>
+    props.completed
+      ? "var(--color-text-secondary)"
+      : "var(--color-text-primary)"};
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
   font-weight: var(--font-weight-medium);
   font-size: 1rem;

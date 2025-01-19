@@ -6,7 +6,7 @@ import { ProjectList } from "./components/ProjectList";
 import { Dashboard } from "./components/dashboard/Dashboard";
 
 const Section = styled.section`
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   padding: 2rem;
   margin: 0 auto;
@@ -14,6 +14,12 @@ const Section = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  overflow-x: hidden;
+
+  @media (max-width: 800px) {
+    padding: 0.75rem;
+    width: 100%;
+  }
 `;
 
 const Header = styled.header`
@@ -24,6 +30,12 @@ const Header = styled.header`
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 
+  @media (max-width: 800px) {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+
   h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -33,6 +45,10 @@ const Header = styled.header`
     font-weight: var(--font-weight-bold);
     letter-spacing: -0.02em;
     line-height: var(--line-height-tight);
+
+    @media (max-width: 800px) {
+      font-size: 1.8rem;
+    }
   }
 
   p {
@@ -46,18 +62,26 @@ const Header = styled.header`
 
 const Sidebar = styled.div`
   width: 500px;
+  padding-left: 2rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     width: 100%;
+    padding-left: 0;
+    margin-top: 1rem;
   }
 `;
 
 const StyledSection = styled(Section)`
   display: flex;
   flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     flex-direction: column;
+    gap: 0;
+    padding: 0;
+    width: 100%;
   }
 `;
 
@@ -87,9 +111,7 @@ const SkipLink = styled.a`
 export const App = (): React.ReactElement => {
   return (
     <>
-      <SkipLink href="#main-content">
-        Skip to main content
-      </SkipLink>
+      <SkipLink href="#main-content">Skip to main content</SkipLink>
       <StyledSection>
         <Section id="main-content">
           <Header>
@@ -100,9 +122,9 @@ export const App = (): React.ReactElement => {
           <TaskInput />
           <TaskList />
         </Section>
-      <Sidebar>
-        <ProjectList />
-      </Sidebar>
+        <Sidebar>
+          <ProjectList />
+        </Sidebar>
       </StyledSection>
     </>
   );

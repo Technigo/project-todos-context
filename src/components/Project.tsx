@@ -10,6 +10,13 @@ const ProjectItem = styled.div`
   padding: 1rem;
   border: 1px solid #e2e8f0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    width: 95%;
+  }
 `;
 
 const ProjectHeader = styled.div`

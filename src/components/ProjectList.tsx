@@ -19,9 +19,10 @@ const ProjectSection = styled.section`
     font-weight: var(--font-weight-bold);
   }
 
-  @media (max-width: 768px) {
-    width: 100vw;
-    margin-left: -1rem;
+  @media (max-width: 800px) {
+    width: 100%;
+    margin-left: 0;
+    padding: 0.75rem;
   }
 `;
 

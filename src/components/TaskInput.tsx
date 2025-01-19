@@ -24,7 +24,7 @@ const Form = styled.form`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     flex-direction: column;
     width: 100%;
     gap: 0.75rem;
@@ -178,12 +178,7 @@ export const TaskInput: React.FC = () => {
         </SelectContent>
       </Select>
 
-      <Button
-        type="submit"
-        aria-label="Add task"
-        role="button"
-        variant="ghost"
-      >
+      <Button type="submit" aria-label="Add task" role="button" variant="ghost">
         Add Task
       </Button>
     </Form>

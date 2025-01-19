@@ -20,12 +20,26 @@ const DashboardContainer = styled.div`
   display: flex;
   gap: 1rem;
   padding: 1rem;
+  width: 100%;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    width: 100%;
-    overflow-x: hidden;
-    align-items: center;
+    padding: 0.5rem;
+    gap: 1.5rem;
+
+    > * {
+      width: 100%;
+      min-height: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.25rem;
+    gap: 1rem;
+
+    > * {
+      min-height: 180px;
+    }
   }
 `;
 

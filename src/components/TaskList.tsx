@@ -6,11 +6,20 @@ import styled from "styled-components";
 
 const EmptyState = styled.div`
   text-align: center;
-  padding: 3rem;
+  padding: 3rem 1rem;
   color: #666;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 
   h3 {
     margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
   }
 `;
 

@@ -23,7 +23,9 @@ const AddTodo = () => {
         aria-label="Task title"
         required
       />
-      <button type="submit">Add</button>
+      <button type="submit" className="add-btn">
+        Add
+      </button>
     </form>
   );
 };

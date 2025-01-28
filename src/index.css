@@ -1,6 +1,8 @@
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -11,4 +13,183 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Light Theme (Default) */
+body.light {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container.light {
+  background-color: #fff;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.container.dark {
+  background-color: #1e1e1e;
+}
+
+/* Responsive Typography */
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: inherit;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+button:focus,
+input:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* Update other elements to adapt to themes */
+body.dark button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Task Counter */
+.task-counter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.task-counter p {
+  font-size: 1rem;
+}
+
+/* Todo List */
+ul {
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-item .timestamp {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 1rem;
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+}
+
+.todo-item .completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-item button {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.todo-item button:hover {
+  color: #c0392b;
+}
+
+.complete-all-button {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.complete-all-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.empty-state {
+  text-align: center;
+  color: #888;
+  margin-top: 2rem;
+}
+
+.empty-state svg {
+  margin-top: 1rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.theme-toggle-button:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
 }

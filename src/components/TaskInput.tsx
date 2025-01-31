@@ -1,5 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import React from 'react';
+
+
+interface TaskInputProps {
+  addTask: (task: string) => void;
+}
 
 const Form = styled.form`
   display: flex;
@@ -26,12 +32,17 @@ const AddButton = styled.button`
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #ff4f4f;
+  }
 `;
 
-function TaskInput({ addTask }) {
+function TaskInput({ addTask }: TaskInputProps) {
   const [input, setInput] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim()) {
       addTask(input.trim());
@@ -46,6 +57,7 @@ function TaskInput({ addTask }) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Add a new task..."
+        aria-label="Task input"
       />
       <AddButton type="submit">Add</AddButton>
     </Form>

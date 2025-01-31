@@ -1,7 +1,20 @@
 import { create } from 'zustand';
 
-const useTodoStore = create((set) => ({
-  tasks: JSON.parse(localStorage.getItem('tasks')) || [],
+interface Task {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+
+interface TodoStore {
+  tasks: Task[];
+  addTask: (task: string) => void;
+  toggleTask: (id: number) => void;
+  removeTask: (id: number) => void;
+}
+
+const useTodoStore = create<TodoStore>((set) => ({
+  tasks: JSON.parse(localStorage.getItem('tasks') || '[]'),
   addTask: (task) => set((state) => {
     const updatedTasks = [...state.tasks, { id: Date.now(), text: task, completed: false }];
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));

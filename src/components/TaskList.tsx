@@ -1,4 +1,17 @@
 import styled from 'styled-components';
+import React from 'react';
+
+interface Task {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+
+interface TaskListProps {
+  tasks: Task[];
+  toggleTask: (id: number) => void;
+  removeTask: (id: number) => void;
+}
 
 const List = styled.ul`
   margin-top: 16px;
@@ -25,7 +38,7 @@ const ListItem = styled.li`
   }
 `;
 
-const TaskLabel = styled.label`
+const TaskLabel = styled.label<{ completed: boolean }>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -56,7 +69,7 @@ const RemoveButton = styled.button`
   }
 `;
 
-function TaskList({ tasks, toggleTask, removeTask }) {
+function TaskList({ tasks, toggleTask, removeTask }: TaskListProps) {
   return (
     <List>
       {tasks.map((task) => (

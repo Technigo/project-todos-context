@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import useTodoStore from "../store/useTodoStore";
 
-const AddTodo = () => {
-  const [title, setTitle] = useState("");
+const AddTodo: React.FC = () => {
+  const [title, setTitle] = useState<string>("");
   const addTask = useTodoStore((state) => state.addTask);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
       addTask(title.trim());

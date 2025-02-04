@@ -1,13 +1,28 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { Task } from "../types";
 import { v4 as uuidv4 } from "uuid";
 
-const useTodoStore = create(
+interface TodoState {
+  tasks: Task[]; // Added tasks state
+
+  addTask: (title: string) => void; // Added addTask function
+
+  removeTask: (id: string) => void; // Added removeTask function
+
+  toggleTask: (id: string) => void; // Added toggleTask function
+
+  completeAll: () => void; // Added completeAll function
+
+  editTask: (id: string, newTitle: string) => void; // Added editTask function
+}
+
+const useTodoStore = create<TodoState, [["zustand/persist", TodoState]]>(
   persist(
     (set) => ({
       tasks: [],
 
-      addTask: (title) =>
+      addTask: (title: string) =>
         set((state) => ({
           tasks: [
             ...state.tasks,
@@ -20,12 +35,12 @@ const useTodoStore = create(
           ],
         })),
 
-      removeTask: (id) =>
+      removeTask: (id: string) =>
         set((state) => ({
           tasks: state.tasks.filter((task) => task.id !== id),
         })),
 
-      toggleTask: (id) =>
+      toggleTask: (id: string) =>
         set((state) => ({
           tasks: state.tasks.map((task) =>
             task.id === id ? { ...task, completed: !task.completed } : task
@@ -36,10 +51,16 @@ const useTodoStore = create(
         set((state) => ({
           tasks: state.tasks.map((task) => ({ ...task, completed: true })),
         })),
+
+      editTask: (id: string, newTitle: string) =>
+        set((state) => ({
+          tasks: state.tasks.map((task) =>
+            task.id === id ? { ...task, title: newTitle } : task
+          ),
+        })),
     }),
     {
-      name: "todo-storage", // Key in local storage
-      getStorage: () => localStorage, // Defaults to localStorage
+      name: "todo-storage",
     }
   )
 );

@@ -1,6 +1,6 @@
 import useTodoStore from "../store/useTodoStore";
 
-const CompleteAllButton = () => {
+const CompleteAllButton: React.FC = () => {
   const tasks = useTodoStore((state) => state.tasks);
   const completeAll = useTodoStore((state) => state.completeAll);
 

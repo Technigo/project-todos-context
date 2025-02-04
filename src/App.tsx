@@ -6,7 +6,7 @@ import ThemeToggle from "./components/ThemeToggle";
 import useThemeStore from "./store/useThemeStore";
 import { useEffect } from "react";
 
-const App = () => {
+const App: React.FC = () => {
   const theme = useThemeStore((state) => state.theme);
 
   useEffect(() => {

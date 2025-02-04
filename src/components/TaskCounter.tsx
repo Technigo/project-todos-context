@@ -1,6 +1,6 @@
 import useTodoStore from "../store/useTodoStore";
 
-const TaskCounter = () => {
+const TaskCounter: React.FC = () => {
   const tasks = useTodoStore((state) => state.tasks);
   const total = tasks.length;
   const uncompleted = tasks.filter((task) => !task.completed).length;

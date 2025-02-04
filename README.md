@@ -6,7 +6,7 @@
 
 # Todo - useContext Project
 
-The task is to build a Todo app using Zustand for global state management.
+The task is to practice TypeScript by rewriting the Todo app. I have created a new branch called typescript for this task.
 
 In the to-do app, it is able to add tasks, list tasks, and toggle whether a task is done or not.
 
@@ -28,7 +28,7 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ### View it live
 
-https://xingstodolist.netlify.app
+https://xingstypescript.netlify.app
 
 ## Instructions
 

@@ -1,7 +1,7 @@
 import useTodoStore from "../store/useTodoStore";
 import TodoItem from "./TodoItem";
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
   const tasks = useTodoStore((state) => state.tasks);
 
   if (tasks.length === 0) {

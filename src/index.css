@@ -27,8 +27,8 @@
   --border-radius: 8px;
 
   /* Shadows */
-  --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
-  --shadow-dark: 0 2px 5px rgba(255, 255, 255, 0.1);
+  --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.3);
+  --shadow-dark: 0 2px 5px rgba(255, 255, 255, 0.5);
 
   /* Transition */
   --transition: all 0.3s ease;
@@ -227,7 +227,7 @@ ul {
   margin-top: var(--spacing-sm);
   font-size: 0.8rem;
   color: var(--color-secondary);
-  text-align: right;
+  /* text-align: right; */
 }
 
 .todo-item label {
@@ -249,22 +249,26 @@ ul {
   color: #888;
 }
 
-.todo-item button {
-  margin-top: var(--spacing-sm);
-  background: var(--color-light-bg);
-  border: none;
-  color: var(--color-primary);
-  font-size: 1.2rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: var(--transition);
+.todo-item .todo-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-sm);
 }
 
-.todo-item button:hover {
+.todo-item .todo-actions button {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.25rem;
+}
+
+.todo-item .todo-actions button:hover {
   color: var(--color-accent);
 }
 
-.todo-item button:focus {
+.todo-item .todo-actions button:focus {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }

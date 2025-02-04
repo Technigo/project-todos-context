@@ -141,7 +141,7 @@ body.dark button {
 }
 
 body.dark button:hover {
-  background-color: var(--color-dark-button-hover-bg);
+  background-color: var(--color-button-hover-bg);
 }
 
 /* Theme Toggle Button */
@@ -200,6 +200,10 @@ body.dark button:hover {
 }
 
 .complete-all-button:hover {
+  background-color: #f39c12;
+}
+
+body.dark .complete-all-button:hover {
   background-color: #f39c12;
 }
 
@@ -267,7 +271,7 @@ ul {
 
 .todo-item .todo-actions button {
   background: none;
-  color: var(--color-primary);
+  color: inherit;
   cursor: pointer;
   transition: var(--transition);
   font-size: 1.25rem;
@@ -275,6 +279,7 @@ ul {
 
 .todo-item .todo-actions button:hover {
   color: var(--color-accent);
+  background-color: var(--color-button-hover-bg);
 }
 
 .todo-item .todo-actions button:focus {

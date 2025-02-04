@@ -70,13 +70,13 @@ const TodoItem: React.FC<TodoItemProps> = ({ task }) => {
           onClick={handleEdit}
           aria-label={isEditing ? "Save Task" : "Edit Task"}
         >
-          <MdModeEdit className="h-5 w-5" />
+          <MdModeEdit className="icon" />
         </button>
         <button
           onClick={() => removeTask(task.id)}
           aria-label={`Remove ${task.title}`}
         >
-          <MdDelete className="h-5 w-5" />
+          <MdDelete className="icon" />
         </button>
       </div>
     </li>

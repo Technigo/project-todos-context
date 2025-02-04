@@ -13,9 +13,9 @@ const ThemeToggle: React.FC = () => {
         aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
       >
         {theme === "light" ? (
-          <MdDarkMode className="h-6 w-6" />
+          <MdDarkMode className="icon" />
         ) : (
-          <MdLightMode className="h-6 w-6" />
+          <MdLightMode className="icon" />
         )}
       </button>
     </div>

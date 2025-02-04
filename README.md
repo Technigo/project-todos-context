@@ -6,9 +6,9 @@
 
 # Todo - useContext Project
 
-Replace this readme with your own information about your project.
+The task is to practice TypeScript by rewriting the Todo app. I have created a new branch called typescript for this task.
 
-Start by briefly describing the assignment in a sentence or two. Keep it short and to the point.
+In the to-do app, it is able to add tasks, list tasks, and toggle whether a task is done or not.
 
 ## Getting Started with the Project
 
@@ -28,7 +28,7 @@ Describe how you approached to problem, and what tools and techniques you used t
 
 ### View it live
 
-Every project should be deployed somewhere. Be sure to include the link to the deployed project so that the viewer can click around and see what it's all about.
+https://xingstypescript.netlify.app
 
 ## Instructions
 

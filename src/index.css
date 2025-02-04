@@ -1,14 +1,355 @@
+:root {
+  /* Color Palette */
+  --color-light-bg: #ffffff;
+  --color-light-text: #333333;
+  --color-dark-bg: #1e1e1e;
+  --color-dark-text: #e0e0e0;
+  --color-primary: #ff6b6b;
+  --color-secondary: #e2aa32;
+  --color-accent: #48dbfb;
+  --color-border: #dddddd;
+  --color-button-bg: #ff6b6b;
+  --color-button-text: #ffffff;
+  --color-button-hover-bg: #ff4757;
+  --color-input-bg: #f1f2f6;
+  --color-input-text: #2f3542;
+
+  /* Typography */
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  /* Border Radius */
+  --border-radius: 8px;
+
+  /* Shadows */
+  --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.3);
+  --shadow-dark: 0 2px 5px rgba(255, 255, 255, 0.5);
+
+  /* Transition */
+  --transition: all 0.3s ease;
+}
+
+/* Reset and Box Sizing */
 *,
 *::before,
 *::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-primary);
+  background-color: var(--color-light-bg);
+  color: var(--color-light-text);
+  transition: var(--transition);
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: var(--color-dark-bg);
+  color: var(--color-dark-text);
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: var(--spacing-md);
+  background-color: var(--color-light-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+}
+
+.container.dark {
+  background-color: var(--color-dark-bg);
+  box-shadow: var(--shadow-dark);
+}
+
+/* Typography */
+h1 {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  font-size: 1.8rem;
+  font-family: var(--font-secondary);
+  color: var(--color-primary);
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+input[type="text"] {
+  padding: var(--spacing-sm);
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-input-bg);
+  color: var(--color-input-text);
+  transition: var(--transition);
+}
+
+input[type="text"]:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* Button Styles */
+button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+}
+
+button:hover {
+  background-color: var(--color-button-hover-bg);
+}
+
+button:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+button:disabled,
+button[aria-disabled="true"] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Dark Mode Overrides for All Buttons */
+body.dark button {
+  box-shadow: var(--shadow-dark);
+  border: 1px solid var(--color-border);
+}
+
+body.dark button:hover {
+  background-color: var(--color-button-hover-bg);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md);
+}
+
+.theme-toggle-button {
+  position: relative;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: inherit;
+  transition: var(--transition);
+}
+
+.theme-toggle-button:hover {
+  color: var(--color-accent);
+}
+
+.theme-toggle-button:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Task Counter */
+.task-counter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.task-counter p {
+  font-size: 1rem;
+  color: var(--color-secondary);
+}
+
+/* Complete All Button */
+.complete-all-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: var(--color-secondary);
+  color: var(--color-light-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+}
+
+.complete-all-button:hover {
+  background-color: #f39c12;
+}
+
+body.dark .complete-all-button:hover {
+  background-color: #f39c12;
+}
+
+.complete-all-button:disabled,
+.complete-all-button[aria-disabled="true"] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Todo List */
+ul {
+  list-style: none;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item .task-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.todo-item .timestamp {
+  margin-top: var(--spacing-sm);
+  font-size: 0.8rem;
+  color: var(--color-secondary);
+  /* text-align: right; */
+}
+
+.todo-item label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  width: 100%;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.todo-item .completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todo-item .todo-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-sm);
+}
+
+.todo-item .todo-actions button {
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.25rem;
+}
+
+.todo-item .todo-actions button:hover {
+  color: var(--color-accent);
+  background-color: var(--color-button-hover-bg);
+}
+
+.todo-item .todo-actions button:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  color: var(--color-secondary);
+  margin-top: var(--spacing-lg);
+}
+
+/* Responsive Design */
+@media screen and (min-width: 600px) {
+  /* Form Layout for Larger Screens */
+  form {
+    flex-direction: row;
+  }
+
+  input[type="text"] {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  .add-btn {
+    width: 100%;
+    margin-left: 8px;
+    max-width: 160px;
+  }
+
+  /* Task Counter Layout for Larger Screens */
+  .task-counter {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* Container Padding for Larger Screens */
+  .container {
+    padding: var(--spacing-lg);
+  }
+
+  /* Header Font Size for Larger Screens */
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  /* Todo Item Enhancements for Larger Screens */
+  .todo-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .todo-item .task-container {
+    flex: 3;
+  }
+
+  .todo-item label {
+    flex: 2;
+  }
+
+  .todo-item .timestamp {
+    flex: 1;
+    text-align: right;
+    margin-top: 0;
+  }
+
+  .todo-item button {
+    align-self: center;
+    margin-top: 0;
+  }
 }

@@ -134,6 +134,16 @@ button[aria-disabled="true"] {
   cursor: not-allowed;
 }
 
+/* Dark Mode Overrides for All Buttons */
+body.dark button {
+  box-shadow: var(--shadow-dark);
+  border: 1px solid var(--color-border);
+}
+
+body.dark button:hover {
+  background-color: var(--color-dark-button-hover-bg);
+}
+
 /* Theme Toggle Button */
 .theme-toggle {
   display: flex;
@@ -257,7 +267,6 @@ ul {
 
 .todo-item .todo-actions button {
   background: none;
-  border: none;
   color: var(--color-primary);
   cursor: pointer;
   transition: var(--transition);

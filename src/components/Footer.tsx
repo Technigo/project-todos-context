@@ -5,9 +5,10 @@ const Footer: React.FC = () => {
 
   const footerStyle: React.CSSProperties = {
     position: "fixed",
+    left: 0,
     bottom: 0,
-    width: "80%",
     color: theme === "dark" ? "#fff" : "#333",
+    width: "100%",
     textAlign: "center",
     padding: "10px 0",
     fontSize: "0.875rem",

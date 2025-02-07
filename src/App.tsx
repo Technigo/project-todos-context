@@ -5,6 +5,7 @@ import CompleteAllButton from "./components/CompleteAllButton";
 import ThemeToggle from "./components/ThemeToggle";
 import useThemeStore from "./store/useThemeStore";
 import { useEffect } from "react";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const theme = useThemeStore((state) => state.theme);
@@ -15,12 +16,13 @@ const App: React.FC = () => {
 
   return (
     <div className={`container ${theme}`}>
-      <h1>Todo App</h1>
+      <h1>Xings Todo App</h1>
       <ThemeToggle />
       <AddTodo />
       <TaskCounter />
       <CompleteAllButton />
       <TodoList />
+      <Footer />
     </div>
   );
 };
